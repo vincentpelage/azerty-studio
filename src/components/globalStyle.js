@@ -29,7 +29,8 @@ export const theme = {
   lightPink: "#FEBCBE",
   pink: "#EE8E9E",
   purple: "#6772E5",
-  black: "#282B2B"
+  black: "#282B2B",
+  grey: "#F2EFEF"
 };
 
 export default GlobalStyles;
