@@ -1,20 +1,40 @@
 import React from "react";
 import { Link } from "gatsby";
-import github from "../img/github-icon.svg";
 import logo from "../img/azertylogo.png";
 
 import styled from "styled-components";
 
 const Nav = styled.nav`
   width: 50px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  position: relative;
   background-color: ${props => props.theme.darkGreen};
   border-right: solid 1px rgba(255, 255, 255, 0.5);
 `;
 
 const Logo = styled.img`
-  padding: 10px;
+  position: absolute;
+  top: 10px;
+  width: 30px;
+  padding: 0;
+  left: 50%;
+  transform: translateX(-50%);
+`;
+
+const Menu = styled.ul`
+  li {
+  }
+`;
+
+const Text = styled(Link)`
+  color: white;
+  font-family: Aqua;
+  text-transform: uppercase;
+  font-size: 10px;
+  padding-left: 2px;
 `;
 
 const Navbar = class extends React.Component {
@@ -45,17 +65,41 @@ const Navbar = class extends React.Component {
     return (
       <Nav>
         <Logo src={logo} />
-        <Link to="/">accueil</Link>
-        <Link to="/offres">offres</Link>
-        <Link to="/petit-budget">petit budget</Link>
-        <Link to="/sur-mesure">sur mesure</Link>
-        <Link to="/prototype">prototype</Link>
-        <Link to="/expertises">expertises</Link>
-        <Link to="/developpement-web">développement web</Link>
-        <Link to="/webmarketing">webmarketing</Link>
-        <Link to="/analytics">analytics</Link>
-        <Link to="/a-propos">a propos</Link>
-        <Link to="/contact">contact</Link>
+        <Menu>
+          <li>
+            <Text to="/">accueil</Text>
+          </li>
+          <li>
+            <Text to="/offres">offres</Text>
+          </li>
+          <li>
+            <Text to="/petit-budget">petit budget</Text>
+          </li>
+          <li>
+            <Text to="/sur-mesure">sur mesure</Text>
+          </li>
+          <li>
+            <Text to="/prototype">prototype</Text>
+          </li>
+          <li>
+            <Text to="/expertises">expertises</Text>
+          </li>
+          <li>
+            <Text to="/developpement-web">développement web</Text>
+          </li>
+          <li>
+            <Text to="/webmarketing">webmarketing</Text>
+          </li>
+          <li>
+            <Text to="/analytics">analytics</Text>
+          </li>
+          <li>
+            <Text to="/a-propos">a propos</Text>
+          </li>
+          <li>
+            <Text to="/contact">contact</Text>
+          </li>
+        </Menu>
       </Nav>
     );
   }
