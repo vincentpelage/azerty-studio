@@ -31,6 +31,7 @@ const Letter = styled.span`
   align-items: center;
   padding-top: 20px;
   border-radius: 3px;
+  transition: margin-top 0.1s ease-in-out;
   &:not(:last-child) {
     margin-right: 5px;
   }
@@ -38,7 +39,7 @@ const Letter = styled.span`
     margin-top: 8px;
   }
   &:hover {
-    /* margin-top: ; */
+    margin-top: +5px;
   }
 `;
 
