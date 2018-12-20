@@ -1,6 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
-import Layout from "../components/Layout";
 import Home from "../templates/home";
 
 export default class IndexPage extends React.Component {
