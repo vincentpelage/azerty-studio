@@ -2,8 +2,27 @@ import React, { Component } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
+const Item = styled.li`
+  flex: ${props => (props.isActive ? "1 0 auto" : "1 0 50px")};
+  margin-top: ${props => (props.isActive ? "10px" : "0")};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  transition: display 0.2s ease-in-out;
+`;
+
+const LinkStyled = styled(Link)`
+  &.active img {
+    opacity: 1;
+  }
+`;
+
 const Icon = styled.img`
   width: 23px;
+  opacity: 0.4;
 `;
 
 const Text = styled.p`
@@ -21,21 +40,29 @@ class List extends Component {
 
   isHover = false;
 
-  toggleIsHover = () => {
-    this.setState({ isHover: !this.state.isHover });
+  onEnter = () => {
+    this.setState({ isHover: true });
+  };
+
+  onLeave = () => {
+    this.setState({ isHover: false });
   };
 
   render() {
-    const { to, src, label } = this.props;
+    const { to, src, label, isActive, children } = this.props;
     const { isHover } = this.state;
 
-    console.log(this.state.isHover);
     return (
-      <li onMouseEnter={this.toggleIsHover} onMouseLeave={this.toggleIsHover}>
-        <Link to={to}>
-          {isHover ? <Text>{label}</Text> : <Icon src={src} />}
-        </Link>
-      </li>
+      <Item
+        onMouseEnter={this.onEnter}
+        onMouseLeave={this.onLeave}
+        isActive={isActive}
+      >
+        <LinkStyled to={to} activeClassName="active">
+          {isHover && !isActive ? <Text>{label}</Text> : <Icon src={src} />}
+        </LinkStyled>
+        {children}
+      </Item>
     );
   }
 }

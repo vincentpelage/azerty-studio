@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 import logo from "../../img/azertylogo.png";
 import IconHome from "../../icons/home.svg";
@@ -20,7 +20,7 @@ const Nav = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position: relative;
+  position: fixed;
   background-color: ${props => props.theme.darkGreen};
   border-right: solid 1px rgba(255, 255, 255, 0.5);
 `;
@@ -39,13 +39,30 @@ const Menu = styled.ul`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  li {
-    margin-bottom: 5px;
-    transition: display 0.2s ease-in-out;
+`;
+
+const heightSubList = keyframes`
+  from {
+    height: 0;
+  }
+
+  to {
+    height: auto;
   }
 `;
 
-const Navbar = class extends React.Component {
+const SubList = styled.ul`
+  display: ${props => (props.isActive ? "flex" : "none")};
+  flex-direction: column;
+  background-color: ${props => props.theme.green};
+  padding: 5px;
+  margin-bottom: 10px;
+  width: 100%;
+  animation: ${heightSubList} 0.2s ease-in-out;
+  /* transition: height 0.2s ease-in-out; */
+`;
+
+export const DesktopNavbar = class extends React.Component {
   /* componentDidMount() {
     // Get all "navbar-burger" elements
     const $navbarBurgers = Array.prototype.slice.call(
@@ -70,19 +87,41 @@ const Navbar = class extends React.Component {
   } */
 
   render() {
+    const isOffresPage = this.props.location.pathname === "/offres";
+    const isExpertisesPage = this.props.location.pathname === "/expertises";
+
     return (
       <Nav>
         <Logo src={logo} />
         <Menu>
           <List to="/" src={IconHome} label="accueil" />
-          <List to="/offres" src={IconMonitor} label="offres" />
-          <List to="/petit-budget" src={IconResponsive} label="petit budget" />
-          <List to="/sur-mesure" src={IconPencil} label="sur mesure" />
-          <List to="/prototype" src={IconResponsive} label="proto" />
-          <List to="/expertises" src={IconSettings} label="expertises" />
-          <List to="/developpement-web" src={IconCoding} label="code" />
-          <List to="/trafic" src={IconHome} label="trafic" />
-          <List to="/analyse" src={IconFeature} label="analyse" />
+          <List
+            to="/offres"
+            src={IconMonitor}
+            label="offres"
+            isActive={isOffresPage}
+          >
+            <SubList isActive={isOffresPage}>
+              <List
+                to="/petit-budget"
+                src={IconResponsive}
+                label="petit budget"
+              />
+              <List to="/sur-mesure" src={IconPencil} label="sur mesure" />
+              <List to="/prototype" src={IconResponsive} label="proto" />
+            </SubList>
+          </List>
+          <List
+            to="/expertises"
+            src={IconSettings}
+            label="expertises"
+            isActive={isExpertisesPage}
+          />
+          <SubList isActive={isExpertisesPage}>
+            <List to="/developpement-web" src={IconCoding} label="code" />
+            <List to="/trafic" src={IconHome} label="trafic" />
+            <List to="/analyse" src={IconFeature} label="analyse" />
+          </SubList>
           <List to="/a-propos" src={IconUser} label="a propos" />
           <List to="/clients" src={IconHeart} label="clients" />
           <List to="/contact" src={IconEnvelope} label="contact" />
@@ -91,5 +130,3 @@ const Navbar = class extends React.Component {
     );
   }
 };
-
-export default Navbar;
