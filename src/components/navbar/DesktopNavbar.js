@@ -118,7 +118,7 @@ export const DesktopNavbar = class extends React.Component {
             isActive={isExpertisesPage}
           />
           <SubList isActive={isExpertisesPage}>
-            <List to="/developpement-web" src={IconCoding} label="code" />
+            <List to="/site-internet" src={IconCoding} label="site" />
             <List to="/trafic" src={IconHome} label="trafic" />
             <List to="/analyse" src={IconFeature} label="analyse" />
           </SubList>

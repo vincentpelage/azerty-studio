@@ -5,7 +5,7 @@ import { globalVariables } from "../globalStyle";
 const getSizing = (size = "medium") => {
   switch (size) {
     case "small":
-      return "12";
+      return "14";
     case "large":
       return "16";
     case "xlarge":
@@ -23,7 +23,7 @@ export const getButtonStyles = props => {
   let height = "2.5em";
   const size = getSizing(props.size);
   const tabletSize = size - 2;
-  const mobileSize = size - 4;
+  const mobileSize = size - 2;
 
   if (props.backgroundcolor) {
     background = props.theme[props.backgroundcolor];
