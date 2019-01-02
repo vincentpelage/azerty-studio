@@ -1,4 +1,7 @@
+import React from "react";
 import { createGlobalStyle } from "styled-components";
+import Responsive from 'react-responsive';
+
 import AquaTTF from "../fonts/aqua.ttf";
 import AquaEOT from "../fonts/aqua.eot";
 import AquaWOFF from "../fonts/aqua.woff";
@@ -15,6 +18,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
     font-family: 'Roboto', sans-serif;
+    background-color: ${props => props.theme.grey}
   }
   h1 {
     font-family: 'Aqua', sans-serif;
@@ -27,8 +31,8 @@ export const globalVariables = {
   borderWidth: "2px",
   maxMobile: "767px",
   minTablet: "768px",
-  maxTablet: "1023px",
-  minDesktop: "1024px",
+  maxTablet: "991px",
+  minDesktop: "992px",
   medDesktop: "1240px"
 };
 
@@ -43,5 +47,11 @@ export const theme = {
   black: "#282B2B",
   grey: "#F2EFEF"
 };
+
+export const Desktop = props => <Responsive {...props} minWidth={globalVariables.minDesktop} />;
+export const Tablet = props => <Responsive {...props} minWidth={globalVariables.minTablet} maxWidth={globalVariables.maxTablet} />;
+export const Mobile = props => <Responsive {...props} maxWidth={globalVariables.maxMobile} />;
+export const NotMobile = props => <Responsive {...props} minWidth={globalVariables.minTablet} />;
+export const NotDesktop = props => <Responsive {...props} maxWidth={globalVariables.maxTablet} />;
 
 export default GlobalStyles;

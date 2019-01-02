@@ -3,11 +3,11 @@ import { graphql } from "gatsby";
 
 import Layout from "../components/Layout";
 
-const Expertises = ({ data }) => {
+const Expertises = ({ data, location }) => {
   console.log("data", data);
 
   return (
-    <Layout>
+    <Layout location={location}>
       <p>expertises</p>
     </Layout>
   );
