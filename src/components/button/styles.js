@@ -5,7 +5,7 @@ import { globalVariables } from "../globalStyle";
 const getSizing = (size = "medium") => {
   switch (size) {
     case "small":
-      return "12";
+      return "14";
     case "large":
       return "16";
     case "xlarge":
@@ -23,7 +23,7 @@ export const getButtonStyles = props => {
   let height = "2.5em";
   const size = getSizing(props.size);
   const tabletSize = size - 2;
-  const mobileSize = size - 4;
+  const mobileSize = size - 2;
 
   if (props.backgroundcolor) {
     background = props.theme[props.backgroundcolor];
@@ -53,7 +53,6 @@ export const getButtonStyles = props => {
     width: ${width};
     max-width: 100%;
     padding: 13px 24px 11px 24px;
-    border: ${props.theme.green} solid 2px;
     border-radius: ${globalVariables.borderRadiusButton};
     background: ${background};
     color: ${color};
@@ -63,6 +62,7 @@ export const getButtonStyles = props => {
     text-decoration: none;
     transition: all 200ms ease-in-out;
     outline: none;
+    z-index: 1;
     @media (min-width: ${globalVariables.minTablet}) {
       font-size: ${tabletSize}px;
       height: ${height};

@@ -24,13 +24,13 @@ const WrapperContainer = styled.div`
 
 const WrapperLeft = styled.div`
   flex-basis: 50%;
-  background-color: ${props => props.theme.grey};
 `;
 
 const WrapperRight = styled.div`
   flex-basis: 50%;
   display: flex;
   flex-direction: column;
+  background-color: ${props => props.theme.white};
 `;
 
 const WrapperLeftContent = styled.div`
@@ -234,7 +234,7 @@ class Offres extends React.Component {
     };
 
     return (
-      <Layout>
+      <Layout location={this.props.location}>
         <WrapperContainer>
           <WrapperLeft>
             {titre_offres.text}

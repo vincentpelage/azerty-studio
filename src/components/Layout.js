@@ -1,22 +1,30 @@
 import React from "react";
 import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
-
-import Navbar from "../components/Navbar";
-import "./all.sass";
 import styled, { ThemeProvider } from "styled-components";
-import GlobalStyles, { theme } from "./globalStyle";
+
+import { DesktopNavbar, MobileNavbar } from "../components/navbar";
+import "./all.sass";
+import GlobalStyles, { theme, globalVariables, Desktop, NotDesktop } from "./globalStyle";
 
 const LayoutContainer = styled.div`
   display: flex;
   flex-direction: row;
+  @media (max-width: ${globalVariables.maxTablet}) {
+    flex-direction: column;
+  }
 `;
 
 const Children = styled.section`
   width: 100%;
+  margin-left: 60px;
+  min-height: 100vh;
+  @media (max-width: ${globalVariables.maxTablet}) {
+    margin-left: 0;
+  }
 `;
 
-const TemplateWrapper = ({ children }) => {
+const TemplateWrapper = ({ children, location }) => {
   return (
     <StaticQuery
       query={graphql`
@@ -72,7 +80,12 @@ const TemplateWrapper = ({ children }) => {
           <ThemeProvider theme={theme}>
             <LayoutContainer>
               <GlobalStyles />
-              <Navbar />
+              <Desktop>
+                <DesktopNavbar location={location} />
+              </Desktop>
+              <NotDesktop>
+                <MobileNavbar />
+              </NotDesktop>
               <Children>{children}</Children>
             </LayoutContainer>
           </ThemeProvider>
