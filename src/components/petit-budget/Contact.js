@@ -43,14 +43,20 @@ const Contact = () => {
         <SubTitle label="Contact" color="white" backgroundColor="purple" />
         <WrapperText>
           <Icon src={Mobile} />
-          <Text>
+          <Text color='white'>
             Un modèle vous plaît et vous souhaitez en discuter ?{" "}
             <strong>02.40.40.40.40 (ligne gratuite)</strong>
           </Text>
         </WrapperText>
       </Spacer>
       <Spacer backgroundColor={theme.darkGrey} height="100vh" flex="0 0 50%">
-        <SubTitle label="Contact" color="white" backgroundColor="purple" />
+        <WrapperText>
+          <Icon src={Mobile} />
+          <Text>
+            Un modèle vous plaît et vous souhaitez en discuter ?{" "}
+            <strong>02.40.40.40.40 (ligne gratuite)</strong>
+          </Text>
+        </WrapperText>
       </Spacer>
     </Wrapper>
   );
