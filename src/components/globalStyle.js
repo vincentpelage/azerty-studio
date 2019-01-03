@@ -1,6 +1,6 @@
 import React from "react";
 import { createGlobalStyle } from "styled-components";
-import Responsive from 'react-responsive';
+import Responsive from "react-responsive";
 
 import AquaTTF from "../fonts/aqua.ttf";
 import AquaEOT from "../fonts/aqua.eot";
@@ -18,10 +18,14 @@ const GlobalStyles = createGlobalStyle`
   body {
     @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
     font-family: 'Roboto', sans-serif;
+    font-weight: 300;
     background-color: ${props => props.theme.grey}
   }
   h1 {
     font-family: 'Aqua', sans-serif;
+  }
+  button:focus {
+    outline: none;
   }
 `;
 
@@ -43,15 +47,31 @@ export const theme = {
   whiteOpacity: "rgba(255, 255, 255, 0.65)",
   lightPink: "#FEBCBE",
   pink: "#EE8E9E",
+  darkPink: "#F86D70",
   purple: "#6772E5",
   black: "#282B2B",
-  grey: "#F2EFEF"
+  grey: "#F2EFEF",
+  darkGrey: "#eae8e8"
 };
 
-export const Desktop = props => <Responsive {...props} minWidth={globalVariables.minDesktop} />;
-export const Tablet = props => <Responsive {...props} minWidth={globalVariables.minTablet} maxWidth={globalVariables.maxTablet} />;
-export const Mobile = props => <Responsive {...props} maxWidth={globalVariables.maxMobile} />;
-export const NotMobile = props => <Responsive {...props} minWidth={globalVariables.minTablet} />;
-export const NotDesktop = props => <Responsive {...props} maxWidth={globalVariables.maxTablet} />;
+export const Desktop = props => (
+  <Responsive {...props} minWidth={globalVariables.minDesktop} />
+);
+export const Tablet = props => (
+  <Responsive
+    {...props}
+    minWidth={globalVariables.minTablet}
+    maxWidth={globalVariables.maxTablet}
+  />
+);
+export const Mobile = props => (
+  <Responsive {...props} maxWidth={globalVariables.maxMobile} />
+);
+export const NotMobile = props => (
+  <Responsive {...props} minWidth={globalVariables.minTablet} />
+);
+export const NotDesktop = props => (
+  <Responsive {...props} maxWidth={globalVariables.maxTablet} />
+);
 
 export default GlobalStyles;
