@@ -87,9 +87,16 @@ export const DesktopNavbar = class extends React.Component {
   } */
 
   render() {
-    const isOffresPage = this.props.location.pathname === "/offres";
-    const isExpertisesPage = this.props.location.pathname === "/expertises";
-
+    const isOffresPage =
+      this.props.location.pathname === "/offres" ||
+      this.props.location.pathname === "/petit-budget" ||
+      this.props.location.pathname === "/sur-mesure" ||
+      this.props.location.pathname === "/prototype";
+    const isExpertisesPage =
+      this.props.location.pathname === "/expertises" ||
+      this.props.location.pathname === "/site-internet" ||
+      this.props.location.pathname === "/trafic" ||
+      this.props.location.pathname === "/analyse";
     return (
       <Nav>
         <Logo src={logo} />

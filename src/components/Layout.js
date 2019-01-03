@@ -5,7 +5,12 @@ import styled, { ThemeProvider } from "styled-components";
 
 import { DesktopNavbar, MobileNavbar } from "../components/navbar";
 import "./all.sass";
-import GlobalStyles, { theme, globalVariables, Desktop, NotDesktop } from "./globalStyle";
+import GlobalStyles, {
+  theme,
+  globalVariables,
+  Desktop,
+  NotDesktop
+} from "./globalStyle";
 
 const LayoutContainer = styled.div`
   display: flex;
@@ -86,7 +91,7 @@ const TemplateWrapper = ({ children, location }) => {
               <NotDesktop>
                 <MobileNavbar />
               </NotDesktop>
-              <Children>{children}</Children>
+              <Children location={location}>{children}</Children>
             </LayoutContainer>
           </ThemeProvider>
         </div>
