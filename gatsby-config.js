@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`
+});
+
 module.exports = {
   siteMetadata: {
     title: "Gatsby + Netlify CMS Starter",
@@ -5,6 +9,14 @@ module.exports = {
       "This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution."
   },
   plugins: [
+    {
+      resolve: `gatsby-source-prismic`,
+      options: {
+        repositoryName: `azerty-studio`,
+        accessToken: `${process.env.API_KEY}`,
+        linkResolver: ({ node, key, value }) => offres => `/${offres.uid}`
+      }
+    },
     {
       resolve: `gatsby-plugin-styled-components`
     },
