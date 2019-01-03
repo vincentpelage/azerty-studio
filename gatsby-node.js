@@ -13,15 +13,33 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allPrismicPetitBudget {
+        edges {
+          node {
+            uid
+          }
+        }
+      }
     }
   `);
 
-  const template = path.resolve("src/templates/offres.js");
+  const templateOffres = path.resolve("src/templates/offres.js");
+  const templatePetitBudget = path.resolve("src/templates/petit-budget.js");
 
   pages.data.allPrismicOffres.edges.forEach(edge => {
     createPage({
       path: `/${edge.node.uid}`,
-      component: template,
+      component: templateOffres,
+      context: {
+        uid: edge.node.uid
+      }
+    });
+  });
+
+  pages.data.allPrismicPetitBudget.edges.forEach(edge => {
+    createPage({
+      path: `/${edge.node.uid}`,
+      component: templatePetitBudget,
       context: {
         uid: edge.node.uid
       }
