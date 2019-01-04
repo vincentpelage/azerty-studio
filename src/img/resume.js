@@ -22,9 +22,9 @@ const Resume = () => (
         y2="87.83"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0" stop-color="gray" stop-opacity="0.25" />
-        <stop offset="0.54" stop-color="gray" stop-opacity="0.12" />
-        <stop offset="1" stop-color="gray" stop-opacity="0.1" />
+        <stop offset="0" stopColor="gray" stopOpacity="0.25" />
+        <stop offset="0.54" stopColor="gray" stopOpacity="0.12" />
+        <stop offset="1" stopColor="gray" stopOpacity="0.1" />
       </linearGradient>
       <linearGradient
         id="b55b1914-9010-4651-994a-27bfb9322cf9"
@@ -62,8 +62,8 @@ const Resume = () => (
         transform="translate(-99.6 -80.59)"
         fill="none"
         stroke="#535461"
-        stroke-miterlimit="10"
-        stroke-width="2"
+        strokeMiterlimit="10"
+        strokeWidth="2"
       />
       <path
         d="M1079.44,247.3c-2.66,7-23.1,22.61-23.1,22.61s-5-25.21-2.36-32.24a13.61,13.61,0,1,1,25.47,9.63Z"
@@ -190,15 +190,15 @@ const Resume = () => (
       transform="translate(-99.6 -80.59)"
       fill="none"
       stroke="#535461"
-      stroke-miterlimit="10"
+      strokeMiterlimit="10"
     />
     <path
       d="M166.64,813.39S148.57,752,170,706.89a96.9,96.9,0,0,0,7.84-60.79,163,163,0,0,0-8.61-28.53"
       transform="translate(-99.6 -80.59)"
       fill="none"
       stroke="#535461"
-      stroke-miterlimit="10"
-      stroke-width="2"
+      strokeMiterlimit="10"
+      strokeWidth="2"
     />
     <path
       d="M182.61,589c0,7.52-13.61,29.32-13.61,29.32s-13.61-21.8-13.61-29.32a13.61,13.61,0,1,1,27.23,0Z"
@@ -275,8 +275,8 @@ const Resume = () => (
       transform="translate(-99.6 -80.59)"
       fill="none"
       stroke="#535461"
-      stroke-miterlimit="10"
-      stroke-width="2"
+      strokeMiterlimit="10"
+      strokeWidth="2"
     />
     <path
       d="M224.42,590.2c0,7.52-13.61,29.32-13.61,29.32s-13.61-21.8-13.61-29.32a13.61,13.61,0,0,1,27.23,0Z"

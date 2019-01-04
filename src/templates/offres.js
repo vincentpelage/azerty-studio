@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../components/Layout";
 import { graphql } from "gatsby";
 import styled from "styled-components";
-//import { theme } from "../components/globalStyle";
+import { theme } from "../components/globalStyle";
 import Parser from "html-react-parser";
 import Foyt from "../img/foyt";
 import Resume from "../img/resume";
@@ -10,16 +10,14 @@ import Process from "../img/process";
 import Responsive from "../icons/Responsive";
 import PencilCase from "../icons/PencilCase";
 import Feature from "../icons/Feature";
-
-import offresStyles from "../components/componentsStyles/offres.module.css";
-import { Link, RichText, Date } from "prismic-reactjs";
-
-var PrismicDOM = require("prismic-dom");
+import Spacer from "../components/spacer";
+import Button from "../components/button";
+import Title from "../components/title";
 
 const WrapperContainer = styled.div`
   display: flex;
   flex-direction: row;
-  height: 100vh;
+  min-height: 100vh;
 `;
 
 const WrapperLeft = styled.div`
@@ -30,16 +28,15 @@ const WrapperRight = styled.div`
   flex-basis: 50%;
   display: flex;
   flex-direction: column;
-  background-color: ${props => props.theme.white};
 `;
 
 const WrapperLeftContent = styled.div`
-  margin-top: 200px;
+  /*margin-top: 200px;*/
   height: 600px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 0 205px 0;
+  /*padding: 0 205px 0;*/
 `;
 
 const CardContent = styled.div`
@@ -87,21 +84,6 @@ const CardContentTitle = styled.h2`
   margin-bottom: 10px;
 `;
 
-const Card2first = styled.h2`
-  &:nth-of-type(1) {
-    color: ${props => props.theme.purple};
-  }
-  &:nth-of-type(2) {
-    color: ${props => props.theme.pink};
-  }
-  font-family: aqua;
-  font-size: 30px;
-`;
-
-const CardContentText = styled.p`
-  font-size: 20px;
-`;
-
 const List = styled.ul`
   margin-left: 250px;
   margin-bottom: 50px;
@@ -131,85 +113,25 @@ const List = styled.ul`
   }
 `;
 
-const Offre1 = () => (
+const Offre = ({ contenu, color, component }) => (
   <React.Fragment>
-    <Foyt />
-    <List color="purple">
-      <li>Choix parmi 10 modèles de site</li>
-      <li>Beau et Moderne</li>
-      <li>Rapide et sécurisé</li>
-      <li>Une interface de suivi simplifiée</li>
-      <li>Adapté sur tous les écrans</li>
-      <li>Facile à éditer</li>
-      <li>Optimisé pour être visible sur Google</li>
+    {component()}
+    <List color={color}>
+      {contenu.raw.map((elem, id) => (
+        <li key={id}>{elem.text}</li>
+      ))}
     </List>
-    <button>en savoir plus</button>
-  </React.Fragment>
-);
-
-const Offre2 = () => (
-  <React.Fragment>
-    <Resume />
-    <List color="darkGreen">
-      <li>Un design sur mesure</li>
-      <li>Des fonctionnalités sur mesure</li>
-      <li>Rapide et sécurisé</li>
-      <li>Une interface de suivi simplifiée</li>
-      <li>Adapté sur tous les écrans</li>
-      <li>Facile à éditer</li>
-      <li>Optimisé pour être visible sur Google</li>
-    </List>
-    <button>en savoir plus</button>
-  </React.Fragment>
-);
-
-const Offre3 = () => (
-  <React.Fragment>
-    <Process />
-    <List>
-      <li>Un site optimisé pour les canaux webmarketing</li>
-      <li>Beau et Moderne</li>
-      <li>Rapide et sécurisé</li>
-      <li>Une interface de suivi simplifiée</li>
-      <li>Adapté sur tous les écrans</li>
-      <li>Facile à éditer</li>
-      <li>Optimisé pour être visible sur Google</li>
-    </List>
-    <button>en savoir plus</button>
+    <Button>en savoir plus</Button>
   </React.Fragment>
 );
 
 class Offres extends React.Component {
   state = {
-    offreSelected: 1,
-    offre1status: "actif",
-    offre2status: "inactif",
-    offre3status: "inactif"
+    offreSelected: 1
   };
 
   onMouseEnter = offre => () => {
-    if (offre === 1) {
-      this.setState({
-        offreSelected: 1,
-        offre1status: "actif",
-        offre2status: "inactif",
-        offre3status: "inactif"
-      });
-    } else if (offre === 2) {
-      this.setState({
-        offreSelected: 2,
-        offre1status: "inactif",
-        offre2status: "actif",
-        offre3status: "inactif"
-      });
-    } else {
-      this.setState({
-        offreSelected: 3,
-        offre1status: "inactif",
-        offre2status: "inactif",
-        offre3status: "actif"
-      });
-    }
+    this.setState({ offreSelected: offre });
   };
 
   render() {
@@ -217,66 +139,82 @@ class Offres extends React.Component {
       titre_offres,
       titre_offre_1,
       contenu_offre_1,
+      liste_offre_1,
       titre_offre_2,
       contenu_offre_2,
+      liste_offre_2,
       titre_offre_3,
-      contenu_offre_3
+      contenu_offre_3,
+      liste_offre_3
     } = this.props.data.prismicOffres.data;
 
     const OffreSelected = () => {
-      if (this.state.offreSelected === 1) {
-        return <Offre1 />;
-      } else if (this.state.offreSelected === 2) {
-        return <Offre2 />;
-      } else {
-        return <Offre3 />;
+      switch (this.state.offreSelected) {
+        case 1:
+          return (
+            <Offre contenu={liste_offre_1} color="purple" component={Foyt} />
+          );
+        case 2:
+          return (
+            <Offre
+              contenu={liste_offre_2}
+              color="darkGreen"
+              component={Resume}
+            />
+          );
+        default:
+          return <Offre contenu={liste_offre_3} component={Process} />;
       }
     };
 
     return (
       <Layout location={this.props.location}>
         <WrapperContainer>
-          <WrapperLeft>
-            {titre_offres.text}
-            <WrapperLeftContent>
-              <CardContent
-                color="purple"
-                onMouseEnter={this.onMouseEnter(1)}
-                status={this.state.offre1status}
-              >
-                <CardContentTitle>
-                  <Responsive color="purple" />
-                  {titre_offre_1.text}
-                </CardContentTitle>
-                {Parser(contenu_offre_1.html)}
-              </CardContent>
-              <CardContent
-                color="darkGreen"
-                status={this.state.offre2status}
-                onMouseEnter={this.onMouseEnter(2)}
-              >
-                <CardContentTitle>
-                  <PencilCase color="darkGreen" />
-                  {titre_offre_2.text}
-                </CardContentTitle>
-                {Parser(contenu_offre_2.html)}
-              </CardContent>
-              <CardContent
-                color="lightPink"
-                status={this.state.offre3status}
-                onMouseEnter={this.onMouseEnter(3)}
-              >
-                <CardContentTitle>
-                  <Feature color="lightPink" />
-                  {titre_offre_3.text}
-                </CardContentTitle>
-                {Parser(contenu_offre_3.html)}
-              </CardContent>
-            </WrapperLeftContent>
-          </WrapperLeft>
-          <WrapperRight>
-            <OffreSelected />
-          </WrapperRight>
+          <Spacer flex="0 0 50%">
+            <WrapperLeft>
+              <Title label={titre_offres.text} />
+              <WrapperLeftContent>
+                <CardContent
+                  color="purple"
+                  onMouseEnter={this.onMouseEnter(1)}
+                  status={this.state.offre1status}
+                >
+                  <CardContentTitle>
+                    <Responsive color="purple" />
+                    {titre_offre_1.text}
+                  </CardContentTitle>
+                  {Parser(contenu_offre_1.html)}
+                </CardContent>
+                <CardContent
+                  color="darkGreen"
+                  status={this.state.offre2status}
+                  onMouseEnter={this.onMouseEnter(2)}
+                >
+                  <CardContentTitle>
+                    <PencilCase color="darkGreen" />
+                    {titre_offre_2.text}
+                  </CardContentTitle>
+                  {Parser(contenu_offre_2.html)}
+                </CardContent>
+                <CardContent
+                  color="lightPink"
+                  status={this.state.offre3status}
+                  onMouseEnter={this.onMouseEnter(3)}
+                >
+                  <CardContentTitle>
+                    <Feature color="lightPink" />
+                    {titre_offre_3.text}
+                  </CardContentTitle>
+                  {Parser(contenu_offre_3.html)}
+                </CardContent>
+              </WrapperLeftContent>
+            </WrapperLeft>
+          </Spacer>
+          <Spacer backgroundColor={theme.white} flex="0 0 50%">
+            <WrapperRight>
+              <OffreSelected />
+            </WrapperRight>
+          </Spacer>
         </WrapperContainer>
       </Layout>
     );
@@ -297,17 +235,32 @@ export const pageQuery = graphql`
         contenu_offre_1 {
           html
         }
+        liste_offre_1 {
+          raw {
+            text
+          }
+        }
         titre_offre_2 {
           text
         }
         contenu_offre_2 {
           html
         }
+        liste_offre_2 {
+          raw {
+            text
+          }
+        }
         titre_offre_3 {
           text
         }
         contenu_offre_3 {
           html
+        }
+        liste_offre_3 {
+          raw {
+            text
+          }
         }
       }
     }
