@@ -70,7 +70,9 @@ const Title = styled.p`
   min-height: 55px;
 `;
 
-const Text = styled.p``;
+const Text = styled.p`
+  font-size: 14px;
+`;
 
 const Etapes = () => {
   return (

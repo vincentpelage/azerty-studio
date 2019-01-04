@@ -24,7 +24,7 @@ const GlobalStyles = createGlobalStyle`
   h1 {
     font-family: 'Aqua', sans-serif;
   }
-  button:focus {
+  button:focus, input:focus, textarea:focus {
     outline: none;
   }
 `;
@@ -43,6 +43,7 @@ export const globalVariables = {
 export const theme = {
   green: "#00BEC5",
   darkGreen: "#00B6BE",
+  darkGreenOpacity: "rgba(0, 182, 190, .8)",
   white: "#FFF",
   whiteOpacity: "rgba(255, 255, 255, 0.65)",
   lightPink: "#FEBCBE",

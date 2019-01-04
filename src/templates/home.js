@@ -25,7 +25,7 @@ const Wrapper = styled.div`
     display: block;
     width: 200px;
     height: 200px;
-    z-index: 1;
+    z-index: 2;
     background-image: url(${SpaceShip});
     background-size: cover;
     @media (max-width: ${globalVariables.maxTablet}) {
