@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const FoytStyled = styled.svg`
-  width: 576px;
+  width: 300px;
   margin: 50px auto 50px;
 `;
 
