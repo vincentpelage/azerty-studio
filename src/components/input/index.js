@@ -4,9 +4,10 @@ import styled from "styled-components";
 
 const WrapperInput = styled.div`
     position: relative;
-    flex: ${props => props.flex ? props.flex : null};
     margin-right: 1rem;
-    margin-top: 3rem;
+    margin-top: 2rem;
+    height: ${ props => props.isFocus && props.isTextarea ? "100px" : "40px"};
+    transition: all .5s cubic-bezier(.19,1,.22,1) 0ms,color .3s cubic-bezier(.8,0,.2,1) 0ms;
     &::before {
         content: " ";
         display: block;
@@ -37,7 +38,7 @@ const InputStyled = styled.input`
     width: 100%;
     border: none;
     padding: 0 .9375rem;
-    height: 40px;
+    height: 100%;
     letter-spacing: 1px;
     font-size: 1.25rem;
     background: hsla(0,0%,96%,1);
@@ -46,7 +47,7 @@ const InputStyled = styled.input`
 const TextareaStyled = styled.textarea`
     margin: 0;
     width: 100%;
-    height: ${ props => props.isFocus ? "100px" : "40px"};
+    height: ${ props => props.isFocus && props.isTextarea ? "100px" : "100%"};
     border: none;
     padding: 0 .9375rem;
     letter-spacing: 1px;
@@ -60,7 +61,6 @@ const Placeholder = styled.div`
     position: absolute;
     left: .9375rem;
     transition: all .5s cubic-bezier(.19,1,.22,1) 0ms,color .3s cubic-bezier(.8,0,.2,1) 0ms;
-    -ms-transform-origin: left center;
     transform-origin: left center;
     pointer-events: none;
     font-family: 'Aqua';
@@ -85,9 +85,8 @@ class Input extends React.Component {
         const { placeholder, flex } = this.props;
         const isTextarea = this.props.type === "textarea"
 
-        console.log(isTextarea)
         return (
-            <WrapperInput isFocus={this.state.isFocus} flex={flex}>
+            <WrapperInput isFocus={this.state.isFocus} isTextarea={isTextarea}>
                 <Placeholder isFocus={this.state.isFocus}>{placeholder}</Placeholder>
                 {
                     isTextarea ? <TextareaStyled onFocus={this.onFocus} onBlur={this.onBlur} isFocus={this.state.isFocus}/> : <InputStyled onFocus={this.onFocus} onBlur={this.onBlur} />

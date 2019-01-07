@@ -13,10 +13,10 @@ const PetitBudget = ({ location }) => {
     <Layout location={location}>
       <Avantages />
       <Etapes />
-      <Prix />
+      {/* <Prix />
       <Modeles />
       <Services />
-      <Contact />
+      <Contact /> */}
     </Layout>
   );
 };

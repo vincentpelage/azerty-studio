@@ -51,11 +51,19 @@ const Container = styled.div`
 `;
 
 const Form = styled.form`
-  padding: 4rem 0;
+  padding-top: 2rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 `;
+
+const WrapperInput = styled.div`
+  flex: 0 0 50%;
+`
+
+const WrapperTextarea = styled.div`
+  flex: 0 0 100%;
+`
 
 const Contact = () => {
   return (
@@ -64,27 +72,40 @@ const Contact = () => {
         <SubTitle label="Contact"  />
         <Container>
           <WrapperText>
-          <Icon src={Mobile} />
-          <Text>
-            <strong>Un modèle vous plaît et vous souhaitez en discuter ?</strong>
-            02.40.40.40.40 (ligne gratuite)
-          </Text>
-        </WrapperText>
-        <WrapperText>
-          <Icon src={Mail} />
-          <Text>
-            <strong>Vous préférez nous envoyer un message ?</strong>
-            Nous vous rappellerons
-          </Text>
-        </WrapperText>
+            <Icon src={Mobile} />
+            <Text>
+              <strong>Un modèle vous plaît et vous souhaitez en discuter ?</strong>
+              02.40.40.40.40 (ligne gratuite)
+            </Text>
+          </WrapperText>
+        </Container>
+        <Container>
+          <WrapperText>
+            <Icon src={Mail} />
+            <Text>
+              <strong>Vous préférez nous envoyer un message ?</strong>
+              Nous vous rappellerons
+            </Text>
+          </WrapperText>
         </Container>
         <Form>
-          <Input placeholder='Prenom' flex="0 0 45%" />
-          <Input placeholder='Nom' flex="0 0 45%" />
-          <Input placeholder='Email' flex="0 0 45%" />
-          <Input placeholder='Telephone' flex="0 0 45%" />
-          <Input placeholder='Votre projet en quelques lignes' flex="0 0 100%" type="textarea" />
-          <Button>Envoyer</Button>
+          <WrapperInput>
+            <Input placeholder='Prenom' flex="0 0 45%" />
+          </WrapperInput>
+          <WrapperInput>
+            <Input placeholder='Nom' flex="0 0 45%" />
+          </WrapperInput>
+          <WrapperInput>
+            <Input placeholder='Email' flex="0 0 45%" />
+          </WrapperInput>
+          <WrapperInput>
+            <Input placeholder='Telephone' flex="0 0 45%" />
+          </WrapperInput>
+          <WrapperTextarea>
+            <Input placeholder='Votre projet en quelques lignes' type="textarea" />
+          </WrapperTextarea>
+          
+          <Button margin="2rem 0 0 0" backgroundcolor="pink">Envoyer</Button>
         </Form>
       </Spacer>
       <WrapperMap>
