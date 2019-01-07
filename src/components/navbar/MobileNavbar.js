@@ -44,7 +44,10 @@ const BurgerBar = styled.span`
   display: block;
   width: 100%;
   height: 4px;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: ${props =>
+    props.isHome || props.isBurgerActive
+      ? props.theme.whiteNavOpacity
+      : props.theme.darkGreen};
   border-radius: 4px;
   margin: 8px 0;
   transition: 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -56,7 +59,11 @@ const BurgerBar = styled.span`
   }
   &:nth-child(2) {
     background-color: ${props =>
-      props.isBurgerActive ? "transparent" : "rgba(255, 255, 255, 0.8)"};
+      props.isBurgerActive
+        ? "transparent"
+        : props.isHome
+        ? props.theme.whiteNavOpacity
+        : props.theme.darkGreen}};
   }
   &:nth-child(3) {
     transform: ${props =>
@@ -69,7 +76,7 @@ const BurgerBar = styled.span`
 const Menu = styled.ul`
   width: 100%;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -78,9 +85,6 @@ const Menu = styled.ul`
   background-color: ${props => props.theme.darkGreen};
   justify-content: center;
   padding-left: 40px;
-  /* & > li {
-    margin-bottom: 1rem;
-  } */
 `;
 
 const Item = styled.li``;
@@ -140,14 +144,15 @@ export class MobileNavbar extends Component {
 
   render() {
     const { isBurgerActive } = this.state;
+    const isHome = this.props.location === "/";
 
     return (
       <Nav>
-        <Logo src={logo} />
+        <Logo src={logo} isHome={isHome} />
         <WrapperBurger onClick={this.toggleMenu}>
-          <BurgerBar isBurgerActive={isBurgerActive} />
-          <BurgerBar isBurgerActive={isBurgerActive} />
-          <BurgerBar isBurgerActive={isBurgerActive} />
+          <BurgerBar isBurgerActive={isBurgerActive} isHome={isHome} />
+          <BurgerBar isBurgerActive={isBurgerActive} isHome={isHome} />
+          <BurgerBar isBurgerActive={isBurgerActive} isHome={isHome} />
         </WrapperBurger>
 
         <Menu isBurgerActive={isBurgerActive}>

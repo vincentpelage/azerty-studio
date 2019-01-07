@@ -7,7 +7,6 @@ import AquaEOT from "../fonts/aqua.eot";
 import AquaWOFF from "../fonts/aqua.woff";
 import AquaWOFF2 from "../fonts/aqua.woff2";
 
-
 export const globalVariables = {
   borderRadius: "3px",
   borderRadiusButton: "50px",
@@ -17,7 +16,7 @@ export const globalVariables = {
   maxTablet: "991px",
   minDesktop: "992px",
   medDesktop: "1441px",
-  bigDesktop: "2000px",
+  bigDesktop: "2000px"
 };
 
 export const theme = {
@@ -26,6 +25,7 @@ export const theme = {
   darkGreenOpacity: "rgba(0, 182, 190, .8)",
   white: "#FFF",
   whiteOpacity: "rgba(255, 255, 255, 0.65)",
+  whiteNavOpacity: "rgba(255, 255, 255, 0.8)",
   lightPink: "#FEBCBE",
   pink: "#EE8E9E",
   darkPink: "#F86D70",
@@ -64,7 +64,7 @@ const GlobalStyles = createGlobalStyle`
       font-size: 20px;
     }
   }
-  button:focus, input:focus, textarea:focus {
+  button:focus, input:focus, textarea:focus, div:focus {
     outline: none;
   }
 `;

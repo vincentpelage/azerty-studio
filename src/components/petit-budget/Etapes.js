@@ -30,12 +30,14 @@ const List = styled.ul`
   padding-top: 13rem;
   @media (max-width: ${globalVariables.maxTablet}) {
     flex-direction: column;
-    padding-top: 8rem;
+    padding-top: 4rem;
+    padding-left: 2rem;
+    text-align: left;
   }
 `;
 
 const Item = styled.li`
-  flex: 1 1 25%;
+  flex: 1 1 20%;
   list-style: none;
   padding: 0 1rem;
   position: relative;
@@ -67,12 +69,32 @@ const Item = styled.li`
     align-items: center;
     border: 1px solid ${props => props.theme.white};
   }
+  @media (max-width: ${globalVariables.maxTablet}) {
+    padding-left: 2rem;
+    padding-bottom: 2rem;
+    &:not(:last-child)::before {
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 100%;
+    }
+    &::after {
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+    }
+  }
 `;
 
 const Title = styled.p`
   color: ${props => props.theme.purple};
   font-weight: 700;
   min-height: 55px;
+  @media (max-width: ${globalVariables.maxTablet}) {
+    min-height: auto;
+  }
 `;
 
 const Text = styled.p`

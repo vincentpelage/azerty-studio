@@ -31,7 +31,7 @@ const StyledSubTitle = styled.p`
         : props.theme.darkGreen};
   }
   @media (max-width: ${globalVariables.maxTablet}) {
-    font-size: 18px;
+    font-size: 20px;
   }
 `;
 

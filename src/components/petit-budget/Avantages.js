@@ -13,16 +13,18 @@ const AvantageList = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   padding: 2rem 0;
-   @media (max-width: ${globalVariables.maxTablet}) {
-    flex-direction: column;
-  }
 `;
 
 const Item = styled.div`
   flex: 1 1 33%;
   padding: 5rem 4rem 0rem 0;
   @media (max-width: ${globalVariables.maxTablet}) {
-    padding: 1rem 0
+    padding: 5rem 4rem 0 0;
+    flex: 1 1 50%;
+  }
+  @media (max-width: ${globalVariables.maxMobile}) {
+    padding: 1rem 0;
+    flex: 1 1 100%;
   }
 `;
 
