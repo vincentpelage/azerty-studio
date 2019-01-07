@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const ProcessStyled = styled.svg`
-  width: 576px;
-  margin: 50px auto 50px;
+  width: 535px;
+  margin: 50px 0;
 `;
 
 const Process = () => (
@@ -23,9 +23,9 @@ const Process = () => (
         gradientTransform="translate(-1992)"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0" stop-color="gray" stop-opacity="0.25" />
-        <stop offset="0.54" stop-color="gray" stop-opacity="0.12" />
-        <stop offset="1" stop-color="gray" stop-opacity="0.1" />
+        <stop offset="0" stopColor="gray" stopOpacity="0.25" />
+        <stop offset="0.54" stopColor="gray" stopOpacity="0.12" />
+        <stop offset="1" stopColor="gray" stopOpacity="0.1" />
       </linearGradient>
     </defs>
     <title>prototyping process</title>
@@ -93,7 +93,7 @@ const Process = () => (
       rx="4.3"
       fill="#fff"
       stroke="#fff"
-      stroke-miterlimit="10"
+      strokeMiterlimit="10"
     />
     <rect
       x="583.83"
@@ -120,7 +120,7 @@ const Process = () => (
       rx="4.3"
       fill="#fff"
       stroke="#fff"
-      stroke-miterlimit="10"
+      strokeMiterlimit="10"
     />
     <rect
       x="747.89"
@@ -155,7 +155,7 @@ const Process = () => (
       rx="4.3"
       fill="#fff"
       stroke="#fff"
-      stroke-miterlimit="10"
+      strokeMiterlimit="10"
     />
     <rect
       x="888.54"
@@ -207,7 +207,7 @@ const Process = () => (
       rx="4.3"
       fill="#fff"
       stroke="#fff"
-      stroke-miterlimit="10"
+      strokeMiterlimit="10"
     />
     <rect
       x="879.75"
@@ -247,21 +247,21 @@ const Process = () => (
       transform="translate(-44.77 -21.16)"
       fill="#fff"
       stroke="#fff"
-      stroke-miterlimit="10"
+      strokeMiterlimit="10"
     />
     <path
       d="M907.32,353.8l-.88,1.21-7.16,9.76-.63.87a.55.55,0,0,1-.78.09.48.48,0,0,1-.12-.16l-1.46-2.74a.55.55,0,0,0-.73-.23l-23.5,12.51a.53.53,0,0,1-.72-.22L869.28,371a.53.53,0,0,1,.22-.72L893,357.79a.53.53,0,0,0,.22-.72l-1.49-2.81a.35.35,0,0,1-.06-.19.52.52,0,0,1,.51-.59l1.07,0,12.12-.44,1.5-.05A.53.53,0,0,1,907.32,353.8Z"
       transform="translate(-44.77 -21.16)"
       fill="#fff"
       stroke="#fff"
-      stroke-miterlimit="10"
+      strokeMiterlimit="10"
     />
     <path
       d="M907.24,405.06h-1.49l-12.11,0h-1.07a.53.53,0,0,1-.53-.57.45.45,0,0,1,.05-.19l1.34-2.81a.53.53,0,0,0-.25-.71l-24-11.52a.54.54,0,0,1-.25-.72l1.9-3.95a.52.52,0,0,1,.71-.25l24,11.53a.55.55,0,0,0,.72-.25l1.38-2.87a.52.52,0,0,1,.89-.1l.67.83,7.53,9.52.93,1.18A.53.53,0,0,1,907.24,405.06Z"
       transform="translate(-44.77 -21.16)"
       fill="#fff"
       stroke="#fff"
-      stroke-miterlimit="10"
+      strokeMiterlimit="10"
     />
     <polygon
       points="424.19 606.65 424.11 609.58 419.01 789.65 410.43 789.65 414.64 609.58 414.72 606.2 424.19 606.65"
@@ -343,103 +343,103 @@ const Process = () => (
       transform="translate(-44.77 -21.16)"
       fill="#fff"
       stroke="#33313f"
-      stroke-miterlimit="10"
-      stroke-width="3"
+      strokeMiterlimit="10"
+      strokeWidth="3"
     />
     <path
       d="M528.44,533.17a1.49,1.49,0,0,0-1.71,1.64c1.45,14,.52,28.34-1.06,42.31-.72,6.39-1.71,13.15-4.54,17.9a1.49,1.49,0,0,0,.2,1.85,4,4,0,0,0,2.78.83l44.63.26a1.51,1.51,0,0,0,1.46-1.85c-3.59-15.3-2.82-32-1.38-47.87.71-7.81,1.12-12-4.71-12.55s-12-.79-18-1.29C544.67,534.28,533.13,533.94,528.44,533.17Z"
       transform="translate(-44.77 -21.16)"
       fill="#fff"
       stroke="#33313f"
-      stroke-miterlimit="10"
-      stroke-width="3"
+      strokeMiterlimit="10"
+      strokeWidth="3"
     />
     <path
       d="M541.55,558.93a132.37,132.37,0,0,1,15.56.19,1.47,1.47,0,0,1,1.32,1.3l.49,4.09a.58.58,0,0,1-.12.53.55.55,0,0,1-.38.1c-2.18.06-4.36-.19-6.53,0-1.35.11-2.69.37-4,.52a47.75,47.75,0,0,1-6.66.12,33.56,33.56,0,0,1-9.27-1.14s.18-3.39.18-3.71c0-1.58-.05-1.72,1.58-1.76Z"
       transform="translate(-44.77 -21.16)"
       fill="none"
       stroke="#33313f"
-      stroke-linecap="round"
-      stroke-miterlimit="10"
-      stroke-width="2"
+      strokeLinecap="round"
+      strokeMiterlimit="10"
+      strokeWidth="2"
     />
     <path
       d="M541.55,577.37a130.24,130.24,0,0,0,15.56-.2,1.47,1.47,0,0,0,1.32-1.3l.49-4.08a.6.6,0,0,0-.12-.54.55.55,0,0,0-.38-.1c-2.18-.06-4.36.2-6.53,0-1.35-.1-2.69-.36-4-.51a46.26,46.26,0,0,0-6.66-.12,33.56,33.56,0,0,0-9.27,1.14s.18,3.38.18,3.71c0,1.58-.05,1.71,1.58,1.76Z"
       transform="translate(-44.77 -21.16)"
       fill="none"
       stroke="#33313f"
-      stroke-linecap="round"
-      stroke-miterlimit="10"
-      stroke-width="2"
+      strokeLinecap="round"
+      strokeMiterlimit="10"
+      strokeWidth="2"
     />
     <path
       d="M541.55,584.59a130.24,130.24,0,0,1,15.56.2,1.47,1.47,0,0,1,1.32,1.3l.49,4.08a.6.6,0,0,1-.12.54.55.55,0,0,1-.38.1c-2.18.06-4.36-.2-6.53,0-1.35.1-2.69.37-4,.52a47.75,47.75,0,0,1-6.66.11,33.55,33.55,0,0,1-9.27-1.13s.18-3.39.18-3.72c0-1.58-.05-1.71,1.58-1.75Z"
       transform="translate(-44.77 -21.16)"
       fill="none"
       stroke="#33313f"
-      stroke-linecap="round"
-      stroke-miterlimit="10"
-      stroke-width="2"
+      strokeLinecap="round"
+      strokeMiterlimit="10"
+      strokeWidth="2"
     />
     <path
       d="M548.12,499a6.61,6.61,0,0,1,.44,3.48.52.52,0,0,1-.07.27.54.54,0,0,1-.42.15l-9.5.37s.53-2.8.6-3c.33-1.14,1.16-.84,2.23-.9Z"
       transform="translate(-44.77 -21.16)"
       fill="#fff"
       stroke="#33313f"
-      stroke-linecap="round"
-      stroke-miterlimit="10"
-      stroke-width="2"
+      strokeLinecap="round"
+      strokeMiterlimit="10"
+      strokeWidth="2"
     />
     <path
       d="M562.47,499a6.61,6.61,0,0,1,.43,3.48.51.51,0,0,1-.06.27.56.56,0,0,1-.42.15l-9.51.37s.54-2.8.61-3c.32-1.14,1.15-.84,2.23-.9Z"
       transform="translate(-44.77 -21.16)"
       fill="#fff"
       stroke="#33313f"
-      stroke-linecap="round"
-      stroke-miterlimit="10"
-      stroke-width="2"
+      strokeLinecap="round"
+      strokeMiterlimit="10"
+      strokeWidth="2"
     />
     <path
       d="M556.74,451.26l1.28,11a3,3,0,0,1-2.73,3.31,142.81,142.81,0,0,1-24.38-.16,3,3,0,0,1-2.71-2.86,42.69,42.69,0,0,0-.86-5.83c-.33-2-.69-3.93,1.67-4.52s5.59-.17,8.17-.22q4.64-.09,9.25-.26C547.29,451.72,556.74,451.21,556.74,451.26Z"
       transform="translate(-44.77 -21.16)"
       fill="none"
       stroke="#33313f"
-      stroke-miterlimit="10"
-      stroke-width="3"
+      strokeMiterlimit="10"
+      strokeWidth="3"
     />
     <path
       d="M556.74,491,558,480a3,3,0,0,0-2.73-3.31,143.84,143.84,0,0,0-24.38.15,3,3,0,0,0-2.71,2.87,42.69,42.69,0,0,1-.86,5.83c-.33,2-.69,3.93,1.67,4.52s5.59.17,8.17.22c3.09.06,6.17.14,9.25.26C547.29,490.57,556.74,491.08,556.74,491Z"
       transform="translate(-44.77 -21.16)"
       fill="none"
       stroke="#33313f"
-      stroke-miterlimit="10"
-      stroke-width="3"
+      strokeMiterlimit="10"
+      strokeWidth="3"
     />
     <path
       d="M543.89,540.57q-.5,5.49-.63,11a52.07,52.07,0,0,1-10.91-1.25,1.93,1.93,0,0,1-1.79-2.36c-.07-2.28-1.27-7.37,1.94-7.69C533.46,540.17,543.88,540.75,543.89,540.57Z"
       transform="translate(-44.77 -21.16)"
       fill="none"
       stroke="#33313f"
-      stroke-linecap="round"
-      stroke-miterlimit="10"
-      stroke-width="2"
+      strokeLinecap="round"
+      strokeMiterlimit="10"
+      strokeWidth="2"
     />
     <path
       d="M367.32,490.61a3.19,3.19,0,0,1,3.52,3.47c-1.15,13.31-.24,26.94,1.26,40.21.67,5.9,1.56,12.11,3.92,16.76a2.62,2.62,0,0,1-2.32,3.82h0l-44.28.26a1.76,1.76,0,0,1-1.73-2.14c3.51-15.22,2.74-31.84,1.31-47.58-.72-7.81-1.12-12,4.7-12.55,6-.53,12-.78,17.95-1.29C352.92,491.47,362,491.19,367.32,490.61Z"
       transform="translate(-44.77 -21.16)"
       fill="#fff"
       stroke="#33313f"
-      stroke-linecap="round"
-      stroke-miterlimit="10"
-      stroke-width="3"
+      strokeLinecap="round"
+      strokeMiterlimit="10"
+      strokeWidth="3"
     />
     <path
       d="M428.92,490.36a1.59,1.59,0,0,0-1.82,1.76c1.43,13.93.5,28.25-1.07,42.17-.72,6.39-1.71,13.12-4.53,17.87a1.58,1.58,0,0,0,.42,2.07,4.19,4.19,0,0,0,2.54.64l44.51.26a1.6,1.6,0,0,0,1.55-2c-3.55-15.27-2.79-31.95-1.35-47.75.71-7.81,1.12-12-4.7-12.55-6-.53-12-.78-18-1.29C445,491.45,433.7,491.12,428.92,490.36Z"
       transform="translate(-44.77 -21.16)"
       fill="#fff"
       stroke="#33313f"
-      stroke-miterlimit="10"
-      stroke-width="3"
+      strokeMiterlimit="10"
+      strokeWidth="3"
     />
     <line
       x1="296.04"
@@ -448,9 +448,9 @@ const Process = () => (
       y2="508.49"
       fill="#fff"
       stroke="#33313f"
-      stroke-linecap="round"
-      stroke-miterlimit="10"
-      stroke-width="2"
+      strokeLinecap="round"
+      strokeMiterlimit="10"
+      strokeWidth="2"
     />
     <line
       x1="318.68"
@@ -459,9 +459,9 @@ const Process = () => (
       y2="510"
       fill="#fff"
       stroke="#33313f"
-      stroke-linecap="round"
-      stroke-miterlimit="10"
-      stroke-width="2"
+      strokeLinecap="round"
+      strokeMiterlimit="10"
+      strokeWidth="2"
     />
     <line
       x1="397.07"
@@ -470,9 +470,9 @@ const Process = () => (
       y2="496.16"
       fill="#fff"
       stroke="#33313f"
-      stroke-linecap="round"
-      stroke-miterlimit="10"
-      stroke-width="2"
+      strokeLinecap="round"
+      strokeMiterlimit="10"
+      strokeWidth="2"
     />
     <line
       x1="409.4"
@@ -481,93 +481,93 @@ const Process = () => (
       y2="496.98"
       fill="#fff"
       stroke="#33313f"
-      stroke-linecap="round"
-      stroke-miterlimit="10"
-      stroke-width="2"
+      strokeLinecap="round"
+      strokeMiterlimit="10"
+      strokeWidth="2"
     />
     <path
       d="M348.29,539.3a132.56,132.56,0,0,1,15.57.19,1.49,1.49,0,0,1,1.32,1.3l.48,4.09a.63.63,0,0,1-.11.54.7.7,0,0,1-.38.1c-2.18.06-4.37-.2-6.54,0-1.35.1-2.68.36-4,.51a47.72,47.72,0,0,1-6.66.12,33.44,33.44,0,0,1-9.26-1.14c-.06,0,.18-3.38.18-3.71,0-1.58-.06-1.71,1.57-1.76Z"
       transform="translate(-44.77 -21.16)"
       fill="none"
       stroke="#33313f"
-      stroke-linecap="round"
-      stroke-miterlimit="10"
-      stroke-width="2"
+      strokeLinecap="round"
+      strokeMiterlimit="10"
+      strokeWidth="2"
     />
     <path
       d="M443.41,524.2a130.43,130.43,0,0,1,15.57.2,1.47,1.47,0,0,1,1.32,1.3l.48,4.08a.63.63,0,0,1-.11.54.56.56,0,0,1-.38.1c-2.18.06-4.37-.2-6.54,0-1.35.1-2.68.37-4,.51a46.26,46.26,0,0,1-6.66.12,33.56,33.56,0,0,1-9.27-1.14c-.05,0,.18-3.38.18-3.71,0-1.58-.05-1.71,1.58-1.76Z"
       transform="translate(-44.77 -21.16)"
       fill="none"
       stroke="#33313f"
-      stroke-linecap="round"
-      stroke-miterlimit="10"
-      stroke-width="2"
+      strokeLinecap="round"
+      strokeMiterlimit="10"
+      strokeWidth="2"
     />
     <path
       d="M451.34,535.53a132.39,132.39,0,0,0-15.56.19,1.47,1.47,0,0,0-1.32,1.3L434,541.1a.57.57,0,0,0,.11.54.55.55,0,0,0,.38.1c2.18.06,4.36-.19,6.54,0,1.35.1,2.68.37,4,.52a49.33,49.33,0,0,0,6.66.12,33.47,33.47,0,0,0,9.27-1.14c.05,0-.18-3.39-.18-3.71,0-1.59.06-1.72-1.57-1.76Z"
       transform="translate(-44.77 -21.16)"
       fill="none"
       stroke="#33313f"
-      stroke-linecap="round"
-      stroke-miterlimit="10"
-      stroke-width="2"
+      strokeLinecap="round"
+      strokeMiterlimit="10"
+      strokeWidth="2"
     />
     <path
       d="M386.63,528.13s14.71-.75,17.35,0"
       transform="translate(-44.77 -21.16)"
       fill="none"
       stroke="#33313f"
-      stroke-miterlimit="10"
-      stroke-width="3"
+      strokeMiterlimit="10"
+      strokeWidth="3"
     />
     <path
       d="M404,520.21s6.41,6.41,6.41,7.92-8.3,6.79-8.3,6.79"
       transform="translate(-44.77 -21.16)"
       fill="none"
       stroke="#33313f"
-      stroke-miterlimit="10"
-      stroke-width="3"
+      strokeMiterlimit="10"
+      strokeWidth="3"
     />
     <path
       d="M482.84,514.45s13.33-6.24,16.06-6.54"
       transform="translate(-44.77 -21.16)"
       fill="none"
       stroke="#33313f"
-      stroke-miterlimit="10"
-      stroke-width="3"
+      strokeMiterlimit="10"
+      strokeWidth="3"
     />
     <path
       d="M495.92,500.58s8.35,3.52,8.92,4.91-5.12,9.42-5.12,9.42"
       transform="translate(-44.77 -21.16)"
       fill="none"
       stroke="#33313f"
-      stroke-miterlimit="10"
-      stroke-width="3"
+      strokeMiterlimit="10"
+      strokeWidth="3"
     />
     <path
       d="M482.7,530.43s13.55,5.75,15.6,7.59"
       transform="translate(-44.77 -21.16)"
       fill="none"
       stroke="#33313f"
-      stroke-miterlimit="10"
-      stroke-width="3"
+      strokeMiterlimit="10"
+      strokeWidth="3"
     />
     <path
       d="M501.76,530.89s3,8.57,2.3,9.93-10.43,2.48-10.43,2.48"
       transform="translate(-44.77 -21.16)"
       fill="none"
       stroke="#33313f"
-      stroke-miterlimit="10"
-      stroke-width="3"
+      strokeMiterlimit="10"
+      strokeWidth="3"
     />
     <path
       d="M535.29,499a6.61,6.61,0,0,1,.43,3.48.51.51,0,0,1-.06.27.56.56,0,0,1-.42.15l-9.51.37s.54-2.8.61-3c.32-1.14,1.16-.84,2.23-.9Z"
       transform="translate(-44.77 -21.16)"
       fill="#fff"
       stroke="#33313f"
-      stroke-linecap="round"
-      stroke-miterlimit="10"
-      stroke-width="2"
+      strokeLinecap="round"
+      strokeMiterlimit="10"
+      strokeWidth="2"
     />
     <polygon
       points="310.87 564.02 314.23 560.89 311.23 560.77 309.66 563.18 310.87 564.02"
