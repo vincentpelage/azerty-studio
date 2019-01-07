@@ -156,7 +156,7 @@ class Contact extends React.Component {
               />
             </WrapperTextarea>
 
-            <Button margin="2rem 0 0 0" backgroundcolor="pink">
+            <Button type="submit" margin="2rem 0 0 0" backgroundcolor="pink">
               Envoyer
             </Button>
           </Form>
