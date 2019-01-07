@@ -104,35 +104,6 @@ class Contact extends React.Component {
               </Text>
             </WrapperText>
           </Container>
-          <form name="contacttest" method="POST" data-netlify="true">
-            <p>
-              <label>
-                Your Name: <input type="text" name="name" />
-              </label>
-            </p>
-            <p>
-              <label>
-                Your Email: <input type="email" name="email" />
-              </label>
-            </p>
-            <p>
-              <label>
-                Your Role:{" "}
-                <select name="role[]" multiple>
-                  <option value="leader">Leader</option>
-                  <option value="follower">Follower</option>
-                </select>
-              </label>
-            </p>
-            <p>
-              <label>
-                Message: <textarea name="message" />
-              </label>
-            </p>
-            <p>
-              <button type="submit">Send</button>
-            </p>
-          </form>
           <Form name="contact" method="POST" data-netlify="true" netlify="true">
             <WrapperInput>
               <Input
@@ -179,7 +150,7 @@ class Contact extends React.Component {
                 type="textarea"
               />
             </WrapperTextarea>
-
+            <input type="hidden" name="form-name" value="contact" />
             <Button type="submit" margin="2rem 0 0 0" backgroundcolor="pink">
               Envoyer
             </Button>
