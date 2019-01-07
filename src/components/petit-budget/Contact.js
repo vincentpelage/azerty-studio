@@ -104,7 +104,13 @@ class Contact extends React.Component {
               </Text>
             </WrapperText>
           </Container>
-          <Form name="contact" method="POST" data-netlify="true" netlify="true">
+          <Form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+          >
+            <input type="hidden" name="form-name" value="contact" />
             <WrapperInput>
               <Input
                 handleInput={this.handleInput}
@@ -150,7 +156,7 @@ class Contact extends React.Component {
                 type="textarea"
               />
             </WrapperTextarea>
-            <input type="hidden" name="form-name" value="contact" />
+
             <Button type="submit" margin="2rem 0 0 0" backgroundcolor="pink">
               Envoyer
             </Button>
