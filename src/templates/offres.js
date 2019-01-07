@@ -13,33 +13,31 @@ import Feature from "../icons/Feature";
 import Spacer from "../components/spacer";
 import Button from "../components/button";
 import Title from "../components/title";
+import { globalVariables } from "../components/globalStyle";
 
 const WrapperContainer = styled.div`
   display: flex;
   flex-direction: row;
   min-height: 100vh;
-`;
-
-const WrapperLeft = styled.div`
-  flex-basis: 50%;
+  @media (max-width: ${globalVariables.maxTablet}) {
+    flex-direction: column;
+  }
 `;
 
 const WrapperRight = styled.div`
-  flex-basis: 50%;
   display: flex;
+  flex: 0 0 50%;
+  background-color: ${props => props.theme.white};
   flex-direction: column;
+  align-items: center;
+  @media (max-width: ${globalVariables.maxTablet}) {
+    flex: 0 0 100%;
+  }
 `;
 
-const WrapperLeftContent = styled.div`
-  /*margin-top: 200px;*/
-  height: 600px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  /*padding: 0 205px 0;*/
-`;
-
-const CardContent = styled.div`
+const WrapperLeft = styled.div`
+  padding: 5rem 4rem;
+  flex: 0 0 50%;
   position: relative;
   &::after {
     content: "";
@@ -54,10 +52,27 @@ const CardContent = styled.div`
       }
     }};
     top: 50%;
-    right: -44.5%;
+    right: -25px;
+    background-color: ${props => props.theme.grey};
     transform: translate(-50%, -50%);
     transform: rotate(45deg);
+    @media (max-width: ${globalVariables.maxTablet}) {
+      flex: 0 0 100%;
+    }
   }
+`;
+
+const WrapperLeftContent = styled.div`
+  margin-top: 5rem;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /*padding: 0 205px 0;*/
+`;
+
+const CardContent = styled.div`
+  width: 70%;
   p {
     font-size: 20px;
   }
@@ -74,6 +89,9 @@ const CardContent = styled.div`
       }
     }};
   }
+  @media (max-width: ${globalVariables.maxTablet}) {
+    width: 100%;
+  }
 `;
 
 const CardContentTitle = styled.h2`
@@ -82,6 +100,9 @@ const CardContentTitle = styled.h2`
   position: relative;
   padding-left: 50px;
   margin-bottom: 10px;
+  @media (max-width: ${globalVariables.maxTablet}) {
+    font-size: 24px;
+  }
 `;
 
 const List = styled.ul`
@@ -121,7 +142,7 @@ const Offre = ({ contenu, color, component }) => (
         <li key={id}>{elem.text}</li>
       ))}
     </List>
-    <Button>en savoir plus</Button>
+    <Button backgroundcolor={color}>en savoir plus</Button>
   </React.Fragment>
 );
 
@@ -163,58 +184,57 @@ class Offres extends React.Component {
             />
           );
         default:
-          return <Offre contenu={liste_offre_3} component={Process} />;
+          return (
+            <Offre contenu={liste_offre_3} color="pink" component={Process} />
+          );
       }
     };
 
     return (
       <Layout location={this.props.location}>
         <WrapperContainer>
-          <Spacer flex="0 0 50%">
-            <WrapperLeft>
-              <Title label={titre_offres.text} />
-              <WrapperLeftContent>
-                <CardContent
-                  color="purple"
-                  onMouseEnter={this.onMouseEnter(1)}
-                  status={this.state.offre1status}
-                >
-                  <CardContentTitle>
-                    <Responsive color="purple" />
-                    {titre_offre_1.text}
-                  </CardContentTitle>
-                  {Parser(contenu_offre_1.html)}
-                </CardContent>
-                <CardContent
-                  color="darkGreen"
-                  status={this.state.offre2status}
-                  onMouseEnter={this.onMouseEnter(2)}
-                >
-                  <CardContentTitle>
-                    <PencilCase color="darkGreen" />
-                    {titre_offre_2.text}
-                  </CardContentTitle>
-                  {Parser(contenu_offre_2.html)}
-                </CardContent>
-                <CardContent
-                  color="lightPink"
-                  status={this.state.offre3status}
-                  onMouseEnter={this.onMouseEnter(3)}
-                >
-                  <CardContentTitle>
-                    <Feature color="lightPink" />
-                    {titre_offre_3.text}
-                  </CardContentTitle>
-                  {Parser(contenu_offre_3.html)}
-                </CardContent>
-              </WrapperLeftContent>
-            </WrapperLeft>
-          </Spacer>
-          <Spacer backgroundColor={theme.white} flex="0 0 50%">
-            <WrapperRight>
-              <OffreSelected />
-            </WrapperRight>
-          </Spacer>
+          <WrapperLeft>
+            <Title label={titre_offres.text} />
+            <WrapperLeftContent>
+              <CardContent
+                color="purple"
+                onMouseEnter={this.onMouseEnter(1)}
+                status={this.state.offre1status}
+                id="budget"
+              >
+                <CardContentTitle>
+                  <Responsive color="purple" />
+                  {titre_offre_1.text}
+                </CardContentTitle>
+                {Parser(contenu_offre_1.html)}
+              </CardContent>
+              <CardContent
+                color="darkGreen"
+                status={this.state.offre2status}
+                onMouseEnter={this.onMouseEnter(2)}
+              >
+                <CardContentTitle>
+                  <PencilCase color="darkGreen" />
+                  {titre_offre_2.text}
+                </CardContentTitle>
+                {Parser(contenu_offre_2.html)}
+              </CardContent>
+              <CardContent
+                color="lightPink"
+                status={this.state.offre3status}
+                onMouseEnter={this.onMouseEnter(3)}
+              >
+                <CardContentTitle>
+                  <Feature color="lightPink" />
+                  {titre_offre_3.text}
+                </CardContentTitle>
+                {Parser(contenu_offre_3.html)}
+              </CardContent>
+            </WrapperLeftContent>
+          </WrapperLeft>
+          <WrapperRight>
+            <OffreSelected />
+          </WrapperRight>
         </WrapperContainer>
       </Layout>
     );
