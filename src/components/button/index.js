@@ -18,6 +18,7 @@ const Button = ({
   fullwidth,
   backgroundcolor,
   color,
+  margin,
   children
 }) => (
   <StyledButton
@@ -29,6 +30,7 @@ const Button = ({
     color={color}
     fullwidth={fullwidth}
     height={height}
+    margin={margin}
   >
     {children}
   </StyledButton>
@@ -48,6 +50,7 @@ export const ButtonLink = ({
   color,
   fullwidth,
   height,
+  margin,
   children
 }) => (
   <StyledButtonLink
@@ -59,6 +62,7 @@ export const ButtonLink = ({
     color={color}
     fullwidth={fullwidth}
     height={height}
+    margin={margin}
   >
     {children}
   </StyledButtonLink>

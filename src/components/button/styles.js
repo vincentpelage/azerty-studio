@@ -21,6 +21,8 @@ export const getButtonStyles = props => {
   let cursor = "pointer";
   let width = "";
   let height = "2.5em";
+  let margin = "0";
+  
   const size = getSizing(props.size);
   const tabletSize = size - 2;
   const mobileSize = size - 2;
@@ -45,6 +47,10 @@ export const getButtonStyles = props => {
     height = props.height;
   }
 
+  if (props.margin) {
+    margin = props.margin;
+  }
+
   return css`
     display: inline-flex;
     justify-content: center;
@@ -64,6 +70,7 @@ export const getButtonStyles = props => {
     transition: all 200ms ease-in-out;
     outline: none;
     z-index: 1;
+    margin: ${margin};
     @media (min-width: ${globalVariables.minTablet}) {
       font-size: ${tabletSize}px;
       height: ${height};

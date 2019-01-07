@@ -20,7 +20,7 @@ const LayoutContainer = styled.div`
   }
 `;
 
-const Children = styled.section`
+const Children = styled.div`
   width: 100%;
   margin-left: 60px;
   min-height: 100vh;

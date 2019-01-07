@@ -6,6 +6,7 @@ import Spacer from "../spacer/index";
 import { theme } from "../globalStyle";
 import ArrowScroll from "../ArrowScroll";
 import Coffee from "../../img/Coffee";
+import { globalVariables } from "../globalStyle";
 
 function createCSSContent() {
   let styles = "";
@@ -27,6 +28,10 @@ const List = styled.ul`
   flex-direction: row;
   text-align: center;
   padding-top: 13rem;
+  @media (max-width: ${globalVariables.maxTablet}) {
+    flex-direction: column;
+    padding-top: 8rem;
+  }
 `;
 
 const Item = styled.li`
@@ -70,7 +75,9 @@ const Title = styled.p`
   min-height: 55px;
 `;
 
-const Text = styled.p``;
+const Text = styled.p`
+  font-size: 14px;
+`;
 
 const Etapes = () => {
   return (

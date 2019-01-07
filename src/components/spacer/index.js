@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { globalVariables } from "../globalStyle";
 
-const SpacerStyled = styled.div`
+const SpacerStyled = styled.section`
   position: relative;
   padding: 5rem 4rem;
   flex: ${props => (props.flex ? props.flex : null)};

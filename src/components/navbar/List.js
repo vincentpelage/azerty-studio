@@ -38,8 +38,6 @@ class List extends Component {
     isHover: false
   };
 
-  isHover = false;
-
   onEnter = () => {
     this.setState({ isHover: true });
   };

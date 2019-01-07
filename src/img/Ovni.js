@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { globalVariables } from "../components/globalStyle";
 
 const OvniStyled = styled.svg`
   width: 150px;
@@ -7,6 +8,11 @@ const OvniStyled = styled.svg`
   position: absolute;
   bottom: 0;
   left: 30%;
+  @media (max-width: ${globalVariables.maxTablet}) {
+    left: 10%;
+    width: 125px;
+    height: auto;
+  }
 `;
 
 const Ovni = () => (
