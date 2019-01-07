@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const FoytStyled = styled.svg`
-  width: 300px;
-  margin: 50px auto 50px;
+  width: 535px;
+  margin: 50px 0;
 `;
 
 const Foyt = () => (
