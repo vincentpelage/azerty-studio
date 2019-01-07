@@ -91,7 +91,7 @@ const TemplateWrapper = ({ children, location }) => {
               <NotDesktop>
                 <MobileNavbar />
               </NotDesktop>
-              <Children location={location}>{children}</Children>
+              <Children>{children}</Children>
             </LayoutContainer>
           </ThemeProvider>
         </div>
