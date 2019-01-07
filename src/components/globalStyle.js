@@ -30,12 +30,13 @@ export const theme = {
   pink: "#EE8E9E",
   darkPink: "#F86D70",
   purple: "#6772E5",
-  black: "#282B2B",
+  black: "#4a4a4a",
   grey: "#F2EFEF",
   darkGrey: "#eae8e8"
 };
 
 const GlobalStyles = createGlobalStyle`
+
   @font-face {
     font-family: Aqua;
     src: url(${AquaTTF}) format("ttf"),
@@ -43,17 +44,27 @@ const GlobalStyles = createGlobalStyle`
     url(${AquaWOFF}) format("woff"),
     url(${AquaWOFF2}) format("woff2");     
   }
+  
   body {
     @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
-    background-color: ${props => props.theme.grey}
+    background-color: ${props => props.theme.grey};
+    line-height: 1.5;
+    color: ${theme.black};
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    text-size-adjust: 100%;
   }
   h1 {
     font-family: 'Aqua', sans-serif;
   }
+  input, textarea {
+    font-family: 'Roboto', sans-serif;
+  }
   p, a, span {
     font-size: 14px;
+    margin: 0;
     @media (min-width: ${globalVariables.minDesktop}) {
       font-size: 16px;
     }
@@ -63,6 +74,10 @@ const GlobalStyles = createGlobalStyle`
     @media (min-width: ${globalVariables.bigDesktop}) {
       font-size: 20px;
     }
+  }
+  a {
+    text-decoration: none;
+    cursor: pointer;
   }
   button:focus, input:focus, textarea:focus, div:focus {
     outline: none;
