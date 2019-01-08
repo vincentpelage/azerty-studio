@@ -9,6 +9,7 @@ import Linkedin from "../icons/linkedin.svg";
 import Charlotte from "../img/charlotte.png";
 import Vincent from "../img/vincent.jpeg";
 import SubTitle from "../components/subTitle";
+import ContentLayout from "../components/contentLayout";
 
 const Wrapper = styled.section`
   display: flex;
@@ -96,6 +97,7 @@ const LinkedinStyled = styled.img`
 const Equipe = ({ location }) => {
   return (
     <Layout location={location}>
+      <ContentLayout />
       <Wrapper>
         <Spacer backgroundColor={theme.green} height="100vh" flex="0 0 40%">
           <Title label="A propos" />
