@@ -57,9 +57,6 @@ const List = styled.ul`
 
 const Item = styled.li`
   margin-bottom: 1.5rem;
-  strong {
-    font-weight: 700;
-  }
 `;
 
 const Prix = () => {

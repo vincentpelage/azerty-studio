@@ -90,7 +90,7 @@ const Item = styled.li`
 
 const Title = styled.p`
   color: ${props => props.theme.purple};
-  font-weight: 700;
+  font-weight: 500;
   min-height: 55px;
   @media (max-width: ${globalVariables.maxTablet}) {
     min-height: auto;

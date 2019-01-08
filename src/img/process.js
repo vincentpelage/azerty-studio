@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const ProcessStyled = styled.svg`
-  width: 535px;
-  margin: 50px 0;
+  height: 220px;
+  margin: 3rem 0;
 `;
 
 const Process = () => (

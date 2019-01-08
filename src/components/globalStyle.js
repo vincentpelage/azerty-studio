@@ -75,6 +75,9 @@ const GlobalStyles = createGlobalStyle`
       font-size: 20px;
     }
   }
+  strong {
+    font-weight: 500;
+  }
   a {
     text-decoration: none;
     cursor: pointer;
