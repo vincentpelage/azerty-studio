@@ -6,11 +6,13 @@ import Etapes from "../components/petit-budget/Etapes";
 import Prix from "../components/petit-budget/Prix";
 import Modeles from "../components/petit-budget/Modeles";
 import Services from "../components/petit-budget/Services";
-import Equipe from "./equipe";
+import Contact from "../components/contact";
+import Expertises from "../components/expertises";
 
 const PetitBudget = ({ location }) => {
   return (
     <Layout location={location}>
+      <Expertises />
       <Avantages />
       <Etapes />
       <Prix />

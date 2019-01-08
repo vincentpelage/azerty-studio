@@ -10,10 +10,12 @@ import { globalVariables } from "../globalStyle";
 import GoogleMap from "../google-map/GoogleMap";
 import Input from "../input";
 import Button from "../button";
+import TypeWriter from "../../img/TypeWriter";
 
 const Wrapper = styled.section`
   display: flex;
   flex-direction: row;
+  overflow: hidden;
   @media (max-width: ${globalVariables.maxTablet}) {
     flex-direction: column;
   }
@@ -24,6 +26,10 @@ const WrapperText = styled.div`
   flex-direction: row;
   align-items: center;
   padding-top: 2rem;
+  @media (max-width: ${globalVariables.maxTablet}) {
+    padding-top: 1rem;
+    align-items: flex-start;
+  }
 `;
 
 const Icon = styled.img`
@@ -46,7 +52,10 @@ const Text = styled.p`
 
 const WrapperMap = styled.div`
   flex: 0 0 50%;
-  min-height: 100vh;
+  height: 100vh;
+  @media (max-width: ${globalVariables.maxTablet}) {
+    height: 70vh;
+  }
 `;
 
 const Container = styled.div`
@@ -54,14 +63,18 @@ const Container = styled.div`
 `;
 
 const Form = styled.form`
-  padding-top: 2rem;
+  padding-top: 1rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  z-index: 2;
 `;
 
 const WrapperInput = styled.div`
   flex: 0 0 50%;
+  @media (max-width: ${globalVariables.maxMobile}) {
+    flex: 0 0 100%;
+  }
 `;
 
 const WrapperTextarea = styled.div`
@@ -100,7 +113,7 @@ class Contact extends React.Component {
             <WrapperText>
               <Icon src={Mail} />
               <Text>
-                <strong>Vous préférez nous envoyer un message ?</strong>
+                <strong>Vous préférez nous envoyer un message&nbsp;?</strong>
                 Nous vous rappellerons
               </Text>
             </WrapperText>
@@ -158,6 +171,7 @@ class Contact extends React.Component {
               Envoyer
             </Button>
           </Form>
+          <TypeWriter />
         </Spacer>
         <WrapperMap>
           <GoogleMap />

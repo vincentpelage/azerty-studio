@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
+import { globalVariables } from "../globalStyle";
+
 const WrapperInput = styled.div`
   position: relative;
   margin-right: 1rem;
   margin-top: 2.5rem;
+  z-index: 2;
   height: ${props => (props.isFocus && props.isTextarea ? "100px" : "40px")};
   transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0ms,
     color 0.3s cubic-bezier(0.8, 0, 0.2, 1) 0ms;
@@ -72,6 +75,9 @@ const Placeholder = styled.div`
   font-family: "Aqua";
   font-size: ${props =>
     props.isFocus || props.isValue ? ".8rem" : ".9375rem"};
+  @media (max-width: ${globalVariables.maxMobile}) {
+    font-size: ${props => (props.isFocus || props.isValue ? "10px" : "12px")};
+  }
 `;
 
 class Input extends React.Component {

@@ -4,7 +4,7 @@ import { globalVariables } from "../components/globalStyle";
 
 const OvniStyled = styled.svg`
   width: 150px;
-  height: 150px;
+  height: 130px;
   position: absolute;
   bottom: 0;
   left: 30%;
