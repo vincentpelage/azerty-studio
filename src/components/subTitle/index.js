@@ -10,7 +10,7 @@ const Wrapper = styled.div`
 const StyledSubTitle = styled.p`
   color: ${props =>
     props.color ? props.theme[props.color] : props.theme.darkGreen};
-  font-size: 24px;
+  font-size: ${props => (props.fontSize ? props.fontSize : "24px")};
   font-family: "Aqua";
   display: inline;
   position: relative;
@@ -31,16 +31,20 @@ const StyledSubTitle = styled.p`
         : props.theme.darkGreen};
   }
   @media (max-width: ${globalVariables.maxTablet}) {
-    font-size: 20px;
+    font-size: 18px;
+  }
+  @media (max-width: ${globalVariables.maxMobile}) {
+    font-size: 18px;
   }
 `;
 
-const SubTitle = ({ label, textAlign, color, backgroundColor }) => (
+const SubTitle = ({ label, textAlign, color, backgroundColor, fontSize }) => (
   <Wrapper textAlign={textAlign}>
     <StyledSubTitle
       textAlign={textAlign}
       color={color}
       backgroundColor={backgroundColor}
+      fontSize={fontSize}
     >
       {label}
     </StyledSubTitle>

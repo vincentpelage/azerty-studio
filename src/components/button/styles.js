@@ -5,7 +5,7 @@ import { globalVariables } from "../globalStyle";
 const getSizing = (size = "medium") => {
   switch (size) {
     case "small":
-      return "14";
+      return "12";
     case "large":
       return "16";
     case "xlarge":
