@@ -7,7 +7,7 @@ import Title from "../components/title/index";
 import { theme, globalVariables } from "../components/globalStyle";
 import Linkedin from "../icons/linkedin.svg";
 import Charlotte from "../img/charlotte.png";
-import Vincent from "../img/vincent.jpeg";
+import Vincent from "../img/Vincent.jpeg";
 import SubTitle from "../components/subTitle";
 
 const Wrapper = styled.section`
