@@ -69,7 +69,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const templatePetitBudget = path.resolve("src/templates/petit-budget.js");
   const templateContact = path.resolve("src/templates/contact.js");
   //const templateClients = path.resolve("src/templates/clients.js");
-  //const templateAPropos = path.resolve("src/templates/a-propos.js");
+  const templateAPropos = path.resolve("src/templates/equipe.js");
   const templateExpertises = path.resolve("src/templates/expertises.js");
   //const templateSurMesure = path.resolve("src/templates/sur-mesure.js");
   //const templateAgences = path.resolve("src/templates/agences.js");
@@ -124,7 +124,6 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  /*
   pages.data.allPrismicAPropos.edges.forEach(edge => {
     createPage({
       path: `/${edge.node.uid}`,
@@ -134,7 +133,6 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     });
   });
-  */
 
   /*
   pages.data.allPrismicSurMesure.edges.forEach(edge => {
