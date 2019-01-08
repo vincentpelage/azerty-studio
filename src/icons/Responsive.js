@@ -3,9 +3,8 @@ import styled from "styled-components";
 import { theme } from "../components/globalStyle";
 
 const ResponsiveStyled = styled.svg`
-  width: 40px;
-  position: absolute;
-  left: 0px;
+  width: 25px;
+  margin-right: 1rem;
 `;
 
 const Responsive = ({ color }) => (

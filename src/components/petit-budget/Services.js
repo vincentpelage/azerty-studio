@@ -29,7 +29,7 @@ const Item = styled.div`
 
 const SubSubTitle = styled.h2`
   color: ${props => props.theme.darkGreen};
-  font-weight: 700;
+  font-weight: 500;
   position: relative;
   display: inline;
   &::after {
