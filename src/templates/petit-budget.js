@@ -6,7 +6,7 @@ import Etapes from "../components/petit-budget/Etapes";
 import Prix from "../components/petit-budget/Prix";
 import Modeles from "../components/petit-budget/Modeles";
 import Services from "../components/petit-budget/Services";
-import Contact from "../components/petit-budget/Contact";
+import Equipe from "./equipe";
 
 const PetitBudget = ({ location }) => {
   return (
@@ -16,7 +16,7 @@ const PetitBudget = ({ location }) => {
       <Prix />
       <Modeles />
       <Services />
-      <Contact />
+      {/* <Contact textMobile="Un modèle vous plaît et vous souhaitez en discuter ?" /> */}
     </Layout>
   );
 };

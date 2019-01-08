@@ -1,12 +1,25 @@
 import React from "react";
 import styled from "styled-components";
 
+import { globalVariables } from "../components/globalStyle";
+
 const ServicesStyled = styled.svg`
   width: 400px;
   height: auto;
   position: absolute;
   top: 1rem;
   right: 1rem;
+
+  @media (max-width: ${globalVariables.maxTablet}) {
+    width: 300px;
+    top: -2rem;
+    right: -3rem;
+  }
+  @media (max-width: ${globalVariables.maxMobile}) {
+    width: 200px;
+    top: -2rem;
+    right: -3rem;
+  }
 `;
 
 const ServicesImg = () => {

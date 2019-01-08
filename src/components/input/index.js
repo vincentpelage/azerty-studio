@@ -4,7 +4,7 @@ import styled from "styled-components";
 const WrapperInput = styled.div`
   position: relative;
   margin-right: 1rem;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
   height: ${props => (props.isFocus && props.isTextarea ? "100px" : "40px")};
   transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0ms,
     color 0.3s cubic-bezier(0.8, 0, 0.2, 1) 0ms;
@@ -45,7 +45,7 @@ const InputStyled = styled.input`
   padding: 0 0.9375rem;
   height: 100%;
   letter-spacing: 1px;
-  font-size: 1.25rem;
+  /* font-size: 1.25rem; */
   background: hsla(0, 0%, 96%, 1);
 `;
 
@@ -54,15 +54,15 @@ const TextareaStyled = styled.textarea`
   width: 100%;
   height: ${props => (props.isFocus && props.isTextarea ? "100px" : "100%")};
   border: none;
-  padding: 0 0.9375rem;
+  padding: 0.5rem 0.9375rem;
   letter-spacing: 1px;
-  font-size: 1.25rem;
+  /* font-size: 1.25rem; */
   background: hsla(0, 0%, 96%, 1);
 `;
 
 const Placeholder = styled.div`
   text-transform: uppercase;
-  top: ${props => (props.isFocus ? "-25px" : "11px")};
+  top: ${props => (props.isFocus || props.isValue ? "-25px" : "11px")};
   position: absolute;
   left: 0.9375rem;
   transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0ms,
@@ -70,7 +70,8 @@ const Placeholder = styled.div`
   transform-origin: left center;
   pointer-events: none;
   font-family: "Aqua";
-  font-size: ${props => (props.isFocus ? ".8rem" : ".9375rem")};
+  font-size: ${props =>
+    props.isFocus || props.isValue ? ".8rem" : ".9375rem"};
 `;
 
 class Input extends React.Component {
@@ -87,12 +88,14 @@ class Input extends React.Component {
   };
 
   render() {
-    const { placeholder, flex, handleInput, name, value } = this.props;
+    const { placeholder, handleInput, name, value } = this.props;
     const isTextarea = this.props.type === "textarea";
 
     return (
       <WrapperInput isFocus={this.state.isFocus} isTextarea={isTextarea}>
-        <Placeholder isFocus={this.state.isFocus}>{placeholder}</Placeholder>
+        <Placeholder isFocus={this.state.isFocus} isValue={value.length > 0}>
+          {placeholder}
+        </Placeholder>
         {isTextarea ? (
           <TextareaStyled
             onChange={handleInput(name)}

@@ -32,9 +32,12 @@ const Letter = styled.span`
 
   @media (max-width: ${globalVariables.maxTablet}) {
     font-size: 23px;
-    height: 23px;
-    width: 23px;
+    height: 30px;
+    width: 30px;
     padding-top: 7px;
+    &:not(:last-child) {
+      margin-right: 1px;
+    }
   }
 `;
 

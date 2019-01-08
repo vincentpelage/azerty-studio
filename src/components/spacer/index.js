@@ -12,6 +12,10 @@ const SpacerStyled = styled.section`
   @media (max-width: ${globalVariables.maxTablet}) {
     padding: 6rem 2rem;
   }
+  @media (min-width: ${globalVariables.medDesktop}) {
+    max-height: 800px;
+    min-height: auto;
+  }
 `;
 
 const Spacer = ({ backgroundColor, height, flex, children }) => (

@@ -7,7 +7,6 @@ import AquaEOT from "../fonts/aqua.eot";
 import AquaWOFF from "../fonts/aqua.woff";
 import AquaWOFF2 from "../fonts/aqua.woff2";
 
-
 export const globalVariables = {
   borderRadius: "3px",
   borderRadiusButton: "50px",
@@ -17,7 +16,7 @@ export const globalVariables = {
   maxTablet: "991px",
   minDesktop: "992px",
   medDesktop: "1441px",
-  bigDesktop: "2000px",
+  bigDesktop: "2000px"
 };
 
 export const theme = {
@@ -26,16 +25,18 @@ export const theme = {
   darkGreenOpacity: "rgba(0, 182, 190, .8)",
   white: "#FFF",
   whiteOpacity: "rgba(255, 255, 255, 0.65)",
+  whiteNavOpacity: "rgba(255, 255, 255, 0.8)",
   lightPink: "#FEBCBE",
   pink: "#EE8E9E",
   darkPink: "#F86D70",
   purple: "#6772E5",
-  black: "#282B2B",
+  black: "#4a4a4a",
   grey: "#F2EFEF",
   darkGrey: "#eae8e8"
 };
 
 const GlobalStyles = createGlobalStyle`
+
   @font-face {
     font-family: Aqua;
     src: url(${AquaTTF}) format("ttf"),
@@ -43,17 +44,27 @@ const GlobalStyles = createGlobalStyle`
     url(${AquaWOFF}) format("woff"),
     url(${AquaWOFF2}) format("woff2");     
   }
+  
   body {
     @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
-    background-color: ${props => props.theme.grey}
+    background-color: ${props => props.theme.grey};
+    line-height: 1.5;
+    color: ${theme.black};
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    text-size-adjust: 100%;
   }
   h1 {
     font-family: 'Aqua', sans-serif;
   }
+  input, textarea {
+    font-family: 'Roboto', sans-serif;
+  }
   p, a, span {
     font-size: 14px;
+    margin: 0;
     @media (min-width: ${globalVariables.minDesktop}) {
       font-size: 16px;
     }
@@ -64,7 +75,11 @@ const GlobalStyles = createGlobalStyle`
       font-size: 20px;
     }
   }
-  button:focus, input:focus, textarea:focus {
+  a {
+    text-decoration: none;
+    cursor: pointer;
+  }
+  button:focus, input:focus, textarea:focus, div:focus {
     outline: none;
   }
 `;

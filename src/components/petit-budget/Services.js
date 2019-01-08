@@ -13,11 +13,18 @@ const AvantageList = styled.div`
   flex-wrap: wrap;
   padding: 2rem 0;
   width: 70%;
+  @media (max-width: ${globalVariables.maxTablet}) {
+    width: 100%;
+  }
 `;
 
 const Item = styled.div`
   flex: 1 1 50%;
   padding: 4rem 4rem 0rem 0;
+  @media (max-width: ${globalVariables.maxMobile}) {
+    flex: 1 1 100%;
+    padding: 1rem 0;
+  }
 `;
 
 const SubSubTitle = styled.h2`

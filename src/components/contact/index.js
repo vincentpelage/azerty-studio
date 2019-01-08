@@ -91,9 +91,7 @@ class Contact extends React.Component {
             <WrapperText>
               <Icon src={Mobile} />
               <Text>
-                <strong>
-                  Un modèle vous plaît et vous souhaitez en discuter ?
-                </strong>
+                <strong>{this.props.textMobile}</strong>
                 02.40.40.40.40 (ligne gratuite)
               </Text>
             </WrapperText>
@@ -120,7 +118,6 @@ class Contact extends React.Component {
                 value={prenom}
                 name="prenom"
                 placeholder="Prenom"
-                flex="0 0 45%"
               />
             </WrapperInput>
             <WrapperInput>
@@ -129,7 +126,6 @@ class Contact extends React.Component {
                 value={nom}
                 name="nom"
                 placeholder="Nom"
-                flex="0 0 45%"
               />
             </WrapperInput>
             <WrapperInput>
@@ -138,7 +134,6 @@ class Contact extends React.Component {
                 value={email}
                 name="email"
                 placeholder="Email"
-                flex="0 0 45%"
               />
             </WrapperInput>
             <WrapperInput>
@@ -147,7 +142,6 @@ class Contact extends React.Component {
                 value={telephone}
                 name="telephone"
                 placeholder="Telephone"
-                flex="0 0 45%"
               />
             </WrapperInput>
             <WrapperTextarea>

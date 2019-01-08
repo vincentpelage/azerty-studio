@@ -24,6 +24,7 @@ const Children = styled.div`
   width: 100%;
   margin-left: 60px;
   min-height: 100vh;
+  overflow: hidden;
   @media (max-width: ${globalVariables.maxTablet}) {
     margin-left: 0;
   }
@@ -89,7 +90,7 @@ const TemplateWrapper = ({ children, location }) => {
                 <DesktopNavbar location={location} />
               </Desktop>
               <NotDesktop>
-                <MobileNavbar />
+                <MobileNavbar location={location} />
               </NotDesktop>
               <Children>{children}</Children>
             </LayoutContainer>

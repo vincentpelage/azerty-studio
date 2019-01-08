@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { globalVariables } from "../components/globalStyle";
 
 const CoffeStyled = styled.svg`
   width: 310px;
@@ -7,6 +8,12 @@ const CoffeStyled = styled.svg`
   position: absolute;
   bottom: 0;
   right: 15%;
+  @media (max-width: ${globalVariables.maxTablet}) {
+    width: 170px;
+    height: 110px;
+    right: -1rem;
+    bottom: -2rem;
+  }
 `;
 
 const Coffee = () => {
