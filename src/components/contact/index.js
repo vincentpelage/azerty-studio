@@ -91,9 +91,7 @@ class Contact extends React.Component {
             <WrapperText>
               <Icon src={Mobile} />
               <Text>
-                <strong>
-                  Un modèle vous plaît et vous souhaitez en discuter ?
-                </strong>
+                <strong>{this.props.textMobile}</strong>
                 02.40.40.40.40 (ligne gratuite)
               </Text>
             </WrapperText>

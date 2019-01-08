@@ -63,7 +63,6 @@ const SubList = styled.ul`
 `;
 
 export const DesktopNavbar = class extends React.Component {
-
   render() {
     const isOffresPage =
       this.props.location.pathname === "/offres" ||

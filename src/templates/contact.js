@@ -6,7 +6,7 @@ import Contact from "../components/contact";
 const Contact = ({ location }) => {
   return (
     <Layout location={location}>
-      <Contact />
+      <Contact textMobile="Vous avez un projet de site et vous souhaitez en discuter ?" />
     </Layout>
   );
 };
