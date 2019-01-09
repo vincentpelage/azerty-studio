@@ -84,7 +84,11 @@ const Expertises = ({ location }) => {
               <strong>moriendi autem sensum celeritas abstulit</strong> ; quo de
               genere.
             </Paragraph>
-            <ButtonLink to="/site" backgroundcolor="green" size="small">
+            <ButtonLink
+              to="/expertises/site"
+              backgroundcolor="green"
+              size="small"
+            >
               En savoir plus
             </ButtonLink>
           </Item>
@@ -105,7 +109,11 @@ const Expertises = ({ location }) => {
               talis fuit vel fortuna vel gloria, ut nihil posset accedere,
               moriendi autem sensum celeritas abstulit; quo de genere.
             </Paragraph>
-            <ButtonLink to="/site" backgroundcolor="green" size="small">
+            <ButtonLink
+              to="/expertises/trafic"
+              backgroundcolor="green"
+              size="small"
+            >
               En savoir plus
             </ButtonLink>
           </Item>
@@ -126,7 +134,11 @@ const Expertises = ({ location }) => {
               <strong>moriendi autem sensum celeritas abstulit</strong>quo de
               genere.
             </Paragraph>
-            <ButtonLink to="/site" backgroundcolor="green" size="small">
+            <ButtonLink
+              to="/expertises/analyse"
+              backgroundcolor="green"
+              size="small"
+            >
               En savoir plus
             </ButtonLink>
           </Item>
