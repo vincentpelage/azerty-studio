@@ -4,7 +4,7 @@ import styled from "styled-components";
 import SubTitle from "../subTitle";
 import ArrowScroll from "../ArrowScroll";
 import { theme } from "../globalStyle";
-import Celebration from "../../img/Celebration";
+import Game from "../../img/Game";
 import Spacer from "../spacer/index";
 import { globalVariables } from "../globalStyle";
 
@@ -106,7 +106,7 @@ const Avantages = () => {
         </Item>
       </AvantageList>
       <ArrowScroll fill={theme.darkGreen} ancre="" positionLeft="50%" />
-      <Celebration />
+      <Game />
     </Spacer>
   );
 };

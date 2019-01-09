@@ -11,8 +11,9 @@ const FinishStyled = styled.svg`
   @media (max-width: ${globalVariables.maxTablet}) {
     width: 170px;
     height: 110px;
-    right: -1rem;
-    bottom: -2rem;
+    right: auto;
+    left: 0;
+    bottom: 0;
   }
 `;
 
