@@ -16,15 +16,16 @@ const StyledSubTitle = styled.p`
   position: relative;
 
   &::after {
-    content: "";
+    /* content: ${props => (props.noLine ? "none" : " ")}; */
+    content: " ";
     position: absolute;
     bottom: -13px;
     left: ${props => (props.textAlign === "center" ? "50%" : "1px")};
     transform: ${props =>
       props.textAlign === "center" ? "translateX(-50%)" : "none"};
-    width: 50px;
-    height: 6px;
-    border-radius: 8px;
+    width: ${props => (props.noLine ? "0" : "35px")};;
+    height: 4px;
+    border-radius: 10px;
     background-color: ${props =>
       props.backgroundColor
         ? props.theme[props.backgroundColor]
@@ -38,17 +39,28 @@ const StyledSubTitle = styled.p`
   }
 `;
 
-const SubTitle = ({ label, textAlign, color, backgroundColor, fontSize }) => (
-  <Wrapper textAlign={textAlign}>
-    <StyledSubTitle
-      textAlign={textAlign}
-      color={color}
-      backgroundColor={backgroundColor}
-      fontSize={fontSize}
-    >
-      {label}
-    </StyledSubTitle>
-  </Wrapper>
-);
+const SubTitle = ({
+  label,
+  textAlign,
+  color,
+  backgroundColor,
+  fontSize,
+  noLine
+}) => {
+  console.log("noLine", noLine);
+  return (
+    <Wrapper textAlign={textAlign}>
+      <StyledSubTitle
+        textAlign={textAlign}
+        color={color}
+        backgroundColor={backgroundColor}
+        fontSize={fontSize}
+        noLine={noLine}
+      >
+        {label}
+      </StyledSubTitle>
+    </Wrapper>
+  );
+};
 
 export default SubTitle;

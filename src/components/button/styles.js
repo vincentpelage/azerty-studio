@@ -22,7 +22,7 @@ export const getButtonStyles = props => {
   let width = "";
   let height = "2.5em";
   let margin = "0";
-  
+
   const size = getSizing(props.size);
   const tabletSize = size - 2;
   const mobileSize = size - 2;

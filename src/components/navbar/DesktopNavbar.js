@@ -64,16 +64,10 @@ const SubList = styled.ul`
 
 export const DesktopNavbar = class extends React.Component {
   render() {
-    const isOffresPage =
-      this.props.location.pathname === "/offres" ||
-      this.props.location.pathname === "/petit-budget" ||
-      this.props.location.pathname === "/sur-mesure" ||
-      this.props.location.pathname === "/prototype";
-    const isExpertisesPage =
-      this.props.location.pathname === "/expertises" ||
-      this.props.location.pathname === "/site-internet" ||
-      this.props.location.pathname === "/trafic" ||
-      this.props.location.pathname === "/analyse";
+    const isOffresPage = this.props.location.pathname.includes("/offres");
+    const isExpertisesPage = this.props.location.pathname.includes(
+      "/expertises"
+    );
 
     return (
       <Nav>
@@ -88,12 +82,16 @@ export const DesktopNavbar = class extends React.Component {
           >
             <SubList isActive={isOffresPage}>
               <List
-                to="/petit-budget"
+                to="/offres/petit-budget"
                 src={IconResponsive}
                 label="petit budget"
               />
-              <List to="/sur-mesure" src={IconPencil} label="sur mesure" />
-              <List to="/prototype" src={IconResponsive} label="proto" />
+              <List
+                to="/offres/sur-mesure"
+                src={IconPencil}
+                label="sur mesure"
+              />
+              <List to="/offres/agences" src={IconResponsive} label="agences" />
             </SubList>
           </List>
           <List
@@ -103,9 +101,9 @@ export const DesktopNavbar = class extends React.Component {
             isActive={isExpertisesPage}
           />
           <SubList isActive={isExpertisesPage}>
-            <List to="/site-internet" src={IconCoding} label="site" />
-            <List to="/trafic" src={IconHome} label="trafic" />
-            <List to="/analyse" src={IconFeature} label="analyse" />
+            <List to="/expertises/site" src={IconCoding} label="site" />
+            <List to="/expertises/trafic" src={IconHome} label="trafic" />
+            <List to="/expertises/analyse" src={IconFeature} label="analyse" />
           </SubList>
           <List to="/a-propos" src={IconUser} label="a propos" />
           <List to="/clients" src={IconHeart} label="clients" />

@@ -3,18 +3,15 @@ import styled from "styled-components";
 import { globalVariables } from "../components/globalStyle";
 
 const CoworkersStyled = styled.svg`
-  width: 200px;
-  height: auto;
+  width: 150px;
+  height: 130px;
   position: absolute;
-  top: 1rem;
-  right: 3rem;
-  z-index: 1;
-  opacity: 0.5;
+  bottom: 0;
+  left: 30%;
   @media (max-width: ${globalVariables.maxTablet}) {
-    width: 170px;
-    height: 105px;
-    right: -1rem;
-    bottom: 1rem;
+    left: 10%;
+    width: 125px;
+    height: auto;
   }
 `;
 
