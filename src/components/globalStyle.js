@@ -62,7 +62,7 @@ const GlobalStyles = createGlobalStyle`
   input, textarea {
     font-family: 'Roboto', sans-serif;
   }
-  p, a, span {
+  p, a, span, h2, h3, h4 {
     font-size: 14px;
     margin: 0;
     @media (min-width: ${globalVariables.minDesktop}) {

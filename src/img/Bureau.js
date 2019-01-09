@@ -5,22 +5,12 @@ import { globalVariables } from "../components/globalStyle";
 const BureauStyled = styled.svg`
   width: 500px;
   height: auto;
-  position: absolute;
-  top: 50%;
-  right: 10%;
-  transform: translateY(-50%);
-  z-index: 1;
   @media (max-width: ${globalVariables.maxTablet}) {
     width: 350px;
     height: auto;
-    right: 5%;
   }
   @media (max-width: ${globalVariables.maxMobile}) {
     width: 250px;
-    bottom: 0;
-    top: auto;
-    right: 50%;
-    transform: translateX(50%);
   }
 `;
 

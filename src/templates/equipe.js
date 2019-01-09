@@ -9,7 +9,6 @@ import Linkedin from "../icons/linkedin.svg";
 import Charlotte from "../img/charlotte.png";
 import Vincent from "../img/Vincent.jpeg";
 import SubTitle from "../components/subTitle";
-import ContentLayout from "../components/contentLayout";
 
 const Wrapper = styled.section`
   display: flex;
@@ -28,8 +27,8 @@ const Container = styled.div`
 `;
 
 const SubTitleParagraph = styled.h2`
-  color: ${props => props.theme.white};
-  font-weight: 700;
+  color: ${props => props.theme.darkGreen};
+  font-weight: 500;
   position: relative;
   display: inline;
   &::after {
@@ -39,17 +38,16 @@ const SubTitleParagraph = styled.h2`
     right: -10px;
     width: 5px;
     height: 5px;
-    background-color: ${props => props.theme.lightPink};
+    background-color: ${props => props.theme.pink};
     border-radius: 50%;
   }
 `;
 
 const Text = styled.p`
   text-align: justify;
-  color: ${props => props.theme.white};
+  /* color: ${props => props.theme.white}; */
   & strong {
-    font-weight: 500;
-    color: ${props => props.theme.lightPink};
+    color: ${props => props.theme.pink};
   }
 `;
 
@@ -84,7 +82,6 @@ const Description = styled.p`
   margin-top: 1rem;
   & > strong {
     color: ${props => props.theme.pink};
-    font-weight: 400;
   }
 `;
 
@@ -97,9 +94,8 @@ const LinkedinStyled = styled.img`
 const Equipe = ({ location }) => {
   return (
     <Layout location={location}>
-      <ContentLayout />
       <Wrapper>
-        <Spacer backgroundColor={theme.green} height="100vh" flex="0 0 40%">
+        <Spacer backgroundColor={theme.darkGrey} height="100vh" flex="0 0 40%">
           <Title label="A propos" />
 
           <Container>
