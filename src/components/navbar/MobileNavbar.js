@@ -196,19 +196,19 @@ export class MobileNavbar extends Component {
             </LinkStyled>
             <SubItem>
               <Item>
-                <LinkStyled to="/site-internet" activeClassName="active">
+                <LinkStyled to="/expertises/site" activeClassName="active">
                   <Icon src={IconCoding} />
                   <Text>Site internet</Text>
                 </LinkStyled>
               </Item>
               <Item>
-                <LinkStyled to="/trafic" activeClassName="active">
+                <LinkStyled to="/expertises/trafic" activeClassName="active">
                   <Icon src={IconFeature} />
                   <Text>Trafic</Text>
                 </LinkStyled>
               </Item>
               <Item>
-                <LinkStyled to="/analyse" activeClassName="active">
+                <LinkStyled to="/expertises/analyse" activeClassName="active">
                   <Icon src={IconFeature} />
                   <Text>Analyse</Text>
                 </LinkStyled>

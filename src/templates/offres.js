@@ -89,7 +89,7 @@ const CardContent = styled.div`
         case "darkGreen":
           return props.theme.darkGreen;
         default:
-          return props.theme.pink;
+          return props.theme.darkPink;
       }
     }};
   }
@@ -136,7 +136,7 @@ const List = styled.ul`
           case "darkGreen":
             return props.theme.darkGreen;
           default:
-            return props.theme.pink;
+            return props.theme.darkPink;
         }
       }};
     }
@@ -222,7 +222,11 @@ class Offres extends React.Component {
           );
         default:
           return (
-            <Offre contenu={liste_offre_3} color="pink" component={Process} />
+            <Offre
+              contenu={liste_offre_3}
+              color="darkPink"
+              component={Process}
+            />
           );
       }
     };
@@ -258,13 +262,13 @@ class Offres extends React.Component {
                 {Parser(contenu_offre_2.html)}
               </CardContent>
               <CardContent
-                color="lightPink"
+                color="darkPink"
                 status={this.state.offre3status}
                 onMouseEnter={this.onMouseEnter(3)}
                 id="offre3"
               >
                 <CardContentTitle>
-                  <Feature color="pink" />
+                  <Feature color="darkPink" />
                   {titre_offre_3.text}
                 </CardContentTitle>
                 {Parser(contenu_offre_3.html)}
