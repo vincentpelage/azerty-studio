@@ -169,21 +169,21 @@ export class MobileNavbar extends Component {
             </LinkStyled>
             <SubItem>
               <Item>
-                <LinkStyled to="/petit-budget" activeClassName="active">
+                <LinkStyled to="/offres/petit-budget" activeClassName="active">
                   <Icon src={IconResponsive} />
                   <Text>Petit budget</Text>
                 </LinkStyled>
               </Item>
               <Item>
-                <LinkStyled to="/sur-mesure" activeClassName="active">
+                <LinkStyled to="/offres/sur-mesure" activeClassName="active">
                   <Icon src={IconPencil} />
                   <Text>Sur mesure</Text>
                 </LinkStyled>
               </Item>
               <Item>
-                <LinkStyled to="/prototype" activeClassName="active">
+                <LinkStyled to="/offres/agences" activeClassName="active">
                   <Icon src={IconResponsive} />
-                  <Text>Prototype</Text>
+                  <Text>Agences</Text>
                 </LinkStyled>
               </Item>
             </SubItem>
