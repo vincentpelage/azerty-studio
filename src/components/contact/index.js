@@ -98,7 +98,11 @@ class Contact extends React.Component {
     const { prenom, nom, email, telephone, projet } = this.state;
     return (
       <Wrapper>
-        <Spacer backgroundColor={theme.darkGrey} height="100vh" flex="0 0 50%">
+        <Spacer
+          backgroundColor={this.props.backgroundColor}
+          height="100vh"
+          flex="0 0 50%"
+        >
           <SubTitle label="Contact" />
           <Container>
             <WrapperText>

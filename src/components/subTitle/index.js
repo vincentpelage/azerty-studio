@@ -47,7 +47,6 @@ const SubTitle = ({
   fontSize,
   noLine
 }) => {
-  console.log("noLine", noLine);
   return (
     <Wrapper textAlign={textAlign}>
       <StyledSubTitle

@@ -9,6 +9,7 @@ import Linkedin from "../icons/linkedin.svg";
 import Charlotte from "../img/charlotte.png";
 import Vincent from "../img/Vincent.jpeg";
 import SubTitle from "../components/subTitle";
+import HighFive from "../img/HighFive";
 
 const Wrapper = styled.section`
   display: flex;
@@ -38,7 +39,7 @@ const SubTitleParagraph = styled.h2`
     right: -10px;
     width: 5px;
     height: 5px;
-    background-color: ${props => props.theme.pink};
+    background-color: ${props => props.theme.darkPink};
     border-radius: 50%;
   }
 `;
@@ -47,7 +48,7 @@ const Text = styled.p`
   text-align: justify;
   /* color: ${props => props.theme.white}; */
   & strong {
-    color: ${props => props.theme.pink};
+    color: ${props => props.theme.darkPink};
   }
 `;
 
@@ -81,7 +82,7 @@ const Description = styled.p`
   text-align: justify;
   margin-top: 1rem;
   & > strong {
-    color: ${props => props.theme.pink};
+    color: ${props => props.theme.darkPink};
   }
 `;
 
@@ -118,6 +119,7 @@ const Equipe = ({ location }) => {
               vel gloria, ut nihil posset accedere, moriendi autem.
             </Text>
           </Container>
+          <HighFive />
         </Spacer>
         <Spacer height="100vh" flex="0 0 60%">
           <WrapperTeam>

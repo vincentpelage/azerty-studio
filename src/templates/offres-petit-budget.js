@@ -7,6 +7,7 @@ import Prix from "../components/offres-petit-budget/Prix";
 import Modeles from "../components/offres-petit-budget/Modeles";
 import Services from "../components/offres-petit-budget/Services";
 import Contact from "../components/contact";
+import {theme } from "../components/globalStyle";
 
 const PetitBudget = ({ location }) => {
   return (
@@ -16,7 +17,7 @@ const PetitBudget = ({ location }) => {
       <Prix />
       <Modeles />
       <Services />
-      <Contact textMobile="Un modèle vous plaît et vous souhaitez en discuter ?" />
+      <Contact backgroundColor={theme.darkGrey} textMobile="Un modèle vous plaît et vous souhaitez en discuter ?" />
     </Layout>
   );
 };
