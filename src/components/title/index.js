@@ -6,6 +6,8 @@ import { globalVariables } from "../globalStyle";
 const StyledTitle = styled.h1`
   display: flex;
   flex-direction: row;
+  justify-content: ${props =>
+    props.position === "center" ? "center" : "flex-start"};
   margin-bottom: 1.5rem;
   z-index: 1;
 `;
@@ -45,8 +47,8 @@ const Space = styled.span`
   width: 1rem;
 `;
 
-const Title = ({ label, color }) => (
-  <StyledTitle>
+const Title = ({ label, color, position }) => (
+  <StyledTitle position={position}>
     {label
       .split("")
       .map((letter, index) =>
