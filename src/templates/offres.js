@@ -79,6 +79,7 @@ const WrapperLeftContent = styled.div`
 const CardContent = styled.div`
   max-width: 400px;
   margin-top: 3rem;
+  opacity: ${props => (props.isSelected ? "1" : "0.5")};
   h2,
   p > strong {
     font-weight: 500;
@@ -93,7 +94,11 @@ const CardContent = styled.div`
       }
     }};
   }
+  @media (max-width: ${globalVariables.maxTablet}) {
+    opacity: 1;
+  }
   @media (max-width: ${globalVariables.maxMobile}) {
+    opacity: 1;
     width: 100%;
     margin-top: 2.5rem;
   }
@@ -240,8 +245,8 @@ class Offres extends React.Component {
               <CardContent
                 color="purple"
                 onMouseEnter={this.onMouseEnter(1)}
-                status={this.state.offre1status}
                 id="offre1"
+                isSelected={this.state.offreSelected === 1}
               >
                 <CardContentTitle>
                   <Responsive color="purple" />
@@ -251,9 +256,9 @@ class Offres extends React.Component {
               </CardContent>
               <CardContent
                 color="darkGreen"
-                status={this.state.offre2status}
                 onMouseEnter={this.onMouseEnter(2)}
                 id="offre2"
+                isSelected={this.state.offreSelected === 2}
               >
                 <CardContentTitle>
                   <PencilCase color="darkGreen" />
@@ -263,9 +268,9 @@ class Offres extends React.Component {
               </CardContent>
               <CardContent
                 color="darkPink"
-                status={this.state.offre3status}
                 onMouseEnter={this.onMouseEnter(3)}
                 id="offre3"
+                isSelected={this.state.offreSelected === 3}
               >
                 <CardContentTitle>
                   <Feature color="darkPink" />

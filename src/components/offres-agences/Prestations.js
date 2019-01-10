@@ -4,22 +4,22 @@ import styled from "styled-components";
 import Spacer from "../spacer/index";
 import Title from "../title/index";
 import SubTitle from "../subTitle";
-import Code from "../../icons/coding.svg";
-import Pencil from "../../icons/pencil-case.svg";
-import Analyse from "../../icons/analysis.svg";
+import Startup from "../../icons/startup.svg";
 import { globalVariables, theme } from "../globalStyle";
-import Monitor from "../../img/Monitor";
+// import Data from "../../img/Data";
 import ArrowScroll from "../ArrowScroll";
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 8rem;
   flex-wrap: wrap;
+  margin-top: 5rem;
+  margin-bottom: 3rem;
   @media (max-width: ${globalVariables.maxMobile}) {
     flex-direction: column;
     margin-top: 3rem;
+    margin-bottom: 4rem;
   }
 `;
 
@@ -28,7 +28,7 @@ const Item = styled.div`
   padding: 1rem;
   text-align: center;
   @media (max-width: ${globalVariables.maxTablet}) {
-    flex: 0 0 50%;
+    flex: 0 0 33%;
   }
   @media (max-width: ${globalVariables.maxMobile}) {
     flex: 0 0 100%;
@@ -38,7 +38,7 @@ const Item = styled.div`
 const CardItem = styled.div`
   background-color: ${props => props.theme.white};
   margin: 0 0.5rem 0.5rem 0;
-  padding: 2rem 1rem;
+  padding: 2rem 1rem 1rem 1rem;
   border-radius: ${globalVariables.borderRadius};
 `;
 
@@ -52,20 +52,13 @@ const WrapperIcon = styled.div`
   margin-bottom: 1rem;
 `;
 
-const Icon = styled.img`
-  /* width: 50px;
-  height: 50px; */
-`;
+const Icon = styled.img``;
 
 const Paragraph = styled.p`
   text-align: center;
-  padding: 1rem 0;
   min-height: 100px;
   & > strong {
     color: ${props => props.theme.darkGreen};
-  }
-  @media (max-width: ${globalVariables.maxTablet}) and (min-width: ${globalVariables.minTablet}) {
-    /* min-height: 150px; */
   }
   @media (max-width: ${globalVariables.maxMobile}) {
     min-height: auto;
@@ -75,16 +68,15 @@ const Paragraph = styled.p`
 const Prestations = () => {
   return (
     <Spacer height="100vh">
-      <Monitor />
-      <Title label="Sur mesure" />
+      <Title label="Agences" />
       <Wrapper>
         <Item>
           <CardItem>
             <WrapperIcon>
-              <Icon src={Code} />
+              <Icon src={Startup} />
             </WrapperIcon>
             <SubTitle
-              label="Site Vitrine"
+              label="Service"
               color="purple"
               backgroundColor="purple"
               textAlign="center"
@@ -99,10 +91,10 @@ const Prestations = () => {
         <Item>
           <CardItem>
             <WrapperIcon>
-              <Icon src={Pencil} />
+              <Icon src={Startup} />
             </WrapperIcon>
             <SubTitle
-              label="Site E-commerce"
+              label="Service"
               color="purple"
               backgroundColor="purple"
               textAlign="center"
@@ -115,10 +107,10 @@ const Prestations = () => {
         <Item>
           <CardItem>
             <WrapperIcon>
-              <Icon src={Analyse} />
+              <Icon src={Startup} />
             </WrapperIcon>
             <SubTitle
-              label="Application Web"
+              label="Service"
               color="purple"
               backgroundColor="purple"
               textAlign="center"
@@ -133,10 +125,58 @@ const Prestations = () => {
         <Item>
           <CardItem>
             <WrapperIcon>
-              <Icon src={Analyse} />
+              <Icon src={Startup} />
             </WrapperIcon>
             <SubTitle
-              label="Prototype (MVP)"
+              label="Service"
+              color="purple"
+              backgroundColor="purple"
+              textAlign="center"
+              fontSize="20px"
+              noLine={true}
+            />
+            <Paragraph>Tester rapidement votre idée</Paragraph>
+          </CardItem>
+        </Item>
+        <Item>
+          <CardItem>
+            <WrapperIcon>
+              <Icon src={Startup} />
+            </WrapperIcon>
+            <SubTitle
+              label="Service"
+              color="purple"
+              backgroundColor="purple"
+              textAlign="center"
+              fontSize="20px"
+              noLine={true}
+            />
+            <Paragraph>Tester rapidement votre idée</Paragraph>
+          </CardItem>
+        </Item>
+        <Item>
+          <CardItem>
+            <WrapperIcon>
+              <Icon src={Startup} />
+            </WrapperIcon>
+            <SubTitle
+              label="Service"
+              color="purple"
+              backgroundColor="purple"
+              textAlign="center"
+              fontSize="20px"
+              noLine={true}
+            />
+            <Paragraph>Tester rapidement votre idée</Paragraph>
+          </CardItem>
+        </Item>
+        <Item>
+          <CardItem>
+            <WrapperIcon>
+              <Icon src={Startup} />
+            </WrapperIcon>
+            <SubTitle
+              label="Service"
               color="purple"
               backgroundColor="purple"
               textAlign="center"

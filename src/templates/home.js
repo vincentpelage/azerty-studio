@@ -53,7 +53,7 @@ const Logo = styled.h1`
 `;
 
 const Letter = styled.span`
-  border: 2px solid ${props => props.theme.whiteOpacity};
+  border: 2px solid ${props => props.theme.whiteOpacityLetter};
   text-transform: uppercase;
   font-size: 70px;
   height: 70px;
