@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 import Spacer from "../spacer/index";
 import SubTitle from "../subTitle";
-import { theme } from "../globalStyle";
 import Mobile from "../../icons/phone-call.svg";
 import Mail from "../../icons/email.svg";
 import { globalVariables } from "../globalStyle";

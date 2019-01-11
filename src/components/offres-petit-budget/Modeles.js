@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { darken } from "polished";
 
 import Spacer from "../spacer";
 import SubTitle from "../subTitle";
@@ -32,9 +31,7 @@ const Button = styled.button`
     border-right: 1px solid ${props => props.theme.white};
   }
   &:hover {
-    /* background: ${darken(0.1, theme.darkGreen)}; */
-  background-color: ${props => props.theme.purple};
-
+    background-color: ${props => props.theme.purple};
   }
 `;
 
@@ -102,7 +99,7 @@ const Name = styled.p`
 
 class Modeles extends React.Component {
   state = {
-    category: 1
+    category: 0
   };
 
   handleClick = number => () => {
@@ -111,54 +108,40 @@ class Modeles extends React.Component {
   };
 
   render() {
+    // const data = this.props.data.body1[this.state.category].primary;
+
     return (
       <Spacer backgroundColor={theme.darkGrey} height="100vh">
         <SubTitle label="Modeles" />
         <Filter>
           <Button
+            onClick={this.handleClick(0)}
+            isActive={this.state.category === 0}
+          >
+            Une page
+          </Button>
+          <Button
             onClick={this.handleClick(1)}
             isActive={this.state.category === 1}
           >
-            Une page
+            Multi-pages
           </Button>
           <Button
             onClick={this.handleClick(2)}
             isActive={this.state.category === 2}
           >
-            Multi-pages
-          </Button>
-          <Button
-            onClick={this.handleClick(3)}
-            isActive={this.state.category === 3}
-          >
             E-commerce
           </Button>
         </Filter>
         <WrapperModele>
-          <Item>
-            <Link>
-              <Name>Modele 1</Name>
-              <Img img={Modele1} className="modele-img" />
-            </Link>
-          </Item>
-          <Item>
-            <Link>
-              <Name>Modele 1</Name>
-              <Img img={Modele1} className="modele-img" />
-            </Link>
-          </Item>
-          <Item>
-            <Link>
-              <Name>Modele 1</Name>
-              <Img img={Modele1} className="modele-img" />
-            </Link>
-          </Item>
-          <Item>
-            <Link>
-              <Name>Modele 1</Name>
-              <Img img={Modele1} className="modele-img" />
-            </Link>
-          </Item>
+          {/* {Object.keys(data).map((modele, index) => (
+            <Item key={index}>
+              <Link>
+                <Name>{data[modele].alt}</Name>
+                <Img img={data[modele].url} className="modele-img" />
+              </Link>
+            </Item>
+          ))} */}
           <Item>
             <Link>
               <Name>Modele 1</Name>
