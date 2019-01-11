@@ -63,7 +63,7 @@ const BurgerBar = styled.span`
         ? "transparent"
         : props.isHome
         ? props.theme.whiteNavOpacity
-        : props.theme.darkGreen}};
+        : props.theme.darkGreen};
   }
   &:nth-child(3) {
     transform: ${props =>

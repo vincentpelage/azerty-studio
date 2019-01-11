@@ -132,6 +132,7 @@ const Equipe = ({ location }) => {
               </Description>
               <a
                 href="https://www.linkedin.com/in/charlottecady/"
+                // eslint-disable-next-line
                 target="_blank"
                 rel="nooper noreferrer"
               >
@@ -148,6 +149,7 @@ const Equipe = ({ location }) => {
               </Description>
               <a
                 href="https://www.linkedin.com/in/vincent-pelage/"
+                // eslint-disable-next-line
                 target="_blank"
                 rel="nooper noreferrer"
               >
