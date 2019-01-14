@@ -105,7 +105,7 @@ const Avantages = () => {
           </Text>
         </Item>
       </AvantageList>
-      <ArrowScroll fill={theme.darkGreen} ancre="" positionLeft="50%" />
+      <ArrowScroll fill={theme.darkGreen} ancreId="etapes" positionLeft="50%" />
       <Ovni />
     </Spacer>
   );

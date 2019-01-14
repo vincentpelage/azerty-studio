@@ -103,7 +103,7 @@ const Text = styled.p`
 
 const Etapes = () => {
   return (
-    <Spacer height="100vh">
+    <Spacer height="100vh" id="etapes-sur-mesure">
       <SubTitle label="Notre methode" textAlign="center" />
       <List>
         <Item>
@@ -142,7 +142,7 @@ const Etapes = () => {
           </Text>
         </Item>
       </List>
-      <ArrowScroll fill={theme.purple} positionLeft="50%" />
+      <ArrowScroll fill={theme.purple} positionLeft="50%" ancreId="contact" />
       <Finish />
     </Spacer>
   );

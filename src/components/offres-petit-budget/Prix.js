@@ -1,4 +1,6 @@
 import React from "react";
+import { TweenMax } from "gsap";
+import "gsap/ScrollToPlugin";
 
 import Spacer from "../spacer/index";
 import SubTitle from "../subTitle/index";
@@ -86,8 +88,17 @@ const Prix = () => {
       }
     ]
   };
+
+  const handleClick = () => {
+    const top = document.getElementById("modeles").offsetTop;
+    TweenMax.to(window, 0.5, {
+      scrollTo: { y: top },
+      ease: "Power3.easeOut"
+    });
+  };
+
   return (
-    <Spacer height="100vh">
+    <Spacer height="100vh" id="prix">
       <SubTitle label="Prix" textAlign="center" />
       <WrapperSlider>
         <Slider {...settings}>
@@ -113,7 +124,9 @@ const Prix = () => {
                 </List>
               </CardBody>
             </Card>
-            <Button backgroundcolor="purple">Voir les modeles</Button>
+            <Button backgroundcolor="purple" onClick={handleClick}>
+              Voir les modeles
+            </Button>
           </Column>
           <Column>
             <Card>
@@ -140,7 +153,9 @@ const Prix = () => {
                 </List>
               </CardBody>
             </Card>
-            <Button backgroundcolor="purple">Voir les modeles</Button>
+            <Button backgroundcolor="purple" onClick={handleClick}>
+              Voir les modeles
+            </Button>
           </Column>
           <Column>
             <Card>
@@ -173,7 +188,9 @@ const Prix = () => {
                 </List>
               </CardBody>
             </Card>
-            <Button backgroundcolor="purple">Voir les modeles</Button>
+            <Button backgroundcolor="purple" onClick={handleClick}>
+              Voir les modeles
+            </Button>
           </Column>
         </Slider>
       </WrapperSlider>

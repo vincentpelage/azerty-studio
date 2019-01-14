@@ -187,7 +187,11 @@ const Prestations = () => {
           </CardItem>
         </Item>
       </Wrapper>
-      <ArrowScroll fill={theme.darkGreen} ancre="" positionLeft="50%" />
+      <ArrowScroll
+        fill={theme.darkGreen}
+        ancreId="avantages-agences"
+        positionLeft="50%"
+      />
     </Spacer>
   );
 };
