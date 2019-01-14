@@ -22,12 +22,20 @@ const SpacerStyled = styled.section`
   }
 `;
 
-const Spacer = ({ backgroundColor, height, flex, fullHeight, children }) => (
+const Spacer = ({
+  backgroundColor,
+  height,
+  flex,
+  fullHeight,
+  id,
+  children
+}) => (
   <SpacerStyled
     backgroundColor={backgroundColor}
     height={height}
     flex={flex}
     fullHeight={fullHeight}
+    id={id}
   >
     {children}
   </SpacerStyled>

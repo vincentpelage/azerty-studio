@@ -103,7 +103,7 @@ const Text = styled.p`
 
 const Etapes = () => {
   return (
-    <Spacer backgroundColor={theme.darkGrey} height="100vh">
+    <Spacer backgroundColor={theme.darkGrey} height="100vh" id="etapes">
       <SubTitle label="Comment ca marche ?" textAlign="center" />
       <List>
         <Item>
@@ -132,7 +132,7 @@ const Etapes = () => {
           </Text>
         </Item>
       </List>
-      <ArrowScroll fill={theme.purple} positionLeft="50%" />
+      <ArrowScroll fill={theme.purple} ancreId="prix" positionLeft="50%" />
       <Coffee />
     </Spacer>
   );

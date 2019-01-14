@@ -55,7 +55,11 @@ const Text = styled.p`
 
 const Avantages = () => {
   return (
-    <Spacer height="100vh" backgroundColor={theme.darkGrey}>
+    <Spacer
+      height="100vh"
+      backgroundColor={theme.darkGrey}
+      id="avantages-agences"
+    >
       <SubTitle label="Avantages" />
       <AvantageList>
         <Item>
@@ -105,7 +109,11 @@ const Avantages = () => {
           </Text>
         </Item>
       </AvantageList>
-      <ArrowScroll fill={theme.darkGreen} ancre="" positionLeft="50%" />
+      <ArrowScroll
+        fill={theme.darkGreen}
+        ancreId="contact"
+        positionLeft="50%"
+      />
       <Game />
     </Spacer>
   );

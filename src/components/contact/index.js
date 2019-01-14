@@ -96,7 +96,7 @@ class Contact extends React.Component {
   render() {
     const { prenom, nom, email, telephone, projet } = this.state;
     return (
-      <Wrapper>
+      <Wrapper id="contact">
         <Spacer
           backgroundColor={this.props.backgroundColor}
           height="100vh"
