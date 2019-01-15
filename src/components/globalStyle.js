@@ -38,7 +38,6 @@ export const theme = {
 };
 
 const GlobalStyles = () => {
-  console.log("STYLES");
   const GlobalDefaults = createGlobalStyle`
 
   @font-face {
@@ -53,7 +52,7 @@ const GlobalStyles = () => {
     @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
-    background-color: ${props => props.theme.grey};
+    background-color: ${theme.grey};
     line-height: 1.5;
     color: ${theme.black};
     -webkit-font-smoothing: antialiased;

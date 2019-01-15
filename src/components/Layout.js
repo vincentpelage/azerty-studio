@@ -83,9 +83,10 @@ const TemplateWrapper = ({ children, location }) => {
             <meta property="og:url" content="/" />
             <meta property="og:image" content="/img/og-image.jpg" />
           </Helmet>
+          <GlobalStyles />
+
           <ThemeProvider theme={theme}>
             <LayoutContainer>
-              <GlobalStyles />
               <Desktop>
                 <DesktopNavbar location={location} />
               </Desktop>
