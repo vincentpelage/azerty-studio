@@ -27,7 +27,10 @@ const List = styled.ul`
   display: flex;
   flex-direction: row;
   text-align: center;
-  padding-top: 13rem;
+  padding-top: 18rem;
+  @media (max-width: ${globalVariables.medDesktop}) {
+    padding-top: 13rem;
+  }
   @media (max-width: ${globalVariables.maxTablet}) {
     flex-direction: column;
     padding-top: 4rem;

@@ -27,6 +27,7 @@ export const theme = {
   whiteOpacityLetter: "rgba(255, 255, 255, 0.65)",
   whiteOpacityClients: "rgba(255, 255, 255, 0.9)",
   whiteNavOpacity: "rgba(255, 255, 255, 0.8)",
+  whiteOpacity: "rgba(255, 255, 255, 0.5)",
   lightPink: "#FEBCBE",
   pink: "#EE8E9E",
   darkPink: "#F86D70",
@@ -63,7 +64,7 @@ const GlobalStyles = createGlobalStyle`
   input, textarea {
     font-family: 'Roboto', sans-serif;
   }
-  p, a, span, h2, h3, h4, button {
+  p, a, span, h2, h3, h4, button, li {
     font-size: 14px;
     margin: 0;
     @media (min-width: ${globalVariables.minDesktop}) {

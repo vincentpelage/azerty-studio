@@ -33,8 +33,9 @@ const WrapperRight = styled.div`
   flex: 0 0 50%;
   background-color: ${props => props.theme.white};
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   @media (max-width: ${globalVariables.maxTablet}) {
     flex: 0 0 100%;
     padding: 1rem 2rem 3rem 2rem;
@@ -55,7 +56,7 @@ const WrapperLeft = styled.div`
     right: -20px;
     background-color: ${props => props.theme.grey};
     transform: rotate(45deg);
-    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0ms;
+    transition: all 1s cubic-bezier(0.19, 1, 0.22, 1) 0ms;
     @media (max-width: ${globalVariables.maxTablet}) {
       top: auto;
       bottom: -20px;
@@ -76,10 +77,22 @@ const WrapperLeftContent = styled.div`
   }
 `;
 
+const CardLink = styled.a`
+  color: ${props => props.theme.black};
+`;
+
 const CardContent = styled.div`
-  max-width: 400px;
-  margin-top: 3rem;
+  margin-top: 4rem;
   opacity: ${props => (props.isSelected ? "1" : "0.5")};
+  border-radius: ${globalVariables.borderRadius};
+  padding: ${props => (props.isSelected ? "1rem 2rem" : null)};
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+  /* &:hover {
+    img {
+      transform: rotate(360deg);
+    }
+  } */
   h2,
   p > strong {
     font-weight: 500;
@@ -93,6 +106,15 @@ const CardContent = styled.div`
           return props.theme.darkPink;
       }
     }};
+  }
+  p {
+    max-width: 500px;
+    @media (max-width: ${globalVariables.medDesktop}) {
+      max-width: 400px;
+    }
+  }
+  @media (max-width: ${globalVariables.medDesktop}) {
+    margin-top: 3rem;
   }
   @media (max-width: ${globalVariables.maxTablet}) {
     opacity: 1;
@@ -167,6 +189,11 @@ const WrapperIcon = styled.div`
     border-radius: 50%;
     padding: 8px;
     margin-right: 1rem;
+`;
+
+const Icon = styled.img`
+  transform: ${props => (props.isSelected ? "rotate(360deg)" : null)};
+  transition: transform 1s ease-in-out;
 `;
 
 const Offre = ({ contenu, color, component, title }) => (
@@ -252,48 +279,54 @@ class Offres extends React.Component {
           <WrapperLeft topPosition={this.state.topPosition}>
             <Title label={titre_offres.text} />
             <WrapperLeftContent>
-              <CardContent
-                color="purple"
-                onMouseEnter={this.onMouseEnter(1)}
-                id="offre1"
-                isSelected={this.state.offreSelected === 1}
-              >
-                <CardContentTitle>
-                  <WrapperIcon color="purple">
-                    <img src={IconResponsive} alt={titre_offre_1.text} />
-                  </WrapperIcon>
-                  {titre_offre_1.text}
-                </CardContentTitle>
-                {Parser(contenu_offre_1.html)}
-              </CardContent>
-              <CardContent
-                color="darkGreen"
-                onMouseEnter={this.onMouseEnter(2)}
-                id="offre2"
-                isSelected={this.state.offreSelected === 2}
-              >
-                <CardContentTitle>
-                  <WrapperIcon color="darkGreen">
-                    <img src={IconPaint} alt={titre_offre_2.text} />
-                  </WrapperIcon>
-                  {titre_offre_2.text}
-                </CardContentTitle>
-                {Parser(contenu_offre_2.html)}
-              </CardContent>
-              <CardContent
-                color="darkPink"
-                onMouseEnter={this.onMouseEnter(3)}
-                id="offre3"
-                isSelected={this.state.offreSelected === 3}
-              >
-                <CardContentTitle>
-                  <WrapperIcon color="darkPink">
-                    <img src={IconTarget} alt={titre_offre_3.text} />
-                  </WrapperIcon>
-                  {titre_offre_3.text}
-                </CardContentTitle>
-                {Parser(contenu_offre_3.html)}
-              </CardContent>
+              <CardLink href="/offres/petit-budget">
+                <CardContent
+                  color="purple"
+                  onMouseEnter={this.onMouseEnter(1)}
+                  id="offre1"
+                  isSelected={this.state.offreSelected === 1}
+                >
+                  <CardContentTitle>
+                    <WrapperIcon color="purple">
+                      <Icon src={IconResponsive} alt={titre_offre_1.text} />
+                    </WrapperIcon>
+                    {titre_offre_1.text}
+                  </CardContentTitle>
+                  {Parser(contenu_offre_1.html)}
+                </CardContent>
+              </CardLink>
+              <CardLink href="/offres/sur-mesure">
+                <CardContent
+                  color="darkGreen"
+                  onMouseEnter={this.onMouseEnter(2)}
+                  id="offre2"
+                  isSelected={this.state.offreSelected === 2}
+                >
+                  <CardContentTitle>
+                    <WrapperIcon color="darkGreen">
+                      <Icon src={IconPaint} alt={titre_offre_2.text} />
+                    </WrapperIcon>
+                    {titre_offre_2.text}
+                  </CardContentTitle>
+                  {Parser(contenu_offre_2.html)}
+                </CardContent>
+              </CardLink>
+              <CardLink href="/offres/agences">
+                <CardContent
+                  color="darkPink"
+                  onMouseEnter={this.onMouseEnter(3)}
+                  id="offre3"
+                  isSelected={this.state.offreSelected === 3}
+                >
+                  <CardContentTitle>
+                    <WrapperIcon color="darkPink">
+                      <Icon src={IconTarget} alt={titre_offre_3.text} />
+                    </WrapperIcon>
+                    {titre_offre_3.text}
+                  </CardContentTitle>
+                  {Parser(contenu_offre_3.html)}
+                </CardContent>
+              </CardLink>
             </WrapperLeftContent>
           </WrapperLeft>
           <WrapperRight>

@@ -12,8 +12,11 @@ import "../../../node_modules/slick-carousel/slick/slick.css";
 import "../../../node_modules/slick-carousel/slick/slick-theme.css";
 
 const WrapperSlider = styled.div`
-  max-width: 1050px;
+  max-width: 1250px;
   margin: 2rem auto 0 auto;
+  @media (max-width: ${globalVariables.medDesktop}) {
+    max-width: 1050px;
+  }
 `;
 
 const Column = styled.div`
@@ -50,7 +53,10 @@ const CardBody = styled.div`
   padding: 1rem 2rem;
   border-bottom-right-radius: ${globalVariables.borderRadius};
   border-bottom-left-radius: ${globalVariables.borderRadius};
-  min-height: 450px;
+  min-height: 550px;
+  @media (max-width: ${globalVariables.medDesktop}) {
+    min-height: 450px;
+  }
 `;
 
 const List = styled.ul`
