@@ -4,15 +4,17 @@ import { Link } from "gatsby";
 
 import logo from "../../img/azertylogo.png";
 import IconHome from "../../icons/home.svg";
-import IconCoding from "../../icons/coding.svg";
-import IconFeature from "../../icons/feature.svg";
+import IconPaint from "../../icons/paint-brush.svg";
+import IconTarget from "../../icons/webmarketing.svg";
 import IconHeart from "../../icons/heart.svg";
 import IconMonitor from "../../icons/monitor.svg";
 import IconEnvelope from "../../icons/envelope.svg";
 import IconUser from "../../icons/user.svg";
-import IconPencil from "../../icons/pencil-case.svg";
 import IconResponsive from "../../icons/responsive.svg";
-import IconSettings from "../../icons/settings.svg";
+import IconMagic from "../../icons/magic-wand.svg";
+import IconSpace from "../../icons/startup.svg";
+import IconStats from "../../icons/line-chart.svg";
+import IconFlask from "../../icons/flask.svg";
 
 const Nav = styled.nav`
   position: relative;
@@ -176,13 +178,13 @@ export class MobileNavbar extends Component {
               </Item>
               <Item>
                 <LinkStyled to="/offres/sur-mesure" activeClassName="active">
-                  <Icon src={IconPencil} />
+                  <Icon src={IconPaint} />
                   <Text>Sur mesure</Text>
                 </LinkStyled>
               </Item>
               <Item>
                 <LinkStyled to="/offres/agences" activeClassName="active">
-                  <Icon src={IconResponsive} />
+                  <Icon src={IconTarget} />
                   <Text>Agences</Text>
                 </LinkStyled>
               </Item>
@@ -191,25 +193,25 @@ export class MobileNavbar extends Component {
 
           <Item>
             <LinkStyled to="/expertises" activeClassName="active">
-              <Icon src={IconSettings} />
+              <Icon src={IconMagic} />
               <Text>Expertises</Text>
             </LinkStyled>
             <SubItem>
               <Item>
                 <LinkStyled to="/expertises/site" activeClassName="active">
-                  <Icon src={IconCoding} />
+                  <Icon src={IconFlask} />
                   <Text>Site internet</Text>
                 </LinkStyled>
               </Item>
               <Item>
                 <LinkStyled to="/expertises/trafic" activeClassName="active">
-                  <Icon src={IconFeature} />
+                  <Icon src={IconSpace} />
                   <Text>Trafic</Text>
                 </LinkStyled>
               </Item>
               <Item>
                 <LinkStyled to="/expertises/analyse" activeClassName="active">
-                  <Icon src={IconFeature} />
+                  <Icon src={IconStats} />
                   <Text>Analyse</Text>
                 </LinkStyled>
               </Item>

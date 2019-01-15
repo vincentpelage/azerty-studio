@@ -7,9 +7,9 @@ import Parser from "html-react-parser";
 import Foyt from "../img/Foyt";
 import Resume from "../img/Resume";
 import Process from "../img/Process";
-import Responsive from "../icons/Responsive";
-import PencilCase from "../icons/PencilCase";
-import Feature from "../icons/Feature";
+import IconResponsive from "../icons/responsive.svg";
+import IconPaint from "../icons/paint-brush.svg";
+import IconTarget from "../icons/webmarketing.svg";
 import { ButtonLink } from "../components/button";
 import Title from "../components/title";
 import {
@@ -110,7 +110,7 @@ const CardContentTitle = styled.h2`
   margin-bottom: 0.5rem;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   @media (max-width: ${globalVariables.maxTablet}) {
     font-size: 18px;
     justify-content: ${props =>
@@ -157,6 +157,16 @@ const Trait = styled.hr`
   border-color: ${props => props.theme[props.color]};
   margin: 2rem auto 0;
   border-radius: 30px;
+`;
+
+const WrapperIcon = styled.div`
+    width: 40px;
+    height: 40px;
+    background-color: ${props => props.theme[props.color]};
+    /* border-radius: ${globalVariables.borderRadius}; */
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 1rem;
 `;
 
 const Offre = ({ contenu, color, component, title }) => (
@@ -249,7 +259,9 @@ class Offres extends React.Component {
                 isSelected={this.state.offreSelected === 1}
               >
                 <CardContentTitle>
-                  <Responsive color="purple" />
+                  <WrapperIcon color="purple">
+                    <img src={IconResponsive} alt={titre_offre_1.text} />
+                  </WrapperIcon>
                   {titre_offre_1.text}
                 </CardContentTitle>
                 {Parser(contenu_offre_1.html)}
@@ -261,7 +273,9 @@ class Offres extends React.Component {
                 isSelected={this.state.offreSelected === 2}
               >
                 <CardContentTitle>
-                  <PencilCase color="darkGreen" />
+                  <WrapperIcon color="darkGreen">
+                    <img src={IconPaint} alt={titre_offre_2.text} />
+                  </WrapperIcon>
                   {titre_offre_2.text}
                 </CardContentTitle>
                 {Parser(contenu_offre_2.html)}
@@ -273,7 +287,9 @@ class Offres extends React.Component {
                 isSelected={this.state.offreSelected === 3}
               >
                 <CardContentTitle>
-                  <Feature color="darkPink" />
+                  <WrapperIcon color="darkPink">
+                    <img src={IconTarget} alt={titre_offre_3.text} />
+                  </WrapperIcon>
                   {titre_offre_3.text}
                 </CardContentTitle>
                 {Parser(contenu_offre_3.html)}

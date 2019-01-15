@@ -4,9 +4,10 @@ import styled from "styled-components";
 import Spacer from "../spacer/index";
 import Title from "../title/index";
 import SubTitle from "../subTitle";
-import Code from "../../icons/coding.svg";
-import Pencil from "../../icons/pencil-case.svg";
-import Analyse from "../../icons/analysis.svg";
+import Code from "../../icons/web-site.svg";
+import Ecommerce from "../../icons/online-shop.svg";
+import Programming from "../../icons/programming.svg";
+import Idea from "../../icons/idea.svg";
 import { globalVariables, theme } from "../globalStyle";
 import Monitor from "../../img/Monitor";
 import ArrowScroll from "../ArrowScroll";
@@ -99,7 +100,7 @@ const Prestations = () => {
         <Item>
           <CardItem>
             <WrapperIcon>
-              <Icon src={Pencil} />
+              <Icon src={Ecommerce} />
             </WrapperIcon>
             <SubTitle
               label="Site E-commerce"
@@ -115,7 +116,7 @@ const Prestations = () => {
         <Item>
           <CardItem>
             <WrapperIcon>
-              <Icon src={Analyse} />
+              <Icon src={Programming} />
             </WrapperIcon>
             <SubTitle
               label="Application Web"
@@ -133,7 +134,7 @@ const Prestations = () => {
         <Item>
           <CardItem>
             <WrapperIcon>
-              <Icon src={Analyse} />
+              <Icon src={Idea} />
             </WrapperIcon>
             <SubTitle
               label="Prototype (MVP)"

@@ -3,15 +3,17 @@ import styled, { keyframes } from "styled-components";
 
 import logo from "../../img/azertylogo.png";
 import IconHome from "../../icons/home.svg";
-import IconCoding from "../../icons/coding.svg";
-import IconFeature from "../../icons/feature.svg";
+import IconResponsive from "../../icons/responsive.svg";
+import IconPaint from "../../icons/paint-brush.svg";
+import IconTarget from "../../icons/webmarketing.svg";
 import IconHeart from "../../icons/heart.svg";
 import IconMonitor from "../../icons/monitor.svg";
 import IconEnvelope from "../../icons/envelope.svg";
 import IconUser from "../../icons/user.svg";
-import IconPencil from "../../icons/pencil-case.svg";
-import IconResponsive from "../../icons/responsive.svg";
-import IconSettings from "../../icons/settings.svg";
+import IconMagic from "../../icons/magic-wand.svg";
+// import IconSpace from "../icons/startup.svg";
+// import IconStats from "../icons/line-chart.svg";
+// import IconFlask from "../icons/flask.svg";
 import List from "./List";
 
 const Nav = styled.nav`
@@ -88,23 +90,28 @@ export const DesktopNavbar = class extends React.Component {
               />
               <List
                 to="/offres/sur-mesure"
-                src={IconPencil}
+                src={IconPaint}
                 label="sur mesure"
               />
-              <List to="/offres/agences" src={IconResponsive} label="agences" />
+              <List to="/offres/agences" src={IconTarget} label="agences" />
             </SubList>
           </List>
           <List
             to="/expertises"
-            src={IconSettings}
+            src={IconMagic}
             label="expertises"
             isActive={isExpertisesPage}
-          />
-          <SubList isActive={isExpertisesPage}>
-            <List to="/expertises/site" src={IconCoding} label="site" />
-            <List to="/expertises/trafic" src={IconHome} label="trafic" />
-            <List to="/expertises/analyse" src={IconFeature} label="analyse" />
-          </SubList>
+          >
+            {/* <SubList isActive={isExpertisesPage}>
+              <List to="/expertises/site" src={IconFlask} label="site" />
+              <List to="/expertises/trafic" src={IconSpace} label="trafic" />
+              <List
+                to="/expertises/analyse"
+                src={IconStats}
+                label="analyse"
+              />
+            </SubList> */}
+          </List>
           <List to="/a-propos" src={IconUser} label="a propos" />
           <List to="/clients" src={IconHeart} label="clients" />
           <List to="/contact" src={IconEnvelope} label="contact" />
