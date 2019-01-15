@@ -37,7 +37,9 @@ export const theme = {
   darkGrey: "#eae8e8"
 };
 
-const GlobalStyles = createGlobalStyle`
+const GlobalStyles = () => {
+  console.log("STYLES");
+  const GlobalDefaults = createGlobalStyle`
 
   @font-face {
     font-family: Aqua;
@@ -89,6 +91,9 @@ const GlobalStyles = createGlobalStyle`
   }
   
 `;
+
+  return <GlobalDefaults />;
+};
 
 export const Desktop = props => (
   <Responsive {...props} minWidth={globalVariables.minDesktop} />
