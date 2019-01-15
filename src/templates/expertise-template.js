@@ -55,7 +55,10 @@ const Image = styled.img`
 `;
 
 const Content = styled.div`
-  padding: 3rem 3rem 0 0;
+  padding: 5rem 3rem 0 0;
+  @media (max-width: ${globalVariables.medDesktop}) {
+    padding: 3rem 3rem 0 0;
+  }
   @media (max-width: ${globalVariables.maxMobile}) {
     padding: 2rem 0;
   }

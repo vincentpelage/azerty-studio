@@ -27,6 +27,7 @@ export const theme = {
   whiteOpacityLetter: "rgba(255, 255, 255, 0.65)",
   whiteOpacityClients: "rgba(255, 255, 255, 0.9)",
   whiteNavOpacity: "rgba(255, 255, 255, 0.8)",
+  whiteOpacity: "rgba(255, 255, 255, 0.5)",
   lightPink: "#FEBCBE",
   pink: "#EE8E9E",
   darkPink: "#F86D70",
@@ -56,36 +57,37 @@ const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     text-size-adjust: 100%;
-  }
-  h1 {
-    font-family: 'Aqua', sans-serif;
-  }
-  input, textarea {
-    font-family: 'Roboto', sans-serif;
-  }
-  p, a, span, h2, h3, h4, button {
-    font-size: 14px;
-    margin: 0;
-    @media (min-width: ${globalVariables.minDesktop}) {
-      font-size: 16px;
+    h1 {
+      font-family: 'Aqua', sans-serif;
     }
-    @media (min-width: ${globalVariables.medDesktop}) {
-      font-size: 18px;
+    input, textarea {
+      font-family: 'Roboto', sans-serif;
     }
-    @media (min-width: ${globalVariables.bigDesktop}) {
-      font-size: 20px;
+    p, a, span, h2, h3, h4, button, li {
+      font-size: 14px;
+      margin: 0;
+      @media (min-width: ${globalVariables.minDesktop}) {
+        font-size: 16px;
+      }
+      @media (min-width: ${globalVariables.medDesktop}) {
+        font-size: 18px;
+      }
+      @media (min-width: ${globalVariables.bigDesktop}) {
+        font-size: 20px;
+      }
+    }
+    strong {
+      font-weight: 500;
+    }
+    a {
+      text-decoration: none;
+      cursor: pointer;
+    }
+    button:focus, input:focus, textarea:focus, div:focus {
+      outline: none;
     }
   }
-  strong {
-    font-weight: 500;
-  }
-  a {
-    text-decoration: none;
-    cursor: pointer;
-  }
-  button:focus, input:focus, textarea:focus, div:focus {
-    outline: none;
-  }
+  
 `;
 
 export const Desktop = props => (

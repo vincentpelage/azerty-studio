@@ -112,7 +112,12 @@ const Home = ({ data, location }) => {
         </Logo>
         <Baseline>{data.markdownRemark.frontmatter.baseline}</Baseline>
 
-        <ButtonLink to="/offres" backgroundcolor="lightPink" size="large">
+        <ButtonLink
+          to="/offres"
+          backgroundcolor="lightPink"
+          size="large"
+          margin="1rem 0 0 0"
+        >
           Voir nos offres
         </ButtonLink>
       </Wrapper>

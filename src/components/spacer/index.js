@@ -8,13 +8,10 @@ const SpacerStyled = styled.section`
   flex: ${props => (props.flex ? props.flex : null)};
   background-color: ${props =>
     props.backgroundColor ? props.backgroundColor : "transparent"};
-  min-height: ${props => (props.height ? props.height : "auto")};
+  min-height: ${props => (props.height ? props.height : "100vh")};
+
   @media (max-width: ${globalVariables.maxTablet}) {
     padding: 6rem 2rem;
-  }
-  @media (min-width: ${globalVariables.medDesktop}) {
-    /* max-height: 800px; */
-    min-height: ${props => (props.fullHeight ? "100vh" : "auto")};
   }
   /* Only tablet Portrait */
   @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {

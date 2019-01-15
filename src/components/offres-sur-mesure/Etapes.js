@@ -27,7 +27,10 @@ const List = styled.ul`
   display: flex;
   flex-direction: row;
   text-align: center;
-  padding-top: 13rem;
+  padding-top: 18rem;
+  @media (max-width: ${globalVariables.medDesktop}) {
+    padding-top: 13rem;
+  }
   @media (max-width: ${globalVariables.maxTablet}) {
     flex-direction: column;
     padding-top: 4rem;
@@ -98,7 +101,10 @@ const Title = styled.p`
 `;
 
 const Text = styled.p`
-  font-size: 14px;
+  font-size: 16px;
+  @media (max-width: ${globalVariables.medDesktop}) {
+    font-size: 14px;
+  }
 `;
 
 const Etapes = () => {

@@ -5,6 +5,7 @@ import Spacer from "../spacer";
 import SubTitle from "../subTitle";
 import { theme, globalVariables } from "../globalStyle";
 import Modele1 from "../../img/modele1.png";
+// import ArrowScroll from "../ArrowScroll";
 
 const Filter = styled.div`
   margin-top: 3rem;
@@ -33,6 +34,9 @@ const Button = styled.button`
   &:hover {
     background-color: ${props => props.theme.purple};
   }
+  @media (max-width: ${globalVariables.maxMobile}) {
+    padding: 0.5rem 0.7rem;
+  }
 `;
 
 const WrapperModele = styled.div`
@@ -40,15 +44,18 @@ const WrapperModele = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   margin-top: 3rem;
+  margin-bottom: 4rem;
   justify-content: center;
 `;
 
 const Item = styled.div`
-  flex: 0 0 33%;
+  flex: 0 0 25%;
   padding: 1rem 2rem 1rem 0;
   text-align: center;
   margin-bottom: 1rem;
-
+  @media (max-width: ${globalVariables.medDesktop}) {
+    flex: 0 0 33%;
+  }
   @media (max-width: ${globalVariables.maxTablet}) {
     flex: 0 0 50%;
   }
@@ -95,6 +102,7 @@ const Name = styled.p`
   padding: 4px 20px;
   margin-bottom: 2rem;
   transition: all 0.2s ease-in-out;
+  font-size: 14px;
 `;
 
 class Modeles extends React.Component {
@@ -103,7 +111,6 @@ class Modeles extends React.Component {
   };
 
   handleClick = number => () => {
-    console.log(number);
     this.setState({ category: number });
   };
 
@@ -167,6 +174,11 @@ class Modeles extends React.Component {
             </Link>
           </Item>
         </WrapperModele>
+        {/* <ArrowScroll
+          ancreId="services"
+          fill={theme.darkGreen}
+          positionLeft="50%"
+        /> */}
       </Spacer>
     );
   }

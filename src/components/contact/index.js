@@ -78,6 +78,10 @@ const WrapperInput = styled.div`
 
 const WrapperTextarea = styled.div`
   flex: 0 0 100%;
+  margin-bottom: 1rem;
+  @media (max-width: ${globalVariables.maxMobile}) {
+    margin-bottom: 0;
+  }
 `;
 
 class Contact extends React.Component {
