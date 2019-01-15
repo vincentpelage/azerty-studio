@@ -16,7 +16,10 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 9rem;
+  margin-top: 11rem;
+  @media (max-width: ${globalVariables.medDesktop}) {
+    margin-top: 9rem;
+  }
   @media (max-width: ${globalVariables.maxMobile}) {
     flex-direction: column;
     margin-top: 3rem;
@@ -73,8 +76,8 @@ const Expertises = ({ location }) => {
             </WrapperIcon>
             <SubTitle
               label="Creer votre site"
-              color="green"
-              backgroundColor="green"
+              color="darkGreen"
+              backgroundColor="darkGreen"
               textAlign="center"
               fontSize="20px"
             />
@@ -86,7 +89,7 @@ const Expertises = ({ location }) => {
             </Paragraph>
             <ButtonLink
               to="/expertises/site"
-              backgroundcolor="green"
+              backgroundcolor="darkGreen"
               size="small"
             >
               En savoir plus
@@ -98,8 +101,8 @@ const Expertises = ({ location }) => {
             </WrapperIcon>
             <SubTitle
               label="Augmenter vos ventes"
-              color="green"
-              backgroundColor="green"
+              color="darkGreen"
+              backgroundColor="darkGreen"
               textAlign="center"
               fontSize="20px"
             />
@@ -111,7 +114,7 @@ const Expertises = ({ location }) => {
             </Paragraph>
             <ButtonLink
               to="/expertises/trafic"
-              backgroundcolor="green"
+              backgroundcolor="darkGreen"
               size="small"
             >
               En savoir plus
@@ -123,8 +126,8 @@ const Expertises = ({ location }) => {
             </WrapperIcon>
             <SubTitle
               label="Analyser vos performances"
-              color="green"
-              backgroundColor="green"
+              color="darkGreen"
+              backgroundColor="darkGreen"
               textAlign="center"
               fontSize="20px"
             />
@@ -136,7 +139,7 @@ const Expertises = ({ location }) => {
             </Paragraph>
             <ButtonLink
               to="/expertises/analyse"
-              backgroundcolor="green"
+              backgroundcolor="darkGreen"
               size="small"
             >
               En savoir plus

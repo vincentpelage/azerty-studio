@@ -6,7 +6,7 @@ import { globalVariables } from "../globalStyle";
 const WrapperInput = styled.div`
   position: relative;
   margin-right: 1rem;
-  margin-top: 2.5rem;
+  margin-top: 3.5rem;
   z-index: 2;
   height: ${props => (props.isFocus && props.isTextarea ? "100px" : "40px")};
   transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0ms,
@@ -39,6 +39,9 @@ const WrapperInput = styled.div`
       top 0.35s cubic-bezier(0.19, 1, 0.22, 1),
       bottom 0.35s cubic-bezier(0.19, 1, 0.22, 1);
   }
+  @media (max-width: ${globalVariables.medDesktop}) {
+    margin-top: 2.5rem;
+  }
 `;
 
 const InputStyled = styled.input`
@@ -48,8 +51,12 @@ const InputStyled = styled.input`
   padding: 0 0.9375rem;
   height: 100%;
   letter-spacing: 1px;
-  /* font-size: 1.25rem; */
   background: hsla(0, 0%, 96%, 1);
+  font-weight: 300;
+  font-size: 16px;
+  @media (max-width: ${globalVariables.medDesktop}) {
+    font-size: 14px;
+  }
 `;
 
 const TextareaStyled = styled.textarea`
@@ -59,8 +66,12 @@ const TextareaStyled = styled.textarea`
   border: none;
   padding: 0.5rem 0.9375rem;
   letter-spacing: 1px;
-  /* font-size: 1.25rem; */
   background: hsla(0, 0%, 96%, 1);
+  font-weight: 300;
+  font-size: 16px;
+  @media (max-width: ${globalVariables.medDesktop}) {
+    font-size: 14px;
+  }
 `;
 
 const Placeholder = styled.div`

@@ -16,8 +16,11 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 8rem;
+  margin-top: 10rem;
   flex-wrap: wrap;
+  @media (max-width: ${globalVariables.medDesktop}) {
+    margin-top: 8rem;
+  }
   @media (max-width: ${globalVariables.maxMobile}) {
     flex-direction: column;
     margin-top: 3rem;
@@ -37,7 +40,7 @@ const Item = styled.div`
 `;
 
 const CardItem = styled.div`
-  background-color: ${props => props.theme.white};
+  /* background-color: ${props => props.theme.white}; */
   margin: 0 0.5rem 0.5rem 0;
   padding: 2rem 1rem;
   border-radius: ${globalVariables.borderRadius};
@@ -53,10 +56,7 @@ const WrapperIcon = styled.div`
   margin-bottom: 1rem;
 `;
 
-const Icon = styled.img`
-  /* width: 50px;
-  height: 50px; */
-`;
+const Icon = styled.img``;
 
 const Paragraph = styled.p`
   text-align: center;
@@ -65,9 +65,7 @@ const Paragraph = styled.p`
   & > strong {
     color: ${props => props.theme.darkGreen};
   }
-  @media (max-width: ${globalVariables.maxTablet}) and (min-width: ${globalVariables.minTablet}) {
-    /* min-height: 150px; */
-  }
+
   @media (max-width: ${globalVariables.maxMobile}) {
     min-height: auto;
   }
@@ -90,7 +88,6 @@ const Prestations = () => {
               backgroundColor="purple"
               textAlign="center"
               fontSize="20px"
-              noLine={true}
             />
             <Paragraph>
               Faire connaître votre marque, vos produits, vos services
@@ -108,7 +105,6 @@ const Prestations = () => {
               backgroundColor="purple"
               textAlign="center"
               fontSize="20px"
-              noLine={true}
             />
             <Paragraph>Vendre vos produits directement en ligne</Paragraph>
           </CardItem>
@@ -124,7 +120,6 @@ const Prestations = () => {
               backgroundColor="purple"
               textAlign="center"
               fontSize="20px"
-              noLine={true}
             />
             <Paragraph>
               Créer une plateforme de réservation, un tableau de bord, etc.
@@ -142,7 +137,6 @@ const Prestations = () => {
               backgroundColor="purple"
               textAlign="center"
               fontSize="20px"
-              noLine={true}
             />
             <Paragraph>Tester rapidement votre idée</Paragraph>
           </CardItem>

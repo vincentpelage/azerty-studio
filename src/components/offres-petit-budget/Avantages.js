@@ -12,7 +12,10 @@ const AvantageList = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 2rem 0;
+  padding: 4rem 0 0 0;
+  @media (max-width: ${globalVariables.medDesktop}) {
+    padding: 2rem 0;
+  }
 `;
 
 const Item = styled.div`

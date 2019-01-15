@@ -101,7 +101,10 @@ const Title = styled.p`
 `;
 
 const Text = styled.p`
-  font-size: 14px;
+  font-size: 16px;
+  @media (max-width: ${globalVariables.medDesktop}) {
+    font-size: 14px;
+  }
 `;
 
 const Etapes = () => {
