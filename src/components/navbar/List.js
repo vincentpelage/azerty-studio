@@ -4,7 +4,8 @@ import styled from "styled-components";
 
 const Item = styled.li`
   flex: ${props => (props.isActive ? "1 0 auto" : "1 0 50px")};
-  margin-top: ${props => (props.isActive ? "10px" : "0")};
+  /* margin-top: ${props => (props.isActive ? "10px" : "0")}; */
+  margin-top: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,6 +13,7 @@ const Item = styled.li`
   width: 100%;
   text-align: center;
   transition: display 0.2s ease-in-out;
+  min-height: 50px;
 `;
 
 const LinkStyled = styled(Link)`

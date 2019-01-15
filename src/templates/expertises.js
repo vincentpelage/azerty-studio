@@ -6,11 +6,11 @@ import Spacer from "../components/spacer/index";
 import Title from "../components/title/index";
 import SubTitle from "../components/subTitle";
 import { ButtonLink } from "../components/button/index";
-import Code from "../icons/coding.svg";
-import Pencil from "../icons/pencil-case.svg";
-import Analyse from "../icons/analysis.svg";
 import { globalVariables } from "../components/globalStyle";
 import Circle from "../img/Circle";
+import IconSpace from "../icons/startup.svg";
+import IconStats from "../icons/line-chart.svg";
+import IconFlask from "../icons/flask.svg";
 
 const Wrapper = styled.div`
   display: flex;
@@ -69,7 +69,7 @@ const Expertises = ({ location }) => {
         <Wrapper>
           <Item>
             <WrapperIcon>
-              <Icon src={Code} />
+              <Icon src={IconFlask} />
             </WrapperIcon>
             <SubTitle
               label="Creer votre site"
@@ -94,7 +94,7 @@ const Expertises = ({ location }) => {
           </Item>
           <Item>
             <WrapperIcon>
-              <Icon src={Pencil} />
+              <Icon src={IconSpace} />
             </WrapperIcon>
             <SubTitle
               label="Augmenter vos ventes"
@@ -119,7 +119,7 @@ const Expertises = ({ location }) => {
           </Item>
           <Item>
             <WrapperIcon>
-              <Icon src={Analyse} />
+              <Icon src={IconStats} />
             </WrapperIcon>
             <SubTitle
               label="Analyser vos performances"
