@@ -43,8 +43,18 @@ const ArrowStyled = styled.svg`
 `;
 
 const ArrowScroll = ({ fill, positionLeft, ancreId }) => {
+  // with gatsby you need to be careful with scripts that use document or window because there's no DOM when you run gatsby build.
+  if (typeof window !== "undefined") {
+    const handleClick = ancreId => () => {
+      const top = document.getElementById(ancreId).offsetTop;
+      TweenMax.to(window, 0.5, {
+        scrollTo: { y: top },
+        ease: "Power3.easeOut"
+      });
+    };
+  }
+
   const handleClick = ancreId => () => {
-    console.log(document.getElementById(ancreId));
     const top = document.getElementById(ancreId).offsetTop;
     TweenMax.to(window, 0.5, {
       scrollTo: { y: top },
