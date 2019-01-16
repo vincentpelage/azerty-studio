@@ -49,15 +49,16 @@ const GlobalStyles = () => {
   }
   
   html {
-    @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
-    font-family: 'Roboto', sans-serif;
+    /* @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500'); */
+    /* font-family: 'Roboto', sans-serif;
     font-weight: 300;
     background-color: ${props => props.theme.grey};
     line-height: 1.5;
     color: ${props => props.theme.black};
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    text-size-adjust: 100%;
+    text-size-adjust: 100%; */
+
     h1 {
       font-family: 'Aqua', sans-serif;
     }
