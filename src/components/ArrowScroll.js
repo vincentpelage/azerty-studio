@@ -2,6 +2,9 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import { TweenMax } from "gsap";
 import "gsap/ScrollToPlugin";
+if (typeof window !== "undefined") {
+  require("gsap/ScrollToPlugin");
+}
 
 const upAndDown = keyframes`
   0% {
