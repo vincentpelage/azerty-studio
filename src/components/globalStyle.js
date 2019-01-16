@@ -52,9 +52,9 @@ const GlobalStyles = () => {
     @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
-    background-color: ${theme.grey};
+    background-color: ${props => props.theme.grey};
     line-height: 1.5;
-    color: ${theme.black};
+    color: ${props => props.theme.black};
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     text-size-adjust: 100%;
