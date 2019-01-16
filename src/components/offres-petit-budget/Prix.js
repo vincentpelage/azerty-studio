@@ -17,6 +17,16 @@ const WrapperSlider = styled.div`
   @media (max-width: ${globalVariables.medDesktop}) {
     max-width: 1050px;
   }
+
+  .slick-dots li.slick-active button::before,
+  .slick-prev::before,
+  .slick-next::before {
+    color: ${props => props.theme.darkGreen};
+  }
+
+  .slick-dots li button::before {
+    font-size: 10px;
+  }
 `;
 
 const Column = styled.div`
