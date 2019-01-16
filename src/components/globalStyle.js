@@ -48,7 +48,7 @@ const GlobalStyles = () => {
     url(${AquaWOFF2}) format("woff2");     
   }
   
-  body {
+  body > div {
     @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
@@ -67,6 +67,7 @@ const GlobalStyles = () => {
     p, a, span, h2, h3, h4, button, li {
       font-size: 14px;
       margin: 0;
+
       @media (min-width: ${globalVariables.minDesktop}) {
         font-size: 16px;
       }
