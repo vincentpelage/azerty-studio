@@ -88,11 +88,11 @@ const CardContent = styled.div`
   padding: ${props => (props.isSelected ? "1rem 2rem" : null)};
   transition: all 0.5s ease-in-out;
   cursor: pointer;
-  /* &:hover {
+  &:hover {
     img {
       transform: rotate(360deg);
     }
-  } */
+  }
   h2,
   p > strong {
     font-weight: 500;
@@ -192,8 +192,7 @@ const WrapperIcon = styled.div`
 `;
 
 const Icon = styled.img`
-  transform: ${props => (props.isSelected ? "rotate(360deg)" : null)};
-  transition: transform 1s ease-in-out;
+  transition: transform 0.5s ease-in-out;
 `;
 
 const Offre = ({ contenu, color, component, title }) => (
