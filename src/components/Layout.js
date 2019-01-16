@@ -3,7 +3,6 @@ import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
 import styled, { ThemeProvider } from "styled-components";
 
-import { DesktopNavbar, MobileNavbar } from "../components/navbar";
 import "./all.sass";
 import GlobalStyles, {
   theme,
@@ -11,6 +10,7 @@ import GlobalStyles, {
   Desktop,
   NotDesktop
 } from "./globalStyle";
+import { DesktopNavbar, MobileNavbar } from "../components/navbar";
 
 const LayoutContainer = styled.div`
   display: flex;

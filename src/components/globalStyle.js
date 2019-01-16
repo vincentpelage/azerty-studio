@@ -48,7 +48,7 @@ const GlobalStyles = () => {
     url(${AquaWOFF2}) format("woff2");     
   }
   
-  body > div {
+  html {
     @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
