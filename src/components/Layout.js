@@ -85,16 +85,18 @@ const TemplateWrapper = ({ children, location }) => {
           </Helmet>
 
           <ThemeProvider theme={theme}>
-            <LayoutContainer>
+            <React.Fragment>
               <GlobalStyles />
-              <Desktop>
-                <DesktopNavbar location={location} />
-              </Desktop>
-              <NotDesktop>
-                <MobileNavbar location={location} />
-              </NotDesktop>
-              <Children>{children}</Children>
-            </LayoutContainer>
+              <LayoutContainer>
+                <Desktop>
+                  <DesktopNavbar location={location} />
+                </Desktop>
+                <NotDesktop>
+                  <MobileNavbar location={location} />
+                </NotDesktop>
+                <Children>{children}</Children>
+              </LayoutContainer>
+            </React.Fragment>
           </ThemeProvider>
         </div>
       )}
