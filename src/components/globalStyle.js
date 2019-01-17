@@ -2,7 +2,6 @@ import React from "react";
 import { createGlobalStyle } from "styled-components";
 import Responsive from "react-responsive";
 
-// import "bulma/sass/base/minireset";
 import AquaTTF from "../fonts/aqua.ttf";
 import AquaEOT from "../fonts/aqua.eot";
 import AquaWOFF from "../fonts/aqua.woff";
@@ -38,9 +37,10 @@ export const theme = {
   darkGrey: "#eae8e8"
 };
 
-const GlobalStyles = () => {
-  const GlobalDefaults = createGlobalStyle`
+const GlobalStyles = ({ styles }) => {
+  console.log(styles[0]);
 
+  const GlobalDefaults = createGlobalStyle`
   @font-face {
     font-family: Aqua;
     src: url(${AquaTTF}) format("ttf"),
@@ -48,18 +48,9 @@ const GlobalStyles = () => {
     url(${AquaWOFF}) format("woff"),
     url(${AquaWOFF2}) format("woff2");     
   }
+  ${styles[0]};
   
   body {
-    @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-    background-color: ${props => props.theme.grey};
-    line-height: 1.5;
-    color: ${props => props.theme.black};
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    text-size-adjust: 100%;
-
     h1 {
       font-family: 'Aqua', sans-serif;
     }
