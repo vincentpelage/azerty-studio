@@ -1,7 +1,7 @@
 import React from "react";
 import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
-import styled, { css, ThemeProvider } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 
 // import "./all.sass";
 import GlobalStyles, {
@@ -13,6 +13,16 @@ import GlobalStyles, {
 import { DesktopNavbar, MobileNavbar } from "../components/navbar";
 
 const LayoutContainer = styled.div`
+  @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  background-color: ${props => props.theme.grey};
+  line-height: 1.5;
+  color: ${props => props.theme.dark};
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  text-size-adjust: 100%;
+
   display: flex;
   flex-direction: row;
   @media (max-width: ${globalVariables.maxTablet}) {
@@ -86,21 +96,7 @@ const TemplateWrapper = ({ children, location }) => {
 
           <ThemeProvider theme={theme}>
             <React.Fragment>
-              <GlobalStyles
-                styles={css`
-                  body {
-                    @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
-                    font-family: "Roboto", sans-serif;
-                    font-weight: 300;
-                    background-color: red;
-                    line-height: 1.5;
-                    color: green;
-                    -webkit-font-smoothing: antialiased;
-                    text-rendering: optimizeLegibility;
-                    text-size-adjust: 100%;
-                  }
-                `}
-              />
+              <GlobalStyles />
               <LayoutContainer>
                 <Desktop>
                   <DesktopNavbar location={location} />
