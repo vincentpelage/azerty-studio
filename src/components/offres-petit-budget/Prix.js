@@ -79,8 +79,8 @@ const Item = styled.li`
 class Prix extends React.Component {
   componentDidMount() {
     require("gsap/ScrollToPlugin");
-    require("../../../node_modules/slick-carousel/slick/slick.css");
-    require("../../../node_modules/slick-carousel/slick/slick-theme.css");
+    require("slick-carousel/slick/slick.css");
+    require("slick-carousel/slick/slick-theme.css");
   }
 
   handleClick = () => {
