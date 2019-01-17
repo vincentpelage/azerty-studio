@@ -1,9 +1,44 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const animateScreenLeft = keyframes`
+  0% {
+    transform: translate(-61.06px, -71.37px);
+  } 
+  50% {
+    transform: translate(-41.06px, -51.37px);
+  } 
+  
+  100% {
+    transform: translate(-61.06px, -71.37px);
+  }
+`;
+
+const animateScreenRight = keyframes`
+  0% {
+    transform: translate(-61.06px, -71.37px);
+  } 
+  50% {
+    transform: translate(-81.06px, -51.37px);
+  } 
+  
+  100% {
+    transform: translate(-61.06px, -71.37px);
+  }
+`;
 
 const FoytStyled = styled.svg`
   height: 240px;
   margin: 3rem 0;
+
+  .animate-screen-left {
+    transition: transform 0.5s ease-in-out;
+    animation: ${animateScreenLeft} 2s ease-in-out infinite;
+  }
+  .animate-screen-right {
+    transition: transform 0.5s ease-in-out;
+    animation: ${animateScreenRight} 2s ease-in-out infinite;
+  }
 `;
 
 const Foyt = () => (
@@ -28,7 +63,6 @@ const Foyt = () => (
         <stop offset="1" stopColor="gray" stopOpacity="0.1" />
       </linearGradient>
     </defs>
-    <title>product tour</title>
     <path
       d="M724.89,163.21c-46.25,32.38-106.24,30.29-158.81,13.44S465.22,129.8,414,108.48A494.21,494.21,0,0,0,280.38,73.65c-65.28-7.47-138.18,1.63-183.66,54-50.65,58.29-46.76,163.45,8,217,27.87,27.22,64.36,40.58,96.18,61.83S262.2,463,259.49,504c-2.51,38-31.68,67.12-61.87,85.41-23.33,14.13-52.06,29.56-54.87,58.83-2.72,28.32,21.44,50.51,44.51,63.13,75.26,41.18,168,40.78,243-1C457,695.42,481.56,675.58,509.61,664c73.65-30.52,154.81.21,232.8,11.44a465.38,465.38,0,0,0,198-14.41c38.62-11.41,77.39-28.85,104.52-61.34,19.57-23.43,31.76-53.07,43.2-82.36q18.3-46.83,35.19-94.33c6.75-19,13.4-38.38,15.15-58.72,3.16-36.85-10.16-73.28-28.3-104.38C1067.1,186,994.56,134.08,916,120.89S754.33,133.46,693.4,189.83"
       transform="translate(-61.06 -71.37)"
@@ -45,6 +79,7 @@ const Foyt = () => (
       d="M598.71,170.77l-3.81,221s137.92,0,255.27,38.1l2.28-223.26S664.24,161.62,598.71,170.77Z"
       transform="translate(-61.06 -71.37)"
       fill="#f7f7fd"
+      className="animate-screen-right"
     />
     <g opacity="0.1">
       <path
@@ -56,6 +91,7 @@ const Foyt = () => (
       d="M535.47,176.1l3.81,221s-137.92,0-255.26,38.1l-2.29-223.26S469.94,167,535.47,176.1Z"
       transform="translate(-61.06 -71.37)"
       fill="#f7f7fd"
+      className="animate-screen-left"
     />
     <g opacity="0.2">
       <path
@@ -74,6 +110,7 @@ const Foyt = () => (
       d="M934.74,253.06V471.75s45-5.34,139.45,111.25l8.38-218.69S984.27,258.39,934.74,253.06Z"
       transform="translate(-61.06 -71.37)"
       fill="#f7f7fd"
+      className="animate-screen-right"
     />
     <g opacity="0.1">
       <path
@@ -85,6 +122,7 @@ const Foyt = () => (
       d="M212.39,253.06V471.75S167.43,466.41,73,583L64.57,364.31S162.86,258.39,212.39,253.06Z"
       transform="translate(-61.06 -71.37)"
       fill="#f7f7fd"
+      className="animate-screen-left"
     />
     <g opacity="0.2">
       <polygon
@@ -692,6 +730,7 @@ const Foyt = () => (
       d="M929.75,772.62s33.66-110.34-5.27-154.54c-29.12-33.06-62.17-29.11-77-25a27.37,27.37,0,0,0-17.66,14.68c-5.17,11.16-4.24,29.29,32.3,50.44,61.17,35.41,65,84,65,84Z"
       transform="translate(-61.06 -71.37)"
       fill="#6772e5"
+      id="animate-svg"
     />
     <path
       d="M852.77,608.71s99.23,31,77,163.91"

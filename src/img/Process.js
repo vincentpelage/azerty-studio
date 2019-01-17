@@ -1,5 +1,21 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const animatePage = keyframes`
+  0% {
+    opacity: 0;
+    x: 464px;
+  } 
+  50% {
+    opacity: 1;
+    x: 575.56px;
+  } 
+  
+  100% {
+    opacity: 0;
+    x: 464px;
+  }
+`;
 
 const ProcessStyled = styled.svg`
   height: 220px;
