@@ -37,9 +37,7 @@ export const theme = {
   darkGrey: "#eae8e8"
 };
 
-const GlobalStyles = ({ styles }) => {
-  console.log(styles[0]);
-
+const GlobalStyles = () => {
   const GlobalDefaults = createGlobalStyle`
   @font-face {
     font-family: Aqua;
@@ -48,7 +46,6 @@ const GlobalStyles = ({ styles }) => {
     url(${AquaWOFF}) format("woff"),
     url(${AquaWOFF2}) format("woff2");     
   }
-  ${styles[0]};
   
   body {
     h1 {
