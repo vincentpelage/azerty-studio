@@ -3,7 +3,7 @@ import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
 import styled, { ThemeProvider } from "styled-components";
 
-import "./all.sass";
+// import "./all.sass";
 import GlobalStyles, {
   theme,
   globalVariables,

@@ -2,6 +2,7 @@ import React from "react";
 import { createGlobalStyle } from "styled-components";
 import Responsive from "react-responsive";
 
+// import "bulma/sass/base/minireset";
 import AquaTTF from "../fonts/aqua.ttf";
 import AquaEOT from "../fonts/aqua.eot";
 import AquaWOFF from "../fonts/aqua.woff";
