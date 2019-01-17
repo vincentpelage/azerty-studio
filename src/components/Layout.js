@@ -1,7 +1,7 @@
 import React from "react";
 import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
-import styled, { ThemeProvider } from "styled-components";
+import styled, { css, ThemeProvider } from "styled-components";
 
 // import "./all.sass";
 import GlobalStyles, {
@@ -86,7 +86,21 @@ const TemplateWrapper = ({ children, location }) => {
 
           <ThemeProvider theme={theme}>
             <React.Fragment>
-              <GlobalStyles />
+              <GlobalStyles
+                styles={css`
+                  body {
+                    @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
+                    font-family: "Roboto", sans-serif;
+                    font-weight: 300;
+                    background-color: red;
+                    line-height: 1.5;
+                    color: green;
+                    -webkit-font-smoothing: antialiased;
+                    text-rendering: optimizeLegibility;
+                    text-size-adjust: 100%;
+                  }
+                `}
+              />
               <LayoutContainer>
                 <Desktop>
                   <DesktopNavbar location={location} />
