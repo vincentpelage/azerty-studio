@@ -67,7 +67,8 @@ export const getButtonStyles = props => {
     font-size: ${mobileSize}px;
     cursor: ${cursor};
     text-decoration: none;
-    transition: all 200ms ease-in-out;
+    transition: border-radius 0.5s ease-in-out,
+      background-color 0.5s ease-in-out;
     outline: none;
     z-index: 1;
     margin: ${margin};
@@ -92,20 +93,18 @@ export const getButtonStateBasicStyles = props => {
 
   return css`
     &:active {
-      background: ${darken(0.1, background)};
+      background: ${darken(0.05, background)};
       color: ${color};
-      /* border: ${darken(0.1, background)} solid 2px; */
     }
     &:hover {
-      background: ${darken(0.1, background)};
+      border-radius: 3px;
+      background: ${darken(0.05, background)};
       color: ${color};
-      /* border: ${darken(0.1, background)} solid 2px; */
     }
     &:focus {
       outline: none;
       background: ${background};
       color: ${color};
-      /* border: ${background} solid 2px; */
     }
   `;
 };
