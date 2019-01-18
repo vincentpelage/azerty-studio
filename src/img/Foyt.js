@@ -32,11 +32,9 @@ const FoytStyled = styled.svg`
   margin: 3rem 0;
 
   .animate-screen-left {
-    transition: transform 0.5s ease-in-out;
     animation: ${animateScreenLeft} 2s ease-in-out infinite;
   }
   .animate-screen-right {
-    transition: transform 0.5s ease-in-out;
     animation: ${animateScreenRight} 2s ease-in-out infinite;
   }
 `;

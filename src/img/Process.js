@@ -1,25 +1,28 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
-const animatePage = keyframes`
+const animateArrow = keyframes`
   0% {
     opacity: 0;
-    x: 464px;
-  } 
-  50% {
-    opacity: 1;
-    x: 575.56px;
+    transform: translate(-97.77px, -21.16px);
   } 
   
   100% {
-    opacity: 0;
-    x: 464px;
+    opacity: 1;
+    transform: translate(-44.77px, -21.16px)
   }
 `;
 
 const ProcessStyled = styled.svg`
   height: 220px;
   margin: 3rem 0;
+  .animate-arrow {
+    animation: ${animateArrow} 2s ease-in-out infinite;
+  }
+  .animate-arrow-delay {
+    opacity: 0;
+    animation-delay: 1s;
+  }
 `;
 
 const Process = () => (
@@ -264,6 +267,7 @@ const Process = () => (
       fill="#fff"
       stroke="#fff"
       strokeMiterlimit="10"
+      className="animate-arrow"
     />
     <path
       d="M907.32,353.8l-.88,1.21-7.16,9.76-.63.87a.55.55,0,0,1-.78.09.48.48,0,0,1-.12-.16l-1.46-2.74a.55.55,0,0,0-.73-.23l-23.5,12.51a.53.53,0,0,1-.72-.22L869.28,371a.53.53,0,0,1,.22-.72L893,357.79a.53.53,0,0,0,.22-.72l-1.49-2.81a.35.35,0,0,1-.06-.19.52.52,0,0,1,.51-.59l1.07,0,12.12-.44,1.5-.05A.53.53,0,0,1,907.32,353.8Z"
@@ -271,6 +275,7 @@ const Process = () => (
       fill="#fff"
       stroke="#fff"
       strokeMiterlimit="10"
+      className="animate-arrow animate-arrow-delay"
     />
     <path
       d="M907.24,405.06h-1.49l-12.11,0h-1.07a.53.53,0,0,1-.53-.57.45.45,0,0,1,.05-.19l1.34-2.81a.53.53,0,0,0-.25-.71l-24-11.52a.54.54,0,0,1-.25-.72l1.9-3.95a.52.52,0,0,1,.71-.25l24,11.53a.55.55,0,0,0,.72-.25l1.38-2.87a.52.52,0,0,1,.89-.1l.67.83,7.53,9.52.93,1.18A.53.53,0,0,1,907.24,405.06Z"
@@ -278,6 +283,7 @@ const Process = () => (
       fill="#fff"
       stroke="#fff"
       strokeMiterlimit="10"
+      className="animate-arrow animate-arrow-delay"
     />
     <polygon
       points="424.19 606.65 424.11 609.58 419.01 789.65 410.43 789.65 414.64 609.58 414.72 606.2 424.19 606.65"

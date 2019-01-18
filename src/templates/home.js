@@ -4,12 +4,12 @@ import styled from "styled-components";
 import Layout from "../components/Layout";
 import { ButtonLink } from "../components/button";
 import Deco from "../img/deco2.svg";
-import SpaceShip from "../img/spaceship.svg";
 import { globalVariables } from "../components/globalStyle";
 import {
   animationLetter,
   createCSSAnimationDelay
 } from "../components/animations";
+import SpaceShip from "../img/Spaceship";
 
 const Wrapper = styled.div`
   background-color: ${props => props.theme.green};
@@ -21,7 +21,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   position: relative;
   overflow: hidden;
-  &::after {
+  /* &::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -36,7 +36,7 @@ const Wrapper = styled.div`
       width: 150px;
       height: 150px;
     }
-  }
+  } */
 `;
 
 const Decoration = styled.img`
@@ -155,6 +155,7 @@ class Home extends React.Component {
           >
             Voir nos offres
           </ButtonLink>
+          <SpaceShip />
         </Wrapper>
       </Layout>
     );
