@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
+import { CSSTransition } from "react-transition-group";
+import { globalVariables } from "../globalStyle";
 
 const Item = styled.li`
   flex: ${props => (props.isActive ? "1 0 auto" : "1 0 50px")};
@@ -11,9 +13,19 @@ const Item = styled.li`
   justify-content: center;
   align-items: center;
   width: 100%;
-  text-align: center;
   transition: display 0.2s ease-in-out;
   min-height: 50px;
+  position: relative;
+  .text-enter, .icon-enter {
+    opacity: 0;
+  }
+  .text-enter-active, .icon-enter-active {
+    opacity: 1;
+  }
+
+  .text-exit-active, .icon-exit-active  {
+    opacity: 0;
+  }
 `;
 
 const LinkStyled = styled(Link)`
@@ -25,14 +37,35 @@ const LinkStyled = styled(Link)`
 const Icon = styled.img`
   width: 23px;
   opacity: 0.4;
+  transition: all 0.8s linear;
 `;
 
 const Text = styled.p`
-  color: white;
+  /* color: white; */
   font-family: Aqua;
   text-transform: uppercase;
   font-size: 9px;
-  padding-left: 2px;
+  padding: 2px 6px;
+  transition: all 0.5s linear;
+  position: absolute;
+  left: 65px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: max-content;
+  background-color: ${props => props.theme.white};
+  border-radius: ${globalVariables.borderRadius};
+  &::before {
+    content: "";
+    position: absolute;
+    left: -4px;
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-right: 6px solid ${props => props.theme.white};
+    top: 50%;
+    transform: translateY(-50%);
+  }
 `;
 
 class List extends Component {
@@ -49,18 +82,23 @@ class List extends Component {
   };
 
   render() {
-    const { to, src, label, isActive, children } = this.props;
+    const { to, src, label, children } = this.props;
     const { isHover } = this.state;
 
     return (
-      <Item
-        onMouseEnter={this.onEnter}
-        onMouseLeave={this.onLeave}
-        isActive={isActive}
-      >
+      <Item onMouseEnter={this.onEnter} onMouseLeave={this.onLeave}>
         <LinkStyled to={to} activeClassName="active">
-          {isHover && !isActive ? <Text>{label}</Text> : <Icon src={src} />}
+          <Icon src={src} />
         </LinkStyled>
+        <CSSTransition
+          in={isHover}
+          timeout={1000}
+          classNames="text"
+          unmountOnExit
+        >
+          <Text>{label}</Text>
+        </CSSTransition>
+
         {children}
       </Item>
     );
