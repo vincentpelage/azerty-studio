@@ -1,9 +1,112 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const animateGraph1 = keyframes`
+  0% {
+    height: 86.08px;
+    y: 434.41px;
+  } 
+  50% {
+    height: 20px;
+    y: 500px;
+  } 
+  
+  100% {
+    height: 86.08px;
+    y: 434.41px;
+  }
+`;
+
+const animateGraph2 = keyframes`
+  0% {
+    height: 147.81px;
+    y: 372.67px;
+  } 
+  50% {
+    height: 100px;
+    y: 421px;
+  } 
+  
+  100% {
+    height: 147.81px;
+    y: 372.67px;
+  }
+`;
+
+const animateGraph3 = keyframes`
+  0% {
+    height: 209.54px;
+    y: 310.94px;
+  } 
+  50% {
+    height: 140px;
+    y: 381px;
+  } 
+  
+  100% {
+    height: 209.54px;
+    y: 310.94px;
+  }
+`;
+const animateGraph4 = keyframes`
+  0% {
+    height: 189.55px;
+    y: 330.94px;
+  } 
+  50% {
+    height: 100px;
+    y: 421px;
+  } 
+  
+  100% {
+    height: 189.55px;
+    y: 330.94px;
+  }
+`;
+const animateGraph5 = keyframes`
+  0% {
+    height: 130.42px;
+    y: 390.06px;
+  } 
+  50% {
+    height: 85px;
+    y: 437px;
+  } 
+  
+  100% {
+    height: 130.42px;
+    y: 390.06px;
+  }
+`;
 
 const ResumeStyled = styled.svg`
   height: 220px;
   margin: 3rem 0;
+  .animate-graph-1 {
+    transition: transform 0.5s ease-in-out;
+    animation: ${animateGraph1} 2s ease-in-out infinite;
+    transform: rotateZ(360deg);
+  }
+  .animate-graph-2 {
+    transition: transform 0.5s ease-in-out;
+    animation: ${animateGraph2} 2s ease-in-out 0.2s infinite;
+    transform: rotateZ(360deg);
+  }
+  .animate-graph-3 {
+    transition: transform 0.5s ease-in-out;
+    animation: ${animateGraph3} 2s ease-in-out 0.4s infinite;
+    transform: rotateZ(360deg);
+  }
+  .animate-graph-4 {
+    transition: transform 0.5s ease-in-out;
+    animation: ${animateGraph4} 2s ease-in-out 0.6s infinite;
+    transform: rotateZ(360deg);
+  }
+  .animate-graph-5 {
+    transition: transform 0.5s ease-in-out;
+    animation: ${animateGraph5} 2s ease-in-out 0.8s infinite;
+    transform: rotateZ(360deg);
+  }
 `;
 
 const Resume = () => (
@@ -132,13 +235,21 @@ const Resume = () => (
       />
     </g>
     <g opacity="0.2">
-      <rect x="269.78" y="434.41" width="26.08" height="86.08" fill="#00bec5" />
+      <rect
+        x="269.78"
+        y="434.41"
+        width="26.08"
+        height="86.08"
+        fill="#00bec5"
+        className="animate-graph-1"
+      />
       <rect
         x="320.21"
         y="372.67"
         width="26.08"
         height="147.81"
         fill="#00bec5"
+        className="animate-graph-2"
       />
       <rect
         x="370.64"
@@ -146,6 +257,7 @@ const Resume = () => (
         width="26.08"
         height="209.54"
         fill="#00bec5"
+        className="animate-graph-3"
       />
       <rect
         x="421.07"
@@ -153,8 +265,16 @@ const Resume = () => (
         width="26.08"
         height="189.55"
         fill="#00bec5"
+        className="animate-graph-4"
       />
-      <rect x="471.5" y="390.06" width="26.08" height="130.42" fill="#00bec5" />
+      <rect
+        x="471.5"
+        y="390.06"
+        width="26.08"
+        height="130.42"
+        fill="#00bec5"
+        className="animate-graph-5"
+      />
     </g>
     <g opacity="0.2">
       <rect

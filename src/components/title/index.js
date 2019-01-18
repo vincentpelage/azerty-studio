@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { globalVariables } from "../globalStyle";
+import { animationLetter, createCSSAnimationDelay } from "../animations";
 
 const StyledTitle = styled.h1`
   display: flex;
@@ -10,6 +11,7 @@ const StyledTitle = styled.h1`
     props.position === "center" ? "center" : "flex-start"};
   margin-bottom: 1.5rem;
   z-index: 1;
+  ${props => createCSSAnimationDelay(props.label)};
 `;
 
 const Letter = styled.span`
@@ -28,6 +30,8 @@ const Letter = styled.span`
   border-radius: 3px;
   transition: margin-top 0.1s ease-in-out;
   z-index: 1;
+  ${animationLetter}
+
   &:not(:last-child) {
     margin-right: 5px;
   }
@@ -48,7 +52,7 @@ const Space = styled.span`
 `;
 
 const Title = ({ label, color, position }) => (
-  <StyledTitle position={position}>
+  <StyledTitle position={position} label={label}>
     {label
       .split("")
       .map((letter, index) =>
