@@ -3,6 +3,7 @@ import Layout from "../components/Layout";
 import { graphql } from "gatsby";
 import styled from "styled-components";
 import Parser from "html-react-parser";
+import { CSSTransition } from "react-transition-group";
 
 import Foyt from "../img/Foyt";
 import Resume from "../img/Resume";
@@ -28,18 +29,39 @@ const WrapperContainer = styled.div`
 `;
 
 const WrapperRight = styled.div`
-  padding: 2rem 4rem;
-  display: flex;
+  position: relative;
   flex: 0 0 50%;
   background-color: ${props => props.theme.white};
+  overflow: hidden;
+  @media (max-width: ${globalVariables.maxTablet}) {
+    flex: 0 0 100%;
+  }
+`;
+
+const WrapperTransition = styled.div`
+  display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   min-height: 100vh;
+  width: 100%;
+  padding: 2rem 4rem;
+
+  transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
   @media (max-width: ${globalVariables.maxTablet}) {
-    flex: 0 0 100%;
-    padding: 1rem 2rem 3rem 2rem;
     height: auto;
+    padding: 1rem 2rem 3rem 2rem;
+  }
+  &.offre-selected-enter {
+    left: -200%;
+  }
+
+  &.offre-selected-exit {
+    left: 100%;
   }
 `;
 
@@ -58,6 +80,7 @@ const WrapperLeft = styled.div`
     transform: rotate(45deg);
     border-radius: ${globalVariables.borderRadius};
     transition: all 1s cubic-bezier(0.19, 1, 0.22, 1) 0ms;
+    z-index: 1;
     @media (max-width: ${globalVariables.maxTablet}) {
       top: auto;
       bottom: -15px;
@@ -197,14 +220,9 @@ const Icon = styled.img`
   transition: transform 0.5s ease-in-out;
 `;
 
-const Offre = ({ contenu, color, component, title, contenuBouton }) => {
+const Offre = ({ contenu, color, component, contenuBouton }) => {
   return (
     <React.Fragment>
-      {title ? (
-        <CardContent color={color}>
-          <CardContentTitle justifyContent="center">{title}</CardContentTitle>
-        </CardContent>
-      ) : null}
       {component()}
       <List color={color}>
         {contenu.map((elem, id) => (
@@ -258,38 +276,6 @@ class Offres extends React.Component {
       contenu_offre: prismicOffresBodyMain.items[2].contenu_offre,
       detail_offre: prismicOffresBodyMain.items[2].detail_offre,
       bouton_offre: prismicOffresBodyMain.items[2].bouton_offre
-    };
-
-    const OffreSelected = () => {
-      switch (this.state.offreSelected) {
-        case 1:
-          return (
-            <Offre
-              contenu={prismicOffresBodyMain.items}
-              contenuBouton={offre1.bouton_offre}
-              color="purple"
-              component={Foyt}
-            />
-          );
-        case 2:
-          return (
-            <Offre
-              contenu={prismicOffresBodyMain.items}
-              contenuBouton={offre2.bouton_offre}
-              color="darkGreen"
-              component={Resume}
-            />
-          );
-        default:
-          return (
-            <Offre
-              contenu={prismicOffresBodyMain.items}
-              contenuBouton={offre3.bouton_offre}
-              color="darkPink"
-              component={Process}
-            />
-          );
-      }
     };
 
     return (
@@ -353,29 +339,73 @@ class Offres extends React.Component {
           </WrapperLeft>
           <WrapperRight>
             <Desktop>
-              <OffreSelected />
+              <CSSTransition
+                in={this.state.offreSelected === 1}
+                timeout={500}
+                classNames="offre-selected"
+                unmountOnExit
+              >
+                <WrapperTransition>
+                  <Offre
+                    contenu={prismicOffresBodyMain.items}
+                    contenuBouton={offre1.bouton_offre}
+                    color="purple"
+                    component={Foyt}
+                  />
+                </WrapperTransition>
+              </CSSTransition>
+              <CSSTransition
+                in={this.state.offreSelected === 2}
+                timeout={500}
+                classNames="offre-selected"
+                unmountOnExit
+              >
+                <WrapperTransition>
+                  <Offre
+                    contenu={prismicOffresBodyMain.items}
+                    contenuBouton={offre2.bouton_offre}
+                    color="darkGreen"
+                    component={Resume}
+                  />
+                </WrapperTransition>
+              </CSSTransition>
+              <CSSTransition
+                in={this.state.offreSelected === 3}
+                timeout={500}
+                classNames="offre-selected"
+                unmountOnExit
+              >
+                <WrapperTransition>
+                  <Offre
+                    contenu={prismicOffresBodyMain.items}
+                    contenuBouton={offre3.bouton_offre}
+                    color="darkPink"
+                    component={Process}
+                  />
+                </WrapperTransition>
+              </CSSTransition>
             </Desktop>
             <NotDesktop>
               <Offre
-                contenu={offre1.detail_offre.text}
+                contenu={prismicOffresBodyMain.items}
                 color="purple"
                 component={Foyt}
-                title={offre1.titre_offre.text}
+                contenuBouton={offre1.bouton_offre}
               />
               <Trait color="purple" />
               <Offre
-                contenu={offre2.detail_offre.text}
+                contenu={prismicOffresBodyMain.items}
                 color="darkGreen"
                 component={Resume}
-                title={offre2.titre_offre.text}
+                contenuBouton={offre2.bouton_offre}
               />
               <Trait color="darkGreen" />
 
               <Offre
-                contenu={offre3.detail_offre.text}
+                contenu={prismicOffresBodyMain.items}
                 color="pink"
                 component={Process}
-                title={offre3.titre_offre.text}
+                contenuBouton={offre3.bouton_offre}
               />
               <Trait color="pink" />
             </NotDesktop>
