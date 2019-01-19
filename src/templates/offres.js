@@ -197,24 +197,26 @@ const Icon = styled.img`
   transition: transform 0.5s ease-in-out;
 `;
 
-const Offre = ({ contenu, color, component, title }) => (
-  <React.Fragment>
-    {title ? (
-      <CardContent color={color}>
-        <CardContentTitle justifyContent="center">{title}</CardContentTitle>
-      </CardContent>
-    ) : null}
-    {component()}
-    <List color={color}>
-      {contenu.raw.map((elem, id) => (
-        <li key={id}>{elem.text}</li>
-      ))}
-    </List>
-    <ButtonLink backgroundcolor={color} size="small" to="/">
-      En savoir plus
-    </ButtonLink>
-  </React.Fragment>
-);
+const Offre = ({ contenu, color, component, title, contenuBouton }) => {
+  return (
+    <React.Fragment>
+      {title ? (
+        <CardContent color={color}>
+          <CardContentTitle justifyContent="center">{title}</CardContentTitle>
+        </CardContent>
+      ) : null}
+      {component()}
+      <List color={color}>
+        {contenu.map((elem, id) => (
+          <li key={id}>{elem.contenu_offre.text}</li>
+        ))}
+      </List>
+      <ButtonLink backgroundcolor={color} size="small" to="/">
+        {contenuBouton.text}
+      </ButtonLink>
+    </React.Fragment>
+  );
+};
 
 class Offres extends React.Component {
   state = {
@@ -236,29 +238,44 @@ class Offres extends React.Component {
   };
 
   render() {
-    const {
-      titre_offres,
-      titre_offre_1,
-      contenu_offre_1,
-      liste_offre_1,
-      titre_offre_2,
-      contenu_offre_2,
-      liste_offre_2,
-      titre_offre_3,
-      contenu_offre_3,
-      liste_offre_3
-    } = this.props.data.prismicOffres.data;
+    const { prismicOffresBodyMain } = this.props.data;
+
+    const { titre_page } = prismicOffresBodyMain.primary;
+    const offre1 = {
+      titre_offre: prismicOffresBodyMain.items[0].titre_offre,
+      contenu_offre: prismicOffresBodyMain.items[0].contenu_offre,
+      detail_offre: prismicOffresBodyMain.items[0].detail_offre,
+      bouton_offre: prismicOffresBodyMain.items[0].bouton_offre
+    };
+    const offre2 = {
+      titre_offre: prismicOffresBodyMain.items[1].titre_offre,
+      contenu_offre: prismicOffresBodyMain.items[1].contenu_offre,
+      detail_offre: prismicOffresBodyMain.items[1].detail_offre,
+      bouton_offre: prismicOffresBodyMain.items[1].bouton_offre
+    };
+    const offre3 = {
+      titre_offre: prismicOffresBodyMain.items[2].titre_offre,
+      contenu_offre: prismicOffresBodyMain.items[2].contenu_offre,
+      detail_offre: prismicOffresBodyMain.items[2].detail_offre,
+      bouton_offre: prismicOffresBodyMain.items[2].bouton_offre
+    };
 
     const OffreSelected = () => {
       switch (this.state.offreSelected) {
         case 1:
           return (
-            <Offre contenu={liste_offre_1} color="purple" component={Foyt} />
+            <Offre
+              contenu={prismicOffresBodyMain.items}
+              contenuBouton={offre1.bouton_offre}
+              color="purple"
+              component={Foyt}
+            />
           );
         case 2:
           return (
             <Offre
-              contenu={liste_offre_2}
+              contenu={prismicOffresBodyMain.items}
+              contenuBouton={offre2.bouton_offre}
               color="darkGreen"
               component={Resume}
             />
@@ -266,7 +283,8 @@ class Offres extends React.Component {
         default:
           return (
             <Offre
-              contenu={liste_offre_3}
+              contenu={prismicOffresBodyMain.items}
+              contenuBouton={offre3.bouton_offre}
               color="darkPink"
               component={Process}
             />
@@ -278,7 +296,7 @@ class Offres extends React.Component {
       <Layout location={this.props.location}>
         <WrapperContainer>
           <WrapperLeft topPosition={this.state.topPosition}>
-            <Title label={titre_offres.text} />
+            <Title label={titre_page.text} />
             <WrapperLeftContent>
               <CardLink href="/offres/petit-budget">
                 <CardContent
@@ -289,11 +307,14 @@ class Offres extends React.Component {
                 >
                   <CardContentTitle>
                     <WrapperIcon color="purple">
-                      <Icon src={IconResponsive} alt={titre_offre_1.text} />
+                      <Icon
+                        src={IconResponsive}
+                        alt={offre1.titre_offre.text}
+                      />
                     </WrapperIcon>
-                    {titre_offre_1.text}
+                    {offre1.titre_offre.text}
                   </CardContentTitle>
-                  {Parser(contenu_offre_1.html)}
+                  {Parser(offre1.contenu_offre.html)}
                 </CardContent>
               </CardLink>
               <CardLink href="/offres/sur-mesure">
@@ -305,11 +326,11 @@ class Offres extends React.Component {
                 >
                   <CardContentTitle>
                     <WrapperIcon color="darkGreen">
-                      <Icon src={IconPaint} alt={titre_offre_2.text} />
+                      <Icon src={IconPaint} alt={offre2.titre_offre.text} />
                     </WrapperIcon>
-                    {titre_offre_2.text}
+                    {offre2.titre_offre.text}
                   </CardContentTitle>
-                  {Parser(contenu_offre_2.html)}
+                  {Parser(offre2.contenu_offre.html)}
                 </CardContent>
               </CardLink>
               <CardLink href="/offres/agences">
@@ -321,11 +342,11 @@ class Offres extends React.Component {
                 >
                   <CardContentTitle>
                     <WrapperIcon color="darkPink">
-                      <Icon src={IconTarget} alt={titre_offre_3.text} />
+                      <Icon src={IconTarget} alt={offre3.titre_offre.text} />
                     </WrapperIcon>
-                    {titre_offre_3.text}
+                    {offre3.titre_offre.text}
                   </CardContentTitle>
-                  {Parser(contenu_offre_3.html)}
+                  {Parser(offre3.contenu_offre.html)}
                 </CardContent>
               </CardLink>
             </WrapperLeftContent>
@@ -336,25 +357,25 @@ class Offres extends React.Component {
             </Desktop>
             <NotDesktop>
               <Offre
-                contenu={liste_offre_1}
+                contenu={offre1.detail_offre.text}
                 color="purple"
                 component={Foyt}
-                title={titre_offre_1.text}
+                title={offre1.titre_offre.text}
               />
               <Trait color="purple" />
               <Offre
-                contenu={liste_offre_2}
+                contenu={offre2.detail_offre.text}
                 color="darkGreen"
                 component={Resume}
-                title={titre_offre_2.text}
+                title={offre2.titre_offre.text}
               />
               <Trait color="darkGreen" />
 
               <Offre
-                contenu={liste_offre_3}
+                contenu={offre3.detail_offre.text}
                 color="pink"
                 component={Process}
-                title={titre_offre_3.text}
+                title={offre3.titre_offre.text}
               />
               <Trait color="pink" />
             </NotDesktop>
@@ -366,45 +387,27 @@ class Offres extends React.Component {
 }
 
 export const pageQuery = graphql`
-  query OffresBySlug($uid: String!) {
-    prismicOffres(uid: { eq: $uid }) {
-      uid
-      data {
-        titre_offres {
+  query Offres {
+    prismicOffresBodyMain {
+      primary {
+        titre_page {
           text
         }
-        titre_offre_1 {
+      }
+      items {
+        titre_offre {
           text
         }
-        contenu_offre_1 {
+        contenu_offre {
+          text
           html
         }
-        liste_offre_1 {
-          raw {
-            text
-          }
-        }
-        titre_offre_2 {
+        detail_offre {
+          html
           text
         }
-        contenu_offre_2 {
-          html
-        }
-        liste_offre_2 {
-          raw {
-            text
-          }
-        }
-        titre_offre_3 {
+        bouton_offre {
           text
-        }
-        contenu_offre_3 {
-          html
-        }
-        liste_offre_3 {
-          raw {
-            text
-          }
         }
       }
     }
