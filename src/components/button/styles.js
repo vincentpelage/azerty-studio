@@ -67,8 +67,8 @@ export const getButtonStyles = props => {
     font-size: ${mobileSize}px;
     cursor: ${cursor};
     text-decoration: none;
-    transition: border-radius 0.5s ease-in-out,
-      background-color 0.5s ease-in-out;
+    transition: border-radius 0.3s ease-in-out,
+      background-color 0.3s ease-in-out;
     outline: none;
     z-index: 1;
     margin: ${margin};

@@ -25,6 +25,7 @@ const Nav = styled.nav`
   position: fixed;
   background-color: ${props => props.theme.darkGreen};
   border-right: solid 1px rgba(255, 255, 255, 0.5);
+  /* overflow: hidden; */
 `;
 
 const Logo = styled.img`

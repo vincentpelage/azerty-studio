@@ -19,7 +19,7 @@ const Wrapper = styled.div`
   align-items: center;
   height: 100vh;
   flex-direction: column;
-  position: relative;
+  /* position: relative; */
   overflow: hidden;
   /* &::after {
     content: "";
