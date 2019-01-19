@@ -83,11 +83,15 @@ class List extends Component {
   };
 
   render() {
-    const { to, src, label, children } = this.props;
+    const { to, src, label, children, isActive } = this.props;
     const { isHover } = this.state;
 
     return (
-      <Item onMouseEnter={this.onEnter} onMouseLeave={this.onLeave}>
+      <Item
+        onMouseEnter={this.onEnter}
+        onMouseLeave={this.onLeave}
+        isActive={isActive}
+      >
         <LinkStyled to={to} activeClassName="active">
           <Icon src={src} />
         </LinkStyled>

@@ -63,7 +63,7 @@ const Paragraph = styled.p`
   }
 `;
 
-const Expertises = ({ location }) => {
+const Expertises = ({ location, data }) => {
   return (
     <Layout location={location}>
       <Spacer height="100vh" fullHeight>
@@ -150,5 +150,32 @@ const Expertises = ({ location }) => {
     </Layout>
   );
 };
+
+export const pageQuery = graphql`
+  query Expertises {
+    prismicExpertisesBodyExpertise {
+      primary {
+        titre_principal {
+          html
+          text
+        }
+      }
+      items {
+        titre_expertise {
+          html
+          text
+        }
+        contenu_expertise {
+          html
+          text
+        }
+        bouton_expertise {
+          html
+          text
+        }
+      }
+    }
+  }
+`;
 
 export default Expertises;

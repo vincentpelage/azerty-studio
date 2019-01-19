@@ -145,7 +145,10 @@ class Home extends React.Component {
             <Letter>t</Letter>
             <Letter>y</Letter>
           </Logo>
-          <Baseline>{data.markdownRemark.frontmatter.baseline}</Baseline>
+          <Baseline>
+            Nous créons de jolis sites web modernes, rapides, sécurisés et
+            accessibles à tous
+          </Baseline>
 
           <ButtonLink
             to="/offres"
@@ -161,5 +164,20 @@ class Home extends React.Component {
     );
   }
 }
+
+export const pageQuery = graphql`
+  query Home {
+    prismicAccueilBodyMain {
+      primary {
+        titre_presentation {
+          text
+        }
+        contenu_bouton {
+          text
+        }
+      }
+    }
+  }
+`;
 
 export default Home;

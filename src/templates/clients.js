@@ -93,7 +93,7 @@ const Type = styled.p`
   /* font-weight: 500; */
 `;
 
-const Clients = ({ location }) => {
+const Clients = ({ location, data }) => {
   return (
     <Layout location={location}>
       <Spacer>
@@ -178,5 +178,33 @@ const Clients = ({ location }) => {
     </Layout>
   );
 };
+
+export const pageQuery = graphql`
+  {
+    prismicClientsBodyTitrePrincipal {
+      primary {
+        titre_principal {
+          html
+          text
+        }
+      }
+      items {
+        photo_client {
+          alt
+          copyright
+          url
+        }
+        nom_client {
+          html
+          text
+        }
+        description_client {
+          html
+          text
+        }
+      }
+    }
+  }
+`;
 
 export default Clients;
