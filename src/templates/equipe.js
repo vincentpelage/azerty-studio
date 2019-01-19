@@ -92,7 +92,7 @@ const LinkedinStyled = styled.img`
   margin-top: 1rem;
 `;
 
-const Equipe = ({ location }) => {
+const Equipe = ({ location, data }) => {
   return (
     <Layout location={location}>
       <Wrapper>
@@ -162,5 +162,40 @@ const Equipe = ({ location }) => {
     </Layout>
   );
 };
+
+export const pageQuery = graphql`
+  query Equipe {
+    prismicAProposBodyTitrePrincipal {
+      primary {
+        titre_principal {
+          html
+          text
+        }
+      }
+      items {
+        titre_avantage {
+          html
+          text
+        }
+        contenu_avantage {
+          html
+          text
+        }
+      }
+    }
+    prismicAProposBody1Portrait {
+      items {
+        titre_portrait {
+          html
+          text
+        }
+        contenu_portrait {
+          html
+          text
+        }
+      }
+    }
+  }
+`;
 
 export default Equipe;
