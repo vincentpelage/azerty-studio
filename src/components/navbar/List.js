@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import { CSSTransition } from "react-transition-group";
 import { globalVariables } from "../globalStyle";
+import { bounceHorizontal } from "../animations/index";
 
 const Item = styled.li`
   flex: ${props => (props.isActive ? "1 0 auto" : "1 0 50px")};
@@ -16,14 +17,14 @@ const Item = styled.li`
   transition: display 0.2s ease-in-out;
   min-height: 50px;
   position: relative;
-  .text-enter, .icon-enter {
+  .text-enter {
     opacity: 0;
   }
-  .text-enter-active, .icon-enter-active {
+  .text-enter-active {
     opacity: 1;
   }
 
-  .text-exit-active, .icon-exit-active  {
+  .text-exit-active {
     opacity: 0;
   }
 `;
@@ -45,26 +46,26 @@ const Text = styled.p`
   font-family: Aqua;
   text-transform: uppercase;
   font-size: 9px;
-  padding: 2px 6px;
+  padding: 3px 6px 2px 6px;
   transition: all 0.5s linear;
   position: absolute;
   left: 65px;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 15px;
   width: max-content;
   background-color: ${props => props.theme.white};
   border-radius: ${globalVariables.borderRadius};
+  animation: ${bounceHorizontal} 1s ease-in-out;
+  /* position: relative; */
   &::before {
     content: "";
     position: absolute;
-    left: -4px;
-    width: 0;
-    height: 0;
-    border-top: 6px solid transparent;
-    border-bottom: 6px solid transparent;
-    border-right: 6px solid ${props => props.theme.white};
+    left: -2px;
+    width: 6px;
+    height: 6px;
+    border-radius: 1px;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-50%) rotate(45deg);
+    background-color: ${props => props.theme.white};
   }
 `;
 

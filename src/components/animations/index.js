@@ -21,6 +21,27 @@ export const wobbleVertical = keyframes`
 }
 `;
 
+export const bounceHorizontal = keyframes`
+16.65% {
+  transform: translateX(8px);
+}
+33.33% {
+  transform: translateX(-6px);
+}
+49.95% {
+  transform: translateX(4px);
+}
+66.6% {
+  transform: translateX(-2px);
+}
+83.25% {
+  transform: translateX(1px);
+}
+83.25% {
+  transform: translateX(0);
+}
+`;
+
 export const createCSSAnimationDelay = text => {
   let styles = "";
   for (let i = 0; i < text.length; i += 1) {
