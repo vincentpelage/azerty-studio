@@ -50,16 +50,17 @@ const WrapperLeft = styled.div`
   &::after {
     content: "";
     position: absolute;
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
     top: ${props => (props.topPosition ? props.topPosition + "px" : "50%")};
-    right: -20px;
+    right: -14px;
     background-color: ${props => props.theme.grey};
     transform: rotate(45deg);
+    border-radius: ${globalVariables.borderRadius};
     transition: all 1s cubic-bezier(0.19, 1, 0.22, 1) 0ms;
     @media (max-width: ${globalVariables.maxTablet}) {
       top: auto;
-      bottom: -20px;
+      bottom: -15px;
       left: 50%;
       transform: translateX(-50%) rotate(45deg);
     }
@@ -118,6 +119,7 @@ const CardContent = styled.div`
   }
   @media (max-width: ${globalVariables.maxTablet}) {
     opacity: 1;
+    padding: 0;
   }
   @media (max-width: ${globalVariables.maxMobile}) {
     opacity: 1;
@@ -224,14 +226,14 @@ class Offres extends React.Component {
 
   componentDidMount = () => {
     const topPosition =
-      document.getElementById("offre1").getBoundingClientRect().top + 40;
+      document.getElementById("offre1").getBoundingClientRect().top + 30;
     this.setState({ topPosition });
   };
 
   onMouseEnter = offre => () => {
     const Id = "offre" + offre.toString();
     const topPosition =
-      document.getElementById(Id).getBoundingClientRect().top + 40;
+      document.getElementById(Id).getBoundingClientRect().top + 30;
     this.setState({ offreSelected: offre, topPosition });
   };
 
