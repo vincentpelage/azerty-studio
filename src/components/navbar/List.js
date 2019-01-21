@@ -51,7 +51,9 @@ const Text = styled.p`
   position: absolute;
   left: 65px;
   top: 15px;
-  width: max-content;
+  width: -webkit-max-content; /* Chrome */
+  width: -moz-max-content; /* Firefox/Gecko */
+  width: intrinsic; /* Safari/WebKit utilisent un nom non-standard */
   background-color: ${props => props.theme.white};
   border-radius: ${globalVariables.borderRadius};
   animation: ${bounceHorizontal} 1s ease-in-out;
