@@ -7,8 +7,8 @@ import styled from "styled-components";
 import Button from "../button";
 import { globalVariables } from "../globalStyle";
 import Slider from "react-slick";
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const WrapperSlider = styled.div`
   max-width: 1250px;
@@ -79,8 +79,8 @@ const Item = styled.li`
 class Prix extends React.Component {
   componentDidMount() {
     require("gsap/ScrollToPlugin");
-    require("slick-carousel/slick/slick-theme.css");
-    require("slick-carousel/slick/slick.css");
+    // require("slick-carousel/slick/slick-theme.css");
+    // require("slick-carousel/slick/slick.css");
   }
 
   handleClick = () => {
