@@ -38,7 +38,7 @@ const WrapperBurger = styled.a`
   position: fixed;
   right: 10px;
   top: 10px;
-  z-index: 3;
+  z-index: 4;
   width: 40px;
 `;
 
@@ -79,7 +79,7 @@ const Menu = styled.ul`
   width: 100%;
   height: 100vh;
   position: fixed;
-  z-index: 2;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   transition: top 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -95,6 +95,9 @@ const SubItem = styled.ul`
   & p {
     font-size: 16px;
   }
+  & div {
+    /* background-color: ${props => props.theme.purple}; */
+  }
 `;
 
 const LinkStyled = styled(Link)`
@@ -108,23 +111,27 @@ const LinkStyled = styled(Link)`
   &:focus {
     color: ${props => props.theme.white};
     p {
-      position: relative;
-      &::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 3px;
-        height: 6px;
-        width: 100%;
-        background-color: ${props => props.theme.lightPink};
-      }
+      background-color: ${props => props.theme.purple};
+      padding: 2px 4px 0px 4px;
     }
   }
 `;
 
-const Icon = styled.img`
-  width: 23px;
+const WrapperIcon = styled.div`
+  background-color: ${props => props.theme.purple};
+  border-radius: 50%;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
   margin-right: 10px;
+`;
+
+const Icon = styled.img`
+  width: 100%;
 `;
 
 const Text = styled.p`
@@ -146,7 +153,7 @@ export class MobileNavbar extends Component {
 
   render() {
     const { isBurgerActive } = this.state;
-    const isHome = this.props.location === "/";
+    const isHome = this.props.location.pathname === "/";
 
     return (
       <Nav>
@@ -160,31 +167,41 @@ export class MobileNavbar extends Component {
         <Menu isBurgerActive={isBurgerActive}>
           <Item>
             <LinkStyled to="/" activeClassName="active">
-              <Icon src={IconHome} />
+              <WrapperIcon>
+                <Icon src={IconHome} />
+              </WrapperIcon>
               <Text>Accueil</Text>
             </LinkStyled>
           </Item>
           <Item>
             <LinkStyled to="/offres" activeClassName="active">
-              <Icon src={IconMonitor} />
+              <WrapperIcon>
+                <Icon src={IconMonitor} />
+              </WrapperIcon>
               <Text>Offres</Text>
             </LinkStyled>
             <SubItem>
               <Item>
                 <LinkStyled to="/offres/petit-budget" activeClassName="active">
-                  <Icon src={IconResponsive} />
+                  <WrapperIcon>
+                    <Icon src={IconResponsive} />
+                  </WrapperIcon>
                   <Text>Petit budget</Text>
                 </LinkStyled>
               </Item>
               <Item>
                 <LinkStyled to="/offres/sur-mesure" activeClassName="active">
-                  <Icon src={IconPaint} />
+                  <WrapperIcon>
+                    <Icon src={IconPaint} />
+                  </WrapperIcon>
                   <Text>Sur mesure</Text>
                 </LinkStyled>
               </Item>
               <Item>
                 <LinkStyled to="/offres/agences" activeClassName="active">
-                  <Icon src={IconTarget} />
+                  <WrapperIcon>
+                    <Icon src={IconTarget} />
+                  </WrapperIcon>
                   <Text>Agences</Text>
                 </LinkStyled>
               </Item>
@@ -193,25 +210,33 @@ export class MobileNavbar extends Component {
 
           <Item>
             <LinkStyled to="/expertises" activeClassName="active">
-              <Icon src={IconMagic} />
+              <WrapperIcon>
+                <Icon src={IconMagic} />
+              </WrapperIcon>
               <Text>Expertises</Text>
             </LinkStyled>
             <SubItem>
               <Item>
                 <LinkStyled to="/expertises/site" activeClassName="active">
-                  <Icon src={IconFlask} />
+                  <WrapperIcon>
+                    <Icon src={IconFlask} />
+                  </WrapperIcon>
                   <Text>Site internet</Text>
                 </LinkStyled>
               </Item>
               <Item>
                 <LinkStyled to="/expertises/trafic" activeClassName="active">
-                  <Icon src={IconSpace} />
+                  <WrapperIcon>
+                    <Icon src={IconSpace} />
+                  </WrapperIcon>
                   <Text>Trafic</Text>
                 </LinkStyled>
               </Item>
               <Item>
                 <LinkStyled to="/expertises/analyse" activeClassName="active">
-                  <Icon src={IconStats} />
+                  <WrapperIcon>
+                    <Icon src={IconStats} />
+                  </WrapperIcon>
                   <Text>Analyse</Text>
                 </LinkStyled>
               </Item>
@@ -220,19 +245,25 @@ export class MobileNavbar extends Component {
 
           <Item>
             <LinkStyled to="/a-propos" activeClassName="active">
-              <Icon src={IconUser} />
+              <WrapperIcon>
+                <Icon src={IconUser} />
+              </WrapperIcon>
               <Text>A Propos</Text>
             </LinkStyled>
           </Item>
           <Item>
             <LinkStyled to="/clients" activeClassName="active">
-              <Icon src={IconHeart} />
+              <WrapperIcon>
+                <Icon src={IconHeart} />
+              </WrapperIcon>
               <Text>Clients</Text>
             </LinkStyled>
           </Item>
           <Item>
             <LinkStyled to="/contact" activeClassName="active">
-              <Icon src={IconEnvelope} />
+              <WrapperIcon>
+                <Icon src={IconEnvelope} />
+              </WrapperIcon>
               <Text>Contact</Text>
             </LinkStyled>
           </Item>
