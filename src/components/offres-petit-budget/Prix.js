@@ -1,12 +1,14 @@
 import React from "react";
 import { TweenMax } from "gsap";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
 import Spacer from "../spacer/index";
 import SubTitle from "../subTitle/index";
 import styled from "styled-components";
 import Button from "../button";
 import { globalVariables } from "../globalStyle";
-import Slider from "react-slick";
 
 const WrapperSlider = styled.div`
   max-width: 1250px;
