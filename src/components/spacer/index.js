@@ -9,7 +9,7 @@ const SpacerStyled = styled.section`
   background-color: ${props =>
     props.backgroundColor ? props.backgroundColor : "transparent"};
   min-height: ${props => (props.height ? props.height : "100vh")};
-
+  z-index: -1;
   @media (max-width: ${globalVariables.maxTablet}) {
     padding: 6rem 2rem;
   }
