@@ -35,6 +35,11 @@ const WrapperRight = styled.div`
   overflow: hidden;
   @media (max-width: ${globalVariables.maxTablet}) {
     flex: 0 0 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem 2rem 3rem 2rem;
   }
 `;
 
@@ -47,21 +52,18 @@ const WrapperTransition = styled.div`
   width: 100%;
   padding: 2rem 4rem;
 
-  transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
   position: absolute;
   top: 0;
   left: 0;
   z-index: 0;
-  @media (max-width: ${globalVariables.maxTablet}) {
-    height: auto;
-    padding: 1rem 2rem 3rem 2rem;
-  }
+
   &.offre-selected-enter {
-    left: -200%;
+    opacity: 0;
   }
 
   &.offre-selected-exit {
-    left: 100%;
+    opacity: 0;
   }
 `;
 
@@ -341,7 +343,7 @@ class Offres extends React.Component {
             <Desktop>
               <CSSTransition
                 in={this.state.offreSelected === 1}
-                timeout={500}
+                timeout={300}
                 classNames="offre-selected"
                 unmountOnExit
               >
@@ -356,7 +358,7 @@ class Offres extends React.Component {
               </CSSTransition>
               <CSSTransition
                 in={this.state.offreSelected === 2}
-                timeout={500}
+                timeout={300}
                 classNames="offre-selected"
                 unmountOnExit
               >
@@ -371,7 +373,7 @@ class Offres extends React.Component {
               </CSSTransition>
               <CSSTransition
                 in={this.state.offreSelected === 3}
-                timeout={500}
+                timeout={300}
                 classNames="offre-selected"
                 unmountOnExit
               >

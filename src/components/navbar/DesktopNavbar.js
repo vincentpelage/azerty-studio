@@ -1,11 +1,13 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+// import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
+import { Link } from "gatsby";
 
 import logo from "../../img/azertylogo.png";
 import IconHome from "../../icons/home.svg";
-import IconResponsive from "../../icons/responsive.svg";
-import IconPaint from "../../icons/paint-brush.svg";
-import IconTarget from "../../icons/webmarketing.svg";
+// import IconResponsive from "../../icons/responsive.svg";
+// import IconPaint from "../../icons/paint-brush.svg";
+// import IconTarget from "../../icons/webmarketing.svg";
 import IconHeart from "../../icons/heart.svg";
 import IconMonitor from "../../icons/monitor.svg";
 import IconEnvelope from "../../icons/envelope.svg";
@@ -44,26 +46,26 @@ const Menu = styled.ul`
   align-items: center;
 `;
 
-const heightSubList = keyframes`
-  from {
-    height: 0;
-  }
+// const heightSubList = keyframes`
+//   from {
+//     height: 0;
+//   }
 
-  to {
-    height: auto;
-  }
-`;
+//   to {
+//     height: auto;
+//   }
+// `;
 
-const SubList = styled.ul`
-  display: ${props => (props.isActive ? "flex" : "none")};
-  flex-direction: column;
-  background-color: ${props => props.theme.green};
-  padding: 5px;
-  margin-bottom: 10px;
-  width: 100%;
-  animation: ${heightSubList} 0.2s ease-in-out;
-  /* transition: height 0.2s ease-in-out; */
-`;
+// const SubList = styled.ul`
+//   display: ${props => (props.isActive ? "flex" : "none")};
+//   flex-direction: column;
+//   background-color: ${props => props.theme.green};
+//   padding: 5px;
+//   margin-bottom: 10px;
+//   width: 100%;
+//   animation: ${heightSubList} 0.2s ease-in-out;
+//   /* transition: height 0.2s ease-in-out; */
+// `;
 
 export const DesktopNavbar = class extends React.Component {
   render() {
@@ -74,7 +76,10 @@ export const DesktopNavbar = class extends React.Component {
 
     return (
       <Nav>
-        <Logo src={logo} />
+        <Link to="/">
+          <Logo src={logo} />
+        </Link>
+
         <Menu>
           <List to="/" src={IconHome} label="accueil" />
           <List
@@ -83,7 +88,7 @@ export const DesktopNavbar = class extends React.Component {
             label="offres"
             isActive={isOffresPage}
           >
-            <SubList isActive={isOffresPage}>
+            {/* <SubList isActive={isOffresPage}>
               <List
                 to="/offres/petit-budget"
                 src={IconResponsive}
@@ -95,7 +100,7 @@ export const DesktopNavbar = class extends React.Component {
                 label="sur mesure"
               />
               <List to="/offres/agences" src={IconTarget} label="agences" />
-            </SubList>
+            </SubList> */}
           </List>
           <List
             to="/expertises"

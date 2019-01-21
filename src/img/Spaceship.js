@@ -29,24 +29,29 @@ const FloatingSpace = keyframes`{
 
 const SpaceshipStyled = styled.svg`
   position: absolute;
-  bottom: -1rem;
+  bottom: 0rem;
   right: 2rem;
   width: 300px;
   height: 240px;
   z-index: 2;
   @media (max-width: ${globalVariables.maxTablet}) {
+    bottom: 0rem;
+    width: 300px;
+    height: 300px;
+  }
+  @media (max-width: ${globalVariables.maxMobile}) {
     bottom: -2rem;
     width: 250px;
     height: 200px;
   }
   .animate-float {
-    animation: ${FloatingStars} 6s ease-in-out infinite;
+    animation: ${FloatingStars} 3s ease-in-out infinite;
   }
   circle {
-    animation: ${FloatingStars} 6s ease-in-out infinite;
+    animation: ${FloatingStars} 3s ease-in-out infinite;
   }
   .animate-space {
-    animation: ${FloatingSpace} 2s ease-in-out infinite;
+    animation: ${FloatingSpace} 3s ease-in-out infinite;
   }
 `;
 

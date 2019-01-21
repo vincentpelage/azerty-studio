@@ -58,7 +58,7 @@ export const getButtonStyles = props => {
     height: 2.5em;
     width: ${width};
     max-width: 100%;
-    padding: 13px 24px 11px 24px;
+    padding: 12px 24px 11px 24px;
     border-radius: ${globalVariables.borderRadiusButton};
     border: none;
     background: ${background};

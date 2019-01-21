@@ -10,6 +10,12 @@ const TypeWriterStyled = styled.svg`
   right: 5%;
   z-index: 1;
   @media (max-width: ${globalVariables.maxTablet}) {
+    width: 200px;
+    height: 200px;
+    right: -1rem;
+    top: 5rem;
+  }
+  @media (max-width: ${globalVariables.maxMobile}) {
     width: 170px;
     height: 105px;
     right: -1rem;

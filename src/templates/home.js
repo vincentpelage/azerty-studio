@@ -19,24 +19,7 @@ const Wrapper = styled.div`
   align-items: center;
   height: 100vh;
   flex-direction: column;
-  /* position: relative; */
   overflow: hidden;
-  /* &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 2rem;
-    display: block;
-    width: 200px;
-    height: 200px;
-    z-index: 2;
-    background-image: url(${SpaceShip});
-    background-size: cover;
-    @media (max-width: ${globalVariables.maxTablet}) {
-      width: 150px;
-      height: 150px;
-    }
-  } */
 `;
 
 const Decoration = styled.img`
@@ -44,8 +27,11 @@ const Decoration = styled.img`
   position: absolute;
   z-index: 0;
   @media (max-width: ${globalVariables.maxTablet}) {
-    width: 625px;
+    width: 800px;
     max-width: none;
+  }
+  @media (max-width: ${globalVariables.maxMobile}) {
+    display: none;
   }
 `;
 
@@ -102,6 +88,9 @@ const Baseline = styled.p`
   z-index: 1;
   @media (max-width: ${globalVariables.maxTablet}) {
     font-size: 18px;
+    width: 50%;
+  }
+  @media (max-width: ${globalVariables.maxMobile}) {
     width: 90%;
   }
 `;
@@ -126,7 +115,7 @@ class Home extends React.Component {
   };
 
   render() {
-    const { data, location } = this.props;
+    const { location } = this.props;
 
     return (
       <Layout location={location}>
