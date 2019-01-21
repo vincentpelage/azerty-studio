@@ -13,16 +13,6 @@ import GlobalStyles, {
 import { DesktopNavbar, MobileNavbar } from "../components/navbar";
 
 const LayoutContainer = styled.div`
-  @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  background-color: ${props => props.theme.grey};
-  line-height: 1.5;
-  color: ${props => props.theme.dark};
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  text-size-adjust: 100%;
-
   display: flex;
   flex-direction: row;
   @media (max-width: ${globalVariables.maxTablet}) {
