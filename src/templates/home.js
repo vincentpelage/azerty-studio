@@ -115,7 +115,7 @@ class Home extends React.Component {
   };
 
   render() {
-    const { location } = this.props;
+    const { location, data } = this.props;
 
     return (
       <Layout location={location}>
@@ -156,13 +156,24 @@ class Home extends React.Component {
 
 export const pageQuery = graphql`
   query Home {
-    prismicAccueilBodyMain {
-      primary {
-        titre_presentation {
+    prismicAccueil {
+      uid
+      data {
+        accueil {
+          html
           text
         }
-        contenu_bouton {
-          text
+        body {
+          primary {
+            titre_presentation {
+              html
+              text
+            }
+            contenu_bouton {
+              html
+              text
+            }
+          }
         }
       }
     }
