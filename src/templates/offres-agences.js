@@ -66,13 +66,13 @@ export const pageQuery = graphql`
           text
         }
         contenu_accroche_1 {
-          html
+          text
         }
         titre_accroche_2 {
           text
         }
         contenu_accroche_2 {
-          html
+          text
         }
         bouton_contact {
           text

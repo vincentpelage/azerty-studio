@@ -16,14 +16,13 @@ const StyledSubTitle = styled.p`
   position: relative;
 
   &::after {
-    /* content: ${props => (props.noLine ? "none" : " ")}; */
     content: " ";
     position: absolute;
     bottom: -13px;
     left: ${props => (props.textAlign === "center" ? "50%" : "1px")};
     transform: ${props =>
       props.textAlign === "center" ? "translateX(-50%)" : "none"};
-    width: ${props => (props.noLine ? "0" : "35px")};;
+    width: ${props => (props.noLine ? "0" : "35px")};
     height: 4px;
     border-radius: 10px;
     background-color: ${props =>

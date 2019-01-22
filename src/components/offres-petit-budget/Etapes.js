@@ -1,6 +1,7 @@
 import React from "react";
 import SubTitle from "../subTitle";
 import styled, { css } from "styled-components";
+import Parser from "html-react-parser";
 
 import Spacer from "../spacer/index";
 import { theme } from "../globalStyle";
@@ -71,6 +72,7 @@ const Item = styled.li`
     justify-content: center;
     align-items: center;
     border: 1px solid ${props => props.theme.white};
+    padding-top: 3px;
   }
   @media (max-width: ${globalVariables.maxTablet}) {
     padding-left: 2rem;
@@ -89,6 +91,12 @@ const Item = styled.li`
       font-size: 20px;
     }
   }
+  p:not(:first-child) {
+    font-size: 16px;
+    @media (max-width: ${globalVariables.medDesktop}) {
+      font-size: 14px;
+    }
+  }
 `;
 
 const Title = styled.p`
@@ -100,43 +108,17 @@ const Title = styled.p`
   }
 `;
 
-const Text = styled.p`
-  font-size: 16px;
-  @media (max-width: ${globalVariables.medDesktop}) {
-    font-size: 14px;
-  }
-`;
-
-const Etapes = () => {
+const Etapes = ({ data }) => {
   return (
     <Spacer backgroundColor={theme.darkGrey} height="100vh" id="etapes">
-      <SubTitle label="Comment ca marche ?" textAlign="center" />
+      <SubTitle label={data.primary.titre_etapes.text} textAlign="center" />
       <List>
-        <Item>
-          <Title>Vous choisissez la catégorie de site</Title>
-          <Text>Une page, multi-pages ou e-commerce</Text>
-        </Item>
-        <Item>
-          <Title>Vous choisissez votre modèle de site</Title>
-          <Text>Parmi notre sélection de modèles personnalisables</Text>
-        </Item>
-        <Item>
-          <Title>On en parle ensemble par téléphone</Title>
-          <Text>
-            Pour comprendre vos attentes et être sur la même longueur d'onde
-          </Text>
-        </Item>
-        <Item>
-          <Title>Vous nous envoyez vos textes et images</Title>
-          <Text>Nous pouvons aussi vous fournir du contenu et des images</Text>
-        </Item>
-        <Item>
-          <Title>On s'occupe de tout </Title>
-          <Text>
-            On crée votre site de A à Z et on vous explique comment le modifier
-            simplement (si vous le souhaitez)
-          </Text>
-        </Item>
+        {data.items.map((item, index) => (
+          <Item key={index}>
+            <Title>{item.titre_etape.text}</Title>
+            {Parser(item.contenu_etape.html)}
+          </Item>
+        ))}
       </List>
       <ArrowScroll fill={theme.purple} ancreId="prix" positionLeft="50%" />
       <Coffee />

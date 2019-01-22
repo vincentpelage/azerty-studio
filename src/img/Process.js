@@ -1,6 +1,8 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
+import { globalVariables } from "../components/globalStyle";
+
 const animateArrow = keyframes`
   0% {
     opacity: 0;
@@ -14,8 +16,14 @@ const animateArrow = keyframes`
 `;
 
 const ProcessStyled = styled.svg`
-  height: 220px;
-  margin: 3rem 0;
+  height: 180px;
+  position: absolute;
+  bottom: 2rem;
+  right: 4rem;
+  @media (max-width: ${globalVariables.maxTablet}) {
+    width: 50%;
+    height: auto;
+  }
   .animate-arrow {
     animation: ${animateArrow} 2s ease-in-out infinite;
   }

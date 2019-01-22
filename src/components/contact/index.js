@@ -98,6 +98,8 @@ class Contact extends React.Component {
   };
 
   render() {
+    console.log("data enfant", this.props.data);
+    const { data } = this.props;
     const { prenom, nom, email, telephone, projet } = this.state;
     return (
       <Wrapper id="contact">
@@ -106,13 +108,13 @@ class Contact extends React.Component {
           height="100vh"
           flex="0 0 50%"
         >
-          <SubTitle label="Contact" />
+          <SubTitle label={data.primary.titre_contact.text} />
           <Container>
             <WrapperText>
               <Icon src={Mobile} />
               <Text>
-                <strong>{this.props.textMobile}</strong>
-                02.40.40.40.40 (ligne gratuite)
+                <strong>{data.primary.titre_accroche_1.text}</strong>
+                {data.primary.contenu_accroche_1.text}
               </Text>
             </WrapperText>
           </Container>
@@ -120,8 +122,8 @@ class Contact extends React.Component {
             <WrapperText>
               <Icon src={Mail} />
               <Text>
-                <strong>Vous préférez nous envoyer un message&nbsp;?</strong>
-                Nous vous rappellerons
+                <strong>{data.primary.titre_accroche_2.text}</strong>
+                {data.primary.contenu_accroche_2.text}
               </Text>
             </WrapperText>
           </Container>
@@ -175,7 +177,7 @@ class Contact extends React.Component {
             </WrapperTextarea>
 
             <Button type="submit" margin="2rem 0 0 0" backgroundcolor="pink">
-              Envoyer
+              {data.primary.bouton_contact.text}
             </Button>
           </Form>
           <TypeWriter />

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Parser from "html-react-parser";
 
 import Spacer from "../spacer/index";
 import SubTitle from "../subTitle";
@@ -25,6 +26,13 @@ const Item = styled.div`
     flex: 1 1 100%;
     padding: 1rem 0;
   }
+  p {
+    text-align: justify;
+    margin-bottom: 0.5rem;
+    & strong {
+      color: ${props => props.theme.pink};
+    }
+  }
 `;
 
 const SubSubTitle = styled.h2`
@@ -44,15 +52,6 @@ const SubSubTitle = styled.h2`
   }
 `;
 
-const Text = styled.p`
-  text-align: justify;
-  margin-bottom: 0.5rem;
-  & strong {
-    font-weight: 500;
-    color: ${props => props.theme.pink};
-  }
-`;
-
 const Etiquette = styled.span`
   color: ${props => props.theme.white};
   background-color: ${props => props.theme.darkPink};
@@ -62,44 +61,18 @@ const Etiquette = styled.span`
   border-radius: ${globalVariables.borderRadius};
 `;
 
-const Services = () => {
+const Services = ({ data }) => {
   return (
     <Spacer height="100vh" id="services">
-      <SubTitle label="Plus de services" />
+      <SubTitle label={data.primary.titre_services.text} />
       <AvantageList>
-        <Item>
-          <SubSubTitle>Rédaction de contenu</SubSubTitle>
-          <Text>Nous rédigeons votre contenu</Text>
-          <Etiquette>50 euros par page</Etiquette>
-        </Item>
-        <Item>
-          <SubSubTitle>Reportage photo</SubSubTitle>
-          <Text>Nous vous envoyons un photographe à domicile</Text>
-          <Etiquette>500 euros les 20 photos</Etiquette>
-        </Item>
-        <Item>
-          <SubSubTitle>Référencement naturel</SubSubTitle>
-          <Text>Nous vous aidons dans votre stratégie de référencement</Text>
-          <Etiquette>100 euros par page</Etiquette>
-        </Item>
-        <Item>
-          <SubSubTitle>Achat d'images</SubSubTitle>
-          <Text>
-            Nous vous achetons des images dans des bibliothèques dédiées (avec
-            les droits d'auteur)
-          </Text>
-          <Etiquette>100 euros les 20 photos</Etiquette>
-        </Item>
-        <Item>
-          <SubSubTitle>Publicité sur Google</SubSubTitle>
-          <Text>Nous gérons vos campagnes AdWords</Text>
-          <Etiquette>100 euros par page</Etiquette>
-        </Item>
-        <Item>
-          <SubSubTitle>Fonctionalités supplémentaires</SubSubTitle>
-          <Text>Nous développons de nouveaux modules rien que pour vous</Text>
-          <Etiquette>Sur devis</Etiquette>
-        </Item>
+        {data.items.map((item, index) => (
+          <Item key={index}>
+            <SubSubTitle>{item.titre_service.text}</SubSubTitle>
+            {Parser(item.contenu_service.html)}
+            <Etiquette>{item.prix_service.text}</Etiquette>
+          </Item>
+        ))}
       </AvantageList>
       <ArrowScroll fill={theme.darkGreen} ancreId="contact" positionLeft="4%" />
       <ServicesImg />

@@ -40,7 +40,6 @@ const SpaceshipStyled = styled.svg`
     height: 300px;
   }
   @media (max-width: ${globalVariables.maxMobile}) {
-    bottom: -2rem;
     width: 250px;
     height: 200px;
   }

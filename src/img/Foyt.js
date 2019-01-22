@@ -1,6 +1,8 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
+import { globalVariables } from "../components/globalStyle";
+
 const animateScreenLeft = keyframes`
   0% {
     transform: translate(-61.06px, -71.37px);
@@ -28,9 +30,14 @@ const animateScreenRight = keyframes`
 `;
 
 const FoytStyled = styled.svg`
-  height: 240px;
-  margin: 3rem 0;
-
+  height: 180px;
+  position: absolute;
+  bottom: 2rem;
+  right: 4rem;
+  @media (max-width: ${globalVariables.maxTablet}) {
+    width: 50%;
+    height: auto;
+  }
   .animate-screen-left {
     animation: ${animateScreenLeft} 2s ease-in-out infinite;
   }

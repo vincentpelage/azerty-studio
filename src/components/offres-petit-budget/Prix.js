@@ -3,6 +3,7 @@ import { TweenMax } from "gsap";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import Parser from "html-react-parser";
 
 import Spacer from "../spacer/index";
 import SubTitle from "../subTitle/index";
@@ -66,14 +67,12 @@ const CardBody = styled.div`
   @media (max-width: ${globalVariables.medDesktop}) {
     min-height: 450px;
   }
-`;
-
-const List = styled.ul`
-  font-size: 14px;
-`;
-
-const Item = styled.li`
-  margin-bottom: 1.5rem;
+  ul {
+    font-size: 14px;
+    li {
+      margin-bottom: 1.5rem;
+    }
+  }
 `;
 
 class Prix extends React.Component {
@@ -125,101 +124,26 @@ class Prix extends React.Component {
       ]
     };
 
+    const { data } = this.props;
     return (
       <Spacer height="100vh" id="prix">
-        <SubTitle label="Prix" textAlign="center" />
+        <SubTitle label={data.primary.titre_prix.text} textAlign="center" />
         <WrapperSlider>
           <Slider {...settings}>
-            <Column>
-              <Card>
-                <CardTitle>
-                  <p>Une page</p>
-                  <span>850 Euros</span>
-                </CardTitle>
-                <CardBody>
-                  <List>
-                    <Item>
-                      <strong>Le choix parmi 5 modèles de site</strong>
-                    </Item>
-                    <Item>Adapté sur tous les écrans</Item>
-                    <Item>Interface simple pour modifier vos contenus</Item>
-                    <Item>
-                      Interface simple de suivi des performances de votre site
-                    </Item>
-                    <Item>
-                      Optimisé pour le référencement sur Google (SEO friendly)
-                    </Item>
-                  </List>
-                </CardBody>
-              </Card>
-              <Button backgroundcolor="purple" onClick={this.handleClick}>
-                Voir les modeles
-              </Button>
-            </Column>
-            <Column>
-              <Card>
-                <CardTitle>
-                  <p>Multi-pages</p>
-                  <span>1 200 Euros</span>
-                </CardTitle>
-                <CardBody>
-                  <List>
-                    <Item>
-                      <strong>Jusqu'à 15 pages</strong>
-                    </Item>
-                    <Item>
-                      <strong>Le choix parmi 5 modèles de site</strong>
-                    </Item>
-                    <Item>Adapté sur tous les écrans</Item>
-                    <Item>Interface simple pour modifier vos contenus</Item>
-                    <Item>
-                      Interface simple de suivi des performances de votre site
-                    </Item>
-                    <Item>
-                      Optimisé pour le référencement sur Google (SEO friendly)
-                    </Item>
-                  </List>
-                </CardBody>
-              </Card>
-              <Button backgroundcolor="purple" onClick={this.handleClick}>
-                Voir les modeles
-              </Button>
-            </Column>
-            <Column>
-              <Card>
-                <CardTitle>
-                  <p>E-commerce</p>
-                  <span>1 500 Euros</span>
-                </CardTitle>
-                <CardBody>
-                  <List>
-                    <Item>
-                      <strong>Boutique en ligne</strong>
-                    </Item>
-                    <Item>
-                      <strong>Système de paiement</strong>
-                    </Item>
-                    <Item>
-                      <strong>Jusqu'à 30 pages</strong>
-                    </Item>
-                    <Item>
-                      <strong>Le choix parmi 5 modèles de site</strong>
-                    </Item>
-                    <Item>Adapté sur tous les écrans</Item>
-                    <Item>Interface simple pour modifier vos contenus</Item>
-                    <Item>
-                      Interface simple de suivi des performances de votre site
-                    </Item>
-                    <Item>
-                      Optimisé pour le référencement sur Google (SEO friendly)
-                    </Item>
-                  </List>
-                </CardBody>
-              </Card>
-              <Button backgroundcolor="purple" onClick={this.handleClick}>
-                Voir les modeles
-              </Button>
-            </Column>
+            {data.items.map((item, index) => (
+              <Column key={index}>
+                <Card>
+                  <CardTitle>
+                    <p>{item.titre_offre.text}</p>
+                    <span>{item.prix_offre.text}</span>
+                  </CardTitle>
+                  <CardBody>{Parser(item.liste_offre.html)}</CardBody>
+                </Card>
+                <Button backgroundcolor="purple" onClick={this.handleClick}>
+                  {item.contenu_bouton.text}
+                </Button>
+              </Column>
+            ))}
           </Slider>
         </WrapperSlider>
       </Spacer>
