@@ -35,13 +35,14 @@ const SpaceshipStyled = styled.svg`
   height: 240px;
   z-index: 2;
   @media (max-width: ${globalVariables.maxTablet}) {
-    bottom: 0rem;
+    bottom: 1rem;
     width: 300px;
-    height: 300px;
+    height: auto;
   }
   @media (max-width: ${globalVariables.maxMobile}) {
+    bottom: 0rem;
     width: 250px;
-    height: 200px;
+    height: auto;
   }
   .animate-float {
     animation: ${FloatingStars} 3s ease-in-out infinite;
