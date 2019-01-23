@@ -8,6 +8,7 @@ import Modeles from "../components/offres-petit-budget/Modeles";
 import Services from "../components/offres-petit-budget/Services";
 import Contact from "../components/contact";
 import { theme } from "../components/globalStyle";
+// import BlocExpertises from "../components/expertise";
 
 const PetitBudget = ({ location, data }) => {
   const {
@@ -23,6 +24,7 @@ const PetitBudget = ({ location, data }) => {
 
   return (
     <Layout location={location}>
+      {/* <BlocExpertises /> */}
       <Avantages data={prismicPetitBudgetBody2Avantage} />
       <Etapes data={prismicPetitBudgetBody5Etape} />
       <Prix data={prismicPetitBudgetBodyPrix} />

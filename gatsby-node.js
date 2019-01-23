@@ -69,6 +69,13 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allPrismicAccueil {
+        edges {
+          node {
+            uid
+          }
+        }
+      }
     }
   `);
 
@@ -83,6 +90,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const templateExpertise = path.resolve("src/templates/expertise-template.js");
   const templateSurMesure = path.resolve("src/templates/offres-sur-mesure.js");
   const templateAgences = path.resolve("src/templates/offres-agences.js");
+  const templateHome = path.resolve("src/templates/home.js");
 
   pages.data.allPrismicOffres.edges.forEach(edge => {
     createPage({
@@ -168,6 +176,16 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `/expertises/${edge.node.uid}`,
       component: templateExpertise,
+      context: {
+        uid: edge.node.uid
+      }
+    });
+  });
+
+  pages.data.allPrismicAccueil.edges.forEach(edge => {
+    createPage({
+      path: `/`,
+      component: templateHome,
       context: {
         uid: edge.node.uid
       }
