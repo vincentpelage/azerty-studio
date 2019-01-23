@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Parser from "html-react-parser";
 
 import Title from "../title";
 import ArrowScroll from "../ArrowScroll";
@@ -29,6 +30,12 @@ const Item = styled.div`
     padding: 1rem 0;
     flex: 1 1 100%;
   }
+  p {
+    text-align: justify;
+    & strong {
+      color: ${props => props.theme.pink};
+    }
+  }
 `;
 
 const SubTitle = styled.h2`
@@ -48,65 +55,17 @@ const SubTitle = styled.h2`
   }
 `;
 
-const Text = styled.p`
-  text-align: justify;
-  & strong {
-    font-weight: 500;
-    color: ${props => props.theme.pink};
-  }
-`;
-
-const Avantages = () => {
+const Avantages = ({ data }) => {
   return (
     <Spacer height="100vh">
-      <Title label="Petit Budget" />
+      <Title label={data.primary.titre_page.text} />
       <AvantageList>
-        <Item>
-          <SubTitle>Des modèles beaux et modernes</SubTitle>
-          <Text>
-            Vous pouvez choisir votre design de site parmi notre sélection de{" "}
-            <strong>10 modèles personnalisables.</strong>
-          </Text>
-        </Item>
-        <Item>
-          <SubTitle>Adapté à tous les écrans</SubTitle>
-          <Text>
-            Tous nos modèles de sites s'affichent parfaitement selon les
-            différentes tailles d'écran&nbsp;:&nbsp;
-            <strong>ordinateur, tablette, téléphone.</strong>
-          </Text>
-        </Item>
-        <Item>
-          <SubTitle>Facilement éditable</SubTitle>
-          <Text>
-            Vous pourrez modifier facilement tous les contenus (textes et
-            images) de votre site grâce à{" "}
-            <strong>une interface simple d'utilisation.</strong>
-          </Text>
-        </Item>
-        <Item>
-          <SubTitle>Rapide et sécurisé</SubTitle>
-          <Text>
-            Nos sites sont <strong>10 fois plus rapides et sécurisés</strong>{" "}
-            que les sites développés sur Wordpress grâce à la technologie que
-            nous utilisons.
-          </Text>
-        </Item>
-        <Item>
-          <SubTitle>Optimisé pour être visible sur Google</SubTitle>
-          <Text>
-            (et tous les autres moteurs de recherche). Notre code est propre et{" "}
-            <strong>optimisé pour le référencement naturel.</strong> xxxx
-          </Text>
-        </Item>
-        <Item>
-          <SubTitle>Une interface de suivi simplifiée</SubTitle>
-          <Text>
-            Vous pourrez voir le nombre de personnes qui visite votre site et{" "}
-            <strong>suivre les performances de votre site</strong> grâce à notre
-            interface de suivi simplifiée.
-          </Text>
-        </Item>
+        {data.items.map((item, index) => (
+          <Item key={index}>
+            <SubTitle>{item.titre_avantage.text}</SubTitle>
+            {Parser(item.contenu_avantage.html)}
+          </Item>
+        ))}
       </AvantageList>
       <ArrowScroll fill={theme.darkGreen} ancreId="etapes" positionLeft="50%" />
       <Ovni />

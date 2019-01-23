@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Parser from "html-react-parser";
 
 import Spacer from "../spacer/index";
 import Title from "../title/index";
@@ -9,8 +10,8 @@ import Ecommerce from "../../icons/online-shop.svg";
 import Programming from "../../icons/programming.svg";
 import Idea from "../../icons/idea.svg";
 import { globalVariables, theme } from "../globalStyle";
-import Monitor from "../../img/Monitor";
 import ArrowScroll from "../ArrowScroll";
+import Circle from "../../img/Circle";
 
 const Wrapper = styled.div`
   display: flex;
@@ -44,6 +45,18 @@ const CardItem = styled.div`
   margin: 0 0.5rem 0.5rem 0;
   padding: 2rem 1rem;
   border-radius: ${globalVariables.borderRadius};
+  & > p {
+    text-align: center;
+  padding: 1rem 0;
+  min-height: 100px;
+  & > strong {
+    color: ${props => props.theme.purple};
+  }
+
+  @media (max-width: ${globalVariables.maxMobile}) {
+    min-height: auto;
+  }
+  }
 `;
 
 const WrapperIcon = styled.div`
@@ -58,89 +71,29 @@ const WrapperIcon = styled.div`
 
 const Icon = styled.img``;
 
-const Paragraph = styled.p`
-  text-align: center;
-  padding: 1rem 0;
-  min-height: 100px;
-  & > strong {
-    color: ${props => props.theme.darkGreen};
-  }
-
-  @media (max-width: ${globalVariables.maxMobile}) {
-    min-height: auto;
-  }
-`;
-
-const Prestations = () => {
+const Prestations = ({ data }) => {
   return (
     <Spacer height="100vh">
-      <Monitor />
-      <Title label="Sur mesure" />
+      <Circle />
+      <Title label={data.primary.titre_page.text} />
       <Wrapper>
-        <Item>
-          <CardItem>
-            <WrapperIcon>
-              <Icon src={Code} />
-            </WrapperIcon>
-            <SubTitle
-              label="Site Vitrine"
-              color="purple"
-              backgroundColor="purple"
-              textAlign="center"
-              fontSize="20px"
-            />
-            <Paragraph>
-              Faire connaître votre marque, vos produits, vos services
-            </Paragraph>
-          </CardItem>
-        </Item>
-        <Item>
-          <CardItem>
-            <WrapperIcon>
-              <Icon src={Ecommerce} />
-            </WrapperIcon>
-            <SubTitle
-              label="Site E-commerce"
-              color="purple"
-              backgroundColor="purple"
-              textAlign="center"
-              fontSize="20px"
-            />
-            <Paragraph>Vendre vos produits directement en ligne</Paragraph>
-          </CardItem>
-        </Item>
-        <Item>
-          <CardItem>
-            <WrapperIcon>
-              <Icon src={Programming} />
-            </WrapperIcon>
-            <SubTitle
-              label="Application Web"
-              color="purple"
-              backgroundColor="purple"
-              textAlign="center"
-              fontSize="20px"
-            />
-            <Paragraph>
-              Créer une plateforme de réservation, un tableau de bord, etc.
-            </Paragraph>
-          </CardItem>
-        </Item>
-        <Item>
-          <CardItem>
-            <WrapperIcon>
-              <Icon src={Idea} />
-            </WrapperIcon>
-            <SubTitle
-              label="Prototype (MVP)"
-              color="purple"
-              backgroundColor="purple"
-              textAlign="center"
-              fontSize="20px"
-            />
-            <Paragraph>Tester rapidement votre idée</Paragraph>
-          </CardItem>
-        </Item>
+        {data.items.map((item, index) => (
+          <Item key={index}>
+            <CardItem>
+              <WrapperIcon>
+                <Icon src={Code} />
+              </WrapperIcon>
+              <SubTitle
+                label={item.titre_prestation1.text}
+                color="darkGreen"
+                backgroundColor="darkGreen"
+                textAlign="center"
+                fontSize="20px"
+              />
+              {Parser(item.contenu_prestation.html)}
+            </CardItem>
+          </Item>
+        ))}
       </Wrapper>
       <ArrowScroll
         fill={theme.darkGreen}

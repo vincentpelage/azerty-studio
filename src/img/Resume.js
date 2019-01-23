@@ -1,6 +1,8 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
+import { globalVariables } from "../components/globalStyle";
+
 const animateGraph1 = keyframes`
   0% {
     height: 86.08px;
@@ -80,8 +82,15 @@ const animateGraph5 = keyframes`
 `;
 
 const ResumeStyled = styled.svg`
-  height: 220px;
-  margin: 3rem 0;
+  height: 150px;
+  position: absolute;
+  bottom: 3rem;
+  right: 4rem;
+  @media (max-width: ${globalVariables.maxTablet}) {
+    width: 50%;
+    height: auto;
+  }
+
   .animate-graph-1 {
     transition: transform 0.5s ease-in-out;
     animation: ${animateGraph1} 2s ease-in-out infinite;

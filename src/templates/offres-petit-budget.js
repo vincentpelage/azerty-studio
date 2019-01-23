@@ -8,7 +8,6 @@ import Modeles from "../components/offres-petit-budget/Modeles";
 import Services from "../components/offres-petit-budget/Services";
 import Contact from "../components/contact";
 import { theme } from "../components/globalStyle";
-// import BlocExpertises from "../components/expertise";
 
 const PetitBudget = ({ location, data }) => {
   const {
@@ -24,7 +23,6 @@ const PetitBudget = ({ location, data }) => {
 
   return (
     <Layout location={location}>
-      {/* <BlocExpertises /> */}
       <Avantages data={prismicPetitBudgetBody2Avantage} />
       <Etapes data={prismicPetitBudgetBody5Etape} />
       <Prix data={prismicPetitBudgetBodyPrix} />
@@ -58,7 +56,7 @@ export const pageQuery = graphql`
       }
       items {
         titre_avantage {
-          html
+          text
         }
         contenu_avantage {
           html
@@ -98,7 +96,6 @@ export const pageQuery = graphql`
           text
         }
         contenu_bouton {
-          html
           text
         }
       }
@@ -168,13 +165,13 @@ export const pageQuery = graphql`
           text
         }
         contenu_accroche_1 {
-          html
+          text
         }
         titre_accroche_2 {
           text
         }
         contenu_accroche_2 {
-          html
+          text
         }
         bouton_contact {
           text

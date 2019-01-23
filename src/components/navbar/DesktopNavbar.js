@@ -27,7 +27,7 @@ const Nav = styled.nav`
   position: fixed;
   background-color: ${props => props.theme.darkGreen};
   border-right: solid 1px rgba(255, 255, 255, 0.5);
-  /* overflow: hidden; */
+  z-index: 1;
 `;
 
 const Logo = styled.img`
@@ -83,6 +83,22 @@ export const DesktopNavbar = class extends React.Component {
         <Menu>
           <List to="/" src={IconHome} label="accueil" />
           <List
+            to="/notre-approche"
+            src={IconMagic}
+            label="notre approche"
+            isActive={isExpertisesPage}
+          >
+            {/* <SubList isActive={isExpertisesPage}>
+              <List to="/expertises/site" src={IconFlask} label="site" />
+              <List to="/expertises/trafic" src={IconSpace} label="trafic" />
+              <List
+                to="/expertises/analyse"
+                src={IconStats}
+                label="analyse"
+              />
+            </SubList> */}
+          </List>
+          <List
             to="/offres"
             src={IconMonitor}
             label="offres"
@@ -102,22 +118,7 @@ export const DesktopNavbar = class extends React.Component {
               <List to="/offres/agences" src={IconTarget} label="agences" />
             </SubList> */}
           </List>
-          <List
-            to="/expertises"
-            src={IconMagic}
-            label="expertises"
-            isActive={isExpertisesPage}
-          >
-            {/* <SubList isActive={isExpertisesPage}>
-              <List to="/expertises/site" src={IconFlask} label="site" />
-              <List to="/expertises/trafic" src={IconSpace} label="trafic" />
-              <List
-                to="/expertises/analyse"
-                src={IconStats}
-                label="analyse"
-              />
-            </SubList> */}
-          </List>
+
           <List to="/a-propos" src={IconUser} label="a propos" />
           <List to="/clients" src={IconHeart} label="clients" />
           <List to="/contact" src={IconEnvelope} label="contact" />

@@ -65,7 +65,8 @@ const Paragraph = styled.p`
   }
 `;
 
-const Prestations = () => {
+const Prestations = ({ data }) => {
+  console.log(data);
   return (
     <Spacer height="100vh">
       <Title label="Agences" />

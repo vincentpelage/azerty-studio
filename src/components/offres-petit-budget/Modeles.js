@@ -4,8 +4,6 @@ import styled from "styled-components";
 import Spacer from "../spacer";
 import SubTitle from "../subTitle";
 import { theme, globalVariables } from "../globalStyle";
-import Modele1 from "../../img/modele1.png";
-// import ArrowScroll from "../ArrowScroll";
 
 const Filter = styled.div`
   margin-top: 3rem;
@@ -107,78 +105,48 @@ const Name = styled.p`
 
 class Modeles extends React.Component {
   state = {
-    category: 0
+    category: "unePage"
   };
 
-  handleClick = number => () => {
-    this.setState({ category: number });
+  handleClick = category => () => {
+    this.setState({ category });
   };
 
   render() {
-    // const data = this.props.data.body1[this.state.category].primary;
-
+    const { data } = this.props;
     return (
       <Spacer backgroundColor={theme.darkGrey} height="100vh" id="modeles">
         <SubTitle label="Modeles" />
         <Filter>
           <Button
-            onClick={this.handleClick(0)}
-            isActive={this.state.category === 0}
+            onClick={this.handleClick("unePage")}
+            isActive={this.state.category === "unePage"}
           >
             Une page
           </Button>
           <Button
-            onClick={this.handleClick(1)}
-            isActive={this.state.category === 1}
+            onClick={this.handleClick("multiPages")}
+            isActive={this.state.category === "multiPages"}
           >
             Multi-pages
           </Button>
           <Button
-            onClick={this.handleClick(2)}
-            isActive={this.state.category === 2}
+            onClick={this.handleClick("eCommerce")}
+            isActive={this.state.category === "eCommerce"}
           >
             E-commerce
           </Button>
         </Filter>
         <WrapperModele>
-          {/* {Object.keys(data).map((modele, index) => (
+          {data[this.state.category].items.map((item, index) => (
             <Item key={index}>
               <Link>
-                <Name>{data[modele].alt}</Name>
-                <Img img={data[modele].url} className="modele-img" />
+                <Name>{item.titre_modele.text}</Name>
+                <Img img={item.image_modele.url} className="modele-img" />
               </Link>
             </Item>
-          ))} */}
-          <Item>
-            <Link>
-              <Name>Modele 1</Name>
-              <Img img={Modele1} className="modele-img" />
-            </Link>
-          </Item>
-          <Item>
-            <Link>
-              <Name>Modele 1</Name>
-              <Img img={Modele1} className="modele-img" />
-            </Link>
-          </Item>
-          <Item>
-            <Link>
-              <Name>Modele 1</Name>
-              <Img img={Modele1} className="modele-img" />
-            </Link>
-          </Item>
-          <Item>
-            <Link>
-              <Name>Modele 1</Name>
-              <Img img={Modele1} className="modele-img" />
-            </Link>
-          </Item>
+          ))}
         </WrapperModele>
-        {/* <ArrowScroll
-          ancreId="services"
-          fill={theme.darkGreen}
-          positionLeft="50%"
-        /> */}
       </Spacer>
     );
   }

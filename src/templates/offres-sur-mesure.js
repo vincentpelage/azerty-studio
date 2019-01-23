@@ -82,27 +82,21 @@ export const pageQuery = graphql`
     prismicSurMesureBody3Contact {
       primary {
         titre_contact {
-          html
           text
         }
         titre_accroche_1 {
-          html
           text
         }
         contenu_accroche_1 {
-          html
           text
         }
         titre_accroche_2 {
-          html
           text
         }
         contenu_accroche_2 {
-          html
           text
         }
         bouton_contact {
-          html
           text
         }
       }

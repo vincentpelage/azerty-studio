@@ -1,6 +1,7 @@
 import React from "react";
 import SubTitle from "../subTitle";
 import styled, { css } from "styled-components";
+import Parser from "html-react-parser";
 
 import Spacer from "../spacer/index";
 import { theme } from "../globalStyle";
@@ -89,6 +90,12 @@ const Item = styled.li`
       font-size: 20px;
     }
   }
+  p:nth-child(2) {
+    font-size: 16px;
+    @media (max-width: ${globalVariables.medDesktop}) {
+      font-size: 14px;
+    }
+  }
 `;
 
 const Title = styled.p`
@@ -100,53 +107,17 @@ const Title = styled.p`
   }
 `;
 
-const Text = styled.p`
-  font-size: 16px;
-  @media (max-width: ${globalVariables.medDesktop}) {
-    font-size: 14px;
-  }
-`;
-
-const Etapes = () => {
+const Etapes = ({ data }) => {
   return (
     <Spacer height="100vh" id="etapes-sur-mesure">
-      <SubTitle label="Notre methode" textAlign="center" />
+      <SubTitle label={data.primary.titre_methode.text} textAlign="center" />
       <List>
-        <Item>
-          <Title>Brief de découverte</Title>
-          <Text>
-            On se rencontre pour bien comprendre votre besoin et vous proposer
-            la solution qui vous correspond
-          </Text>
-        </Item>
-        <Item>
-          <Title>Production des maquettes</Title>
-          <Text>
-            Nous vous envoyons les visuels de votre futur site correspondant à
-            votre charte graphique
-          </Text>
-        </Item>
-        <Item>
-          <Title>Intégration des contenus</Title>
-          <Text>
-            Nous implémentons les contenus de texte sur les maquettes tout en
-            prenant en compte vos retours
-          </Text>
-        </Item>
-        <Item>
-          <Title>Développement du site</Title>
-          <Text>
-            Nous assurons la conception et la mise en ligne de votre site ou de
-            votre application web
-          </Text>
-        </Item>
-        <Item>
-          <Title>Accompagnement et suivi</Title>
-          <Text>
-            Nous vous expliquons comment modifier les contenus et suivre les
-            performances de votre site
-          </Text>
-        </Item>
+        {data.items.map((item, index) => (
+          <Item key={index}>
+            <Title>{item.titre_methode.text}</Title>
+            {Parser(item.contenu_methode.html)}
+          </Item>
+        ))}
       </List>
       <ArrowScroll fill={theme.purple} positionLeft="50%" ancreId="contact" />
       <Finish />

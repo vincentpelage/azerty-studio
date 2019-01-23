@@ -9,8 +9,7 @@ const Agences = ({ location, data }) => {
   const {
     prismicAgencesBodyService,
     prismicAgencesBody1Avantage,
-    prismicAgencesBody2Contact,
-    prismicAgencesBody3Methode
+    prismicAgencesBody2Contact
   } = data;
   return (
     <Layout location={location}>
@@ -66,13 +65,13 @@ export const pageQuery = graphql`
           text
         }
         contenu_accroche_1 {
-          html
+          text
         }
         titre_accroche_2 {
           text
         }
         contenu_accroche_2 {
-          html
+          text
         }
         bouton_contact {
           text
@@ -81,21 +80,6 @@ export const pageQuery = graphql`
       items {
         contenu_input {
           text
-        }
-      }
-    }
-    prismicAgencesBody3Methode {
-      primary {
-        titre_methode {
-          text
-        }
-      }
-      items {
-        titre_methode {
-          text
-        }
-        contenu_methode {
-          html
         }
       }
     }
