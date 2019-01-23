@@ -27,7 +27,7 @@ const Decoration = styled.img`
   position: absolute;
   z-index: 0;
   @media (max-width: ${globalVariables.maxTablet}) {
-    width: 800px;
+    width: 725px;
     max-width: none;
   }
   @media (max-width: ${globalVariables.maxMobile}) {
@@ -81,14 +81,14 @@ const Letter = styled.span`
 const Baseline = styled.p`
   font-size: 24px;
   text-align: center;
-  width: 40%;
-  line-height: 1.2;
+  width: 50%;
+  line-height: 1.3;
   font-weight: 300;
   margin-bottom: 1rem;
   z-index: 1;
   @media (max-width: ${globalVariables.maxTablet}) {
     font-size: 18px;
-    width: 50%;
+    width: 60%;
   }
   @media (max-width: ${globalVariables.maxMobile}) {
     width: 90%;
@@ -135,8 +135,8 @@ class Home extends React.Component {
             <Letter>y</Letter>
           </Logo>
           <Baseline>
-            Nous créons de jolis sites web modernes, rapides, sécurisés et
-            accessibles à tous
+            Nous créons de jolis sites web, rapides, sécurisés, accessibles à
+            tous et optimisés pour booster votre activité
           </Baseline>
 
           <ButtonLink
