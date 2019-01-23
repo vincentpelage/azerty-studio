@@ -76,6 +76,13 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allPrismicApproche {
+        edges {
+          node {
+            uid
+          }
+        }
+      }
     }
   `);
 
@@ -83,13 +90,14 @@ exports.createPages = async ({ graphql, actions }) => {
   const templatePetitBudget = path.resolve(
     "src/templates/offres-petit-budget.js"
   );
+  const templateSurMesure = path.resolve("src/templates/offres-sur-mesure.js");
+  const templateAgences = path.resolve("src/templates/offres-agences.js");
+
   const templateContact = path.resolve("src/templates/contact.js");
   const templateClients = path.resolve("src/templates/clients.js");
   const templateAPropos = path.resolve("src/templates/equipe.js");
-  const templateExpertises = path.resolve("src/templates/expertises.js");
+  const templateApproche = path.resolve("src/templates/approche.js");
   const templateExpertise = path.resolve("src/templates/expertise-template.js");
-  const templateSurMesure = path.resolve("src/templates/offres-sur-mesure.js");
-  const templateAgences = path.resolve("src/templates/offres-agences.js");
   const templateHome = path.resolve("src/templates/home.js");
 
   pages.data.allPrismicOffres.edges.forEach(edge => {
@@ -132,10 +140,10 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  pages.data.allPrismicExpertises.edges.forEach(edge => {
+  pages.data.allPrismicApproche.edges.forEach(edge => {
     createPage({
       path: `/${edge.node.uid}`,
-      component: templateExpertises,
+      component: templateApproche,
       context: {
         uid: edge.node.uid
       }

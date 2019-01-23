@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-import Layout from "../Layout";
 import Spacer from "../spacer/index";
 import Title from "../title/index";
 import SubTitle from "../subTitle";
@@ -63,91 +62,89 @@ const Paragraph = styled.p`
   }
 `;
 
-const BlocExpertises = ({ location, data }) => {
+const BlocExpertises = () => {
   return (
-    <Layout location={location}>
-      <Spacer height="100vh" fullHeight>
-        <Circle />
-        <Title label="Nos expertises" />
-        <Wrapper>
-          <Item>
-            <WrapperIcon>
-              <Icon src={IconFlask} />
-            </WrapperIcon>
-            <SubTitle
-              label="Creer votre site"
-              color="darkGreen"
-              backgroundColor="darkGreen"
-              textAlign="center"
-              fontSize="20px"
-            />
-            <Paragraph>
-              Quam ob rem vita quidem talis fuit vel fortuna vel gloria, ut
-              nihil posset accedere,{" "}
-              <strong>moriendi autem sensum celeritas abstulit</strong> ; quo de
-              genere.
-            </Paragraph>
-            <ButtonLink
-              to="/expertises/site"
-              backgroundcolor="darkGreen"
-              size="small"
-            >
-              En savoir plus
-            </ButtonLink>
-          </Item>
-          <Item>
-            <WrapperIcon>
-              <Icon src={IconSpace} />
-            </WrapperIcon>
-            <SubTitle
-              label="Augmenter vos ventes"
-              color="darkGreen"
-              backgroundColor="darkGreen"
-              textAlign="center"
-              fontSize="20px"
-            />
-            <Paragraph>
-              Quam ob rem vita{" "}
-              <strong>moriendi autem sensum celeritas abstulit</strong>quidem
-              talis fuit vel fortuna vel gloria, ut nihil posset accedere,
-              moriendi autem sensum celeritas abstulit; quo de genere.
-            </Paragraph>
-            <ButtonLink
-              to="/expertises/trafic"
-              backgroundcolor="darkGreen"
-              size="small"
-            >
-              En savoir plus
-            </ButtonLink>
-          </Item>
-          <Item>
-            <WrapperIcon>
-              <Icon src={IconStats} />
-            </WrapperIcon>
-            <SubTitle
-              label="Analyser vos performances"
-              color="darkGreen"
-              backgroundColor="darkGreen"
-              textAlign="center"
-              fontSize="20px"
-            />
-            <Paragraph>
-              Quam ob rem vita quidem talis fuit vel fortuna vel gloria, ut
-              nihil posset accedere, moriendi autem sensum celeritas abstulit;{" "}
-              <strong>moriendi autem sensum celeritas abstulit</strong>quo de
-              genere.
-            </Paragraph>
-            <ButtonLink
-              to="/expertises/analyse"
-              backgroundcolor="darkGreen"
-              size="small"
-            >
-              En savoir plus
-            </ButtonLink>
-          </Item>
-        </Wrapper>
-      </Spacer>
-    </Layout>
+    <Spacer height="100vh" fullHeight>
+      <Circle />
+      <Title label="Nos expertises" />
+      <Wrapper>
+        <Item>
+          <WrapperIcon>
+            <Icon src={IconFlask} />
+          </WrapperIcon>
+          <SubTitle
+            label="Creer votre site"
+            color="darkGreen"
+            backgroundColor="darkGreen"
+            textAlign="center"
+            fontSize="20px"
+          />
+          <Paragraph>
+            Quam ob rem vita quidem talis fuit vel fortuna vel gloria, ut nihil
+            posset accedere,{" "}
+            <strong>moriendi autem sensum celeritas abstulit</strong> ; quo de
+            genere.
+          </Paragraph>
+          <ButtonLink
+            to="/expertises/site"
+            backgroundcolor="darkGreen"
+            size="small"
+          >
+            En savoir plus
+          </ButtonLink>
+        </Item>
+        <Item>
+          <WrapperIcon>
+            <Icon src={IconSpace} />
+          </WrapperIcon>
+          <SubTitle
+            label="Augmenter vos ventes"
+            color="darkGreen"
+            backgroundColor="darkGreen"
+            textAlign="center"
+            fontSize="20px"
+          />
+          <Paragraph>
+            Quam ob rem vita{" "}
+            <strong>moriendi autem sensum celeritas abstulit</strong>quidem
+            talis fuit vel fortuna vel gloria, ut nihil posset accedere,
+            moriendi autem sensum celeritas abstulit; quo de genere.
+          </Paragraph>
+          <ButtonLink
+            to="/expertises/trafic"
+            backgroundcolor="darkGreen"
+            size="small"
+          >
+            En savoir plus
+          </ButtonLink>
+        </Item>
+        <Item>
+          <WrapperIcon>
+            <Icon src={IconStats} />
+          </WrapperIcon>
+          <SubTitle
+            label="Analyser vos performances"
+            color="darkGreen"
+            backgroundColor="darkGreen"
+            textAlign="center"
+            fontSize="20px"
+          />
+          <Paragraph>
+            Quam ob rem vita quidem talis fuit vel fortuna vel gloria, ut nihil
+            posset accedere, moriendi autem sensum celeritas abstulit;{" "}
+            <strong>moriendi autem sensum celeritas abstulit</strong>quo de
+            genere.
+          </Paragraph>
+          <ButtonLink
+            to="/expertises/analyse"
+            backgroundcolor="darkGreen"
+            size="small"
+          >
+            En savoir plus
+          </ButtonLink>
+        </Item>
+      </Wrapper>
+    </Spacer>
   );
 };
 

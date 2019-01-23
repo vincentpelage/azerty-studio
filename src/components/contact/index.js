@@ -98,7 +98,6 @@ class Contact extends React.Component {
   };
 
   render() {
-    console.log("data enfant", this.props.data);
     const { data } = this.props;
     const { prenom, nom, email, telephone, projet } = this.state;
     return (
