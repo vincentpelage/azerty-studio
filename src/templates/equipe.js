@@ -1,13 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import Parser from "html-react-parser";
 
 import Layout from "../components/Layout";
 import Spacer from "../components/spacer";
 import Title from "../components/title/index";
 import { theme, globalVariables } from "../components/globalStyle";
 import Linkedin from "../icons/linkedin.svg";
-import Charlotte from "../img/charlotte.png";
-import Vincent from "../img/Vincent.jpeg";
 import SubTitle from "../components/subTitle";
 import HighFive from "../img/HighFive";
 
@@ -21,7 +20,11 @@ const Wrapper = styled.section`
 
 const Container = styled.div`
   padding-top: 3rem;
-
+  text-align: justify;
+  & strong {
+    color: ${props => props.theme.darkPink};
+    font-weight: 300;
+  }
   @media (max-width: ${globalVariables.maxMobile}) {
     padding-top: 1.5rem;
   }
@@ -44,14 +47,6 @@ const SubTitleParagraph = styled.h2`
   }
 `;
 
-const Text = styled.p`
-  text-align: justify;
-  /* color: ${props => props.theme.white}; */
-  & strong {
-    color: ${props => props.theme.darkPink};
-  }
-`;
-
 const WrapperTeam = styled.div`
   display: flex;
   flex-direction: row;
@@ -66,6 +61,14 @@ const Team = styled.div`
   flex: 0 0 50%;
   text-align: center;
   padding: 1rem;
+  p {
+    text-align: justify;
+    margin-top: 1rem;
+    & > strong {
+      font-weight: 300;
+      color: ${props => props.theme.darkPink};
+    }
+  }
   @media (max-width: ${globalVariables.maxMobile}) {
     flex: 0 0 100%;
   }
@@ -78,14 +81,6 @@ const Picture = styled.img`
   margin-bottom: 1rem;
 `;
 
-const Description = styled.p`
-  text-align: justify;
-  margin-top: 1rem;
-  & > strong {
-    color: ${props => props.theme.darkPink};
-  }
-`;
-
 const LinkedinStyled = styled.img`
   width: 25px;
   height: 25px;
@@ -93,69 +88,42 @@ const LinkedinStyled = styled.img`
 `;
 
 const Equipe = ({ location, data }) => {
+  console.log(data);
   return (
     <Layout location={location}>
       <Wrapper>
         <Spacer backgroundColor={theme.darkGrey} height="100vh" flex="0 0 40%">
-          <Title label="A propos" />
+          <Title
+            label={
+              data.prismicAProposBodyTitrePrincipal.primary.titre_principal.text
+            }
+          />
+          {data.prismicAProposBodyTitrePrincipal.items.map((item, index) => (
+            <Container key={index}>
+              <SubTitleParagraph>{item.titre_avantage.text}</SubTitleParagraph>
+              {Parser(item.contenu_avantage.html)}
+            </Container>
+          ))}
 
-          <Container>
-            <SubTitleParagraph>On est tres sympas</SubTitleParagraph>
-            <Text>
-              Quam ob rem vita quidem talis fuit vel fortuna vel gloria, ut
-              nihil posset accedere, moriendi autem .{" "}
-              <strong>Quam ob rem vita quidem talis fuit vel</strong> fortuna
-              vel gloria, ut nihil posset accedere, moriendi autem.
-            </Text>
-          </Container>
-          <Container>
-            <SubTitleParagraph>Et tres rigolos</SubTitleParagraph>
-            <Text>
-              Quam ob rem vita quidem talis fuit vel fortuna vel gloria, ut
-              nihil posset accedere, moriendi autem gloria, ut nihil posset
-              accedere, moriendi autem gloria, ut nihil posset accedere,
-              moriendi autem gloria, ut nihil posset accedere, moriendi autem .{" "}
-              <strong>Quam ob rem vita quidem talis fuit vel</strong> fortuna
-              vel gloria, ut nihil posset accedere, moriendi autem.
-            </Text>
-          </Container>
           <HighFive />
         </Spacer>
         <Spacer height="100vh" flex="0 0 60%">
           <WrapperTeam>
-            <Team>
-              <Picture src={Charlotte} />
-              <SubTitle label="Charlotte Cady" textAlign="center" />
-              <Description>
-                Quam ob rem vita quidem talis fuit vel fortuna vel gloria,{" "}
-                <strong>ut nihil posset accedere</strong>, moriendi autem . ita{" "}
-              </Description>
-              <a
-                href="https://www.linkedin.com/in/charlottecady/"
-                // eslint-disable-next-line
-                target="_blank"
-                rel="nooper noreferrer"
-              >
-                <LinkedinStyled src={Linkedin} />
-              </a>
-            </Team>
-            <Team>
-              <Picture src={Vincent} />
-              <SubTitle label="Vincent Pelage" textAlign="center" />
-              <Description>
-                Quam ob rem vita quidem talis fuit vel fortuna{" "}
-                <strong>ut nihil posset accedere</strong> vel gloria, ut nihil
-                posset accedere, moriendi autem . ita{" "}
-              </Description>
-              <a
-                href="https://www.linkedin.com/in/vincent-pelage/"
-                // eslint-disable-next-line
-                target="_blank"
-                rel="nooper noreferrer"
-              >
-                <LinkedinStyled src={Linkedin} />
-              </a>
-            </Team>
+            {data.prismicAProposBody1Portrait.items.map((item, index) => (
+              <Team>
+                <Picture src={item.image_portrait.url} />
+                <SubTitle label={item.titre_portrait.text} textAlign="center" />
+                {Parser(item.contenu_portrait.html)}
+                <a
+                  href="https://www.linkedin.com/in/charlottecady/"
+                  // eslint-disable-next-line
+                  target="_blank"
+                  rel="nooper noreferrer"
+                >
+                  <LinkedinStyled src={Linkedin} />
+                </a>
+              </Team>
+            ))}
           </WrapperTeam>
         </Spacer>
       </Wrapper>
@@ -192,6 +160,9 @@ export const pageQuery = graphql`
         contenu_portrait {
           html
           text
+        }
+        image_portrait {
+          url
         }
       }
     }
