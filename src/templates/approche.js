@@ -55,24 +55,37 @@ const Image = styled.img`
 `;
 
 const Content = styled.div`
-  padding: 5rem 3rem 0 0;
+  padding: 4rem 3rem 0 0;
+
   p {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    text-align: justify;
     & strong {
       color: ${props => props.theme.pink};
     }
   }
   @media (max-width: ${globalVariables.medDesktop}) {
-    padding: 3rem 3rem 0 0;
+    &:first-child {
+      padding: 3rem 3rem 0 0;
+    }
+    &:not(:first-child) {
+      padding: 2rem 3rem 0 0;
+    }
   }
   @media (max-width: ${globalVariables.maxMobile}) {
-    padding: 2rem 0;
+    &:first-child {
+      padding: 1rem 0;
+    }
+    &:not(:first-child) {
+      padding: 1rem 0;
+    }
   }
 `;
 
 const SubSubTitle = styled.h2`
   color: ${props => props.theme.darkGreen};
   font-weight: 500;
+  font-size: 18px;
   position: relative;
   display: inline;
   &::after {
@@ -85,9 +98,13 @@ const SubSubTitle = styled.h2`
     background-color: ${props => props.theme.pink};
     border-radius: 50%;
   }
+  @media (max-width: ${globalVariables.maxMobile}) {
+    font-size: 16px;
+  }
 `;
 
 const Approche = ({ location, data }) => {
+  console.log(data);
   return (
     <Layout location={location}>
       <Spacer height="100vh">
@@ -100,11 +117,15 @@ const Approche = ({ location, data }) => {
               <Content key={index}>
                 <SubSubTitle>{item.sous_titre.text}</SubSubTitle>
                 {Parser(item.contenu1.html)}
-                {item.contenu_bouton ? (
+                {item.contenu_bouton &&
+                item.lien_bouton &&
+                item.lien_bouton.text !== "" &&
+                item.contenu_bouton.text !== "" ? (
                   <ButtonLink
-                    to={item.contenu_bouton.url}
-                    backgroundcolor="darkPink"
+                    to={item.lien_bouton.text}
+                    backgroundcolor="pink"
                     size="small"
+                    margin="1rem 0"
                   >
                     {item.contenu_bouton.text}
                   </ButtonLink>
@@ -123,19 +144,23 @@ const Approche = ({ location, data }) => {
             <Image src={Work} />
           </WrapperImage>
           <WrapperText position="right">
-            <SubTitle
+            {/* <SubTitle
               label={data.prismicApprocheBody1Contenu.primary.titre_site.text}
-            />
+            /> */}
 
             {data.prismicApprocheBody1Contenu.items.map((item, index) => (
               <Content key={index}>
                 <SubSubTitle>{item.sous_titre.text}</SubSubTitle>
                 {Parser(item.contenu1.html)}
-                {item.contenu_bouton ? (
+                {item.contenu_bouton &&
+                item.lien_bouton &&
+                item.lien_bouton.text !== "" &&
+                item.contenu_bouton.text !== "" ? (
                   <ButtonLink
-                    to={item.contenu_bouton.url}
-                    backgroundcolor="darkPink"
+                    to={item.lien_bouton.text}
+                    backgroundcolor="pink"
                     size="small"
+                    margin="1rem 0"
                   >
                     {item.contenu_bouton.text}
                   </ButtonLink>
@@ -148,19 +173,23 @@ const Approche = ({ location, data }) => {
       <Spacer height="100vh">
         <Wrapper>
           <WrapperText>
-            <SubTitle
+            {/* <SubTitle
               label={data.prismicApprocheBody2Contenu.primary.titre_trafic.text}
-            />
+            /> */}
 
             {data.prismicApprocheBody2Contenu.items.map((item, index) => (
               <Content key={index}>
                 <SubSubTitle>{item.sous_titre.text}</SubSubTitle>
                 {Parser(item.contenu1.html)}
-                {item.contenu_bouton ? (
+                {item.contenu_bouton &&
+                item.lien_bouton1 &&
+                item.lien_bouton1.text !== "" &&
+                item.contenu_bouton.text !== "" ? (
                   <ButtonLink
-                    to={item.contenu_bouton.url}
-                    backgroundcolor="darkPink"
+                    to={item.lien_bouton1.text}
+                    backgroundcolor="pink"
                     size="small"
+                    margin="1rem 0"
                   >
                     {item.contenu_bouton.text}
                   </ButtonLink>
@@ -213,6 +242,9 @@ export const pageQuery = graphql`
         contenu_bouton {
           text
         }
+        lien_bouton {
+          text
+        }
       }
     }
     prismicApprocheBody2Contenu {
@@ -229,6 +261,9 @@ export const pageQuery = graphql`
           html
         }
         contenu_bouton {
+          text
+        }
+        lien_bouton1 {
           text
         }
       }
