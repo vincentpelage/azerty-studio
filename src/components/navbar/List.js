@@ -45,8 +45,8 @@ const Text = styled.p`
   /* color: white; */
   font-family: Aqua;
   text-transform: uppercase;
-  font-size: 9px;
-  padding: 3px 6px 2px 6px;
+  font-size: 11px;
+  padding: 5px 6px 2px 6px;
   transition: all 0.5s linear;
   position: absolute;
   left: 65px;

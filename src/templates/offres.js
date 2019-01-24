@@ -14,6 +14,9 @@ import SubTitle from "../components/subTitle";
 import ArrowRightPurple from "../icons/arrow-right-purple.svg";
 import ArrowRightGreen from "../icons/arrow-right-green.svg";
 import ArrowRightPink from "../icons/arrow-right-pink.svg";
+import StarPurple from "../icons/star-purple.svg";
+import StarGreen from "../icons/star-green.svg";
+import StarPink from "../icons/star-pink.svg";
 
 const WrapperContainer = styled.div`
   display: flex;
@@ -46,7 +49,7 @@ const WrapperContent = styled.div`
   padding: 5rem 4rem;
   flex: 0 0 50%;
   position: relative;
-  &::after {
+  /* &::after {
     content: "";
     position: absolute;
     height: 30px;
@@ -65,7 +68,7 @@ const WrapperContent = styled.div`
       left: 50%;
       transform: translateX(-50%) rotate(45deg);
     }
-  }
+  } */
   @media (max-width: ${globalVariables.maxTablet}) {
     padding: 5rem 2rem 4rem 2rem;
     flex: 0 0 100%;
@@ -81,10 +84,11 @@ const WrapperContentContent = styled.div`
   }
 `;
 
-const CardContent = styled.div`
+const WrapperText = styled.div`
+  margin: 2rem 0 3rem;
   p {
-    /* text-align: justify; */
-    margin: 3rem 0;
+    text-align: justify;
+    margin-bottom: 1rem;
     max-width: 80%;
     @media (max-width: ${globalVariables.medDesktop}) {
       max-width: none;
@@ -103,14 +107,15 @@ const List = styled.div`
     }
     &::before {
       content: "";
+
       background-image: url(${props => props.icon});
       background-repeat: no-repeat;
       background-size: cover;
       position: absolute;
-      top: 0px;
-      left: -3rem;
-      height: 1.5rem;
-      width: 1.5rem;
+      top: 3px;
+      left: -2rem;
+      height: 1rem;
+      width: 1rem;
     }
   }
   @media (max-width: ${globalVariables.maxTablet}) {
@@ -121,24 +126,22 @@ const List = styled.div`
 const OffreContent = ({ offre, component }) => {
   return (
     <WrapperContentContent>
-      <CardContent color={offre.color}>
-        <SubTitle
-          label={offre.titre_offre.text}
-          // fontSize="20px"
-          color={offre.color}
-          backgroundColor={offre.color}
-        />
+      <SubTitle
+        label={offre.titre_offre.text}
+        // fontSize="20px"
+        color={offre.color}
+        backgroundColor={offre.color}
+      />
+      <WrapperText>{Parser(offre.contenu_offre.html)}</WrapperText>
 
-        {Parser(offre.contenu_offre.html)}
-        <ButtonLink
-          backgroundcolor={offre.color}
-          size="small"
-          to={offre.lien_offre.text}
-        >
-          {offre.bouton_offre.text}
-        </ButtonLink>
-        {component()}
-      </CardContent>
+      <ButtonLink
+        backgroundcolor={offre.color}
+        size="small"
+        to={offre.lien_offre.text}
+      >
+        {offre.bouton_offre.text}
+      </ButtonLink>
+      {component()}
     </WrapperContentContent>
   );
 };
@@ -165,7 +168,7 @@ class Offres extends React.Component {
       bouton_offre: prismicOffresBodyMain.items[0].bouton_offre,
       lien_offre: prismicOffresBodyMain.items[0].lien_offre,
       color: "purple",
-      icon: ArrowRightPurple
+      icon: StarGreen
     };
     const offre2 = {
       titre_offre: prismicOffresBodyMain.items[1].titre_offre,
@@ -174,7 +177,7 @@ class Offres extends React.Component {
       bouton_offre: prismicOffresBodyMain.items[1].bouton_offre,
       lien_offre: prismicOffresBodyMain.items[1].lien_offre,
       color: "darkGreen",
-      icon: ArrowRightGreen
+      icon: StarPink
     };
     const offre3 = {
       titre_offre: prismicOffresBodyMain.items[2].titre_offre,
@@ -183,7 +186,7 @@ class Offres extends React.Component {
       bouton_offre: prismicOffresBodyMain.items[2].bouton_offre,
       lien_offre: prismicOffresBodyMain.items[2].lien_offre,
       color: "darkPink",
-      icon: ArrowRightPink
+      icon: StarPurple
     };
 
     return (
