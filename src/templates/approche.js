@@ -10,7 +10,7 @@ import Bureau from "../img/bureau.svg";
 import Developer from "../img/developer.svg";
 import Work from "../img/work.svg";
 import { globalVariables, theme } from "../components/globalStyle";
-import SubTitle from "../components/subTitle/index";
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -61,7 +61,7 @@ const Content = styled.div`
     margin-bottom: 1rem;
     text-align: justify;
     & strong {
-      color: ${props => props.theme.pink};
+      color: ${props => props.theme.darkPink};
     }
   }
   @media (max-width: ${globalVariables.medDesktop}) {
@@ -85,7 +85,6 @@ const Content = styled.div`
 const SubSubTitle = styled.h2`
   color: ${props => props.theme.darkGreen};
   font-weight: 500;
-  font-size: 18px;
   position: relative;
   display: inline;
   &::after {
@@ -95,11 +94,8 @@ const SubSubTitle = styled.h2`
     right: -10px;
     width: 5px;
     height: 5px;
-    background-color: ${props => props.theme.pink};
+    background-color: ${props => props.theme.darkPink};
     border-radius: 50%;
-  }
-  @media (max-width: ${globalVariables.maxMobile}) {
-    font-size: 16px;
   }
 `;
 
@@ -123,7 +119,7 @@ const Approche = ({ location, data }) => {
                 item.contenu_bouton.text !== "" ? (
                   <ButtonLink
                     to={item.lien_bouton.text}
-                    backgroundcolor="pink"
+                    backgroundcolor="darkPink"
                     size="small"
                     margin="1rem 0"
                   >
@@ -158,7 +154,7 @@ const Approche = ({ location, data }) => {
                 item.contenu_bouton.text !== "" ? (
                   <ButtonLink
                     to={item.lien_bouton.text}
-                    backgroundcolor="pink"
+                    backgroundcolor="darkPink"
                     size="small"
                     margin="1rem 0"
                   >
@@ -187,7 +183,7 @@ const Approche = ({ location, data }) => {
                 item.contenu_bouton.text !== "" ? (
                   <ButtonLink
                     to={item.lien_bouton1.text}
-                    backgroundcolor="pink"
+                    backgroundcolor="darkPink"
                     size="small"
                     margin="1rem 0"
                   >

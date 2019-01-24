@@ -38,6 +38,11 @@ const FoytStyled = styled.svg`
     width: 50%;
     height: auto;
   }
+  @media (max-width: ${globalVariables.maxTablet}) {
+    width: 40%;
+    bottom: 1rem;
+    right: 1rem;
+  }
   .animate-screen-left {
     animation: ${animateScreenLeft} 2s ease-in-out infinite;
   }

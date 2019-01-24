@@ -14,18 +14,6 @@ const AnimateGhost = keyframes`
   }
 `;
 
-// const FloatingStars = keyframes`{
-// 	0% {
-// 		transform: translatey(0px);
-// 	}
-// 	50% {
-// 		transform: translatey(-80px);
-// 	}
-// 	100% {
-// 		transform: translatey(0px);
-// 	}
-// }`;
-
 const OvniStyled = styled.svg`
   width: 150px;
   height: 130px;
@@ -89,7 +77,6 @@ const Ovni = () => (
         y2="103.27"
       />
     </defs>
-    <title>Taken</title>
     <g opacity="0.8">
       <ellipse
         cx="432"

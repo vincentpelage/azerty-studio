@@ -71,10 +71,10 @@ const Letter = styled.span`
   }
 
   @media (max-width: ${globalVariables.maxTablet}) {
-    font-size: 50px;
+    font-size: 40px;
     height: 50px;
     width: 50px;
-    padding-top: 13px;
+    padding-top: 9px;
   }
 `;
 
