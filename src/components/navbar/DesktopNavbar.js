@@ -101,7 +101,7 @@ export const DesktopNavbar = class extends React.Component {
           <List
             to="/offres"
             src={IconMonitor}
-            label="offres"
+            label="nos offres"
             isActive={isOffresPage}
           >
             {/* <SubList isActive={isOffresPage}>
@@ -120,7 +120,7 @@ export const DesktopNavbar = class extends React.Component {
           </List>
 
           <List to="/a-propos" src={IconUser} label="a propos" />
-          <List to="/clients" src={IconHeart} label="clients" />
+          <List to="/clients" src={IconHeart} label="nos clients" />
           <List to="/contact" src={IconEnvelope} label="contact" />
         </Menu>
       </Nav>

@@ -3,18 +3,7 @@ import styled from "styled-components";
 import { Link } from "gatsby";
 
 import logo from "../../img/azertylogo.png";
-import IconHome from "../../icons/home.svg";
-import IconPaint from "../../icons/paint-brush.svg";
-import IconTarget from "../../icons/webmarketing.svg";
-import IconHeart from "../../icons/heart.svg";
-import IconMonitor from "../../icons/monitor.svg";
-import IconEnvelope from "../../icons/envelope.svg";
-import IconUser from "../../icons/user.svg";
-import IconResponsive from "../../icons/responsive.svg";
-import IconMagic from "../../icons/magic-wand.svg";
-import IconSpace from "../../icons/startup.svg";
-import IconStats from "../../icons/line-chart.svg";
-import IconFlask from "../../icons/flask.svg";
+import { globalVariables } from "../globalStyle";
 
 const Nav = styled.nav`
   position: relative;
@@ -86,17 +75,13 @@ const Menu = styled.ul`
   top: ${props => (props.isBurgerActive ? "0" : "-100vh")};
   background-color: ${props => props.theme.darkGreen};
   justify-content: center;
-  padding-left: 40px;
+  align-items: center;
 `;
 
 const Item = styled.li``;
 const SubItem = styled.ul`
-  padding-left: 3rem;
   & p {
-    font-size: 16px;
-  }
-  & div {
-    /* background-color: ${props => props.theme.purple}; */
+    font-family: "Roboto";
   }
 `;
 
@@ -106,39 +91,23 @@ const LinkStyled = styled(Link)`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   &.active,
   &:active,
   &:focus {
     color: ${props => props.theme.white};
     p {
       background-color: ${props => props.theme.purple};
-      padding: 2px 4px 0px 4px;
+      padding: 2px 8px 0px 8px;
+      border-radius: ${globalVariables.borderRadius};
     }
   }
-`;
-
-const WrapperIcon = styled.div`
-  background-color: ${props => props.theme.purple};
-  border-radius: 50%;
-  padding: 6px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
-`;
-
-const Icon = styled.img`
-  width: 100%;
 `;
 
 const Text = styled.p`
   color: white;
   font-family: Aqua;
   font-size: 18px;
-  padding-left: 2px;
   display: inline-block;
 `;
 
@@ -157,7 +126,6 @@ export class MobileNavbar extends Component {
 
     return (
       <Nav>
-        <Logo src={logo} isHome={isHome} />
         <WrapperBurger onClick={this.toggleMenu}>
           <BurgerBar isBurgerActive={isBurgerActive} isHome={isHome} />
           <BurgerBar isBurgerActive={isBurgerActive} isHome={isHome} />
@@ -165,43 +133,36 @@ export class MobileNavbar extends Component {
         </WrapperBurger>
 
         <Menu isBurgerActive={isBurgerActive}>
+          <Link to="/">
+            <Logo src={logo} isHome={isHome} color="darkGreen" />
+          </Link>
           <Item>
             <LinkStyled to="/" activeClassName="active">
-              <WrapperIcon>
-                <Icon src={IconHome} />
-              </WrapperIcon>
               <Text>Accueil</Text>
             </LinkStyled>
           </Item>
           <Item>
+            <LinkStyled to="/notre-approche" activeClassName="active">
+              <Text>Notre Approche</Text>
+            </LinkStyled>
+          </Item>
+          <Item>
             <LinkStyled to="/offres" activeClassName="active">
-              <WrapperIcon>
-                <Icon src={IconMonitor} />
-              </WrapperIcon>
-              <Text>Offres</Text>
+              <Text>Nos Offres</Text>
             </LinkStyled>
             <SubItem>
               <Item>
                 <LinkStyled to="/offres/petit-budget" activeClassName="active">
-                  <WrapperIcon>
-                    <Icon src={IconResponsive} />
-                  </WrapperIcon>
                   <Text>Petit budget</Text>
                 </LinkStyled>
               </Item>
               <Item>
                 <LinkStyled to="/offres/sur-mesure" activeClassName="active">
-                  <WrapperIcon>
-                    <Icon src={IconPaint} />
-                  </WrapperIcon>
                   <Text>Sur mesure</Text>
                 </LinkStyled>
               </Item>
               <Item>
                 <LinkStyled to="/offres/agences" activeClassName="active">
-                  <WrapperIcon>
-                    <Icon src={IconTarget} />
-                  </WrapperIcon>
                   <Text>Agences</Text>
                 </LinkStyled>
               </Item>
@@ -209,61 +170,17 @@ export class MobileNavbar extends Component {
           </Item>
 
           <Item>
-            <LinkStyled to="/expertises" activeClassName="active">
-              <WrapperIcon>
-                <Icon src={IconMagic} />
-              </WrapperIcon>
-              <Text>Expertises</Text>
-            </LinkStyled>
-            <SubItem>
-              <Item>
-                <LinkStyled to="/expertises/site" activeClassName="active">
-                  <WrapperIcon>
-                    <Icon src={IconFlask} />
-                  </WrapperIcon>
-                  <Text>Site internet</Text>
-                </LinkStyled>
-              </Item>
-              <Item>
-                <LinkStyled to="/expertises/trafic" activeClassName="active">
-                  <WrapperIcon>
-                    <Icon src={IconSpace} />
-                  </WrapperIcon>
-                  <Text>Trafic</Text>
-                </LinkStyled>
-              </Item>
-              <Item>
-                <LinkStyled to="/expertises/analyse" activeClassName="active">
-                  <WrapperIcon>
-                    <Icon src={IconStats} />
-                  </WrapperIcon>
-                  <Text>Analyse</Text>
-                </LinkStyled>
-              </Item>
-            </SubItem>
-          </Item>
-
-          <Item>
             <LinkStyled to="/a-propos" activeClassName="active">
-              <WrapperIcon>
-                <Icon src={IconUser} />
-              </WrapperIcon>
               <Text>A Propos</Text>
             </LinkStyled>
           </Item>
           <Item>
             <LinkStyled to="/clients" activeClassName="active">
-              <WrapperIcon>
-                <Icon src={IconHeart} />
-              </WrapperIcon>
-              <Text>Clients</Text>
+              <Text>Nos clients</Text>
             </LinkStyled>
           </Item>
           <Item>
             <LinkStyled to="/contact" activeClassName="active">
-              <WrapperIcon>
-                <Icon src={IconEnvelope} />
-              </WrapperIcon>
               <Text>Contact</Text>
             </LinkStyled>
           </Item>

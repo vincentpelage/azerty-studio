@@ -11,9 +11,6 @@ import { ButtonLink } from "../components/button";
 import Title from "../components/title";
 import { globalVariables } from "../components/globalStyle";
 import SubTitle from "../components/subTitle";
-import ArrowRightPurple from "../icons/arrow-right-purple.svg";
-import ArrowRightGreen from "../icons/arrow-right-green.svg";
-import ArrowRightPink from "../icons/arrow-right-pink.svg";
 import StarPurple from "../icons/star-purple.svg";
 import StarGreen from "../icons/star-green.svg";
 import StarPink from "../icons/star-pink.svg";
@@ -43,32 +40,15 @@ const WrapperList = styled.div`
     padding: 3rem 2rem 1rem 2rem;
     order: 2;
   }
+  @media (max-width: ${globalVariables.maxMobile}) {
+    padding: 0rem 3rem;
+  }
 `;
 
 const WrapperContent = styled.div`
   padding: 5rem 4rem;
   flex: 0 0 50%;
   position: relative;
-  /* &::after {
-    content: "";
-    position: absolute;
-    height: 30px;
-    width: 30px;
-    top: 50%;
-    right: ${props => (props.arrowPosition === "right" ? "-14px" : "auto")};
-    left: ${props => (props.arrowPosition === "left" ? "-14px" : "auto")};
-    background-color: ${props => props.theme.grey};
-    transform: rotate(45deg);
-    border-radius: ${globalVariables.borderRadius};
-    transition: all 1s cubic-bezier(0.19, 1, 0.22, 1) 0ms;
-    z-index: 1;
-    @media (max-width: ${globalVariables.maxTablet}) {
-      top: auto;
-      bottom: -15px;
-      left: 50%;
-      transform: translateX(-50%) rotate(45deg);
-    }
-  } */
   @media (max-width: ${globalVariables.maxTablet}) {
     padding: 5rem 2rem 4rem 2rem;
     flex: 0 0 100%;
@@ -107,8 +87,7 @@ const List = styled.div`
     }
     &::before {
       content: "";
-
-      background-image: url(${props => props.icon});
+      background-image: url(${props => props.iconDesktop});
       background-repeat: no-repeat;
       background-size: cover;
       position: absolute;
@@ -120,6 +99,11 @@ const List = styled.div`
   }
   @media (max-width: ${globalVariables.maxTablet}) {
     max-width: 100%;
+  }
+  @media (max-width: ${globalVariables.maxMobile}) {
+    li::before {
+      background-image: url(${props => props.iconMobile});
+    }
   }
 `;
 
@@ -146,10 +130,10 @@ const OffreContent = ({ offre, component }) => {
   );
 };
 
-const OffreList = ({ contenu, color, icon }) => {
+const OffreList = ({ contenu, color, iconDesktop, iconMobile }) => {
   return (
     <React.Fragment>
-      <List color={color} icon={icon}>
+      <List color={color} iconDesktop={iconDesktop} iconMobile={iconMobile}>
         {Parser(contenu.html)}
       </List>
     </React.Fragment>
@@ -168,7 +152,8 @@ class Offres extends React.Component {
       bouton_offre: prismicOffresBodyMain.items[0].bouton_offre,
       lien_offre: prismicOffresBodyMain.items[0].lien_offre,
       color: "purple",
-      icon: StarGreen
+      iconDesktop: StarGreen,
+      iconMobile: StarPurple
     };
     const offre2 = {
       titre_offre: prismicOffresBodyMain.items[1].titre_offre,
@@ -177,7 +162,8 @@ class Offres extends React.Component {
       bouton_offre: prismicOffresBodyMain.items[1].bouton_offre,
       lien_offre: prismicOffresBodyMain.items[1].lien_offre,
       color: "darkGreen",
-      icon: StarPink
+      iconDesktop: StarPink,
+      iconMobile: StarGreen
     };
     const offre3 = {
       titre_offre: prismicOffresBodyMain.items[2].titre_offre,
@@ -186,7 +172,8 @@ class Offres extends React.Component {
       bouton_offre: prismicOffresBodyMain.items[2].bouton_offre,
       lien_offre: prismicOffresBodyMain.items[2].lien_offre,
       color: "darkPink",
-      icon: StarPurple
+      iconDesktop: StarPurple,
+      iconMobile: StarPink
     };
 
     return (
@@ -201,7 +188,8 @@ class Offres extends React.Component {
               contenu={offre1.detail_offre}
               contenuBouton={offre1.bouton_offre}
               color={offre1.color}
-              icon={offre1.icon}
+              iconDesktop={offre1.iconDesktop}
+              iconMobile={offre1.iconMobile}
             />
           </WrapperList>
         </WrapperContainer>
@@ -211,7 +199,8 @@ class Offres extends React.Component {
               contenu={offre2.detail_offre}
               contenuBouton={offre2.bouton_offre}
               color={offre2.color}
-              icon={offre2.icon}
+              iconDesktop={offre2.iconDesktop}
+              iconMobile={offre2.iconMobile}
             />
           </WrapperList>
           <WrapperContent arrowPosition="left">
@@ -227,7 +216,8 @@ class Offres extends React.Component {
               contenu={offre3.detail_offre}
               contenuBouton={offre3.bouton_offre}
               color={offre3.color}
-              icon={offre3.icon}
+              iconDesktop={offre3.iconDesktop}
+              iconMobile={offre3.iconMobile}
             />
           </WrapperList>
         </WrapperContainer>

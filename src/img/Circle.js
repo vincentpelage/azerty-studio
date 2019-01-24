@@ -21,6 +21,7 @@ const CircleStyled = styled.svg`
     width: 170px;
     height: 105px;
     bottom: 0;
+    right: 5rem;
   }
 `;
 const Circle = () => {
@@ -56,7 +57,6 @@ const Circle = () => {
           gradientTransform="matrix(-1, 0, 0, 1, 1224.27, 0)"
         />
       </defs>
-      <title>circles</title>
       <ellipse
         cx="811.5"
         cy="568.07"
