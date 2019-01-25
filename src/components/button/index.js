@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "gatsby";
+import TransitionLink from "gatsby-plugin-transition-link";
 
 import { getButtonStyles, getButtonStateBasicStyles } from "./styles";
 
@@ -36,7 +36,7 @@ const Button = ({
   </StyledButton>
 );
 
-const StyledButtonLink = styled(Link)`
+const StyledButtonLink = styled(TransitionLink)`
   ${getButtonStyles};
   ${getButtonStateBasicStyles};
 `;
@@ -63,6 +63,14 @@ export const ButtonLink = ({
     fullwidth={fullwidth}
     height={height}
     margin={margin}
+    exit={{
+      length: 0.6,
+      zIndex: 2
+    }}
+    entry={{
+      length: 0.6,
+      zIndex: 0
+    }}
   >
     {children}
   </StyledButtonLink>

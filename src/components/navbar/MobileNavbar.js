@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { Link } from "gatsby";
+import TransitionLink from "gatsby-plugin-transition-link";
 
 import logo from "../../img/azertylogo.png";
 import { globalVariables } from "../globalStyle";
@@ -85,7 +85,7 @@ const SubItem = styled.ul`
   }
 `;
 
-const LinkStyled = styled(Link)`
+const LinkStyled = styled(TransitionLink)`
   height: 50px;
   display: block;
   display: flex;
@@ -123,7 +123,7 @@ export class MobileNavbar extends Component {
   render() {
     const { isBurgerActive } = this.state;
     const isHome = this.props.location.pathname === "/";
-
+    console.log(isBurgerActive);
     return (
       <Nav>
         <WrapperBurger onClick={this.toggleMenu}>
@@ -133,36 +133,112 @@ export class MobileNavbar extends Component {
         </WrapperBurger>
 
         <Menu isBurgerActive={isBurgerActive}>
-          <Link to="/">
+          <TransitionLink
+            to="/"
+            exit={{
+              length: 1,
+              zIndex: 2
+            }}
+            entry={{
+              length: 1,
+              zIndex: 0
+            }}
+          >
             <Logo src={logo} isHome={isHome} color="darkGreen" />
-          </Link>
+          </TransitionLink>
           <Item>
-            <LinkStyled to="/" activeClassName="active">
+            <LinkStyled
+              to="/"
+              exit={{
+                length: 1,
+                zIndex: 2
+              }}
+              entry={{
+                length: 1,
+                zIndex: 0
+              }}
+              activeClassName="active"
+            >
               <Text>Accueil</Text>
             </LinkStyled>
           </Item>
           <Item>
-            <LinkStyled to="/notre-approche" activeClassName="active">
+            <LinkStyled
+              to="/notre-approche"
+              exit={{
+                length: 1,
+                zIndex: 2
+              }}
+              entry={{
+                length: 1,
+                zIndex: 0
+              }}
+              activeClassName="active"
+            >
               <Text>Notre Approche</Text>
             </LinkStyled>
           </Item>
           <Item>
-            <LinkStyled to="/offres" activeClassName="active">
+            <LinkStyled
+              to="/offres"
+              exit={{
+                length: 1,
+                zIndex: 2
+              }}
+              entry={{
+                length: 1,
+                zIndex: 0
+              }}
+              activeClassName="active"
+            >
               <Text>Nos Offres</Text>
             </LinkStyled>
             <SubItem>
               <Item>
-                <LinkStyled to="/offres/petit-budget" activeClassName="active">
+                <LinkStyled
+                  to="/offres/petit-budget"
+                  exit={{
+                    length: 1,
+                    zIndex: 2
+                  }}
+                  entry={{
+                    length: 1,
+                    zIndex: 0
+                  }}
+                  activeClassName="active"
+                >
                   <Text>Petit budget</Text>
                 </LinkStyled>
               </Item>
               <Item>
-                <LinkStyled to="/offres/sur-mesure" activeClassName="active">
+                <LinkStyled
+                  to="/offres/sur-mesure"
+                  exit={{
+                    length: 1,
+                    zIndex: 2
+                  }}
+                  entry={{
+                    length: 1,
+                    zIndex: 0
+                  }}
+                  activeClassName="active"
+                >
                   <Text>Sur mesure</Text>
                 </LinkStyled>
               </Item>
               <Item>
-                <LinkStyled to="/offres/agences" activeClassName="active">
+                <LinkStyled
+                  to="/offres/agences"
+                  exit={{
+                    length: 1,
+                    zIndex: 2
+                  }}
+                  entry={{
+                    length: 1,
+                    zIndex: 0
+                  }}
+                  activeClassName="active"
+                >
                   <Text>Agences</Text>
                 </LinkStyled>
               </Item>
@@ -170,17 +246,50 @@ export class MobileNavbar extends Component {
           </Item>
 
           <Item>
-            <LinkStyled to="/a-propos" activeClassName="active">
+            <LinkStyled
+              to="/a-propos"
+              exit={{
+                length: 1,
+                zIndex: 2
+              }}
+              entry={{
+                length: 1,
+                zIndex: 0
+              }}
+              activeClassName="active"
+            >
               <Text>A Propos</Text>
             </LinkStyled>
           </Item>
           <Item>
-            <LinkStyled to="/clients" activeClassName="active">
+            <LinkStyled
+              to="/clients"
+              exit={{
+                length: 1,
+                zIndex: 2
+              }}
+              entry={{
+                length: 1,
+                zIndex: 0
+              }}
+              activeClassName="active"
+            >
               <Text>Nos clients</Text>
             </LinkStyled>
           </Item>
           <Item>
-            <LinkStyled to="/contact" activeClassName="active">
+            <LinkStyled
+              to="/contact"
+              exit={{
+                length: 1,
+                zIndex: 2
+              }}
+              entry={{
+                length: 1,
+                zIndex: 0
+              }}
+              activeClassName="active"
+            >
               <Text>Contact</Text>
             </LinkStyled>
           </Item>
