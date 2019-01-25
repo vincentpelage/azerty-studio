@@ -35,15 +35,6 @@ const Children = styled.div`
 
   &.exiting {
     animation: ${slideInRightExit} 0.6s ease both;
-    /* &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: ${props => props.theme.whiteNavOpacity};
-    } */
   }
 
   @media (max-width: ${globalVariables.maxTablet}) {
@@ -112,7 +103,6 @@ const Layout = ({ children, location }) => {
                 </NotDesktop>
                 <TransitionState>
                   {({ transitionStatus }) => {
-                    console.log(transitionStatus);
                     return (
                       <Children className={transitionStatus}>
                         {children}

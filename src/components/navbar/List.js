@@ -8,7 +8,6 @@ import TransitionLink from "gatsby-plugin-transition-link";
 
 const Item = styled.li`
   flex: ${props => (props.isActive ? "1 0 auto" : "1 0 50px")};
-  /* margin-top: ${props => (props.isActive ? "10px" : "0")}; */
   margin-top: 0;
   display: flex;
   flex-direction: column;

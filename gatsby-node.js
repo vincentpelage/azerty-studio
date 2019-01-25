@@ -182,7 +182,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   pages.data.allPrismicExpertise.edges.forEach(edge => {
     createPage({
-      path: `/expertises/${edge.node.uid}`,
+      path: `/notre-approche/${edge.node.uid}`,
       component: templateExpertise,
       context: {
         uid: edge.node.uid
