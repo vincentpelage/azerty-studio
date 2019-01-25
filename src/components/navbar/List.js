@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { CSSTransition } from "react-transition-group";
 import { globalVariables } from "../globalStyle";
 import { bounceHorizontal } from "../animations/index";
+import TransitionLink from "gatsby-plugin-transition-link";
 
 const Item = styled.li`
   flex: ${props => (props.isActive ? "1 0 auto" : "1 0 50px")};
@@ -29,7 +30,7 @@ const Item = styled.li`
   }
 `;
 
-const LinkStyled = styled(Link)`
+const LinkStyled = styled(TransitionLink)`
   &.active img {
     opacity: 1;
   }
@@ -94,7 +95,18 @@ class List extends Component {
         onMouseLeave={this.onLeave}
         isActive={isActive}
       >
-        <LinkStyled to={to} activeClassName="active">
+        <LinkStyled
+          to={to}
+          exit={{
+            length: 0.6,
+            zIndex: 2
+          }}
+          entry={{
+            length: 0.6,
+            zIndex: 0
+          }}
+          activeClassName="active"
+        >
           <Icon src={src} />
         </LinkStyled>
         <CSSTransition

@@ -100,7 +100,6 @@ const SubSubTitle = styled.h2`
 `;
 
 const Approche = ({ location, data }) => {
-  console.log(data);
   return (
     <Layout location={location}>
       <Spacer height="100vh">

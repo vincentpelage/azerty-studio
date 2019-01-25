@@ -2,6 +2,7 @@ import React from "react";
 import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
 import styled, { ThemeProvider } from "styled-components";
+import { TransitionState } from "gatsby-plugin-transition-link";
 
 import "./all.sass";
 import GlobalStyles, {
@@ -11,10 +12,12 @@ import GlobalStyles, {
   NotDesktop
 } from "./globalStyle";
 import { DesktopNavbar, MobileNavbar } from "../components/navbar";
+import { slideInRightEntry, slideInRightExit } from "./animations/slideInRight";
 
 const LayoutContainer = styled.div`
   display: flex;
   flex-direction: row;
+  overflow: hidden;
   @media (max-width: ${globalVariables.maxTablet}) {
     flex-direction: column;
   }
@@ -25,12 +28,30 @@ const Children = styled.div`
   margin-left: 60px;
   min-height: 100vh;
   overflow: hidden;
+  position: relative;
+  &.entering {
+    animation: ${slideInRightEntry} 0.6s ease both;
+  }
+
+  &.exiting {
+    animation: ${slideInRightExit} 0.6s ease both;
+    /* &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: ${props => props.theme.whiteNavOpacity};
+    } */
+  }
+
   @media (max-width: ${globalVariables.maxTablet}) {
     margin-left: 0;
   }
 `;
 
-const TemplateWrapper = ({ children, location }) => {
+const Layout = ({ children, location }) => {
   return (
     <StaticQuery
       query={graphql`
@@ -89,7 +110,16 @@ const TemplateWrapper = ({ children, location }) => {
                 <NotDesktop>
                   <MobileNavbar location={location} />
                 </NotDesktop>
-                <Children>{children}</Children>
+                <TransitionState>
+                  {({ transitionStatus }) => {
+                    console.log(transitionStatus);
+                    return (
+                      <Children className={transitionStatus}>
+                        {children}
+                      </Children>
+                    );
+                  }}
+                </TransitionState>
               </LayoutContainer>
             </React.Fragment>
           </ThemeProvider>
@@ -99,4 +129,4 @@ const TemplateWrapper = ({ children, location }) => {
   );
 };
 
-export default TemplateWrapper;
+export default Layout;

@@ -4,9 +4,9 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: "Gatsby + Netlify CMS Starter",
+    title: "Azerty, Studio de création de sites web à Nantes",
     description:
-      "This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution."
+      "Nous créons de jolis sites web, rapides, sécurisés, optimisés pour booster votre activité et accessibles à tous"
   },
   plugins: [
     {
@@ -80,6 +80,7 @@ module.exports = {
         modulePath: `${__dirname}/src/cms/cms.js`
       }
     },
+    `gatsby-plugin-transition-link`,
     "gatsby-plugin-purgecss", // must be after other CSS plugins
     "gatsby-plugin-netlify" // make sure to keep it last in the array
   ]
