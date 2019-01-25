@@ -88,7 +88,6 @@ const LinkedinStyled = styled.img`
 `;
 
 const Equipe = ({ location, data }) => {
-  console.log(data);
   return (
     <Layout location={location}>
       <Wrapper>
@@ -110,7 +109,7 @@ const Equipe = ({ location, data }) => {
         <Spacer height="100vh" flex="0 0 60%">
           <WrapperTeam>
             {data.prismicAProposBody1Portrait.items.map((item, index) => (
-              <Team>
+              <Team key={index}>
                 <Picture src={item.image_portrait.url} />
                 <SubTitle label={item.titre_portrait.text} textAlign="center" />
                 {Parser(item.contenu_portrait.html)}

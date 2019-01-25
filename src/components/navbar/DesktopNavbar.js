@@ -1,21 +1,17 @@
 import React from "react";
-// import styled, { keyframes } from "styled-components";
 import styled from "styled-components";
-import { Link } from "gatsby";
+import TransitionLink from "gatsby-plugin-transition-link";
 
 import logo from "../../img/azertylogo.png";
 import IconHome from "../../icons/home.svg";
-// import IconResponsive from "../../icons/responsive.svg";
-// import IconPaint from "../../icons/paint-brush.svg";
-// import IconTarget from "../../icons/webmarketing.svg";
+import IconResponsive from "../../icons/responsive.svg";
+import IconPaint from "../../icons/paint-brush.svg";
+import IconTarget from "../../icons/webmarketing.svg";
 import IconHeart from "../../icons/heart.svg";
 import IconMonitor from "../../icons/monitor.svg";
 import IconEnvelope from "../../icons/envelope.svg";
 import IconUser from "../../icons/user.svg";
 import IconMagic from "../../icons/magic-wand.svg";
-// import IconSpace from "../icons/startup.svg";
-// import IconStats from "../icons/line-chart.svg";
-// import IconFlask from "../icons/flask.svg";
 import List from "./List";
 
 const Nav = styled.nav`
@@ -26,7 +22,7 @@ const Nav = styled.nav`
   justify-content: center;
   position: fixed;
   background-color: ${props => props.theme.darkGreen};
-  border-right: solid 1px rgba(255, 255, 255, 0.5);
+  border-right: solid 1px ${props => props.theme.white};
   z-index: 1;
 `;
 
@@ -46,39 +42,52 @@ const Menu = styled.ul`
   align-items: center;
 `;
 
-// const heightSubList = keyframes`
-//   from {
-//     height: 0;
-//   }
-
-//   to {
-//     height: auto;
-//   }
-// `;
-
-// const SubList = styled.ul`
-//   display: ${props => (props.isActive ? "flex" : "none")};
-//   flex-direction: column;
-//   background-color: ${props => props.theme.green};
-//   padding: 5px;
-//   margin-bottom: 10px;
-//   width: 100%;
-//   animation: ${heightSubList} 0.2s ease-in-out;
-//   /* transition: height 0.2s ease-in-out; */
-// `;
+const SubList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  background-color: ${props => props.theme.green};
+  padding: ${props => (props.isActive ? "5px" : "0px")};
+  margin-bottom: ${props => (props.isActive ? "10px" : "0px")};
+  width: 100%;
+  height: ${props => (props.isActive ? "auto" : "0px")};
+  opacity: ${props => (props.isActive ? "1" : "0")};
+  transition: all 0.5s ease;
+`;
 
 export const DesktopNavbar = class extends React.Component {
+  state = {
+    isOffresHover: false
+  };
+
+  handleEnter = () => {
+    this.setState({ isOffresHover: true });
+  };
+
+  handleLeave = () => {
+    this.setState({ isOffresHover: false });
+  };
+
   render() {
     const isOffresPage = this.props.location.pathname.includes("/offres");
-    const isExpertisesPage = this.props.location.pathname.includes(
-      "/expertises"
+    const isNotreApprochePage = this.props.location.pathname.includes(
+      "/notre-approche"
     );
 
     return (
-      <Nav>
-        <Link to="/">
+      <Nav onMouseEnter={this.handleEnter} onMouseLeave={this.handleLeave}>
+        <TransitionLink
+          to="/"
+          exit={{
+            length: 0.6,
+            zIndex: 2
+          }}
+          entry={{
+            length: 0.6,
+            zIndex: 0
+          }}
+        >
           <Logo src={logo} />
-        </Link>
+        </TransitionLink>
 
         <Menu>
           <List to="/" src={IconHome} label="accueil" />
@@ -86,38 +95,24 @@ export const DesktopNavbar = class extends React.Component {
             to="/notre-approche"
             src={IconMagic}
             label="notre approche"
-            isActive={isExpertisesPage}
-          >
-            {/* <SubList isActive={isExpertisesPage}>
-              <List to="/expertises/site" src={IconFlask} label="site" />
-              <List to="/expertises/trafic" src={IconSpace} label="trafic" />
-              <List
-                to="/expertises/analyse"
-                src={IconStats}
-                label="analyse"
-              />
-            </SubList> */}
-          </List>
+            isActive={isNotreApprochePage}
+          />
+
           <List
             to="/offres"
             src={IconMonitor}
             label="nos offres"
             isActive={isOffresPage}
-          >
-            {/* <SubList isActive={isOffresPage}>
-              <List
-                to="/offres/petit-budget"
-                src={IconResponsive}
-                label="petit budget"
-              />
-              <List
-                to="/offres/sur-mesure"
-                src={IconPaint}
-                label="sur mesure"
-              />
-              <List to="/offres/agences" src={IconTarget} label="agences" />
-            </SubList> */}
-          </List>
+          />
+          <SubList isActive={this.state.isOffresHover || isOffresPage}>
+            <List
+              to="/offres/petit-budget"
+              src={IconResponsive}
+              label="petit budget"
+            />
+            <List to="/offres/sur-mesure" src={IconPaint} label="sur mesure" />
+            <List to="/offres/agences" src={IconTarget} label="agences" />
+          </SubList>
 
           <List to="/a-propos" src={IconUser} label="a propos" />
           <List to="/clients" src={IconHeart} label="nos clients" />

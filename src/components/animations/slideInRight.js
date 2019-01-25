@@ -10,14 +10,14 @@ from {
 
   to {
     transform: translate3d(0, 0, 0) scale(1);
-    /* opacity: 1 */
+    opacity: 1
   }
 `;
 
 export const slideInRightExit = keyframes`
 from {
     transform: translate3d(0, 0, 0);
-    /* opacity: 1 */
+    opacity: 1
   }
 
   to {
