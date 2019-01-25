@@ -22,7 +22,7 @@ const Nav = styled.nav`
   justify-content: center;
   position: fixed;
   background-color: ${props => props.theme.darkGreen};
-  border-right: solid 1px ${props => props.theme.white};
+  border-right: solid 1px ${props => props.theme.whiteNavOpacity};
   z-index: 1;
 `;
 
