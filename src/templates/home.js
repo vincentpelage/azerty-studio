@@ -116,7 +116,6 @@ class Home extends React.Component {
 
   render() {
     const { location, data } = this.props;
-
     return (
       <Layout location={location}>
         <Wrapper>

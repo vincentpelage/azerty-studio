@@ -1,4 +1,5 @@
 import { keyframes, css } from "styled-components";
+import "./slideInDown";
 
 export const wobbleVertical = keyframes`
 16.65% {
