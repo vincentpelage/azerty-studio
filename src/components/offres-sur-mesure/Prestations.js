@@ -52,10 +52,14 @@ const CardItem = styled.div`
   & > strong {
     color: ${props => props.theme.purple};
   }
+  }
 
   @media (max-width: ${globalVariables.maxMobile}) {
-    min-height: auto;
-  }
+    margin: 0;
+    padding: 0;
+    p {
+      min-height: auto;
+    }
   }
 `;
 

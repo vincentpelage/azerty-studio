@@ -191,7 +191,6 @@ const Coworkers = () => {
           y2="387.91"
         />
       </defs>
-      <title>co-workers</title>
       <path
         d="M923,738.89H852v-40h71Zm-68-3h65v-34H855Z"
         transform="translate(-105 -70.89)"

@@ -1,9 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-import Prismic from "prismic-javascript";
-import { Link, RichText, Date } from "prismic-reactjs";
-
 import Layout from "../components/Layout";
 import { ButtonLink } from "../components/button";
 import Deco from "../img/deco2.svg";
@@ -74,10 +71,10 @@ const Letter = styled.span`
   }
 
   @media (max-width: ${globalVariables.maxTablet}) {
-    font-size: 50px;
+    font-size: 40px;
     height: 50px;
     width: 50px;
-    padding-top: 13px;
+    padding-top: 9px;
   }
 `;
 
@@ -101,26 +98,12 @@ const Baseline = styled.p`
 class Home extends React.Component {
   state = {
     isLogoHover: true,
-    doc: null
   };
 
   componentDidMount() {
     setTimeout(() => {
       this.setState({ isLogoHover: false });
     }, 2000);
-
-    const apiEndpoint = "https://azerty-studio.prismic.io/api/v2";
-    const accessToken = process.env.API_KEY;
-
-    Prismic.api(apiEndpoint, { accessToken }).then(api => {
-      api
-        .query(Prismic.Predicates.at("document.type", "accueil"))
-        .then(response => {
-          if (response) {
-            this.setState({ doc: response.results[0] });
-          }
-        });
-    });
   }
 
   onEnter = () => {
@@ -132,25 +115,7 @@ class Home extends React.Component {
   };
 
   render() {
-    const { location, data } = this.props;
-
-    if (this.state.doc) {
-      const document = this.state.doc.data;
-      console.log(
-        "presentation",
-        document.body[0].primary.titre_presentation[0].text
-      );
-      console.log(
-        "contenu bouton",
-        document.body[0].primary.contenu_bouton[0].text
-      );
-      const contenu_bouton = document.body[0].primary.contenu_bouton[0].text;
-      const titre_presentation =
-        document.body[0].primary.titre_presentation[0].text;
-    } else {
-      const contenu_bouton = "";
-      const titre_presentation = "";
-    }
+    const { location } = this.props;
 
     return (
       <Layout location={location}>
@@ -169,7 +134,7 @@ class Home extends React.Component {
             <Letter>t</Letter>
             <Letter>y</Letter>
           </Logo>
-          <Baseline>{titre_presentation}</Baseline>
+          <Baseline>Nous créons de jolis sites web, rapides, sécurisés, optimisés pour booster votre activité et accessibles à tous</Baseline>
 
           <ButtonLink
             to="/offres"
@@ -177,7 +142,7 @@ class Home extends React.Component {
             size="large"
             margin="1rem 0 0 0"
           >
-            {contenu_bouton}
+            Voir nos offres
           </ButtonLink>
           <SpaceShip />
         </Wrapper>

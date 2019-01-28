@@ -72,7 +72,6 @@ const Coffee = () => {
           gradientTransform="translate(1246.61 -701.51) rotate(90)"
         />
       </defs>
-      <title>Working</title>
       <circle
         cx="720.55"
         cy="430.76"

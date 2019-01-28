@@ -23,7 +23,7 @@ const Container = styled.div`
   text-align: justify;
   & strong {
     color: ${props => props.theme.darkPink};
-    font-weight: 300;
+    /* font-weight: 300; */
   }
   @media (max-width: ${globalVariables.maxMobile}) {
     padding-top: 1.5rem;
@@ -65,7 +65,7 @@ const Team = styled.div`
     text-align: justify;
     margin-top: 1rem;
     & > strong {
-      font-weight: 300;
+      /* font-weight: 300; */
       color: ${props => props.theme.darkPink};
     }
   }
@@ -88,7 +88,6 @@ const LinkedinStyled = styled.img`
 `;
 
 const Equipe = ({ location, data }) => {
-  console.log(data);
   return (
     <Layout location={location}>
       <Wrapper>
@@ -110,7 +109,7 @@ const Equipe = ({ location, data }) => {
         <Spacer height="100vh" flex="0 0 60%">
           <WrapperTeam>
             {data.prismicAProposBody1Portrait.items.map((item, index) => (
-              <Team>
+              <Team key={index}>
                 <Picture src={item.image_portrait.url} />
                 <SubTitle label={item.titre_portrait.text} textAlign="center" />
                 {Parser(item.contenu_portrait.html)}

@@ -2,6 +2,7 @@ import React from "react";
 import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
 import styled, { ThemeProvider } from "styled-components";
+import { TransitionState } from "gatsby-plugin-transition-link";
 
 import "./all.sass";
 import GlobalStyles, {
@@ -11,10 +12,12 @@ import GlobalStyles, {
   NotDesktop
 } from "./globalStyle";
 import { DesktopNavbar, MobileNavbar } from "../components/navbar";
+import { slideInRightEntry, slideInRightExit } from "./animations/slideInRight";
 
 const LayoutContainer = styled.div`
   display: flex;
   flex-direction: row;
+  overflow: hidden;
   @media (max-width: ${globalVariables.maxTablet}) {
     flex-direction: column;
   }
@@ -25,12 +28,21 @@ const Children = styled.div`
   margin-left: 60px;
   min-height: 100vh;
   overflow: hidden;
+  position: relative;
+  &.entering {
+    animation: ${slideInRightEntry} 0.6s ease both;
+  }
+
+  &.exiting {
+    animation: ${slideInRightExit} 0.6s ease both;
+  }
+
   @media (max-width: ${globalVariables.maxTablet}) {
     margin-left: 0;
   }
 `;
 
-const TemplateWrapper = ({ children, location }) => {
+const Layout = ({ children, location }) => {
   return (
     <StaticQuery
       query={graphql`
@@ -71,17 +83,12 @@ const TemplateWrapper = ({ children, location }) => {
               sizes="16x16"
             />
 
-            <link
-              rel="mask-icon"
-              href="/img/safari-pinned-tab.svg"
-              color="#ff4400"
-            />
-            <meta name="theme-color" content="#fff" />
+            <meta name="theme-color" content="#00B6BE" />
 
-            <meta property="og:type" content="business.business" />
+            <meta property="og:type" content="website" />
             <meta property="og:title" content={data.site.siteMetadata.title} />
             <meta property="og:url" content="/" />
-            <meta property="og:image" content="/img/og-image.jpg" />
+            <meta property="og:image" content="/img/og-image.png" />
           </Helmet>
 
           <ThemeProvider theme={theme}>
@@ -94,7 +101,15 @@ const TemplateWrapper = ({ children, location }) => {
                 <NotDesktop>
                   <MobileNavbar location={location} />
                 </NotDesktop>
-                <Children>{children}</Children>
+                <TransitionState>
+                  {({ transitionStatus }) => {
+                    return (
+                      <Children className={transitionStatus}>
+                        {children}
+                      </Children>
+                    );
+                  }}
+                </TransitionState>
               </LayoutContainer>
             </React.Fragment>
           </ThemeProvider>
@@ -104,4 +119,4 @@ const TemplateWrapper = ({ children, location }) => {
   );
 };
 
-export default TemplateWrapper;
+export default Layout;

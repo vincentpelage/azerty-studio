@@ -24,6 +24,11 @@ const ProcessStyled = styled.svg`
     width: 50%;
     height: auto;
   }
+  @media (max-width: ${globalVariables.maxTablet}) {
+    width: 40%;
+    bottom: 1rem;
+    right: 1rem;
+  }
   .animate-arrow {
     animation: ${animateArrow} 2s ease-in-out infinite;
   }
@@ -55,7 +60,6 @@ const Process = () => (
         <stop offset="1" stopColor="gray" stopOpacity="0.1" />
       </linearGradient>
     </defs>
-    <title>prototyping process</title>
     <ellipse
       cx="346.73"
       cy="821.68"
