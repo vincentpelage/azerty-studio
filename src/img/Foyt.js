@@ -30,18 +30,18 @@ const animateScreenRight = keyframes`
 `;
 
 const FoytStyled = styled.svg`
-  height: 180px;
-  position: absolute;
-  bottom: 2rem;
-  right: 4rem;
+  height: 300px;
+  margin-left: 4rem;
+  margin-top: 4rem;
   @media (max-width: ${globalVariables.maxTablet}) {
     width: 50%;
     height: auto;
+    margin-left: 2rem;
   }
-  @media (max-width: ${globalVariables.maxTablet}) {
-    width: 40%;
-    bottom: 1rem;
-    right: 1rem;
+  @media (max-width: ${globalVariables.maxMobile}) {
+    width: 80%;
+    margin-left: 0;
+    margin-top: 1rem;
   }
   .animate-screen-left {
     animation: ${animateScreenLeft} 2s ease-in-out infinite;
