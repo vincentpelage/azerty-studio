@@ -23,7 +23,6 @@ const Container = styled.div`
   text-align: justify;
   & strong {
     color: ${props => props.theme.darkPink};
-    /* font-weight: 300; */
   }
   @media (max-width: ${globalVariables.maxMobile}) {
     padding-top: 1.5rem;
@@ -65,7 +64,6 @@ const Team = styled.div`
     text-align: justify;
     margin-top: 1rem;
     & > strong {
-      /* font-weight: 300; */
       color: ${props => props.theme.darkPink};
     }
   }

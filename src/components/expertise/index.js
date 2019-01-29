@@ -44,11 +44,6 @@ const WrapperIcon = styled.div`
   margin-bottom: 1rem;
 `;
 
-const Icon = styled.img`
-  /* width: 50px;
-  height: 50px; */
-`;
-
 const Paragraph = styled.p`
   text-align: center;
   padding: 2rem 0;
@@ -70,7 +65,7 @@ const BlocExpertises = () => {
       <Wrapper>
         <Item>
           <WrapperIcon>
-            <Icon src={IconFlask} />
+            <img src={IconFlask} />
           </WrapperIcon>
           <SubTitle
             label="Creer votre site"
@@ -95,7 +90,7 @@ const BlocExpertises = () => {
         </Item>
         <Item>
           <WrapperIcon>
-            <Icon src={IconSpace} />
+            <img src={IconSpace} />
           </WrapperIcon>
           <SubTitle
             label="Augmenter vos ventes"
@@ -120,7 +115,7 @@ const BlocExpertises = () => {
         </Item>
         <Item>
           <WrapperIcon>
-            <Icon src={IconStats} />
+            <img src={IconStats} />
           </WrapperIcon>
           <SubTitle
             label="Analyser vos performances"

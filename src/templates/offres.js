@@ -112,7 +112,6 @@ const OffreContent = ({ offre, component }) => {
     <WrapperContentContent>
       <SubTitle
         label={offre.titre_offre.text}
-        // fontSize="20px"
         color={offre.color}
         backgroundColor={offre.color}
       />
