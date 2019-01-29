@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { CSSTransition } from "react-transition-group";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 
-import { globalVariables } from "../globalStyle";
+import { globalVariables, theme } from "../globalStyle";
 import { bounceHorizontal } from "../animations/index";
 import PagesTransitionImg from "../../img/PagesTransition.jpeg";
 
@@ -86,7 +86,7 @@ class List extends Component {
   render() {
     const { to, src, label, children, isActive } = this.props;
     const { isHover } = this.state;
-    const image = `url(${PagesTransitionImg})`;
+    const image = `${theme.green} url(${PagesTransitionImg}) no-repeat center`;
 
     return (
       <Item
@@ -96,8 +96,6 @@ class List extends Component {
       >
         <LinkStyled
           to={to}
-          // fade
-          // bg={theme.green}
           cover
           bg={image}
           duration={0.8}
