@@ -4,67 +4,55 @@ import { graphql } from "gatsby";
 import styled from "styled-components";
 import Parser from "html-react-parser";
 
+import Spacer from "../components/spacer";
 import Foyt from "../img/Foyt";
 import Resume from "../img/Resume";
 import Process from "../img/Process";
 import { ButtonLink } from "../components/button";
 import Title from "../components/title";
-import { globalVariables } from "../components/globalStyle";
+import { globalVariables, theme } from "../components/globalStyle";
 import SubTitle from "../components/subTitle";
 import StarPurple from "../icons/star-purple.svg";
 import StarGreen from "../icons/star-green.svg";
 import StarPink from "../icons/star-pink.svg";
 
-const WrapperContainer = styled.div`
+const WrapperGlobal = styled.div`
   display: flex;
   flex-direction: row;
-  min-height: 100vh;
-  @media (max-width: ${globalVariables.maxTablet}) {
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  @media (max-width: ${globalVariables.maxMobile}) {
     flex-direction: column;
   }
 `;
 
-const WrapperList = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  width: 100%;
-  padding: 2rem 4rem;
-  flex: 0 0 50%;
-  background-color: ${props => props.theme.white};
-  overflow: hidden;
-  @media (max-width: ${globalVariables.maxTablet}) {
-    flex: 0 0 100%;
-    padding: 3rem 2rem 1rem 2rem;
-    order: 2;
-  }
+const WrapperText = styled.div`
+  flex: 0 0 45%;
   @media (max-width: ${globalVariables.maxMobile}) {
-    padding: 0rem 3rem;
-  }
-`;
-
-const WrapperContent = styled.div`
-  padding: 5rem 4rem;
-  flex: 0 0 50%;
-  position: relative;
-  @media (max-width: ${globalVariables.maxTablet}) {
-    padding: 5rem 2rem 4rem 2rem;
     flex: 0 0 100%;
     order: 1;
-    min-height: 80vh;
+    margin-bottom: 2rem;
   }
 `;
 
-const WrapperContentContent = styled.div`
+const WrapperImage = styled.div`
+  flex: 0 0 55%;
+  text-align: center;
+  @media (max-width: ${globalVariables.maxMobile}) {
+    flex: 0 0 100%;
+    order: 2;
+  }
+`;
+
+const WrapperOffreContent = styled.div`
   padding-top: 3rem;
   @media (max-width: ${globalVariables.maxTablet}) {
     padding-top: 1rem;
   }
 `;
 
-const WrapperText = styled.div`
+const Text = styled.div`
   margin: 2rem 0 3rem;
   p {
     text-align: justify;
@@ -76,46 +64,15 @@ const WrapperText = styled.div`
   }
 `;
 
-const List = styled.div`
-  margin-bottom: 1rem;
-  padding-left: 1rem;
-  max-width: 80%;
-  li {
-    position: relative;
-    &:not(:last-child) {
-      margin-bottom: 2rem;
-    }
-    &::before {
-      content: "";
-      background-image: url(${props => props.iconDesktop});
-      background-repeat: no-repeat;
-      background-size: cover;
-      position: absolute;
-      top: 3px;
-      left: -2rem;
-      height: 1rem;
-      width: 1rem;
-    }
-  }
-  @media (max-width: ${globalVariables.maxTablet}) {
-    max-width: 100%;
-  }
-  @media (max-width: ${globalVariables.maxMobile}) {
-    li::before {
-      background-image: url(${props => props.iconMobile});
-    }
-  }
-`;
-
-const OffreContent = ({ offre, component }) => {
+const OffreContent = ({ offre }) => {
   return (
-    <WrapperContentContent>
+    <WrapperOffreContent>
       <SubTitle
         label={offre.titre_offre.text}
         color={offre.color}
         backgroundColor={offre.color}
       />
-      <WrapperText>{Parser(offre.contenu_offre.html)}</WrapperText>
+      <Text>{Parser(offre.contenu_offre.html)}</Text>
 
       <ButtonLink
         backgroundcolor={offre.color}
@@ -124,18 +81,7 @@ const OffreContent = ({ offre, component }) => {
       >
         {offre.bouton_offre.text}
       </ButtonLink>
-      {component()}
-    </WrapperContentContent>
-  );
-};
-
-const OffreList = ({ contenu, color, iconDesktop, iconMobile }) => {
-  return (
-    <React.Fragment>
-      <List color={color} iconDesktop={iconDesktop} iconMobile={iconMobile}>
-        {Parser(contenu.html)}
-      </List>
-    </React.Fragment>
+    </WrapperOffreContent>
   );
 };
 
@@ -177,49 +123,37 @@ class Offres extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <WrapperContainer>
-          <WrapperContent arrowPosition="right">
-            <Title label={titre_page.text} />
-            <OffreContent offre={offre1} component={Foyt} />
-          </WrapperContent>
-          <WrapperList>
-            <OffreList
-              contenu={offre1.detail_offre}
-              contenuBouton={offre1.bouton_offre}
-              color={offre1.color}
-              iconDesktop={offre1.iconDesktop}
-              iconMobile={offre1.iconMobile}
-            />
-          </WrapperList>
-        </WrapperContainer>
-        <WrapperContainer>
-          <WrapperList>
-            <OffreList
-              contenu={offre2.detail_offre}
-              contenuBouton={offre2.bouton_offre}
-              color={offre2.color}
-              iconDesktop={offre2.iconDesktop}
-              iconMobile={offre2.iconMobile}
-            />
-          </WrapperList>
-          <WrapperContent arrowPosition="left">
-            <OffreContent offre={offre2} component={Resume} />
-          </WrapperContent>
-        </WrapperContainer>
-        <WrapperContainer>
-          <WrapperContent arrowPosition="right">
-            <OffreContent offre={offre3} component={Process} />
-          </WrapperContent>
-          <WrapperList>
-            <OffreList
-              contenu={offre3.detail_offre}
-              contenuBouton={offre3.bouton_offre}
-              color={offre3.color}
-              iconDesktop={offre3.iconDesktop}
-              iconMobile={offre3.iconMobile}
-            />
-          </WrapperList>
-        </WrapperContainer>
+        <Spacer>
+          <WrapperGlobal>
+            <WrapperText>
+              <Title label={titre_page.text} />
+              <OffreContent offre={offre1} />
+            </WrapperText>
+            <WrapperImage>
+              <Foyt />
+            </WrapperImage>
+          </WrapperGlobal>
+        </Spacer>
+        <Spacer backgroundColor={theme.white}>
+          <WrapperGlobal>
+            <WrapperImage>
+              <Resume />
+            </WrapperImage>
+            <WrapperText>
+              <OffreContent offre={offre2} />
+            </WrapperText>
+          </WrapperGlobal>
+        </Spacer>
+        <Spacer>
+          <WrapperGlobal>
+            <WrapperText>
+              <OffreContent offre={offre3} />
+            </WrapperText>
+            <WrapperImage>
+              <Process />
+            </WrapperImage>
+          </WrapperGlobal>
+        </Spacer>
       </Layout>
     );
   }
