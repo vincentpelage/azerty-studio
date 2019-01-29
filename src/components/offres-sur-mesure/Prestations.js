@@ -38,7 +38,6 @@ const Item = styled.div`
 `;
 
 const CardItem = styled.div`
-  /* background-color: ${props => props.theme.white}; */
   margin: 0 0.5rem 0.5rem 0;
   padding: 2rem 1rem;
   border-radius: ${globalVariables.borderRadius};

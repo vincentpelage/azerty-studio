@@ -146,9 +146,6 @@ const Expertise = ({ location }) => {
                 donc vous proposer des prix plus abordables que les agences (ou
                 les freelances).
               </Text>
-              {/* <ButtonLink to="/" backgroundcolor="darkPink" size="small">
-                En savoir plus
-              </ButtonLink> */}
             </Content>
             <Content>
               <SubSubTitle>Des fonctionnalités déjà existantes</SubSubTitle>
@@ -161,9 +158,6 @@ const Expertise = ({ location }) => {
                 facilement vos contenus, un suivi simplifié des performances de
                 votre site, etc.
               </Text>
-              {/* <ButtonLink to="/" backgroundcolor="darkPink" size="small">
-                En savoir plus
-              </ButtonLink> */}
             </Content>
           </WrapperText>
         </Wrapper>

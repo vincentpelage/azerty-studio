@@ -6,7 +6,6 @@ import Title from "../title/index";
 import SubTitle from "../subTitle";
 import Startup from "../../icons/startup.svg";
 import { globalVariables, theme } from "../globalStyle";
-// import Data from "../../img/Data";
 import ArrowScroll from "../ArrowScroll";
 
 const Wrapper = styled.div`
