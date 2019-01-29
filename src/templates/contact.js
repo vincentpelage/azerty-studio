@@ -2,13 +2,16 @@ import React from "react";
 
 import Layout from "../components/Layout";
 import Contact from "../components/contact";
-import {theme} from "../components/globalStyle";
+import { theme } from "../components/globalStyle";
 
 const ContactPage = ({ location, data }) => {
-  console.log(data)
   return (
     <Layout location={location}>
-      <Contact data={data.prismicContactBodyContact} backgroundColor={theme.darkGrey} textMobile="Vous avez un projet de site et vous souhaitez en discuter ?" />
+      <Contact
+        data={data.prismicContactBodyContact}
+        backgroundColor={theme.darkGrey}
+        textMobile="Vous avez un projet de site et vous souhaitez en discuter ?"
+      />
     </Layout>
   );
 };

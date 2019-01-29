@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import TransitionLink from "gatsby-plugin-transition-link";
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 import logo from "../../img/azertylogo.png";
 import IconHome from "../../icons/home.svg";
@@ -13,6 +13,7 @@ import IconEnvelope from "../../icons/envelope.svg";
 import IconUser from "../../icons/user.svg";
 import IconMagic from "../../icons/magic-wand.svg";
 import List from "./List";
+import { theme } from "../globalStyle";
 
 const Nav = styled.nav`
   width: 60px;
@@ -55,18 +56,6 @@ const SubList = styled.ul`
 `;
 
 export const DesktopNavbar = class extends React.Component {
-  state = {
-    isOffresHover: false
-  };
-
-  handleEnter = () => {
-    this.setState({ isOffresHover: true });
-  };
-
-  handleLeave = () => {
-    this.setState({ isOffresHover: false });
-  };
-
   render() {
     const isOffresPage = this.props.location.pathname.includes("/offres");
     const isNotreApprochePage = this.props.location.pathname.includes(
@@ -74,20 +63,10 @@ export const DesktopNavbar = class extends React.Component {
     );
 
     return (
-      <Nav onMouseEnter={this.handleEnter} onMouseLeave={this.handleLeave}>
-        <TransitionLink
-          to="/"
-          exit={{
-            length: 0.6,
-            zIndex: 2
-          }}
-          entry={{
-            length: 0.6,
-            zIndex: 0
-          }}
-        >
+      <Nav>
+        <AniLink to="/" cover bg={theme.green} duration={0.8}>
           <Logo src={logo} />
-        </TransitionLink>
+        </AniLink>
 
         <Menu>
           <List to="/" src={IconHome} label="accueil" />
@@ -104,7 +83,7 @@ export const DesktopNavbar = class extends React.Component {
             label="nos offres"
             isActive={isOffresPage}
           />
-          <SubList isActive={this.state.isOffresHover || isOffresPage}>
+          <SubList isActive={isOffresPage}>
             <List
               to="/offres/petit-budget"
               src={IconResponsive}

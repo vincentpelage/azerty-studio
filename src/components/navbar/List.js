@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { Link } from "gatsby";
 import styled from "styled-components";
 import { CSSTransition } from "react-transition-group";
+import AniLink from "gatsby-plugin-transition-link/AniLink";
+
 import { globalVariables } from "../globalStyle";
 import { bounceHorizontal } from "../animations/index";
-import TransitionLink from "gatsby-plugin-transition-link";
+import PagesTransitionImg from "../../img/PagesTransition.jpeg";
 
 const Item = styled.li`
   flex: ${props => (props.isActive ? "1 0 auto" : "1 0 50px")};
@@ -29,7 +30,7 @@ const Item = styled.li`
   }
 `;
 
-const LinkStyled = styled(TransitionLink)`
+const LinkStyled = styled(AniLink)`
   &.active img {
     opacity: 1;
   }
@@ -42,7 +43,6 @@ const Icon = styled.img`
 `;
 
 const Text = styled.p`
-  /* color: white; */
   font-family: Aqua;
   text-transform: uppercase;
   font-size: 11px;
@@ -57,7 +57,6 @@ const Text = styled.p`
   background-color: ${props => props.theme.white};
   border-radius: ${globalVariables.borderRadius};
   animation: ${bounceHorizontal} 1s ease-in-out;
-  /* position: relative; */
   &::before {
     content: "";
     position: absolute;
@@ -87,6 +86,7 @@ class List extends Component {
   render() {
     const { to, src, label, children, isActive } = this.props;
     const { isHover } = this.state;
+    const image = `url(${PagesTransitionImg})`;
 
     return (
       <Item
@@ -96,14 +96,11 @@ class List extends Component {
       >
         <LinkStyled
           to={to}
-          exit={{
-            length: 0.6,
-            zIndex: 2
-          }}
-          entry={{
-            length: 0.6,
-            zIndex: 0
-          }}
+          // fade
+          // bg={theme.green}
+          cover
+          bg={image}
+          duration={0.8}
           activeClassName="active"
         >
           <Icon src={src} />

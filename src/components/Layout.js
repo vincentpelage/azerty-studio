@@ -2,7 +2,6 @@ import React from "react";
 import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
 import styled, { ThemeProvider } from "styled-components";
-import { TransitionState } from "gatsby-plugin-transition-link";
 
 import "./all.sass";
 import GlobalStyles, {
@@ -12,7 +11,6 @@ import GlobalStyles, {
   NotDesktop
 } from "./globalStyle";
 import { DesktopNavbar, MobileNavbar } from "../components/navbar";
-import { slideInRightEntry, slideInRightExit } from "./animations/slideInRight";
 
 const LayoutContainer = styled.div`
   display: flex;
@@ -29,13 +27,6 @@ const Children = styled.div`
   min-height: 100vh;
   overflow: hidden;
   position: relative;
-  &.entering {
-    animation: ${slideInRightEntry} 0.6s ease both;
-  }
-
-  &.exiting {
-    animation: ${slideInRightExit} 0.6s ease both;
-  }
 
   @media (max-width: ${globalVariables.maxTablet}) {
     margin-left: 0;
@@ -101,15 +92,8 @@ const Layout = ({ children, location }) => {
                 <NotDesktop>
                   <MobileNavbar location={location} />
                 </NotDesktop>
-                <TransitionState>
-                  {({ transitionStatus }) => {
-                    return (
-                      <Children className={transitionStatus}>
-                        {children}
-                      </Children>
-                    );
-                  }}
-                </TransitionState>
+
+                <Children>{children}</Children>
               </LayoutContainer>
             </React.Fragment>
           </ThemeProvider>
