@@ -56,7 +56,8 @@ const Text = styled.p`
   }
 `;
 
-const Avantages = () => {
+const Avantages = ({ data }) => {
+  console.log("AVANTAGES", data);
   return (
     <Spacer
       height="100vh"

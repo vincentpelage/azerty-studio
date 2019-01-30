@@ -97,7 +97,7 @@ const Baseline = styled.p`
 
 class Home extends React.Component {
   state = {
-    isLogoHover: true,
+    isLogoHover: true
   };
 
   componentDidMount() {
@@ -134,7 +134,10 @@ class Home extends React.Component {
             <Letter>t</Letter>
             <Letter>y</Letter>
           </Logo>
-          <Baseline>Nous créons de jolis sites web, rapides, sécurisés, optimisés pour booster votre activité et accessibles à tous</Baseline>
+          <Baseline>
+            Nous créons de jolis sites web, rapides, sécurisés et optimisés pour
+            booster votre activité
+          </Baseline>
 
           <ButtonLink
             to="/offres"

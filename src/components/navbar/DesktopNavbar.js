@@ -14,6 +14,7 @@ import IconUser from "../../icons/user.svg";
 import IconMagic from "../../icons/magic-wand.svg";
 import List from "./List";
 import { theme } from "../globalStyle";
+// import PagesTransitionImg from "../../img/PagesTransition.jpeg";
 
 const Nav = styled.nav`
   width: 60px;
@@ -61,6 +62,7 @@ export const DesktopNavbar = class extends React.Component {
     const isNotreApprochePage = this.props.location.pathname.includes(
       "/notre-approche"
     );
+    // const image = `${theme.green} url(${PagesTransitionImg}) no-repeat center`;
 
     return (
       <Nav>
@@ -70,12 +72,6 @@ export const DesktopNavbar = class extends React.Component {
 
         <Menu>
           <List to="/" src={IconHome} label="accueil" />
-          <List
-            to="/notre-approche"
-            src={IconMagic}
-            label="notre approche"
-            isActive={isNotreApprochePage}
-          />
 
           <List
             to="/offres"
@@ -93,6 +89,12 @@ export const DesktopNavbar = class extends React.Component {
             <List to="/offres/agences" src={IconTarget} label="agences" />
           </SubList>
 
+          <List
+            to="/notre-approche"
+            src={IconMagic}
+            label="notre approche"
+            isActive={isNotreApprochePage}
+          />
           <List to="/a-propos" src={IconUser} label="a propos" />
           <List to="/clients" src={IconHeart} label="nos clients" />
           <List to="/contact" src={IconEnvelope} label="contact" />

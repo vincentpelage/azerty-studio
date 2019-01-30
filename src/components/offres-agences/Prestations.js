@@ -1,191 +1,102 @@
 import React from "react";
 import styled from "styled-components";
+import Parser from "html-react-parser";
 
 import Spacer from "../spacer/index";
 import Title from "../title/index";
-import SubTitle from "../subTitle";
-import Startup from "../../icons/startup.svg";
+// import Startup from "../../icons/startup.svg";
 import { globalVariables, theme } from "../globalStyle";
 import ArrowScroll from "../ArrowScroll";
 
-const Wrapper = styled.div`
+const WrapperGlobal = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 5rem;
-  margin-bottom: 3rem;
+  align-items: center;
   @media (max-width: ${globalVariables.maxMobile}) {
     flex-direction: column;
-    margin-top: 3rem;
-    margin-bottom: 4rem;
   }
 `;
 
-const Item = styled.div`
-  flex: 0 0 25%;
-  padding: 1rem;
-  text-align: center;
-  @media (max-width: ${globalVariables.maxTablet}) {
-    flex: 0 0 33%;
-  }
+const WrapperText = styled.div`
+  flex: 0 0 55%;
+  margin: 2rem 0 3rem;
   @media (max-width: ${globalVariables.maxMobile}) {
     flex: 0 0 100%;
+    order: 1;
+    margin-bottom: 2rem;
   }
 `;
 
-const CardItem = styled.div`
-  background-color: ${props => props.theme.white};
-  margin: 0 0.5rem 0.5rem 0;
-  padding: 2rem 1rem 1rem 1rem;
-  border-radius: ${globalVariables.borderRadius};
-`;
-
-const WrapperIcon = styled.div`
-  width: 50px;
-  height: 50px;
-  background-color: ${props => props.theme.purple};
-  border-radius: 50%;
-  padding: 0.75rem;
-  margin: auto;
-  margin-bottom: 1rem;
-`;
-
-const Icon = styled.img``;
-
-const Paragraph = styled.p`
+const WrapperImage = styled.div`
+  flex: 0 0 45%;
   text-align: center;
-  min-height: 100px;
-  & > strong {
-    color: ${props => props.theme.darkGreen};
-  }
   @media (max-width: ${globalVariables.maxMobile}) {
-    min-height: auto;
+    flex: 0 0 100%;
+    order: 2;
+  }
+`;
+const SubTitle = styled.h2`
+  color: ${props => props.theme.darkGreen};
+  font-weight: 500;
+  position: relative;
+  display: inline;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 5px;
+    right: -10px;
+    width: 5px;
+    height: 5px;
+    background-color: ${props => props.theme.darkPink};
+    border-radius: 50%;
+  }
+`;
+
+const Paragraph = styled.div`
+  margin-bottom: 2rem;
+  p {
+    text-align: justify;
+    margin-bottom: 1rem;
+  }
+  ul {
+    padding-left: 1rem;
+    li {
+      padding-bottom: 0.5rem;
+      position: relative;
+      &::before {
+        content: "";
+        display: inline-block;
+        width: 5px;
+        height: 5px;
+        border: 1px solid ${props => props.theme.darkPink};
+        border-radius: 50%;
+        position: absolute;
+        top: 10px;
+        left: -1rem;
+      }
+    }
   }
 `;
 
 const Prestations = ({ data }) => {
+  console.log("CONSTAT", data);
+
   return (
-    <Spacer height="100vh">
-      <Title label="Agences" />
-      <Wrapper>
-        <Item>
-          <CardItem>
-            <WrapperIcon>
-              <Icon src={Startup} />
-            </WrapperIcon>
-            <SubTitle
-              label="Service"
-              color="purple"
-              backgroundColor="purple"
-              textAlign="center"
-              fontSize="20px"
-              noLine={true}
-            />
-            <Paragraph>
-              Faire connaître votre marque, vos produits, vos services
+    <Spacer height="90vh">
+      <Title label="Agences Webmarketing" />
+      <WrapperGlobal>
+        <WrapperText>
+          {data.items.map((item, index) => (
+            <Paragraph key={index}>
+              <SubTitle>{item.titre_service.text}</SubTitle>
+              {Parser(item.contenu_service.html)}
             </Paragraph>
-          </CardItem>
-        </Item>
-        <Item>
-          <CardItem>
-            <WrapperIcon>
-              <Icon src={Startup} />
-            </WrapperIcon>
-            <SubTitle
-              label="Service"
-              color="purple"
-              backgroundColor="purple"
-              textAlign="center"
-              fontSize="20px"
-              noLine={true}
-            />
-            <Paragraph>Vendre vos produits directement en ligne</Paragraph>
-          </CardItem>
-        </Item>
-        <Item>
-          <CardItem>
-            <WrapperIcon>
-              <Icon src={Startup} />
-            </WrapperIcon>
-            <SubTitle
-              label="Service"
-              color="purple"
-              backgroundColor="purple"
-              textAlign="center"
-              fontSize="20px"
-              noLine={true}
-            />
-            <Paragraph>
-              Créer une plateforme de réservation, un tableau de bord, etc.
-            </Paragraph>
-          </CardItem>
-        </Item>
-        <Item>
-          <CardItem>
-            <WrapperIcon>
-              <Icon src={Startup} />
-            </WrapperIcon>
-            <SubTitle
-              label="Service"
-              color="purple"
-              backgroundColor="purple"
-              textAlign="center"
-              fontSize="20px"
-              noLine={true}
-            />
-            <Paragraph>Tester rapidement votre idée</Paragraph>
-          </CardItem>
-        </Item>
-        <Item>
-          <CardItem>
-            <WrapperIcon>
-              <Icon src={Startup} />
-            </WrapperIcon>
-            <SubTitle
-              label="Service"
-              color="purple"
-              backgroundColor="purple"
-              textAlign="center"
-              fontSize="20px"
-              noLine={true}
-            />
-            <Paragraph>Tester rapidement votre idée</Paragraph>
-          </CardItem>
-        </Item>
-        <Item>
-          <CardItem>
-            <WrapperIcon>
-              <Icon src={Startup} />
-            </WrapperIcon>
-            <SubTitle
-              label="Service"
-              color="purple"
-              backgroundColor="purple"
-              textAlign="center"
-              fontSize="20px"
-              noLine={true}
-            />
-            <Paragraph>Tester rapidement votre idée</Paragraph>
-          </CardItem>
-        </Item>
-        <Item>
-          <CardItem>
-            <WrapperIcon>
-              <Icon src={Startup} />
-            </WrapperIcon>
-            <SubTitle
-              label="Service"
-              color="purple"
-              backgroundColor="purple"
-              textAlign="center"
-              fontSize="20px"
-              noLine={true}
-            />
-            <Paragraph>Tester rapidement votre idée</Paragraph>
-          </CardItem>
-        </Item>
-      </Wrapper>
+          ))}
+        </WrapperText>
+
+        <WrapperImage>{/* <Foyt /> */}</WrapperImage>
+      </WrapperGlobal>
       <ArrowScroll
         fill={theme.darkGreen}
         ancreId="avantages-agences"

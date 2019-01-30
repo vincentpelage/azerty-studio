@@ -12,6 +12,7 @@ const SpacerStyled = styled.section`
   z-index: 0;
   @media (max-width: ${globalVariables.maxTablet}) {
     padding: 6rem 2rem;
+    min-height: auto;
   }
   /* Only tablet Portrait */
   @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {

@@ -133,54 +133,63 @@ export class MobileNavbar extends Component {
         </WrapperBurger>
 
         <Menu isBurgerActive={isBurgerActive}>
-          <AniLink to="/">
+          <AniLink to="/" fade>
             <Logo src={logo} isHome={isHome} color="darkGreen" />
           </AniLink>
           <Item>
-            <LinkStyled to="/" activeClassName="active">
+            <LinkStyled to="/" fade activeClassName="active">
               <Text>Accueil</Text>
             </LinkStyled>
           </Item>
+
           <Item>
-            <LinkStyled to="/notre-approche" activeClassName="active">
-              <Text>Notre Approche</Text>
-            </LinkStyled>
-          </Item>
-          <Item>
-            <LinkStyled to="/offres" activeClassName="active">
+            <LinkStyled to="/offres" fade activeClassName="active">
               <Text>Nos Offres</Text>
             </LinkStyled>
             <SubItem>
               <Item>
-                <LinkStyled to="/offres/petit-budget" activeClassName="active">
+                <LinkStyled
+                  to="/offres/petit-budget"
+                  fade
+                  activeClassName="active"
+                >
                   <Text>Petit budget</Text>
                 </LinkStyled>
               </Item>
               <Item>
-                <LinkStyled to="/offres/sur-mesure" activeClassName="active">
+                <LinkStyled
+                  to="/offres/sur-mesure"
+                  fade
+                  activeClassName="active"
+                >
                   <Text>Sur mesure</Text>
                 </LinkStyled>
               </Item>
               <Item>
-                <LinkStyled to="/offres/agences" activeClassName="active">
+                <LinkStyled to="/offres/agences" fade activeClassName="active">
                   <Text>Agences</Text>
                 </LinkStyled>
               </Item>
             </SubItem>
           </Item>
+          <Item>
+            <LinkStyled to="/notre-approche" fade activeClassName="active">
+              <Text>Notre Approche</Text>
+            </LinkStyled>
+          </Item>
 
           <Item>
-            <LinkStyled to="/a-propos" activeClassName="active">
+            <LinkStyled to="/a-propos" fade activeClassName="active">
               <Text>A Propos</Text>
             </LinkStyled>
           </Item>
           <Item>
-            <LinkStyled to="/clients" activeClassName="active">
+            <LinkStyled to="/clients" fade activeClassName="active">
               <Text>Nos clients</Text>
             </LinkStyled>
           </Item>
           <Item>
-            <LinkStyled to="/contact" activeClassName="active">
+            <LinkStyled to="/contact" fade activeClassName="active">
               <Text>Contact</Text>
             </LinkStyled>
           </Item>
