@@ -28,7 +28,6 @@ export const pageQuery = graphql`
     prismicAgencesBodyService {
       primary {
         titre_page {
-          html
           text
         }
       }

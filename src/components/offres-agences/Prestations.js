@@ -4,7 +4,7 @@ import Parser from "html-react-parser";
 
 import Spacer from "../spacer/index";
 import Title from "../title/index";
-// import Startup from "../../icons/startup.svg";
+// import Agence1 from "../../img/agence-1.svg";
 import { globalVariables, theme } from "../globalStyle";
 import ArrowScroll from "../ArrowScroll";
 
@@ -80,11 +80,9 @@ const Paragraph = styled.div`
 `;
 
 const Prestations = ({ data }) => {
-  console.log("CONSTAT", data);
-
   return (
     <Spacer height="90vh">
-      <Title label="Agences Webmarketing" />
+      <Title label={data.primary.titre_page.text} />
       <WrapperGlobal>
         <WrapperText>
           {data.items.map((item, index) => (

@@ -132,7 +132,6 @@ const Approche = ({ location, data }) => {
           <WrapperText position="right">
             {data.prismicApprocheBody2Contenu.items.map((item, index) => (
               <Content key={index}>
-                {console.log(item.lien_bouton1.text, item.contenu_bouton.text)}
                 <SubSubTitle>{item.sous_titre.text}</SubSubTitle>
                 {Parser(item.contenu1.html)}
                 {item.contenu_bouton &&
