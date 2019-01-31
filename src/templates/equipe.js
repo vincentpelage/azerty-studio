@@ -9,6 +9,7 @@ import { theme, globalVariables } from "../components/globalStyle";
 import Linkedin from "../icons/linkedin.svg";
 import SubTitle from "../components/subTitle";
 import HighFive from "../img/HighFive";
+import { ButtonLink } from "../components/button";
 
 const Wrapper = styled.section`
   display: flex;
@@ -22,7 +23,7 @@ const Container = styled.div`
   padding-top: 3rem;
   text-align: justify;
   & strong {
-    color: ${props => props.theme.darkPink};
+    color: ${props => props.theme.pink};
   }
   @media (max-width: ${globalVariables.maxMobile}) {
     padding-top: 1.5rem;
@@ -41,7 +42,7 @@ const SubTitleParagraph = styled.h2`
     right: -10px;
     width: 5px;
     height: 5px;
-    background-color: ${props => props.theme.darkPink};
+    background-color: ${props => props.theme.pink};
     border-radius: 50%;
   }
 `;
@@ -60,8 +61,9 @@ const Team = styled.div`
   flex: 0 0 50%;
   text-align: center;
   padding: 1rem;
+  min-height: 450px;
   p {
-    text-align: justify;
+    /* text-align: justify; */
     margin-top: 1rem;
     & > strong {
       color: ${props => props.theme.darkPink};
@@ -101,6 +103,15 @@ const Equipe = ({ location, data }) => {
               {Parser(item.contenu_avantage.html)}
             </Container>
           ))}
+          <ButtonLink
+            color="white"
+            backgroundcolor="darkPink"
+            size="small"
+            to=""
+            margin="2.5rem 0"
+          >
+            Nous contacter
+          </ButtonLink>
 
           <HighFive />
         </Spacer>
@@ -112,7 +123,7 @@ const Equipe = ({ location, data }) => {
                 <SubTitle label={item.titre_portrait.text} textAlign="center" />
                 {Parser(item.contenu_portrait.html)}
                 <a
-                  href="https://www.linkedin.com/in/charlottecady/"
+                  href={item.linkedin_link.url}
                   // eslint-disable-next-line
                   target="_blank"
                   rel="nooper noreferrer"
@@ -159,6 +170,9 @@ export const pageQuery = graphql`
           text
         }
         image_portrait {
+          url
+        }
+        linkedin_link {
           url
         }
       }

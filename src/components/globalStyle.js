@@ -34,7 +34,8 @@ export const theme = {
   purple: "#6772E5",
   black: "#4a4a4a",
   grey: "#F2EFEF",
-  darkGrey: "#eae8e8"
+  darkGrey: "#eae8e8",
+  transparent: "transparent"
 };
 
 const GlobalStyles = () => {
@@ -72,8 +73,14 @@ const GlobalStyles = () => {
       font-weight: 500;
     }
     a {
-      text-decoration: none;
+      color: ${theme.black};
+      text-decoration: underline;
+      text-decoration-color: ${theme.darkGreen};
       cursor: pointer;
+      transition: all 0.2s linear;
+      &:hover {
+        color: ${theme.darkGreen};
+      }
     }
     button:focus, input:focus, textarea:focus, div:focus {
       outline: none;
