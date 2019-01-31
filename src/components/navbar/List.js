@@ -5,7 +5,7 @@ import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 import { globalVariables, theme } from "../globalStyle";
 import { bounceHorizontal } from "../animations/index";
-import PagesTransitionImg from "../../img/PagesTransition.jpeg";
+// import PagesTransitionImg from "../../img/PagesTransition.jpeg";
 
 const Item = styled.li`
   flex: ${props => (props.isActive ? "1 0 auto" : "1 0 50px")};
@@ -86,7 +86,7 @@ class List extends Component {
   render() {
     const { to, src, label, children, isActive } = this.props;
     const { isHover } = this.state;
-    const image = `${theme.green} url(${PagesTransitionImg}) no-repeat center`;
+    // const image = `${theme.green} url(${PagesTransitionImg}) no-repeat center`;
 
     return (
       <Item
@@ -97,7 +97,7 @@ class List extends Component {
         <LinkStyled
           to={to}
           cover
-          bg={image}
+          bg={theme.green}
           duration={0.8}
           activeClassName="active"
         >

@@ -27,7 +27,7 @@ const Wrapper = styled.div`
 
 const Item = styled.div`
   flex: 0 0 25%;
-  padding: 1rem;
+  padding: 1rem 0.5rem;
   text-align: center;
   @media (max-width: ${globalVariables.maxTablet}) {
     flex: 0 0 50%;
@@ -43,11 +43,11 @@ const CardItem = styled.div`
   border-radius: ${globalVariables.borderRadius};
   & > p {
     text-align: center;
-  padding: 1rem 0;
-  min-height: 100px;
-  & > strong {
-    color: ${props => props.theme.purple};
-  }
+    padding: 1rem 0;
+    min-height: 100px;
+    & > strong {
+      color: ${props => props.theme.purple};
+    }
   }
 
   @media (max-width: ${globalVariables.maxMobile}) {

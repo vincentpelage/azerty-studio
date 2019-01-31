@@ -21,7 +21,6 @@ const WrapperGlobal = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
   @media (max-width: ${globalVariables.maxMobile}) {
     flex-direction: column;
   }
@@ -123,7 +122,7 @@ class Offres extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <Spacer>
+        <Spacer height="90vh">
           <WrapperGlobal>
             <WrapperText>
               <Title label={titre_page.text} />
@@ -134,7 +133,7 @@ class Offres extends React.Component {
             </WrapperImage>
           </WrapperGlobal>
         </Spacer>
-        <Spacer backgroundColor={theme.white}>
+        <Spacer height="90vh" backgroundColor={theme.white}>
           <WrapperGlobal>
             <WrapperImage>
               <Resume />
@@ -144,7 +143,7 @@ class Offres extends React.Component {
             </WrapperText>
           </WrapperGlobal>
         </Spacer>
-        <Spacer>
+        <Spacer height="90vh">
           <WrapperGlobal>
             <WrapperText>
               <OffreContent offre={offre3} />

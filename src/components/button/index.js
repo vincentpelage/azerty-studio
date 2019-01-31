@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import TransitionLink from "gatsby-plugin-transition-link";
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 import { getButtonStyles, getButtonStateBasicStyles } from "./styles";
+// import PagesTransitionImg from "../../img/PagesTransition.jpeg";
+import { theme } from "../globalStyle";
 
 const StyledButton = styled.button`
   ${getButtonStyles};
@@ -36,10 +38,11 @@ const Button = ({
   </StyledButton>
 );
 
-const StyledButtonLink = styled(TransitionLink)`
+const StyledButtonLink = styled(AniLink)`
   ${getButtonStyles};
   ${getButtonStateBasicStyles};
 `;
+// const image = `${theme.green} url(${PagesTransitionImg}) no-repeat center`;
 
 export const ButtonLink = ({
   to,
@@ -63,14 +66,9 @@ export const ButtonLink = ({
     fullwidth={fullwidth}
     height={height}
     margin={margin}
-    exit={{
-      length: 0.6,
-      zIndex: 2
-    }}
-    entry={{
-      length: 0.6,
-      zIndex: 0
-    }}
+    cover
+    bg={theme.green}
+    duration={0.8}
   >
     {children}
   </StyledButtonLink>

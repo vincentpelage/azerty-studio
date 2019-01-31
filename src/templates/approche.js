@@ -7,7 +7,6 @@ import Spacer from "../components/spacer/index";
 import Title from "../components/title/index";
 import { ButtonLink } from "../components/button";
 import Bureau from "../img/bureau.svg";
-import Developer from "../img/developer.svg";
 import Work from "../img/work.svg";
 import { globalVariables, theme } from "../components/globalStyle";
 
@@ -16,7 +15,7 @@ const Wrapper = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
+  padding: 2rem 0;
   @media (max-width: ${globalVariables.maxMobile}) {
     flex-direction: column;
   }
@@ -25,9 +24,11 @@ const Wrapper = styled.div`
 const WrapperText = styled.div`
   flex: 0 0 50%;
   padding-left: ${props => (props.position === "right" ? "2rem" : "0")};
+  padding-right: ${props => (props.position === "left" ? "2rem" : "0")};
   @media (max-width: ${globalVariables.maxMobile}) {
     flex: 0 0 100%;
     padding-left: 0;
+    padding-right: 0;
     order: 1;
     margin-bottom: 2rem;
   }
@@ -55,7 +56,7 @@ const Image = styled.img`
 `;
 
 const Content = styled.div`
-  padding: 4rem 3rem 0 0;
+  padding-bottom: 4rem;
 
   p {
     margin-bottom: 1rem;
@@ -65,20 +66,10 @@ const Content = styled.div`
     }
   }
   @media (max-width: ${globalVariables.medDesktop}) {
-    &:first-child {
-      padding: 3rem 3rem 0 0;
-    }
-    &:not(:first-child) {
-      padding: 2rem 3rem 0 0;
-    }
+    padding-bottom: 2rem;
   }
   @media (max-width: ${globalVariables.maxMobile}) {
-    &:first-child {
-      padding: 1rem 0;
-    }
-    &:not(:first-child) {
-      padding: 1rem 0;
-    }
+    padding: 1rem 0;
   }
 `;
 
@@ -102,12 +93,12 @@ const SubSubTitle = styled.h2`
 const Approche = ({ location, data }) => {
   return (
     <Layout location={location}>
-      <Spacer height="100vh">
+      <Spacer height="90vh">
         <Title
           label={data.prismicApprocheBodyContenu.primary.titre_page.text}
         />
         <Wrapper>
-          <WrapperText>
+          <WrapperText position="left">
             {data.prismicApprocheBodyContenu.items.map((item, index) => (
               <Content key={index}>
                 <SubSubTitle>{item.sous_titre.text}</SubSubTitle>
@@ -133,53 +124,20 @@ const Approche = ({ location, data }) => {
           </WrapperImage>
         </Wrapper>
       </Spacer>
-      <Spacer height="100vh" backgroundColor={theme.darkGrey}>
+      <Spacer height="90vh" backgroundColor={theme.darkGrey}>
         <Wrapper>
           <WrapperImage>
             <Image src={Work} />
           </WrapperImage>
           <WrapperText position="right">
-            {/* <SubTitle
-              label={data.prismicApprocheBody1Contenu.primary.titre_site.text}
-            /> */}
-
-            {data.prismicApprocheBody1Contenu.items.map((item, index) => (
-              <Content key={index}>
-                <SubSubTitle>{item.sous_titre.text}</SubSubTitle>
-                {Parser(item.contenu1.html)}
-                {item.contenu_bouton &&
-                item.lien_bouton &&
-                item.lien_bouton.text !== "" &&
-                item.contenu_bouton.text !== "" ? (
-                  <ButtonLink
-                    to={item.lien_bouton.text}
-                    backgroundcolor="darkPink"
-                    size="small"
-                    margin="1rem 0"
-                  >
-                    {item.contenu_bouton.text}
-                  </ButtonLink>
-                ) : null}
-              </Content>
-            ))}
-          </WrapperText>
-        </Wrapper>
-      </Spacer>
-      <Spacer height="100vh">
-        <Wrapper>
-          <WrapperText>
-            {/* <SubTitle
-              label={data.prismicApprocheBody2Contenu.primary.titre_trafic.text}
-            /> */}
-
             {data.prismicApprocheBody2Contenu.items.map((item, index) => (
               <Content key={index}>
                 <SubSubTitle>{item.sous_titre.text}</SubSubTitle>
                 {Parser(item.contenu1.html)}
                 {item.contenu_bouton &&
                 item.lien_bouton1 &&
-                item.lien_bouton1.text !== "" &&
-                item.contenu_bouton.text !== "" ? (
+                item.lien_bouton1.text &&
+                item.contenu_bouton.text ? (
                   <ButtonLink
                     to={item.lien_bouton1.text}
                     backgroundcolor="darkPink"
@@ -192,9 +150,6 @@ const Approche = ({ location, data }) => {
               </Content>
             ))}
           </WrapperText>
-          <WrapperImage>
-            <Image src={Developer} />
-          </WrapperImage>
         </Wrapper>
       </Spacer>
     </Layout>
@@ -219,21 +174,6 @@ export const pageQuery = graphql`
         contenu1 {
           html
         }
-      }
-    }
-    prismicApprocheBody1Contenu {
-      primary {
-        titre_site {
-          text
-        }
-      }
-      items {
-        sous_titre {
-          text
-        }
-        contenu1 {
-          html
-        }
         contenu_bouton {
           text
         }
@@ -242,6 +182,7 @@ export const pageQuery = graphql`
         }
       }
     }
+
     prismicApprocheBody2Contenu {
       primary {
         titre_trafic {
