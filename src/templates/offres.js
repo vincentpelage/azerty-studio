@@ -8,7 +8,7 @@ import Spacer from "../components/spacer";
 import Foyt from "../img/Foyt";
 import Resume from "../img/Resume";
 import Process from "../img/Process";
-import { ButtonLink } from "../components/button";
+import { ButtonLink, ButtonInvertedLink } from "../components/button";
 import Title from "../components/title";
 import { globalVariables, theme } from "../components/globalStyle";
 import SubTitle from "../components/subTitle";
@@ -27,7 +27,7 @@ const WrapperGlobal = styled.div`
 `;
 
 const WrapperText = styled.div`
-  flex: 0 0 45%;
+  flex: 0 0 40%;
   @media (max-width: ${globalVariables.maxMobile}) {
     flex: 0 0 100%;
     order: 1;
@@ -36,7 +36,7 @@ const WrapperText = styled.div`
 `;
 
 const WrapperImage = styled.div`
-  flex: 0 0 55%;
+  flex: 0 0 60%;
   text-align: center;
   @media (max-width: ${globalVariables.maxMobile}) {
     flex: 0 0 100%;
@@ -76,10 +76,19 @@ const OffreContent = ({ offre }) => {
       <ButtonLink
         backgroundcolor={offre.color}
         size="small"
-        to={offre.lien_offre.text}
+        margin="0 1rem 0 0"
+        to={"/offres/" + offre.lien_offre.url}
       >
         {offre.bouton_offre.text}
       </ButtonLink>
+      <ButtonInvertedLink
+        color={offre.color}
+        border={offre.color}
+        size="small"
+        to={offre.lien_contact.url}
+      >
+        {offre.bouton_contact.text}
+      </ButtonInvertedLink>
     </WrapperOffreContent>
   );
 };
@@ -95,6 +104,8 @@ class Offres extends React.Component {
       detail_offre: prismicOffresBodyMain.items[0].detail_offre,
       bouton_offre: prismicOffresBodyMain.items[0].bouton_offre,
       lien_offre: prismicOffresBodyMain.items[0].lien_offre,
+      bouton_contact: prismicOffresBodyMain.items[0].bouton_contact,
+      lien_contact: prismicOffresBodyMain.items[0].lien_contact,
       color: "purple",
       iconDesktop: StarGreen,
       iconMobile: StarPurple
@@ -105,6 +116,8 @@ class Offres extends React.Component {
       detail_offre: prismicOffresBodyMain.items[1].detail_offre,
       bouton_offre: prismicOffresBodyMain.items[1].bouton_offre,
       lien_offre: prismicOffresBodyMain.items[1].lien_offre,
+      bouton_contact: prismicOffresBodyMain.items[1].bouton_contact,
+      lien_contact: prismicOffresBodyMain.items[1].lien_contact,
       color: "darkGreen",
       iconDesktop: StarPink,
       iconMobile: StarGreen
@@ -113,6 +126,8 @@ class Offres extends React.Component {
       titre_offre: prismicOffresBodyMain.items[2].titre_offre,
       contenu_offre: prismicOffresBodyMain.items[2].contenu_offre,
       detail_offre: prismicOffresBodyMain.items[2].detail_offre,
+      bouton_contact: prismicOffresBodyMain.items[2].bouton_contact,
+      lien_contact: prismicOffresBodyMain.items[2].lien_contact,
       bouton_offre: prismicOffresBodyMain.items[2].bouton_offre,
       lien_offre: prismicOffresBodyMain.items[2].lien_offre,
       color: "darkPink",
@@ -122,7 +137,7 @@ class Offres extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <Spacer height="90vh">
+        <Spacer height="80vh">
           <WrapperGlobal>
             <WrapperText>
               <Title label={titre_page.text} />
@@ -133,7 +148,7 @@ class Offres extends React.Component {
             </WrapperImage>
           </WrapperGlobal>
         </Spacer>
-        <Spacer height="90vh" backgroundColor={theme.white}>
+        <Spacer height="80vh" backgroundColor={theme.white}>
           <WrapperGlobal>
             <WrapperImage>
               <Resume />
@@ -143,7 +158,7 @@ class Offres extends React.Component {
             </WrapperText>
           </WrapperGlobal>
         </Spacer>
-        <Spacer height="90vh">
+        <Spacer height="80vh">
           <WrapperGlobal>
             <WrapperText>
               <OffreContent offre={offre3} />
@@ -182,7 +197,13 @@ export const pageQuery = graphql`
           text
         }
         lien_offre {
+          url
+        }
+        bouton_contact {
           text
+        }
+        lien_contact {
+          url
         }
       }
     }

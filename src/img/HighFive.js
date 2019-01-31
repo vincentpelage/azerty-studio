@@ -7,9 +7,9 @@ const HighFiveStyled = styled.svg`
   height: 130px;
   position: absolute;
   bottom: 1rem;
-  left: 30%;
+  right: 15%;
   @media (max-width: ${globalVariables.maxTablet}) {
-    left: 10%;
+    right: 10%;
     width: 125px;
     height: auto;
   }

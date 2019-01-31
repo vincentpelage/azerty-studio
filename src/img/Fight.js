@@ -2,12 +2,22 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import { globalVariables } from "../components/globalStyle";
 
-const Flash = keyframes`{
+const FlashPink = keyframes`{
 	0%, 12%, 20%, 36% {
 		fill: white;
 	}
 	8%, 16%, 32%, 40%, 100% {
 		fill: rgb(252, 102, 129);
+	}
+
+}`;
+
+const FlashPurple = keyframes`{
+	0%, 12%, 20%, 36% {
+		fill: white;
+	}
+	8%, 16%, 32%, 40%, 100% {
+		fill: #8499f0;
 	}
 
 }`;
@@ -20,8 +30,11 @@ const FightStyled = styled.svg`
   @media (max-width: ${globalVariables.maxMobile}) {
     width: 300px;
   }
-  .animate-laser {
-    animation: ${Flash} 2s ease-in-out infinite;
+  .animate-laser-pink {
+    animation: ${FlashPink} 2s ease-in-out infinite;
+  }
+  .animate-laser-purple {
+    animation: ${FlashPurple} 2s ease-in-out infinite;
   }
 `;
 
@@ -70,6 +83,7 @@ const Fight = () => {
         d="M645.06,325l246-67.91s10.77-.83,2.48,11.59l-246,64.59Z"
         transform="translate(-101.37 -69.54)"
         fill="#8499f0"
+        className="animate-laser-purple"
       />
       <polygon
         points="487.38 272.05 494.83 283.64 551.14 265.43 544.52 250.52 487.38 272.05"
@@ -238,7 +252,7 @@ const Fight = () => {
         d="M612.77,412.81l154-246s11.59-2.48,9.94,7.45L620.22,421.09Z"
         transform="translate(-101.37 -69.54)"
         fill="#fc6681"
-        className="animate-laser"
+        className="animate-laser-pink"
       />
       <path
         d="M499.31,349.87l-2.48,15.73S453.77,335,434.72,378l-8.28-34.78S483.58,325,499.31,349.87Z"

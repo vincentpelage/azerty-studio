@@ -5,7 +5,7 @@ import Parser from "html-react-parser";
 import Layout from "../components/Layout";
 import Spacer from "../components/spacer/index";
 import Title from "../components/title/index";
-import { ButtonLink } from "../components/button";
+import { ButtonLink, ButtonInvertedLink } from "../components/button";
 import Bureau from "../img/bureau.svg";
 import Work from "../img/work.svg";
 import { globalVariables, theme } from "../components/globalStyle";
@@ -62,7 +62,7 @@ const Content = styled.div`
     margin-bottom: 1rem;
     text-align: justify;
     & strong {
-      color: ${props => props.theme.darkPink};
+      /* color: ${props => props.theme.pink}; */
     }
   }
   @media (max-width: ${globalVariables.medDesktop}) {
@@ -91,6 +91,7 @@ const SubSubTitle = styled.h2`
 `;
 
 const Approche = ({ location, data }) => {
+  console.log(data);
   return (
     <Layout location={location}>
       <Spacer height="90vh">
@@ -105,16 +106,29 @@ const Approche = ({ location, data }) => {
                 {Parser(item.contenu1.html)}
                 {item.contenu_bouton &&
                 item.lien_bouton &&
-                item.lien_bouton.text !== "" &&
-                item.contenu_bouton.text !== "" ? (
+                item.lien_bouton.text &&
+                item.contenu_bouton.text ? (
                   <ButtonLink
                     to={item.lien_bouton.text}
                     backgroundcolor="darkPink"
                     size="small"
-                    margin="1rem 0"
+                    margin="2rem 1rem 1rem 0"
                   >
                     {item.contenu_bouton.text}
                   </ButtonLink>
+                ) : null}
+                {item.bouton_contact &&
+                item.lien_contact &&
+                item.lien_contact.url &&
+                item.bouton_contact.text ? (
+                  <ButtonInvertedLink
+                    color="darkPink"
+                    border="darkPink"
+                    size="small"
+                    to={item.lien_contact.url}
+                  >
+                    {item.bouton_contact.text}
+                  </ButtonInvertedLink>
                 ) : null}
               </Content>
             ))}
@@ -142,10 +156,23 @@ const Approche = ({ location, data }) => {
                     to={item.lien_bouton1.text}
                     backgroundcolor="darkPink"
                     size="small"
-                    margin="1rem 0"
+                    margin="2rem 1rem 1rem 0"
                   >
                     {item.contenu_bouton.text}
                   </ButtonLink>
+                ) : null}
+                {item.bouton_contact &&
+                item.lien_contact &&
+                item.lien_contact.url &&
+                item.bouton_contact.text ? (
+                  <ButtonInvertedLink
+                    color="darkPink"
+                    border="darkPink"
+                    size="small"
+                    to={item.lien_contact.url}
+                  >
+                    {item.bouton_contact.text}
+                  </ButtonInvertedLink>
                 ) : null}
               </Content>
             ))}
@@ -180,6 +207,12 @@ export const pageQuery = graphql`
         lien_bouton {
           text
         }
+        bouton_contact {
+          text
+        }
+        lien_contact {
+          url
+        }
       }
     }
 
@@ -201,6 +234,12 @@ export const pageQuery = graphql`
         }
         lien_bouton1 {
           text
+        }
+        bouton_contact {
+          text
+        }
+        lien_contact {
+          url
         }
       }
     }

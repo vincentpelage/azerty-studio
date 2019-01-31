@@ -4,7 +4,7 @@ import Parser from "html-react-parser";
 
 import Spacer from "../spacer/index";
 import Title from "../title/index";
-// import Agence1 from "../../img/agence-1.svg";
+import Agence1 from "../../img/agences-1.svg";
 import { globalVariables, theme } from "../globalStyle";
 import ArrowScroll from "../ArrowScroll";
 
@@ -21,6 +21,7 @@ const WrapperGlobal = styled.div`
 const WrapperText = styled.div`
   flex: 0 0 55%;
   margin: 2rem 0 3rem;
+  padding-right: 4rem;
   @media (max-width: ${globalVariables.maxMobile}) {
     flex: 0 0 100%;
     order: 1;
@@ -31,6 +32,7 @@ const WrapperText = styled.div`
 const WrapperImage = styled.div`
   flex: 0 0 45%;
   text-align: center;
+  padding: 4rem;
   @media (max-width: ${globalVariables.maxMobile}) {
     flex: 0 0 100%;
     order: 2;
@@ -93,7 +95,9 @@ const Prestations = ({ data }) => {
           ))}
         </WrapperText>
 
-        <WrapperImage>{/* <Foyt /> */}</WrapperImage>
+        <WrapperImage>
+          <img src={Agence1} alt="agences webmarketing" />
+        </WrapperImage>
       </WrapperGlobal>
       <ArrowScroll
         fill={theme.darkGreen}

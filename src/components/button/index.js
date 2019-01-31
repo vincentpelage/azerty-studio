@@ -2,8 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 
-import { getButtonStyles, getButtonStateBasicStyles } from "./styles";
-// import PagesTransitionImg from "../../img/PagesTransition.jpeg";
+import {
+  getButtonStyles,
+  getButtonStateBasicStyles,
+  getButtonInvertedStyles,
+  getButtonStateInvertedStyles
+} from "./styles";
 import { theme } from "../globalStyle";
 
 const StyledButton = styled.button`
@@ -42,7 +46,6 @@ const StyledButtonLink = styled(AniLink)`
   ${getButtonStyles};
   ${getButtonStateBasicStyles};
 `;
-// const image = `${theme.green} url(${PagesTransitionImg}) no-repeat center`;
 
 export const ButtonLink = ({
   to,
@@ -72,6 +75,41 @@ export const ButtonLink = ({
   >
     {children}
   </StyledButtonLink>
+);
+
+const StyledButtonInvertedLink = styled(AniLink)`
+  ${getButtonInvertedStyles};
+  ${getButtonStateInvertedStyles};
+`;
+
+export const ButtonInvertedLink = ({
+  to,
+  type,
+  disabled,
+  size,
+  border,
+  color,
+  fullwidth,
+  height,
+  margin,
+  children
+}) => (
+  <StyledButtonInvertedLink
+    to={to}
+    type={type}
+    disabled={disabled}
+    size={size}
+    border={border}
+    color={color}
+    fullwidth={fullwidth}
+    height={height}
+    margin={margin}
+    cover
+    bg={theme.green}
+    duration={0.8}
+  >
+    {children}
+  </StyledButtonInvertedLink>
 );
 
 export default Button;

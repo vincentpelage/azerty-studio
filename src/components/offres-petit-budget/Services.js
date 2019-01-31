@@ -55,7 +55,7 @@ const SubSubTitle = styled.h2`
 const Etiquette = styled.span`
   color: ${props => props.theme.white};
   background-color: ${props => props.theme.darkPink};
-  padding: 4px 10px;
+  padding: 5px 10px 3px 10px;
   font-family: "Aqua";
   font-size: 14px;
   border-radius: ${globalVariables.borderRadius};
