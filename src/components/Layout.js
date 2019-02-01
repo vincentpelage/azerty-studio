@@ -86,12 +86,12 @@ const Layout = ({ children, location }) => {
             <React.Fragment>
               <GlobalStyles />
               <LayoutContainer>
-                <Desktop>
-                  <DesktopNavbar location={location} />
-                </Desktop>
-                <NotDesktop>
+                {/* <Desktop> */}
+                <DesktopNavbar location={location} />
+                {/* </Desktop> */}
+                {/* <NotDesktop>
                   <MobileNavbar location={location} />
-                </NotDesktop>
+                </NotDesktop> */}
 
                 <Children>{children}</Children>
               </LayoutContainer>
