@@ -32,41 +32,38 @@ class Layout extends React.Component {
   constructor() {
     super();
     this.state = {
-      width: document.body.clientWidth
+      width: 0
     };
   }
 
   componentDidMount() {
-    document.addEventListener("resize", this.handleWindowSizeChange);
-
-    // if (typeof window !== "undefined") {
-    //   window.addEventListener("resize", this.handleWindowSizeChange);
-    // } else {
-    //   window.addEventListener("resize", this.handleWindowSizeChange);
-    // }
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", this.handleWindowSizeChange);
+    } else {
+      window.addEventListener("resize", this.handleWindowSizeChange);
+    }
   }
 
   componentWillUnmount() {
-    document.removeEventListener("resize", this.handleWindowSizeChange);
-    // if (typeof window !== "undefined") {
-    //   window.removeEventListener("resize", this.handleWindowSizeChange);
-    // } else {
-    //   window.removeEventListener("resize", this.handleWindowSizeChange);
-    // }
+    if (typeof window !== "undefined") {
+      window.removeEventListener("resize", this.handleWindowSizeChange);
+    } else {
+      window.removeEventListener("resize", this.handleWindowSizeChange);
+    }
   }
 
   handleWindowSizeChange = () => {
-    this.setState({ width: document.body.clientWidth });
-    // if (typeof window !== "undefined") {
-    //   this.setState({ width: window.innerWidth });
-    // } else {
-    //   this.setState({ width: window.innerWidth });
-    // }
+    if (typeof window !== "undefined") {
+      this.setState({ width: window.innerWidth });
+    } else {
+      this.setState({ width: window.innerWidth });
+    }
   };
 
   render() {
     const { children, location } = this.props;
-    const { width } = this.state;
+    const width =
+      this.state.width === 0 ? document.body.clientWidth : this.state.width;
     const isTablet = width <= 991;
 
     return (
