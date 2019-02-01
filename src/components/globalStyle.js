@@ -1,6 +1,5 @@
 import React from "react";
 import { createGlobalStyle } from "styled-components";
-import Responsive from "react-responsive";
 
 import AquaTTF from "../fonts/aqua.ttf";
 import AquaEOT from "../fonts/aqua.eot";
@@ -91,25 +90,5 @@ const GlobalStyles = () => {
 
   return <GlobalDefaults />;
 };
-
-export const Desktop = props => (
-  <Responsive {...props} minWidth={globalVariables.minDesktop} />
-);
-export const Tablet = props => (
-  <Responsive
-    {...props}
-    minWidth={globalVariables.minTablet}
-    maxWidth={globalVariables.maxTablet}
-  />
-);
-export const Mobile = props => (
-  <Responsive {...props} maxWidth={globalVariables.maxMobile} />
-);
-export const NotMobile = props => (
-  <Responsive {...props} minWidth={globalVariables.minTablet} />
-);
-export const NotDesktop = props => (
-  <Responsive {...props} maxWidth={globalVariables.maxTablet} />
-);
 
 export default GlobalStyles;

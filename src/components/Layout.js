@@ -4,12 +4,7 @@ import { StaticQuery, graphql } from "gatsby";
 import styled, { ThemeProvider } from "styled-components";
 
 import "./all.sass";
-import GlobalStyles, {
-  theme,
-  globalVariables,
-  Desktop,
-  NotDesktop
-} from "./globalStyle";
+import GlobalStyles, { theme, globalVariables } from "./globalStyle";
 import { DesktopNavbar, MobileNavbar } from "../components/navbar";
 
 const LayoutContainer = styled.div`
@@ -33,74 +28,100 @@ const Children = styled.div`
   }
 `;
 
-const Layout = ({ children, location }) => {
-  return (
-    <StaticQuery
-      query={graphql`
-        query HeadingQuery {
-          site {
-            siteMetadata {
-              title
-              description
+class Layout extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      width: window.innerWidth
+    };
+  }
+
+  componentDidMount() {
+    window.addEventListener("resize", this.handleWindowSizeChange);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleWindowSizeChange);
+  }
+
+  handleWindowSizeChange = () => {
+    this.setState({ width: window.innerWidth });
+  };
+
+  render() {
+    const { children, location } = this.props;
+    const { width } = this.state;
+    const isTablet = width <= 991;
+
+    return (
+      <StaticQuery
+        query={graphql`
+          query HeadingQuery {
+            site {
+              siteMetadata {
+                title
+                description
+              }
             }
           }
-        }
-      `}
-      render={data => (
-        <div>
-          <Helmet>
-            <html lang="en" />
-            <title>{data.site.siteMetadata.title}</title>
-            <meta
-              name="description"
-              content={data.site.siteMetadata.description}
-            />
+        `}
+        render={data => (
+          <div>
+            <Helmet>
+              <html lang="en" />
+              <title>{data.site.siteMetadata.title}</title>
+              <meta
+                name="description"
+                content={data.site.siteMetadata.description}
+              />
 
-            <link
-              rel="apple-touch-icon"
-              sizes="180x180"
-              href="/img/apple-touch-icon.png"
-            />
-            <link
-              rel="icon"
-              type="image/png"
-              href="/img/favicon-32x32.png"
-              sizes="32x32"
-            />
-            <link
-              rel="icon"
-              type="image/png"
-              href="/img/favicon-16x16.png"
-              sizes="16x16"
-            />
+              <link
+                rel="apple-touch-icon"
+                sizes="180x180"
+                href="/img/apple-touch-icon.png"
+              />
+              <link
+                rel="icon"
+                type="image/png"
+                href="/img/favicon-32x32.png"
+                sizes="32x32"
+              />
+              <link
+                rel="icon"
+                type="image/png"
+                href="/img/favicon-16x16.png"
+                sizes="16x16"
+              />
 
-            <meta name="theme-color" content="#00B6BE" />
+              <meta name="theme-color" content="#00B6BE" />
 
-            <meta property="og:type" content="website" />
-            <meta property="og:title" content={data.site.siteMetadata.title} />
-            <meta property="og:url" content="/" />
-            <meta property="og:image" content="/img/og-image.png" />
-          </Helmet>
+              <meta property="og:type" content="website" />
+              <meta
+                property="og:title"
+                content={data.site.siteMetadata.title}
+              />
+              <meta property="og:url" content="/" />
+              <meta property="og:image" content="/img/og-image.png" />
+            </Helmet>
 
-          <ThemeProvider theme={theme}>
-            <React.Fragment>
-              <GlobalStyles />
-              <LayoutContainer>
-                {/* <Desktop> */}
-                <DesktopNavbar location={location} />
-                {/* </Desktop> */}
-                {/* <NotDesktop>
-                  <MobileNavbar location={location} />
-                </NotDesktop> */}
-
-                <Children>{children}</Children>
-              </LayoutContainer>
-            </React.Fragment>
-          </ThemeProvider>
-        </div>
-      )}
-    />
-  );
-};
+            <ThemeProvider theme={theme}>
+              <React.Fragment>
+                <GlobalStyles />
+                <LayoutContainer>
+                  {isTablet ? (
+                    <MobileNavbar location={location} />
+                  ) : (
+                    <DesktopNavbar location={location} />
+                  )}
+                  <Children>{children}</Children>
+                </LayoutContainer>
+              </React.Fragment>
+            </ThemeProvider>
+          </div>
+        )}
+      />
+    );
+  }
+}
 
 export default Layout;
