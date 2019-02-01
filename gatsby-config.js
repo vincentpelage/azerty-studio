@@ -81,7 +81,16 @@ module.exports = {
       }
     },
     `gatsby-plugin-transition-link`,
-    "gatsby-plugin-purgecss", // must be after other CSS plugins
+    // must be after other CSS plugins
+    {
+      resolve: "gatsby-plugin-purgecss",
+      options: {
+        ignore: [
+          "/node_modules/slick-carousel/slick/slick.css",
+          "/node_modules/slick-carousel/slick/slick-theme.css"
+        ]
+      }
+    },
     "gatsby-plugin-netlify" // make sure to keep it last in the array
   ]
 };
