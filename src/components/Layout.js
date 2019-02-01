@@ -62,9 +62,15 @@ class Layout extends React.Component {
 
   render() {
     const { children, location } = this.props;
-    const width =
-      this.state.width === 0 ? document.body.clientWidth : this.state.width;
-    const isTablet = width <= 991;
+    if (typeof window !== "undefined") {
+      this.width =
+        this.state.width === 0 ? window.innerWidth : this.state.width;
+    } else {
+      this.width =
+        this.state.width === 0 ? window.innerWidth : this.state.width;
+    }
+
+    const isTablet = this.width <= 991;
 
     return (
       <StaticQuery
