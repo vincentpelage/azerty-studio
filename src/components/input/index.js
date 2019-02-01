@@ -42,6 +42,9 @@ const WrapperInput = styled.div`
   @media (max-width: ${globalVariables.medDesktop}) {
     margin-top: 2.5rem;
   }
+  @media (max-width: ${globalVariables.maxMobile}) {
+    margin-right: 0;
+  }
 `;
 
 const InputStyled = styled.input`

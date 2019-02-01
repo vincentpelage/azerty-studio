@@ -24,7 +24,7 @@ const Logo = styled.img`
 
 const WrapperBurger = styled.a`
   cursor: pointer;
-  position: fixed;
+  position: absolute;
   right: 10px;
   top: 10px;
   z-index: 4;
@@ -92,6 +92,7 @@ const LinkStyled = styled(AniLink)`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
   &.active,
   &:active,
   &:focus {
