@@ -37,8 +37,11 @@ class Layout extends React.Component {
   }
 
   componentDidMount() {
+    console.log("inside componentDidMount");
     if (typeof window !== "undefined") {
+      console.log("inside componentDidMount IF");
       window.addEventListener("resize", this.handleWindowSizeChange);
+      console.log("window", window);
       this.setState({ width: window.innerWidth });
     }
   }
@@ -50,7 +53,9 @@ class Layout extends React.Component {
   }
 
   handleWindowSizeChange = () => {
+    console.log("inside handleWindowSizeChange");
     if (typeof window !== "undefined") {
+      console.log("inside handleWindowSizeChange IF");
       this.setState({ width: window.innerWidth });
     }
   };
