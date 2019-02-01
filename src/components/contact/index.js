@@ -90,16 +90,102 @@ class Contact extends React.Component {
     nom: "",
     email: "",
     telephone: "",
-    projet: ""
+    projet: "",
+    touched: {
+      prenom: {
+        longueur: false,
+        format: false
+      },
+      nom: {
+        longueur: false,
+        format: false
+      },
+      email: {
+        longueur: false,
+        format: false
+      },
+      telephone: {
+        longueur: false,
+        format: false
+      },
+      projet: {
+        longueur: false,
+        format: false
+      }
+    },
+    isFocus: false
   };
 
   handleInput = name => e => {
     this.setState({ [name]: e.target.value });
   };
 
+  onFocus = () => {
+    this.setState({ isFocus: true });
+  };
+
+  onBlur = field => evt => {
+    const someProperty = this.state.touched[field];
+    someProperty.longueur = true;
+    someProperty.format = true;
+    this.setState({ someProperty, isFocus: false });
+  };
+
   render() {
     const { data } = this.props;
-    const { prenom, nom, email, telephone, projet } = this.state;
+    const { prenom, nom, email, telephone, projet, isFocus } = this.state;
+
+    const shouldMarkErrorLength = field => {
+      const hasError = errors[field].longueur;
+      const shouldShow = this.state.touched[field].longueur;
+
+      return hasError ? shouldShow : false;
+    };
+
+    const shouldMarkErrorFormat = field => {
+      const hasError = errors[field].format;
+      const shouldShow = this.state.touched[field].format;
+
+      return hasError ? shouldShow : false;
+    };
+
+    function validate(prenom, nom, email, telephone, projet) {
+      const regexEmail = /\S+@\S+\.\S+/;
+      const hasNumber = /\d/g;
+      return {
+        prenom: {
+          longueur: prenom.trim().length === 0,
+          format: hasNumber.test(prenom)
+        },
+        nom: {
+          longueur: nom.trim().length === 0,
+          format: hasNumber.test(nom)
+        },
+        email: {
+          longueur: email.trim().length === 0,
+          format: !regexEmail.test(email)
+        },
+        telephone: {
+          longueur: telephone.trim().length === 0,
+          format: !Number(telephone)
+        },
+        projet: {
+          longueur: projet.trim().length === 0,
+          format: hasNumber.test(projet)
+        }
+      };
+    }
+    const errors = validate(prenom, nom, email, telephone, projet);
+    const isEnabled = Object.keys(errors).every(
+      x => errors[x].longueur === false && errors[x].format === false
+    );
+
+    const style = {
+      color: "red",
+      display: "block",
+      marginTop: "10px"
+    };
+
     return (
       <Wrapper id="contact">
         <Spacer
@@ -139,15 +225,39 @@ class Contact extends React.Component {
                 value={prenom}
                 name="prenom"
                 placeholder="Prenom"
+                onFocus={this.onFocus}
+                onBlur={this.onBlur}
+                isFocus={isFocus}
               />
+              <span style={style}>
+                {shouldMarkErrorLength("prenom") ? "Ce champs est requis" : ""}
+              </span>
+              <span style={style}>
+                {shouldMarkErrorFormat("prenom") &&
+                this.state.prenom.length !== 0
+                  ? "Veuillez s'il vous plait renseigner un prénom valide"
+                  : ""}
+              </span>
             </WrapperInput>
+
             <WrapperInput>
               <Input
                 handleInput={this.handleInput}
                 value={nom}
                 name="nom"
                 placeholder="Nom"
+                onFocus={this.onFocus}
+                onBlur={this.onBlur}
+                isFocus={isFocus}
               />
+              <span style={style}>
+                {shouldMarkErrorLength("nom") ? "Ce champs est requis" : ""}
+              </span>
+              <span style={style}>
+                {shouldMarkErrorFormat("nom") && this.state.nom.length !== 0
+                  ? "Veuillez s'il vous plait renseigner un nom valide"
+                  : ""}
+              </span>
             </WrapperInput>
             <WrapperInput>
               <Input
@@ -155,7 +265,18 @@ class Contact extends React.Component {
                 value={email}
                 name="email"
                 placeholder="Email"
+                onFocus={this.onFocus}
+                onBlur={this.onBlur}
+                isFocus={isFocus}
               />
+              <span style={style}>
+                {shouldMarkErrorLength("email") ? "Ce champs est requis" : ""}
+              </span>
+              <span style={style}>
+                {shouldMarkErrorFormat("email") && this.state.email.length !== 0
+                  ? "Veuillez s'il vous plait renseigner un format d'e-mail valide"
+                  : ""}
+              </span>
             </WrapperInput>
             <WrapperInput>
               <Input
@@ -163,7 +284,21 @@ class Contact extends React.Component {
                 value={telephone}
                 name="telephone"
                 placeholder="Telephone"
+                onFocus={this.onFocus}
+                onBlur={this.onBlur}
+                isFocus={isFocus}
               />
+              <span style={style}>
+                {shouldMarkErrorLength("telephone")
+                  ? "Ce champs est requis"
+                  : ""}
+              </span>
+              <span style={style}>
+                {shouldMarkErrorFormat("telephone") &&
+                this.state.telephone.length !== 0
+                  ? "Veuillez s'il vous plait renseigner un numéro de téléphone valide"
+                  : ""}
+              </span>
             </WrapperInput>
             <WrapperTextarea>
               <Input
@@ -172,13 +307,26 @@ class Contact extends React.Component {
                 name="projet"
                 placeholder="Votre projet en quelques lignes"
                 type="textarea"
+                onFocus={this.onFocus}
+                onBlur={this.onBlur}
+                isFocus={isFocus}
               />
+              <span style={style}>
+                {shouldMarkErrorLength("projet") ? "Ce champs est requis" : ""}
+              </span>
+              <span style={style}>
+                {shouldMarkErrorFormat("projet") &&
+                this.state.projet.length !== 0
+                  ? "Veuillez s'il vous plait renseigner une phrase qui ne contient pas que des chiffres"
+                  : ""}
+              </span>
             </WrapperTextarea>
 
             <Button
               type="submit"
               margin="2rem 0 0 0"
               backgroundcolor="darkPink"
+              disabled={!isEnabled}
             >
               {data.primary.bouton_contact.text}
             </Button>

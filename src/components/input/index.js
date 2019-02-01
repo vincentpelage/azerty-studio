@@ -92,25 +92,21 @@ const Placeholder = styled.div`
 `;
 
 class Input extends React.Component {
-  state = {
-    isFocus: false
-  };
-
-  onFocus = () => {
-    this.setState({ isFocus: true });
-  };
-
-  onBlur = () => {
-    this.setState({ isFocus: false });
-  };
-
   render() {
-    const { placeholder, handleInput, name, value } = this.props;
+    const {
+      placeholder,
+      handleInput,
+      name,
+      value,
+      isFocus,
+      onFocus,
+      onBlur
+    } = this.props;
     const isTextarea = this.props.type === "textarea";
 
     return (
-      <WrapperInput isFocus={this.state.isFocus} isTextarea={isTextarea}>
-        <Placeholder isFocus={this.state.isFocus} isValue={value.length > 0}>
+      <WrapperInput isFocus={isFocus} isTextarea={isTextarea}>
+        <Placeholder isFocus={isFocus} isValue={value.length > 0}>
           {placeholder}
         </Placeholder>
         {isTextarea ? (
@@ -118,17 +114,17 @@ class Input extends React.Component {
             onChange={handleInput(name)}
             name={name}
             value={value}
-            onFocus={this.onFocus}
-            onBlur={this.onBlur}
-            isFocus={this.state.isFocus}
+            onFocus={onFocus}
+            onBlur={onBlur(name)}
+            isFocus={isFocus}
           />
         ) : (
           <InputStyled
             onChange={handleInput(name)}
             name={name}
             value={value}
-            onFocus={this.onFocus}
-            onBlur={this.onBlur}
+            onFocus={onFocus}
+            onBlur={onBlur(name)}
           />
         )}
       </WrapperInput>
