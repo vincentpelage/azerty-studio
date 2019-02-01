@@ -39,15 +39,12 @@ class Layout extends React.Component {
   componentDidMount() {
     if (typeof window !== "undefined") {
       window.addEventListener("resize", this.handleWindowSizeChange);
-    } else {
-      window.addEventListener("resize", this.handleWindowSizeChange);
+      this.setState({ width: window.innerWidth });
     }
   }
 
   componentWillUnmount() {
     if (typeof window !== "undefined") {
-      window.removeEventListener("resize", this.handleWindowSizeChange);
-    } else {
       window.removeEventListener("resize", this.handleWindowSizeChange);
     }
   }
@@ -55,17 +52,12 @@ class Layout extends React.Component {
   handleWindowSizeChange = () => {
     if (typeof window !== "undefined") {
       this.setState({ width: window.innerWidth });
-    } else {
-      this.setState({ width: window.innerWidth });
     }
   };
 
   render() {
     const { children, location } = this.props;
     if (typeof window !== "undefined") {
-      this.width =
-        this.state.width === 0 ? window.innerWidth : this.state.width;
-    } else {
       this.width =
         this.state.width === 0 ? window.innerWidth : this.state.width;
     }
