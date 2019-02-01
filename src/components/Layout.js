@@ -32,20 +32,36 @@ class Layout extends React.Component {
   constructor() {
     super();
     this.state = {
-      width: window.innerWidth
+      width: document.body.clientWidth
     };
   }
 
   componentDidMount() {
-    window.addEventListener("resize", this.handleWindowSizeChange);
+    document.addEventListener("resize", this.handleWindowSizeChange);
+
+    // if (typeof window !== "undefined") {
+    //   window.addEventListener("resize", this.handleWindowSizeChange);
+    // } else {
+    //   window.addEventListener("resize", this.handleWindowSizeChange);
+    // }
   }
 
   componentWillUnmount() {
-    window.removeEventListener("resize", this.handleWindowSizeChange);
+    document.removeEventListener("resize", this.handleWindowSizeChange);
+    // if (typeof window !== "undefined") {
+    //   window.removeEventListener("resize", this.handleWindowSizeChange);
+    // } else {
+    //   window.removeEventListener("resize", this.handleWindowSizeChange);
+    // }
   }
 
   handleWindowSizeChange = () => {
-    this.setState({ width: window.innerWidth });
+    this.setState({ width: document.body.clientWidth });
+    // if (typeof window !== "undefined") {
+    //   this.setState({ width: window.innerWidth });
+    // } else {
+    //   this.setState({ width: window.innerWidth });
+    // }
   };
 
   render() {
