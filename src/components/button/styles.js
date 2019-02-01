@@ -82,7 +82,7 @@ export const getButtonStyles = props => {
     font-size: ${mobileSize}px;
     cursor: ${cursor};
     text-decoration: none;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
     outline: none;
     z-index: 1;
     margin: ${margin};
@@ -184,7 +184,7 @@ export const getButtonInvertedStyles = props => {
     font-size: ${mobileSize}px;
     cursor: ${cursor};
     text-decoration: none;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
     outline: none;
     z-index: 1;
     margin: ${margin};

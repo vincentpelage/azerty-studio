@@ -66,9 +66,6 @@ const WrapperImg = styled.div`
   background-size: cover;
   background-position: top center;
   transition: all 1s cubic-bezier(0.19, 1, 0.22, 1) 0ms;
-  @media (max-width: ${globalVariables.maxTablet}) {
-    height: 200px;
-  }
 `;
 
 const Wrappertext = styled.div`

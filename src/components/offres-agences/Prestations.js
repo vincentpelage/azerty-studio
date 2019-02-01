@@ -26,6 +26,7 @@ const WrapperText = styled.div`
     flex: 0 0 100%;
     order: 1;
     margin-bottom: 2rem;
+    padding-right: 0;
   }
 `;
 
