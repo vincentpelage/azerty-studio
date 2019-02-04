@@ -18,6 +18,7 @@ const Agences = ({ location, data }) => {
       <Contact
         data={prismicAgencesBody2Contact}
         textMobile="Vous souhaitez en savoir plus ?"
+        subtitle
       />
     </Layout>
   );

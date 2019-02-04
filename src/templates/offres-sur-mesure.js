@@ -23,6 +23,7 @@ const SurMesure = ({ location, data }) => {
         data={prismicSurMesureBody3Contact}
         backgroundColor={theme.darkGrey}
         textMobile="Vous avez un projet de site et vous souhaitez en discuter ?"
+        subtitle
       />
     </Layout>
   );

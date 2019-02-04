@@ -51,7 +51,7 @@ const Space = styled.span`
   width: 1rem;
 `;
 
-const Title = ({ label, color, position }) => (
+const Title = ({ label, position }) => (
   <StyledTitle position={position} label={label}>
     {label
       .split("")
