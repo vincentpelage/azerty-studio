@@ -38,6 +38,7 @@ const PetitBudget = ({ location, data }) => {
         data={prismicPetitBudgetBody7Input}
         backgroundColor={theme.darkGrey}
         textMobile="Un modèle vous plaît et vous souhaitez en discuter ?"
+        subtitle
       />
     </Layout>
   );

@@ -8,7 +8,11 @@ const WrapperInput = styled.div`
   margin-right: 1rem;
   margin-top: 3.5rem;
   z-index: 2;
-  height: ${props => (props.isFocus && props.isTextarea ? "100px" : "40px")};
+  height: ${props =>
+    (props.isFocus && props.isTextarea) ||
+    (props.isTextarea && props.value.length > 0)
+      ? "100px"
+      : "40px"};
   transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0ms,
     color 0.3s cubic-bezier(0.8, 0, 0.2, 1) 0ms;
   &::before {
@@ -57,6 +61,7 @@ const InputStyled = styled.input`
   background: hsla(0, 0%, 96%, 1);
   font-weight: 300;
   font-size: 16px;
+
   @media (max-width: ${globalVariables.medDesktop}) {
     font-size: 14px;
   }
@@ -65,7 +70,8 @@ const InputStyled = styled.input`
 const TextareaStyled = styled.textarea`
   margin: 0;
   width: 100%;
-  height: ${props => (props.isFocus && props.isTextarea ? "100px" : "100%")};
+  height: ${props =>
+    props.isFocus || props.value.length > 0 ? "100px" : "100%"};
   border: none;
   padding: 0.5rem 0.9375rem;
   letter-spacing: 1px;
@@ -78,6 +84,7 @@ const TextareaStyled = styled.textarea`
 `;
 
 const Placeholder = styled.div`
+  position: relative;
   text-transform: uppercase;
   top: ${props => (props.isFocus || props.isValue ? "-25px" : "11px")};
   position: absolute;
@@ -94,40 +101,56 @@ const Placeholder = styled.div`
   }
 `;
 
+const Sup = styled.sup`
+  position: absolute;
+  top: -5px;
+  right: -6px;
+`;
+
 class Input extends React.Component {
+  state = {
+    isFocus: false
+  };
+
+  onFocus = () => {
+    this.setState({ isFocus: true });
+  };
+
+  onBlur = () => {
+    this.setState({ isFocus: false });
+  };
+
   render() {
-    const {
-      placeholder,
-      handleInput,
-      name,
-      value,
-      isFocus,
-      onFocus,
-      onBlur
-    } = this.props;
+    const { placeholder, handleInput, name, value, required } = this.props;
     const isTextarea = this.props.type === "textarea";
 
     return (
-      <WrapperInput isFocus={isFocus} isTextarea={isTextarea}>
-        <Placeholder isFocus={isFocus} isValue={value.length > 0}>
+      <WrapperInput
+        isFocus={this.state.isFocus}
+        isTextarea={isTextarea}
+        value={value}
+      >
+        <Placeholder isFocus={this.state.isFocus} isValue={value.length > 0}>
           {placeholder}
+          {required ? <Sup>*</Sup> : null}
         </Placeholder>
         {isTextarea ? (
           <TextareaStyled
             onChange={handleInput(name)}
             name={name}
             value={value}
-            onFocus={onFocus}
-            onBlur={onBlur(name)}
-            isFocus={isFocus}
+            onFocus={this.onFocus}
+            onBlur={this.onBlur}
+            isFocus={this.state.isFocus}
           />
         ) : (
           <InputStyled
             onChange={handleInput(name)}
             name={name}
             value={value}
-            onFocus={onFocus}
-            onBlur={onBlur(name)}
+            onFocus={this.onFocus}
+            onBlur={this.onBlur}
+            required={required}
           />
         )}
       </WrapperInput>

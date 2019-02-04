@@ -24,6 +24,7 @@ export const getButtonStyles = props => {
   let height = "2.5em";
   let margin = "0";
   let padding = "0";
+  let opacity = "1";
 
   const size = getSizing(props.size);
   const tabletSize = size - 2;
@@ -44,6 +45,7 @@ export const getButtonStyles = props => {
 
   if (props.disabled) {
     cursor = "default";
+    opacity = "0.5";
   }
 
   if (props.fullwidth) {
@@ -86,6 +88,7 @@ export const getButtonStyles = props => {
     outline: none;
     z-index: 1;
     margin: ${margin};
+    opacity: ${opacity};
     @media (min-width: ${globalVariables.minTablet}) {
       font-size: ${tabletSize}px;
       height: ${height};
@@ -112,22 +115,24 @@ export const getButtonStateBasicStyles = props => {
   }
 
   return css`
-    &:active {
-      background: ${darken(0.05, background)};
-      border: 2px solid ${darken(0.05, border)};
-      color: ${color};
-    }
-    &:hover {
-      border-radius: 3px;
-      background: ${darken(0.05, background)};
-      border: 2px solid ${darken(0.05, border)};
-      color: ${color};
-    }
-    &:focus {
-      outline: none;
-      background: ${background};
-      border: 2px solid ${border};
-      color: ${color};
+    &:not([disabled]) {
+      &:active {
+        background: ${darken(0.05, background)};
+        border: 2px solid ${darken(0.05, border)};
+        color: ${color};
+      }
+      &:hover {
+        border-radius: 3px;
+        background: ${darken(0.05, background)};
+        border: 2px solid ${darken(0.05, border)};
+        color: ${color};
+      }
+      &:focus {
+        outline: none;
+        background: ${background};
+        border: 2px solid ${border};
+        color: ${color};
+      }
     }
   `;
 };
