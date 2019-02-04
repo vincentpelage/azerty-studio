@@ -82,19 +82,37 @@ const WrapperInput = styled.div`
 const WrapperTextarea = styled.div`
   flex: 0 0 100%;
   margin-bottom: 1rem;
+  position: relative;
   @media (max-width: ${globalVariables.maxMobile}) {
     margin-bottom: 0;
   }
 `;
 
 const ErrorText = styled.span`
-  color: red;
+  background-color: ${props => props.theme.darkPink};
+  color: ${props => props.theme.white};
+  border-radius: ${globalVariables.borderRadius};
+  padding: 5px 6px 2px 6px;
+  width: -webkit-max-content; /* Chrome */
+  width: -moz-max-content; /* Firefox/Gecko */
+  width: intrinsic; /* Safari/WebKit utilisent un nom non-standard */
   position: absolute;
-  bottom: -25px;
+  bottom: -15px;
   font-size: 12px;
   left: 5px;
   transition: all 0.4s ease-in-out;
-
+  z-index: 2;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 10%;
+    width: 6px;
+    height: 6px;
+    border-radius: 1px;
+    top: -2px;
+    transform: rotate(45deg);
+    background-color: ${props => props.theme.darkPink};
+  }
   &.text-enter {
     opacity: 0;
   }
@@ -123,85 +141,49 @@ class Contact extends React.Component {
     email: "",
     telephone: "",
     projet: "",
-    touched: {
-      prenom: {
-        longueur: false,
-        format: false
-      },
-      nom: {
-        longueur: false,
-        format: false
-      },
-      email: {
-        longueur: false,
-        format: false
-      },
-      telephone: {
-        longueur: false,
-        format: false
-      },
-      projet: {
-        longueur: false,
-        format: false
-      }
-    },
-    isFocus: false
+    prenomHasBeenFocused: false,
+    nomHasBeenFocused: false,
+    emailHasBeenFocused: false,
+    telephoneHasBeenFocused: false,
+    pprojetHasBeenFocused: false
   };
 
   handleInput = name => e => {
-    const someProperty = this.state.touched[name];
-    someProperty.longueur = true;
-    someProperty.format = true;
-    this.setState({ [name]: e.target.value, someProperty });
+    const property = [name] + "HasBeenFocused";
+    this.setState({ [name]: e.target.value, [property]: true });
   };
 
   render() {
     const { data, subtitle } = this.props;
-    const { prenom, nom, email, telephone, projet } = this.state;
+    const {
+      prenom,
+      nom,
+      email,
+      telephone,
+      projet,
+      prenomHasBeenFocused,
+      nomHasBeenFocused,
+      emailHasBeenFocused,
+      telephoneHasBeenFocused,
+      projetHasBeenFocused
+    } = this.state;
 
-    const shouldMarkErrorLength = field => {
-      const hasError = errors[field].longueur;
-      const shouldShow = this.state.touched[field].longueur;
-
-      return hasError ? shouldShow : false;
-    };
-
-    const shouldMarkErrorFormat = field => {
-      const hasError = errors[field].format;
-      const shouldShow = this.state.touched[field].format;
-
-      return hasError ? shouldShow : false;
-    };
-
-    function validate(prenom, nom, email, telephone, projet) {
+    const validateEmailFormat = value => {
       const regexEmail = /\S+@\S+\.\S+/;
+      return !regexEmail.test(value);
+    };
+    const validateTextFormat = value => {
       const hasNumber = /\d/g;
-      return {
-        prenom: {
-          longueur: prenom.trim().length === 0,
-          format: hasNumber.test(prenom)
-        },
-        nom: {
-          longueur: nom.trim().length === 0,
-          format: hasNumber.test(nom)
-        },
-        email: {
-          longueur: email.trim().length === 0,
-          format: !regexEmail.test(email)
-        },
-        telephone: {
-          longueur: telephone.trim().length === 0,
-          format: !Number(telephone)
-        },
-        projet: {
-          longueur: projet.trim().length === 0,
-          format: hasNumber.test(projet)
-        }
-      };
-    }
-    const errors = validate(prenom, nom, email, telephone, projet);
-    const isEnabled = Object.keys(errors).every(
-      x => errors[x].longueur === false && errors[x].format === false
+      return hasNumber.test(value);
+    };
+    const validateNumberFormat = value => {
+      return !Number(value);
+    };
+
+    const isEnabled = ["prenom", "nom", "email", "telephone", "projet"].every(
+      key => {
+        return this.state[key].length > 0;
+      }
     );
 
     return (
@@ -250,14 +232,13 @@ class Contact extends React.Component {
                 required
               />
 
-              <ErrorMessage condition={shouldMarkErrorLength("prenom")}>
+              <ErrorMessage
+                condition={prenomHasBeenFocused && prenom.length === 0}
+              >
                 Ce champ est requis
               </ErrorMessage>
               <ErrorMessage
-                condition={
-                  shouldMarkErrorFormat("prenom") &&
-                  this.state.prenom.length !== 0
-                }
+                condition={validateTextFormat(prenom) && prenom.length !== 0}
               >
                 Veuillez renseigner un prénom valide
               </ErrorMessage>
@@ -271,13 +252,14 @@ class Contact extends React.Component {
                 placeholder="Nom"
                 required
               />
-              {shouldMarkErrorLength("nom") ? (
-                <ErrorMessage>Ce champ est requis</ErrorMessage>
-              ) : null}
-
-              {shouldMarkErrorFormat("nom") && this.state.nom.length !== 0 ? (
-                <ErrorMessage>Veuillez renseigner un nom valide</ErrorMessage>
-              ) : null}
+              <ErrorMessage condition={nomHasBeenFocused && nom.length === 0}>
+                Ce champ est requis
+              </ErrorMessage>
+              <ErrorMessage
+                condition={validateTextFormat(nom) && nom.length !== 0}
+              >
+                Veuillez renseigner un nom valide
+              </ErrorMessage>
             </WrapperInput>
             <WrapperInput>
               <Input
@@ -287,17 +269,16 @@ class Contact extends React.Component {
                 placeholder="Email"
                 required
               />
-
-              {shouldMarkErrorLength("email") ? (
-                <ErrorMessage>Ce champ est requis</ErrorMessage>
-              ) : null}
-
-              {shouldMarkErrorFormat("email") &&
-              this.state.email.length !== 0 ? (
-                <ErrorMessage>
-                  Veuillez renseigner un format d'email valide
-                </ErrorMessage>
-              ) : null}
+              <ErrorMessage
+                condition={emailHasBeenFocused && email.length === 0}
+              >
+                Ce champ est requis
+              </ErrorMessage>
+              <ErrorMessage
+                condition={validateEmailFormat(email) && email.length !== 0}
+              >
+                Veuillez renseigner un format d'email valide
+              </ErrorMessage>
             </WrapperInput>
             <WrapperInput>
               <Input
@@ -307,17 +288,18 @@ class Contact extends React.Component {
                 placeholder="Telephone"
                 required
               />
-
-              {shouldMarkErrorLength("telephone") ? (
-                <ErrorMessage>Ce champ est requis</ErrorMessage>
-              ) : null}
-
-              {shouldMarkErrorFormat("telephone") &&
-              this.state.telephone.length !== 0 ? (
-                <ErrorMessage>
-                  Veuillez renseigner un numéro de téléphone valide
-                </ErrorMessage>
-              ) : null}
+              <ErrorMessage
+                condition={telephoneHasBeenFocused && telephone.length === 0}
+              >
+                Ce champ est requis
+              </ErrorMessage>
+              <ErrorMessage
+                condition={
+                  validateNumberFormat(telephone) && telephone.length !== 0
+                }
+              >
+                Veuillez renseigner un numéro de téléphone valide
+              </ErrorMessage>
             </WrapperInput>
             <WrapperTextarea>
               <Input
@@ -328,17 +310,11 @@ class Contact extends React.Component {
                 type="textarea"
                 required
               />
-              {shouldMarkErrorLength("projet") ? (
-                <ErrorMessage>Ce champ est requis</ErrorMessage>
-              ) : null}
-
-              {shouldMarkErrorFormat("projet") &&
-              this.state.projet.length !== 0 ? (
-                <ErrorMessage>
-                  Veuillez renseigner une phrase qui ne contient pas que des
-                  chiffres
-                </ErrorMessage>
-              ) : null}
+              <ErrorMessage
+                condition={projetHasBeenFocused && projet.length === 0}
+              >
+                Ce champ est requis
+              </ErrorMessage>
             </WrapperTextarea>
 
             <Button
