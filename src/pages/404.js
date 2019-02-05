@@ -13,7 +13,7 @@ const Container = styled.div`
 
 const Text = styled.p`
   font-size: 26px;
-  font-weight: 300;
+  font-weight: normal;
 `;
 
 const NotFoundPage = ({ location }) => (

@@ -83,7 +83,7 @@ const Baseline = styled.p`
   text-align: center;
   width: 50%;
   line-height: 1.3;
-  font-weight: 300;
+  font-weight: normal;
   margin-bottom: 1rem;
   z-index: 1;
   @media (max-width: ${globalVariables.maxTablet}) {

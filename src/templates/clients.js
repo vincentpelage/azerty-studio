@@ -93,7 +93,7 @@ const Wrappertext = styled.div`
 
 const Name = styled.p`
   color: ${props => props.theme.purple};
-  font-weight: 500;
+  font-weight: bold;
   font-size: 18px;
   z-index: 2;
 `;

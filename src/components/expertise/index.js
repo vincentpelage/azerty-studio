@@ -50,7 +50,7 @@ const Paragraph = styled.p`
   min-height: 150px;
   & > strong {
     color: ${props => props.theme.purple};
-    font-weight: 500;
+    font-weight: bold;
   }
   @media (max-width: ${globalVariables.maxTablet}) and (min-width: ${globalVariables.minTablet}) {
     min-height: 250px;

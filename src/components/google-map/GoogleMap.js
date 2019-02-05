@@ -20,7 +20,7 @@ const Name = styled.p`
 `;
 
 const Adress = styled.p`
-  font-weight: 300;
+  font-weight: normal;
 `;
 
 const MarkerCircleStyled = styled.div`

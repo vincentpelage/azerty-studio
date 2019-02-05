@@ -47,7 +47,7 @@ const Icon = styled.img`
 const Text = styled.p`
   strong {
     color: ${props => props.theme.darkGreen};
-    font-weight: 500;
+    font-weight: bold;
     display: block;
   }
 `;

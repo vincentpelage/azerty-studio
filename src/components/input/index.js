@@ -59,7 +59,7 @@ const InputStyled = styled.input`
   height: 100%;
   letter-spacing: 1px;
   background: hsla(0, 0%, 96%, 1);
-  font-weight: 300;
+  font-weight: normal;
   font-size: 16px;
 
   @media (max-width: ${globalVariables.medDesktop}) {
@@ -76,7 +76,7 @@ const TextareaStyled = styled.textarea`
   padding: 0.5rem 0.9375rem;
   letter-spacing: 1px;
   background: hsla(0, 0%, 96%, 1);
-  font-weight: 300;
+  font-weight: normal;
   font-size: 16px;
   @media (max-width: ${globalVariables.medDesktop}) {
     font-size: 14px;

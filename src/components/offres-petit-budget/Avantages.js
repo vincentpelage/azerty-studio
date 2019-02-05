@@ -41,7 +41,7 @@ const Item = styled.div`
 
 const SubTitle = styled.h2`
   color: ${props => props.theme.darkGreen};
-  font-weight: 500;
+  font-weight: bold;
   position: relative;
   display: inline;
   &::after {
