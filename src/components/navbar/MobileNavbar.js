@@ -124,7 +124,6 @@ export class MobileNavbar extends Component {
   render() {
     const { isBurgerActive } = this.state;
     const isHome = this.props.location.pathname === "/";
-
     return (
       <Nav>
         <WrapperBurger onClick={this.toggleMenu}>

@@ -39,7 +39,6 @@ class Layout extends React.Component {
   componentDidMount() {
     if (typeof window !== "undefined") {
       window.addEventListener("resize", this.handleWindowSizeChange);
-      this.setState({ width: window.innerWidth });
     }
   }
 
