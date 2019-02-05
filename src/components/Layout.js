@@ -36,41 +36,41 @@ class Layout extends React.Component {
     };
   }
 
-  // componentDidMount() {
-  //   if (typeof window !== "undefined") {
-  //     window.addEventListener("resize", this.handleWindowSizeChange);
-  //     this.setState({ width: window.innerWidth });
-  //   }
-  // }
+  componentDidMount() {
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", this.handleWindowSizeChange);
+      this.setState({ width: window.innerWidth });
+    }
+  }
 
-  // componentWillUnmount() {
-  //   if (typeof window !== "undefined") {
-  //     window.removeEventListener("resize", this.handleWindowSizeChange);
-  //   }
-  // }
+  componentWillUnmount() {
+    if (typeof window !== "undefined") {
+      window.removeEventListener("resize", this.handleWindowSizeChange);
+    }
+  }
 
-  // handleWindowSizeChange = () => {
-  //   if (typeof window !== "undefined") {
-  //     this.setState({ width: window.innerWidth });
-  //   }
-  // };
+  handleWindowSizeChange = () => {
+    if (typeof window !== "undefined") {
+      this.setState({ width: window.innerWidth });
+    }
+  };
 
   render() {
     const { location } = this.props;
-    // if (typeof window !== "undefined") {
-    //   this.width =
-    //     this.state.width === 0 ? window.innerWidth : this.state.width;
-    // }
+    if (typeof window !== "undefined") {
+      this.width =
+        this.state.width === 0 ? window.innerWidth : this.state.width;
+    }
 
-    // const isTablet = this.width <= 991;
-    // console.log("isTablet", isTablet);
-    // console.log("this.state.width", this.state.width);
+    const isTablet = this.width <= 991;
+    console.log("isTablet", isTablet);
+    console.log("this.state.width", this.state.width);
 
-    // const children = React.Children.map(this.props.children, child => {
-    //   return React.cloneElement(child, {
-    //     isTablet
-    //   });
-    // });
+    const children = React.Children.map(this.props.children, child => {
+      return React.cloneElement(child, {
+        isTablet
+      });
+    });
 
     return (
       <StaticQuery
@@ -127,13 +127,12 @@ class Layout extends React.Component {
               <React.Fragment>
                 <GlobalStyles />
                 <LayoutContainer>
-                  <DesktopNavbar location={location} />
-                  {/* {isTablet ? (
+                  {isTablet ? (
                     <MobileNavbar location={location} />
                   ) : (
                     <DesktopNavbar location={location} />
-                  )} */}
-                  <Children>{this.props.children}</Children>
+                  )}
+                  <Children>{children}</Children>
                 </LayoutContainer>
               </React.Fragment>
             </ThemeProvider>
