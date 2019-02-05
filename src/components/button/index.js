@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import AniLink from "gatsby-plugin-transition-link/AniLink";
+import { Link } from "gatsby";
 
 import {
   getButtonStyles,
@@ -8,7 +8,6 @@ import {
   getButtonInvertedStyles,
   getButtonStateInvertedStyles
 } from "./styles";
-import { theme } from "../globalStyle";
 
 const StyledButton = styled.button`
   ${getButtonStyles};
@@ -76,7 +75,7 @@ export const ButtonInverted = ({
   </StyledButtonInverted>
 );
 
-const StyledButtonLink = styled(AniLink)`
+const StyledButtonLink = styled(Link)`
   ${getButtonStyles};
   ${getButtonStateBasicStyles};
 `;
@@ -103,15 +102,13 @@ export const ButtonLink = ({
     fullwidth={fullwidth}
     height={height}
     margin={margin}
-    cover
-    bg={theme.green}
     duration={0.8}
   >
     {children}
   </StyledButtonLink>
 );
 
-const StyledButtonInvertedLink = styled(AniLink)`
+const StyledButtonInvertedLink = styled(Link)`
   ${getButtonInvertedStyles};
   ${getButtonStateInvertedStyles};
 `;
@@ -138,8 +135,6 @@ export const ButtonInvertedLink = ({
     fullwidth={fullwidth}
     height={height}
     margin={margin}
-    cover
-    bg={theme.green}
     duration={0.8}
   >
     {children}

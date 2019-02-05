@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { CSSTransition } from "react-transition-group";
-import AniLink from "gatsby-plugin-transition-link/AniLink";
+import { Link } from "gatsby";
 
-import { globalVariables, theme } from "../globalStyle";
+import { globalVariables } from "../globalStyle";
 import { bounceHorizontal } from "../animations/index";
-// import PagesTransitionImg from "../../img/PagesTransition.jpeg";
 
 const Item = styled.li`
   flex: ${props => (props.isActive ? "1 0 auto" : "1 0 50px")};
@@ -30,7 +29,7 @@ const Item = styled.li`
   }
 `;
 
-const LinkStyled = styled(AniLink)`
+const LinkStyled = styled(Link)`
   &.active img {
     opacity: 1;
   }
@@ -96,8 +95,8 @@ class List extends Component {
       >
         <LinkStyled
           to={to}
-          cover
-          bg={theme.green}
+          // cover
+          // bg={theme.green}
           duration={0.8}
           activeClassName="active"
         >

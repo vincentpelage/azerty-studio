@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import AniLink from "gatsby-plugin-transition-link/AniLink";
+import { Link } from "gatsby";
 
 import logo from "../../img/azertylogo.png";
 import IconHome from "../../icons/home.svg";
@@ -13,7 +13,6 @@ import IconEnvelope from "../../icons/envelope.svg";
 import IconUser from "../../icons/user.svg";
 import IconMagic from "../../icons/magic-wand.svg";
 import List from "./List";
-import { theme } from "../globalStyle";
 
 const Nav = styled.nav`
   width: 60px;
@@ -61,13 +60,12 @@ export const DesktopNavbar = class extends React.Component {
     const isNotreApprochePage = this.props.location.pathname.includes(
       "/notre-approche"
     );
-    // const image = `${theme.green} url(${PagesTransitionImg}) no-repeat center`;
 
     return (
       <Nav>
-        <AniLink to="/" cover bg={theme.green} duration={0.8}>
+        <Link to="/" duration={0.8}>
           <Logo src={logo} />
-        </AniLink>
+        </Link>
 
         <Menu>
           <List to="/" src={IconHome} label="accueil" />
