@@ -9,15 +9,16 @@ import Code from "../../icons/web-site.svg";
 import { globalVariables, theme } from "../globalStyle";
 import ArrowScroll from "../ArrowScroll";
 import Circle from "../../img/Circle";
+import ButtonAncre from "../ancre/index";
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 10rem;
+  margin-top: 8rem;
   flex-wrap: wrap;
   @media (max-width: ${globalVariables.medDesktop}) {
-    margin-top: 8rem;
+    margin-top: 5rem;
   }
   @media (max-width: ${globalVariables.maxMobile}) {
     flex-direction: column;
@@ -71,11 +72,46 @@ const WrapperIcon = styled.div`
 
 const Icon = styled.img``;
 
+const SubMenu = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
+
 const Prestations = ({ data }) => {
   return (
     <Spacer height="100vh">
       <Circle />
       <Title label={data.primary.titre_page.text} />
+      <SubMenu>
+        <ButtonAncre
+          color="darkGreen"
+          border="darkGreen"
+          size="small"
+          margin="0 0.5rem 0.5rem 0"
+          ancreId="avantages-sur-mesure"
+        >
+          Avantages
+        </ButtonAncre>
+        <ButtonAncre
+          color="darkGreen"
+          border="darkGreen"
+          size="small"
+          margin="0 0.5rem 0.5rem 0"
+          ancreId="etapes-sur-mesure"
+        >
+          Comment ca marche
+        </ButtonAncre>
+        <ButtonAncre
+          color="darkGreen"
+          border="darkGreen"
+          size="small"
+          margin="0 0.5rem 0.5rem 0"
+          ancreId="contact"
+        >
+          contact
+        </ButtonAncre>
+      </SubMenu>
       <Wrapper>
         {data.items.map((item, index) => (
           <Item key={index}>

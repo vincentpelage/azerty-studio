@@ -7,14 +7,17 @@ import Title from "../title/index";
 import Agence1 from "../../img/agences-1.svg";
 import { globalVariables, theme } from "../globalStyle";
 import ArrowScroll from "../ArrowScroll";
+import ButtonAncre from "../ancre/index";
 
 const WrapperGlobal = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-top: 2rem;
   @media (max-width: ${globalVariables.maxMobile}) {
     flex-direction: column;
+    margin-top: 1rem;
   }
 `;
 
@@ -82,10 +85,36 @@ const Paragraph = styled.div`
   }
 `;
 
+const SubMenu = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
+
 const Prestations = ({ data }) => {
   return (
     <Spacer height="90vh">
       <Title label={data.primary.titre_page.text} />
+      <SubMenu>
+        <ButtonAncre
+          color="darkGreen"
+          border="darkGreen"
+          size="small"
+          margin="0 0.5rem 0.5rem 0"
+          ancreId="avantages-agences"
+        >
+          Avantages
+        </ButtonAncre>
+        <ButtonAncre
+          color="darkGreen"
+          border="darkGreen"
+          size="small"
+          margin="0 0.5rem 0.5rem 0"
+          ancreId="contact"
+        >
+          Contact
+        </ButtonAncre>
+      </SubMenu>
       <WrapperGlobal>
         <WrapperText>
           {data.items.map((item, index) => (

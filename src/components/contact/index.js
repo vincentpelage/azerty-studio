@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { CSSTransition } from "react-transition-group";
+import Parser from "html-react-parser";
 
 import Spacer from "../spacer/index";
 import SubTitle from "../subTitle";
@@ -126,6 +127,13 @@ const ErrorText = styled.span`
   }
 `;
 
+const AdressContainer = styled.div`
+  background-color: ${props => props.theme.darkGreen};
+  color: ${props => props.theme.white};
+  text-align: center;
+  padding: 2rem 0;
+`;
+
 const ErrorMessage = ({ condition, children }) => {
   return (
     <CSSTransition in={condition} timeout={200} classNames="text" unmountOnExit>
@@ -154,7 +162,7 @@ class Contact extends React.Component {
   };
 
   render() {
-    const { data, subtitle } = this.props;
+    const { data, subtitle, isTablet } = this.props;
     const {
       prenom,
       nom,
@@ -328,9 +336,13 @@ class Contact extends React.Component {
           </Form>
           <TypeWriter />
         </Spacer>
-        <WrapperMap>
-          <GoogleMap />
-        </WrapperMap>
+        {!isTablet ? (
+          <WrapperMap>
+            <GoogleMap />
+          </WrapperMap>
+        ) : (
+          <AdressContainer>{Parser(data.primary.adresse.html)}</AdressContainer>
+        )}
       </Wrapper>
     );
   }

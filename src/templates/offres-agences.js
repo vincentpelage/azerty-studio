@@ -76,6 +76,9 @@ export const pageQuery = graphql`
         bouton_contact {
           text
         }
+        adresse {
+          html
+        }
       }
       items {
         contenu_input {

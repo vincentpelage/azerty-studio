@@ -56,13 +56,19 @@ class Layout extends React.Component {
   };
 
   render() {
-    const { children, location } = this.props;
+    const { location } = this.props;
     if (typeof window !== "undefined") {
       this.width =
         this.state.width === 0 ? window.innerWidth : this.state.width;
     }
 
     const isTablet = this.width <= 991;
+
+    const children = React.Children.map(this.props.children, child => {
+      return React.cloneElement(child, {
+        isTablet
+      });
+    });
 
     return (
       <StaticQuery

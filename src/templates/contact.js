@@ -44,6 +44,9 @@ export const pageQuery = graphql`
           html
           text
         }
+        adresse {
+          html
+        }
       }
     }
   }
