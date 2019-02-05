@@ -34,7 +34,7 @@ const Item = styled.div`
 
 const SubSubTitle = styled.h2`
   color: ${props => props.theme.darkGreen};
-  font-weight: 500;
+  font-weight: bold;
   position: relative;
   display: inline;
   &::after {
@@ -53,7 +53,7 @@ const Text = styled.div`
   p {
     text-align: justify;
     & strong {
-      font-weight: 500;
+      font-weight: bold;
       color: ${props => props.theme.darkPink};
     }
   }

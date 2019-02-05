@@ -5,6 +5,14 @@ import AquaTTF from "../fonts/aqua.ttf";
 import AquaEOT from "../fonts/aqua.eot";
 import AquaWOFF from "../fonts/aqua.woff";
 import AquaWOFF2 from "../fonts/aqua.woff2";
+import RobotoLightTTF from "../fonts/Roboto-Light.ttf";
+import RobotoLightEOT from "../fonts/Roboto-Light.eot";
+import RobotoLightWOFF from "../fonts/Roboto-Light.woff";
+import RobotoLightWOFF2 from "../fonts/Roboto-Light.woff2";
+import RobotoMediumTTF from "../fonts/Roboto-Medium.ttf";
+import RobotoMediumEOT from "../fonts/Roboto-Medium.eot";
+import RobotoMediumWOFF from "../fonts/Roboto-Medium.woff";
+import RobotoMediumWOFF2 from "../fonts/Roboto-Medium.woff2";
 
 export const globalVariables = {
   borderRadius: "3px",
@@ -41,18 +49,39 @@ const GlobalStyles = () => {
   const GlobalDefaults = createGlobalStyle`
   @font-face {
     font-family: Aqua;
+    font-display: swap;
     src: url(${AquaTTF}) format("ttf"),
     url(${AquaEOT}) format("eot"),
     url(${AquaWOFF}) format("woff"),
     url(${AquaWOFF2}) format("woff2");     
   }
+
+  @font-face {
+    font-family: Roboto;
+    font-display: swap;
+    src: url(${RobotoLightTTF}) format("ttf"),
+    url(${RobotoLightEOT}) format("eot"),
+    url(${RobotoLightWOFF}) format("woff"),
+    url(${RobotoLightWOFF2}) format("woff2");
+    font-weight: normal;   
+  }
+
+  @font-face {
+    font-family: Roboto;
+    font-display: swap;
+    src: url(${RobotoMediumTTF}) format("ttf"),
+    url(${RobotoMediumEOT}) format("eot"),
+    url(${RobotoMediumWOFF}) format("woff"),
+    url(${RobotoMediumWOFF2}) format("woff2");
+    font-weight: bold;   
+  }
   
   body {
     h1 {
-      font-family: 'Aqua', sans-serif;
+      font-family: 'Aqua', "Helvetica", "Arial", sans-serif;
     }
     input, textarea {
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Roboto', "Helvetica", "Arial", sans-serif;
     }
     p, a, span, h2, h3, h4, button, li {
       font-size: 14px;
@@ -69,7 +98,7 @@ const GlobalStyles = () => {
       }
     }
     strong {
-      font-weight: 500;
+      font-weight: bold;
     }
     a {
       color: ${theme.black};

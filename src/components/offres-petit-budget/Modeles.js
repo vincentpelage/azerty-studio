@@ -93,7 +93,7 @@ const Img = styled.div`
 
 const Name = styled.p`
   color: ${props => props.theme.purple};
-  font-weight: 300;
+  font-weight: normal;
   border: 1px solid #6772e5;
   display: inline-block;
   border-radius: 3rem;
