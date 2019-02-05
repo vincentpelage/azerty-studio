@@ -21,7 +21,7 @@ const Button = styled.button`
   border: none;
   background: transparent;
   position: absolute;
-  bottom: 5%;
+  bottom: ${props => (props.positionBottom ? props.positionBottom : "5%")};
   left: ${props => (props.positionLeft ? props.positionLeft : "0")};
   transform: ${props =>
     props.positionLeft === "50%" ? "translateX(-50%)" : "none"};
@@ -62,10 +62,14 @@ class ArrowScroll extends React.Component {
     }
   };
   render() {
-    const { fill, positionLeft, ancreId } = this.props;
+    const { fill, positionLeft, positionBottom, ancreId } = this.props;
 
     return (
-      <Button positionLeft={positionLeft} onClick={this.handleClick(ancreId)}>
+      <Button
+        positionLeft={positionLeft}
+        positionBottom={positionBottom}
+        onClick={this.handleClick(ancreId)}
+      >
         <ArrowStyled viewBox="0 0 490.4 490.4" fill={fill}>
           <g>
             <path

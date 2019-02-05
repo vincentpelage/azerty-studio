@@ -8,6 +8,7 @@ import { theme } from "../globalStyle";
 import Ovni from "../../img/Ovni";
 import Spacer from "../spacer/index";
 import { globalVariables } from "../globalStyle";
+import ButtonAncre from "../ancre/index";
 
 const AvantageList = styled.div`
   display: flex;
@@ -55,10 +56,63 @@ const SubTitle = styled.h2`
   }
 `;
 
+const SubMenu = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
+
 const Avantages = ({ data }) => {
   return (
     <Spacer height="100vh">
       <Title label={data.primary.titre_page.text} />
+      <SubMenu>
+        <ButtonAncre
+          color="darkGreen"
+          border="darkGreen"
+          size="small"
+          margin="0 0.5rem 0.5rem 0"
+          ancreId="etapes"
+        >
+          Comment ca marche
+        </ButtonAncre>
+        <ButtonAncre
+          color="darkGreen"
+          border="darkGreen"
+          size="small"
+          margin="0 0.5rem 0.5rem 0"
+          ancreId="prix"
+        >
+          Prix
+        </ButtonAncre>
+        <ButtonAncre
+          color="darkGreen"
+          border="darkGreen"
+          size="small"
+          margin="0 0.5rem 0.5rem 0"
+          ancreId="modeles"
+        >
+          Modeles
+        </ButtonAncre>
+        <ButtonAncre
+          color="darkGreen"
+          border="darkGreen"
+          size="small"
+          margin="0 0.5rem 0.5rem 0"
+          ancreId="services"
+        >
+          Services
+        </ButtonAncre>
+        <ButtonAncre
+          color="darkGreen"
+          border="darkGreen"
+          size="small"
+          margin="0 0.5rem 0.5rem 0"
+          ancreId="contact"
+        >
+          Contact
+        </ButtonAncre>
+      </SubMenu>
       <AvantageList>
         {data.items.map((item, index) => (
           <Item key={index}>

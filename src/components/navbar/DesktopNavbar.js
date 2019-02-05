@@ -14,7 +14,6 @@ import IconUser from "../../icons/user.svg";
 import IconMagic from "../../icons/magic-wand.svg";
 import List from "./List";
 import { theme } from "../globalStyle";
-// import PagesTransitionImg from "../../img/PagesTransition.jpeg";
 
 const Nav = styled.nav`
   width: 60px;

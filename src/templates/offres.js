@@ -15,6 +15,7 @@ import SubTitle from "../components/subTitle";
 import StarPurple from "../icons/star-purple.svg";
 import StarGreen from "../icons/star-green.svg";
 import StarPink from "../icons/star-pink.svg";
+import ButtonAncre from "../components/ancre/";
 
 const WrapperGlobal = styled.div`
   display: flex;
@@ -45,9 +46,11 @@ const WrapperImage = styled.div`
 `;
 
 const WrapperOffreContent = styled.div`
-  padding-top: 3rem;
+  padding-top: 4rem;
+  padding-bottom: 2rem;
   @media (max-width: ${globalVariables.maxTablet}) {
     padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 `;
 
@@ -61,6 +64,12 @@ const Text = styled.div`
       max-width: none;
     }
   }
+`;
+
+const SubMenu = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 `;
 
 const OffreContent = ({ offre }) => {
@@ -137,10 +146,39 @@ class Offres extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <Spacer height="80vh">
+        <Spacer height="80vh" id="petit-budget">
           <WrapperGlobal>
             <WrapperText>
               <Title label={titre_page.text} />
+              <SubMenu>
+                <ButtonAncre
+                  color="darkGreen"
+                  border="darkGreen"
+                  size="small"
+                  margin="0 0.5rem 0.5rem 0"
+                  ancreId="petit-budget"
+                >
+                  Petit Budget
+                </ButtonAncre>
+                <ButtonAncre
+                  color="darkGreen"
+                  border="darkGreen"
+                  size="small"
+                  margin="0 0.5rem 0.5rem 0"
+                  ancreId="sur-mesure"
+                >
+                  Sur Mesure
+                </ButtonAncre>
+                <ButtonAncre
+                  color="darkGreen"
+                  border="darkGreen"
+                  size="small"
+                  margin="0 0.5rem 0.5rem 0"
+                  ancreId="agences"
+                >
+                  Agences Webmarketing
+                </ButtonAncre>
+              </SubMenu>
               <OffreContent offre={offre1} />
             </WrapperText>
             <WrapperImage>
@@ -148,7 +186,7 @@ class Offres extends React.Component {
             </WrapperImage>
           </WrapperGlobal>
         </Spacer>
-        <Spacer height="80vh" backgroundColor={theme.white}>
+        <Spacer height="80vh" backgroundColor={theme.white} id="sur-mesure">
           <WrapperGlobal>
             <WrapperImage>
               <Resume />
@@ -158,7 +196,7 @@ class Offres extends React.Component {
             </WrapperText>
           </WrapperGlobal>
         </Spacer>
-        <Spacer height="80vh">
+        <Spacer height="80vh" id="agences">
           <WrapperGlobal>
             <WrapperText>
               <OffreContent offre={offre3} />

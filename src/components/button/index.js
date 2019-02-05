@@ -24,6 +24,7 @@ const Button = ({
   fullwidth,
   backgroundcolor,
   color,
+  border,
   margin,
   children
 }) => (
@@ -34,12 +35,45 @@ const Button = ({
     size={size}
     backgroundcolor={backgroundcolor}
     color={color}
+    border={border}
     fullwidth={fullwidth}
     height={height}
     margin={margin}
   >
     {children}
   </StyledButton>
+);
+
+const StyledButtonInverted = styled.button`
+  ${getButtonInvertedStyles};
+  ${getButtonStateInvertedStyles};
+`;
+
+export const ButtonInverted = ({
+  onClick,
+  type,
+  disabled,
+  size,
+  height,
+  fullwidth,
+  color,
+  border,
+  margin,
+  children
+}) => (
+  <StyledButtonInverted
+    type={type}
+    disabled={disabled}
+    onClick={onClick}
+    size={size}
+    color={color}
+    border={border}
+    fullwidth={fullwidth}
+    height={height}
+    margin={margin}
+  >
+    {children}
+  </StyledButtonInverted>
 );
 
 const StyledButtonLink = styled(AniLink)`

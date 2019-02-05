@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import AniLink from "gatsby-plugin-transition-link/AniLink";
+import { Link } from "gatsby";
 
 import logo from "../../img/azertylogo.png";
 import { globalVariables } from "../globalStyle";
@@ -85,7 +85,7 @@ const SubItem = styled.ul`
   }
 `;
 
-const LinkStyled = styled(AniLink)`
+const LinkStyled = styled(Link)`
   height: 50px;
   display: block;
   display: flex;
@@ -134,63 +134,55 @@ export class MobileNavbar extends Component {
         </WrapperBurger>
 
         <Menu isBurgerActive={isBurgerActive}>
-          <AniLink to="/" fade>
+          <Link to="/">
             <Logo src={logo} isHome={isHome} color="darkGreen" />
-          </AniLink>
+          </Link>
           <Item>
-            <LinkStyled to="/" fade activeClassName="active">
+            <LinkStyled to="/" activeClassName="active">
               <Text>Accueil</Text>
             </LinkStyled>
           </Item>
 
           <Item>
-            <LinkStyled to="/offres" fade activeClassName="active">
+            <LinkStyled to="/offres" activeClassName="active">
               <Text>Nos Offres</Text>
             </LinkStyled>
             <SubItem>
               <Item>
-                <LinkStyled
-                  to="/offres/petit-budget"
-                  fade
-                  activeClassName="active"
-                >
+                <LinkStyled to="/offres/petit-budget" activeClassName="active">
                   <Text>Petit budget</Text>
                 </LinkStyled>
               </Item>
               <Item>
-                <LinkStyled
-                  to="/offres/sur-mesure"
-                  fade
-                  activeClassName="active"
-                >
+                <LinkStyled to="/offres/sur-mesure" activeClassName="active">
                   <Text>Sur mesure</Text>
                 </LinkStyled>
               </Item>
               <Item>
-                <LinkStyled to="/offres/agences" fade activeClassName="active">
+                <LinkStyled to="/offres/agences" activeClassName="active">
                   <Text>Agences</Text>
                 </LinkStyled>
               </Item>
             </SubItem>
           </Item>
           <Item>
-            <LinkStyled to="/notre-approche" fade activeClassName="active">
+            <LinkStyled to="/notre-approche" activeClassName="active">
               <Text>Notre Approche</Text>
             </LinkStyled>
           </Item>
 
           <Item>
-            <LinkStyled to="/a-propos" fade activeClassName="active">
+            <LinkStyled to="/a-propos" activeClassName="active">
               <Text>A Propos</Text>
             </LinkStyled>
           </Item>
           <Item>
-            <LinkStyled to="/clients" fade activeClassName="active">
+            <LinkStyled to="/clients" activeClassName="active">
               <Text>Nos clients</Text>
             </LinkStyled>
           </Item>
           <Item>
-            <LinkStyled to="/contact" fade activeClassName="active">
+            <LinkStyled to="/contact" activeClassName="active">
               <Text>Contact</Text>
             </LinkStyled>
           </Item>

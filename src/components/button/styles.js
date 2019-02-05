@@ -89,6 +89,7 @@ export const getButtonStyles = props => {
     z-index: 1;
     margin: ${margin};
     opacity: ${opacity};
+    /* line-height: 0; */
     @media (min-width: ${globalVariables.minTablet}) {
       font-size: ${tabletSize}px;
       height: ${height};
@@ -144,6 +145,7 @@ export const getButtonInvertedStyles = props => {
   let width = "";
   let height = "2.5em";
   let margin = "0";
+  let padding = "0";
 
   const size = getSizing(props.size);
   const tabletSize = size - 2;
@@ -173,6 +175,14 @@ export const getButtonInvertedStyles = props => {
     margin = props.margin;
   }
 
+  if (props.size === "small") {
+    padding = "12px 24px 11px 24px";
+  }
+
+  if (props.size === "large") {
+    padding = "13px 24px 11px 24px";
+  }
+
   return css`
     display: inline-flex;
     justify-content: center;
@@ -180,10 +190,10 @@ export const getButtonInvertedStyles = props => {
     height: 2.5em;
     width: ${width};
     max-width: 100%;
-    padding: 12px 24px 11px 24px;
+    padding: ${props => (props.size ? padding : "9px 24px 11px 24px")};
     border-radius: ${globalVariables.borderRadiusButton};
     border: 2px solid ${border};
-    background: "transparent";
+    background: transparent;
     color: ${color};
     font-family: Aqua;
     font-size: ${mobileSize}px;
@@ -193,6 +203,7 @@ export const getButtonInvertedStyles = props => {
     outline: none;
     z-index: 1;
     margin: ${margin};
+    line-height: 0;
     @media (min-width: ${globalVariables.minTablet}) {
       font-size: ${tabletSize}px;
       height: ${height};
