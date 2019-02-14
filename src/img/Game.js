@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { globalVariables } from "../components/globalStyle";
 
 const GameStyled = styled.svg`
-  width: 280px;
+  width: 180px;
   height: auto;
   position: absolute;
   bottom: -1rem;

@@ -30,17 +30,14 @@ const animateScreenRight = keyframes`
 `;
 
 const FoytStyled = styled.svg`
-  height: 300px;
-  margin-left: 4rem;
-  margin-top: 4rem;
+  width: 70%;
+  height: 100%;
   @media (max-width: ${globalVariables.maxTablet}) {
-    width: 50%;
+    width: 100%;
     height: auto;
-    margin-left: 2rem;
   }
   @media (max-width: ${globalVariables.maxMobile}) {
     width: 80%;
-    margin-left: 0;
     margin-top: 1rem;
   }
   .animate-screen-left {

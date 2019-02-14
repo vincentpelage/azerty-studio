@@ -15,8 +15,8 @@ const AnimateGhost = keyframes`
 `;
 
 const OvniStyled = styled.svg`
-  width: 150px;
-  height: 130px;
+  width: 120px;
+  height: auto;
   position: absolute;
   bottom: 0;
   left: 30%;

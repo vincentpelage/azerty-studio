@@ -3,12 +3,11 @@ import styled from "styled-components";
 import Parser from "html-react-parser";
 
 import Title from "../title";
-import ArrowScroll from "../ArrowScroll";
-import { theme } from "../globalStyle";
+// import ArrowScroll from "../ArrowScroll";
+// import { theme } from "../globalStyle";
 import Ovni from "../../img/Ovni";
 import Spacer from "../spacer/index";
 import { globalVariables } from "../globalStyle";
-import ButtonAncre from "../ancre/index";
 
 const AvantageList = styled.div`
   display: flex;
@@ -16,6 +15,9 @@ const AvantageList = styled.div`
   flex-wrap: wrap;
   padding: 4rem 0 0 0;
   @media (max-width: ${globalVariables.medDesktop}) {
+    padding: 3rem 0;
+  }
+  @media (max-width: ${globalVariables.maxTablet}) {
     padding: 2rem 0;
   }
 `;
@@ -23,8 +25,10 @@ const AvantageList = styled.div`
 const Item = styled.div`
   flex: 1 1 33%;
   padding: 5rem 4rem 0rem 0;
+  @media (max-width: ${globalVariables.medDesktop}) {
+    padding: 2rem 4rem 2rem 0;
+  }
   @media (max-width: ${globalVariables.maxTablet}) {
-    padding: 5rem 4rem 0 0;
     flex: 1 1 50%;
   }
   @media (max-width: ${globalVariables.maxMobile}) {
@@ -56,63 +60,11 @@ const SubTitle = styled.h2`
   }
 `;
 
-const SubMenu = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-`;
-
 const Avantages = ({ data }) => {
   return (
-    <Spacer height="100vh">
+    <Spacer height="60vh">
       <Title label={data.primary.titre_page.text} />
-      <SubMenu>
-        <ButtonAncre
-          color="darkGreen"
-          border="darkGreen"
-          size="small"
-          margin="0 0.5rem 0.5rem 0"
-          ancreId="etapes"
-        >
-          Comment ca marche
-        </ButtonAncre>
-        <ButtonAncre
-          color="darkGreen"
-          border="darkGreen"
-          size="small"
-          margin="0 0.5rem 0.5rem 0"
-          ancreId="prix"
-        >
-          Prix
-        </ButtonAncre>
-        <ButtonAncre
-          color="darkGreen"
-          border="darkGreen"
-          size="small"
-          margin="0 0.5rem 0.5rem 0"
-          ancreId="modeles"
-        >
-          Modeles
-        </ButtonAncre>
-        <ButtonAncre
-          color="darkGreen"
-          border="darkGreen"
-          size="small"
-          margin="0 0.5rem 0.5rem 0"
-          ancreId="services"
-        >
-          Services
-        </ButtonAncre>
-        <ButtonAncre
-          color="darkGreen"
-          border="darkGreen"
-          size="small"
-          margin="0 0.5rem 0.5rem 0"
-          ancreId="contact"
-        >
-          Contact
-        </ButtonAncre>
-      </SubMenu>
+
       <AvantageList>
         {data.items.map((item, index) => (
           <Item key={index}>
@@ -121,7 +73,7 @@ const Avantages = ({ data }) => {
           </Item>
         ))}
       </AvantageList>
-      <ArrowScroll fill={theme.darkGreen} ancreId="etapes" positionLeft="50%" />
+      {/* <ArrowScroll fill={theme.darkGreen} ancreId="etapes" positionLeft="50%" /> */}
       <Ovni />
     </Spacer>
   );

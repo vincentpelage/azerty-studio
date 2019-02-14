@@ -4,12 +4,15 @@ import { globalVariables } from "../globalStyle";
 
 const SpacerStyled = styled.section`
   position: relative;
-  padding: 5rem 4rem 3rem 4rem;
+  padding: 7rem;
   flex: ${props => (props.flex ? props.flex : null)};
   background-color: ${props =>
     props.backgroundColor ? props.backgroundColor : "transparent"};
   min-height: ${props => (props.height ? props.height : "100vh")};
   z-index: 0;
+  @media (max-width: ${globalVariables.medDesktop}) {
+    padding: 5rem 4rem 3rem 4rem;
+  }
   @media (max-width: ${globalVariables.maxTablet}) {
     padding: 6rem 2rem;
     min-height: auto;

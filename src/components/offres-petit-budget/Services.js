@@ -4,7 +4,7 @@ import Parser from "html-react-parser";
 
 import Spacer from "../spacer/index";
 import SubTitle from "../subTitle";
-import ArrowScroll from "../ArrowScroll";
+// import ArrowScroll from "../ArrowScroll";
 import { theme, globalVariables } from "../globalStyle";
 import ServicesImg from "../../img/ServicesImg";
 
@@ -12,8 +12,11 @@ const AvantageList = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 2rem 0;
+  padding: 2rem 0 1rem 0;
   width: 70%;
+  /* @media (max-width: ${globalVariables.medDesktop}) {
+    padding: 3rem 0;
+  } */
   @media (max-width: ${globalVariables.maxTablet}) {
     width: 100%;
   }
@@ -21,7 +24,10 @@ const AvantageList = styled.div`
 
 const Item = styled.div`
   flex: 1 1 50%;
-  padding: 4rem 4rem 0rem 0;
+  padding: 2rem 4rem 2rem 0;
+  @media (max-width: ${globalVariables.medDesktop}) {
+    padding: 1.5rem 4rem 1.5rem 0;
+  }
   @media (max-width: ${globalVariables.maxMobile}) {
     flex: 1 1 100%;
     padding: 1rem 0;
@@ -63,7 +69,7 @@ const Etiquette = styled.span`
 
 const Services = ({ data }) => {
   return (
-    <Spacer height="100vh" id="services">
+    <Spacer height="70vh" id="services">
       <SubTitle label={data.primary.titre_services.text} />
       <AvantageList>
         {data.items.map((item, index) => (
@@ -74,7 +80,7 @@ const Services = ({ data }) => {
           </Item>
         ))}
       </AvantageList>
-      <ArrowScroll fill={theme.darkGreen} ancreId="contact" positionLeft="4%" />
+      {/* <ArrowScroll fill={theme.darkGreen} ancreId="contact" positionLeft="4%" /> */}
       <ServicesImg />
     </Spacer>
   );

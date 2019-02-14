@@ -16,17 +16,14 @@ const animateArrow = keyframes`
 `;
 
 const ProcessStyled = styled.svg`
-  height: 280px;
-  margin-left: 4rem;
+  width: 60%;
+  height: 100%;
   @media (max-width: ${globalVariables.maxTablet}) {
-    width: 50%;
-    margin-left: 2rem;
-    height: auto;
+    width: 90%;
   }
   @media (max-width: ${globalVariables.maxMobile}) {
-    width: 80%;
-    margin-left: 0;
     margin-top: 1rem;
+    width: 70%;
   }
   .animate-arrow {
     animation: ${animateArrow} 2s ease-in-out infinite;

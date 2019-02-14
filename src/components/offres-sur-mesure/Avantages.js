@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Parser from "html-react-parser";
 
 import SubTitle from "../subTitle";
-import ArrowScroll from "../ArrowScroll";
+// import ArrowScroll from "../ArrowScroll";
 import { theme } from "../globalStyle";
 import Celebration from "../../img/Celebration";
 import Spacer from "../spacer/index";
@@ -15,6 +15,9 @@ const AvantageList = styled.div`
   flex-wrap: wrap;
   padding: 4rem 0 0 0;
   @media (max-width: ${globalVariables.medDesktop}) {
+    padding: 3rem 0;
+  }
+  @media (max-width: ${globalVariables.maxTablet}) {
     padding: 2rem 0;
   }
 `;
@@ -28,8 +31,10 @@ const Item = styled.div`
       color: ${props => props.theme.darkPink};
     }
   }
+  @media (max-width: ${globalVariables.medDesktop}) {
+    padding: 2rem 4rem 2rem 0;
+  }
   @media (max-width: ${globalVariables.maxTablet}) {
-    padding: 5rem 4rem 0 0;
     flex: 1 1 50%;
   }
   @media (max-width: ${globalVariables.maxMobile}) {
@@ -58,7 +63,7 @@ const SubSubTitle = styled.h2`
 const Avantages = ({ data }) => {
   return (
     <Spacer
-      height="100vh"
+      height="70vh"
       backgroundColor={theme.darkGrey}
       id="avantages-sur-mesure"
     >
@@ -71,11 +76,11 @@ const Avantages = ({ data }) => {
           </Item>
         ))}
       </AvantageList>
-      <ArrowScroll
+      {/* <ArrowScroll
         fill={theme.darkGreen}
         ancreId="etapes-sur-mesure"
         positionLeft="50%"
-      />
+      /> */}
       <Celebration />
     </Spacer>
   );
