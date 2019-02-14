@@ -3,14 +3,12 @@ import styled from "styled-components";
 import { globalVariables } from "../components/globalStyle";
 
 const FinishStyled = styled.svg`
-  width: 310px;
-  height: 200px;
+  width: 150px;
+  height: auto;
   position: absolute;
   bottom: 0;
   right: 15%;
   @media (max-width: ${globalVariables.maxTablet}) {
-    width: 170px;
-    height: 110px;
     right: auto;
     left: 0;
     bottom: 0;

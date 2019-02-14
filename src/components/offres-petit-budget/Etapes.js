@@ -28,15 +28,20 @@ const List = styled.ul`
   display: flex;
   flex-direction: row;
   text-align: center;
-  padding-top: 18rem;
+  padding-top: 15rem;
   @media (max-width: ${globalVariables.medDesktop}) {
-    padding-top: 13rem;
+    padding-top: 11rem;
+    padding-bottom: 3rem;
   }
   @media (max-width: ${globalVariables.maxTablet}) {
     flex-direction: column;
-    padding-top: 4rem;
+    padding-top: 2rem;
+    padding-bottom: 0;
     padding-left: 2rem;
     text-align: left;
+  }
+  @media (max-width: ${globalVariables.maxMobile}) {
+    padding-top: 3rem;
   }
 `;
 
@@ -110,7 +115,7 @@ const Title = styled.p`
 
 const Etapes = ({ data }) => {
   return (
-    <Spacer backgroundColor={theme.darkGrey} height="100vh" id="etapes">
+    <Spacer backgroundColor={theme.darkGrey} height="70vh" id="etapes">
       <SubTitle label={data.primary.titre_etapes.text} textAlign="center" />
       <List>
         {data.items.map((item, index) => (
@@ -120,7 +125,7 @@ const Etapes = ({ data }) => {
           </Item>
         ))}
       </List>
-      <ArrowScroll fill={theme.purple} ancreId="prix" positionLeft="50%" />
+      {/* <ArrowScroll fill={theme.purple} ancreId="prix" positionLeft="50%" /> */}
       <Coffee />
     </Spacer>
   );

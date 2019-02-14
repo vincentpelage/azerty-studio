@@ -9,7 +9,6 @@ import Code from "../../icons/web-site.svg";
 import { globalVariables, theme } from "../globalStyle";
 import ArrowScroll from "../ArrowScroll";
 import Circle from "../../img/Circle";
-import ButtonAncre from "../ancre/index";
 
 const Wrapper = styled.div`
   display: flex;
@@ -72,46 +71,11 @@ const WrapperIcon = styled.div`
 
 const Icon = styled.img``;
 
-const SubMenu = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-`;
-
 const Prestations = ({ data }) => {
   return (
-    <Spacer height="100vh">
+    <Spacer height="70vh">
       <Circle />
       <Title label={data.primary.titre_page.text} />
-      <SubMenu>
-        <ButtonAncre
-          color="darkGreen"
-          border="darkGreen"
-          size="small"
-          margin="0 0.5rem 0.5rem 0"
-          ancreId="avantages-sur-mesure"
-        >
-          Avantages
-        </ButtonAncre>
-        <ButtonAncre
-          color="darkGreen"
-          border="darkGreen"
-          size="small"
-          margin="0 0.5rem 0.5rem 0"
-          ancreId="etapes-sur-mesure"
-        >
-          Comment ca marche
-        </ButtonAncre>
-        <ButtonAncre
-          color="darkGreen"
-          border="darkGreen"
-          size="small"
-          margin="0 0.5rem 0.5rem 0"
-          ancreId="contact"
-        >
-          contact
-        </ButtonAncre>
-      </SubMenu>
       <Wrapper>
         {data.items.map((item, index) => (
           <Item key={index}>
@@ -131,11 +95,11 @@ const Prestations = ({ data }) => {
           </Item>
         ))}
       </Wrapper>
-      <ArrowScroll
+      {/* <ArrowScroll
         fill={theme.darkGreen}
         ancreId="avantages-sur-mesure"
         positionLeft="50%"
-      />
+      /> */}
     </Spacer>
   );
 };

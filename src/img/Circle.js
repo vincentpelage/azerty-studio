@@ -3,14 +3,14 @@ import styled from "styled-components";
 import { globalVariables } from "../components/globalStyle";
 
 const CircleStyled = styled.svg`
-  width: 250px;
+  width: 200px;
   height: auto;
   position: absolute;
   top: 1rem;
   right: 3rem;
   z-index: 1;
   @media (max-width: ${globalVariables.maxTablet}) {
-    width: 250px;
+    width: 180px;
     height: auto;
     right: 50%;
     transform: translateX(50%);

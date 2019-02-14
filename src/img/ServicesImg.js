@@ -4,14 +4,14 @@ import styled from "styled-components";
 import { globalVariables } from "../components/globalStyle";
 
 const ServicesStyled = styled.svg`
-  width: 400px;
+  width: 280px;
   height: auto;
   position: absolute;
   top: 1rem;
   right: 1rem;
 
   @media (max-width: ${globalVariables.maxTablet}) {
-    width: 300px;
+    width: 200px;
     top: -2rem;
     right: -3rem;
   }

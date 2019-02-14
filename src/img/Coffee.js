@@ -3,16 +3,23 @@ import styled from "styled-components";
 import { globalVariables } from "../components/globalStyle";
 
 const CoffeStyled = styled.svg`
-  width: 310px;
-  height: 200px;
+  width: 180px;
+  height: auto;
   position: absolute;
-  bottom: 0;
-  right: 15%;
+  top: 2rem;
+  right: 1rem;
   @media (max-width: ${globalVariables.maxTablet}) {
     width: 170px;
     height: 110px;
     right: -1rem;
     bottom: -2rem;
+  }
+  @media (max-width: ${globalVariables.maxMobile}) {
+    width: 170px;
+    height: 110px;
+    right: 0rem;
+    top: unset;
+    bottom: 0rem;
   }
 `;
 

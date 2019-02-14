@@ -112,7 +112,7 @@ const Prix = ({ data }) => {
   };
 
   return (
-    <Spacer height="100vh" id="prix">
+    <Spacer height="70vh" id="prix">
       <SubTitle label={data.primary.titre_prix.text} textAlign="center" />
       <WrapperSlider>
         <Slider {...settings}>

@@ -16,17 +16,17 @@ const Wrapper = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 2rem 0;
-  @media (max-width: ${globalVariables.maxMobile}) {
+  padding: 2rem 0 0;
+  @media (max-width: ${globalVariables.maxTablet}) {
     flex-direction: column;
   }
 `;
 
 const WrapperText = styled.div`
-  flex: 0 0 50%;
+  flex: 0 0 60%;
   padding-left: ${props => (props.position === "right" ? "2rem" : "0")};
   padding-right: ${props => (props.position === "left" ? "2rem" : "0")};
-  @media (max-width: ${globalVariables.maxMobile}) {
+  @media (max-width: ${globalVariables.maxTablet}) {
     flex: 0 0 100%;
     padding-left: 0;
     padding-right: 0;
@@ -36,42 +36,30 @@ const WrapperText = styled.div`
 `;
 
 const WrapperImage = styled.div`
-  flex: 0 0 50%;
+  flex: 0 0 40%;
   text-align: center;
   position: relative;
-  @media (max-width: ${globalVariables.maxMobile}) {
+  @media (max-width: ${globalVariables.maxTablet}) {
     flex: 0 0 100%;
     order: 2;
   }
 `;
 
 const Image = styled.img`
-  width: 500px;
+  width: 70%;
   height: auto;
   @media (max-width: ${globalVariables.maxTablet}) {
-    width: 350px;
-    height: auto;
+    width: 30%;
   }
   @media (max-width: ${globalVariables.maxMobile}) {
-    width: 250px;
+    width: 50%;
   }
 `;
 
 const Content = styled.div`
-  padding-bottom: 4rem;
-
   p {
     margin-bottom: 1rem;
     text-align: justify;
-    & strong {
-      /* color: ${props => props.theme.pink}; */
-    }
-  }
-  @media (max-width: ${globalVariables.medDesktop}) {
-    padding-bottom: 2rem;
-  }
-  @media (max-width: ${globalVariables.maxMobile}) {
-    padding: 1rem 0;
   }
 `;
 
@@ -95,7 +83,7 @@ const SubSubTitle = styled.h2`
 const Approche = ({ location, data }) => {
   return (
     <Layout location={location}>
-      <Spacer height="90vh">
+      <Spacer height="70vh">
         <Title
           label={data.prismicApprocheBodyContenu.primary.titre_page.text}
         />
@@ -136,16 +124,16 @@ const Approche = ({ location, data }) => {
           </WrapperText>
           <WrapperImage>
             <Image src={Bureau} />
-            <ArrowScroll
+            {/* <ArrowScroll
               fill={theme.darkGreen}
               ancreId="webmarketing"
               positionLeft="50%"
               positionBottom="-15%"
-            />
+            /> */}
           </WrapperImage>
         </Wrapper>
       </Spacer>
-      <Spacer height="90vh" backgroundColor={theme.darkGrey} id="webmarketing">
+      <Spacer height="70vh" backgroundColor={theme.darkGrey} id="webmarketing">
         <Wrapper>
           <WrapperImage>
             <Image src={Work} />

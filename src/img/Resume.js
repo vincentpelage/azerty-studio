@@ -82,17 +82,14 @@ const animateGraph5 = keyframes`
 `;
 
 const ResumeStyled = styled.svg`
-  height: 280px;
-  margin-right: 4rem;
+  width: 60%;
+  height: 100%;
   @media (max-width: ${globalVariables.maxTablet}) {
-    width: 50%;
-    height: auto;
-    margin-right: 2rem;
+    width: 90%;
   }
   @media (max-width: ${globalVariables.maxMobile}) {
-    width: 80%;
-    margin-right: 0;
     margin-top: 1rem;
+    width: 70%;
   }
 
   .animate-graph-1 {

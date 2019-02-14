@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { globalVariables } from "../components/globalStyle";
 
 const CelebrationStyled = styled.svg`
-  width: 250px;
+  width: 150px;
   height: auto;
   position: absolute;
   bottom: 0;

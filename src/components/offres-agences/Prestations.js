@@ -7,7 +7,6 @@ import Title from "../title/index";
 import Agence1 from "../../img/agences-1.svg";
 import { globalVariables, theme } from "../globalStyle";
 import ArrowScroll from "../ArrowScroll";
-import ButtonAncre from "../ancre/index";
 
 const WrapperGlobal = styled.div`
   display: flex;
@@ -15,33 +14,44 @@ const WrapperGlobal = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 2rem;
-  @media (max-width: ${globalVariables.maxMobile}) {
+  @media (max-width: ${globalVariables.maxTablet}) {
     flex-direction: column;
     margin-top: 1rem;
   }
 `;
 
 const WrapperText = styled.div`
-  flex: 0 0 55%;
-  margin: 2rem 0 3rem;
+  flex: 0 0 60%;
+  margin: 2rem 0 2rem;
   padding-right: 4rem;
-  @media (max-width: ${globalVariables.maxMobile}) {
+  @media (max-width: ${globalVariables.maxTablet}) {
     flex: 0 0 100%;
     order: 1;
-    margin-bottom: 2rem;
     padding-right: 0;
   }
 `;
 
 const WrapperImage = styled.div`
-  flex: 0 0 45%;
+  flex: 0 0 40%;
   text-align: center;
   padding: 4rem;
-  @media (max-width: ${globalVariables.maxMobile}) {
+  @media (max-width: ${globalVariables.maxTablet}) {
     flex: 0 0 100%;
     order: 2;
+    padding: 0;
   }
 `;
+
+const Image = styled.img`
+  width: 70%;
+  @media (max-width: ${globalVariables.maxTablet}) {
+    width: 30%;
+  }
+  @media (max-width: ${globalVariables.maxMobile}) {
+    width: 60%;
+  }
+`;
+
 const SubTitle = styled.h2`
   color: ${props => props.theme.darkGreen};
   font-weight: bold;
@@ -85,36 +95,10 @@ const Paragraph = styled.div`
   }
 `;
 
-const SubMenu = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-`;
-
 const Prestations = ({ data }) => {
   return (
-    <Spacer height="90vh">
+    <Spacer height="70vh">
       <Title label={data.primary.titre_page.text} />
-      <SubMenu>
-        <ButtonAncre
-          color="darkGreen"
-          border="darkGreen"
-          size="small"
-          margin="0 0.5rem 0.5rem 0"
-          ancreId="avantages-agences"
-        >
-          Avantages
-        </ButtonAncre>
-        <ButtonAncre
-          color="darkGreen"
-          border="darkGreen"
-          size="small"
-          margin="0 0.5rem 0.5rem 0"
-          ancreId="contact"
-        >
-          Contact
-        </ButtonAncre>
-      </SubMenu>
       <WrapperGlobal>
         <WrapperText>
           {data.items.map((item, index) => (
@@ -126,14 +110,14 @@ const Prestations = ({ data }) => {
         </WrapperText>
 
         <WrapperImage>
-          <img src={Agence1} alt="agences webmarketing" />
+          <Image src={Agence1} alt="agences webmarketing" />
         </WrapperImage>
       </WrapperGlobal>
-      <ArrowScroll
+      {/* <ArrowScroll
         fill={theme.darkGreen}
         ancreId="avantages-agences"
         positionLeft="50%"
-      />
+      /> */}
     </Spacer>
   );
 };
